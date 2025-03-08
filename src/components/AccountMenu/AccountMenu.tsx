@@ -32,7 +32,7 @@ const AccountMenu: FC = () => {
     userName,
     fullName,
     userInitial,
-    role,
+    // role,
     isMobile,
     handleClick,
     handleClose,
@@ -89,9 +89,9 @@ const AccountMenu: FC = () => {
                 <UserAvatar fullName={fullName ?? ""} initials={userInitial} />
                 <Stack>
                   <Typography variant="subtitle2">{fullName}</Typography>
-                  <Typography variant="caption" color="textSecondary">
+                  {/* <Typography variant="caption" color="textSecondary">
                     {role}
-                  </Typography>
+                  </Typography> */}
                 </Stack>
               </Stack>
             </Grid>
