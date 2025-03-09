@@ -1,5 +1,5 @@
 import { RouteObject } from "react-router-dom";
-import { AccessDenied, Login, NotFound, Unauthenticated } from "./imports";
+import { AccessDenied, ForgetPassword, Login, NotFound, Unauthenticated } from "./imports";
 
 const publicRoutes: RouteObject = {
   path: "",
@@ -20,6 +20,10 @@ const publicRoutes: RouteObject = {
       path: "*",
       element: <NotFound />,
     },
+    {
+      path: 'forgot-password',
+      element: <ForgetPassword/>
+    }
   ],
 };
 
