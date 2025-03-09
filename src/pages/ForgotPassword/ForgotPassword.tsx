@@ -11,8 +11,8 @@ import { ResetPasswordPayLoad } from "./types";
 const schema = yup.object({
   email: yup
     .string()
-    .email("Invalid email address")
-    .required("Email is required"),
+    .email("Please enter a valid email")
+    .required("Please enter a valid email"),
 });
 
 const ForgetPassword: React.FC = () => {
