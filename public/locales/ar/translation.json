@@ -31,7 +31,7 @@
   "Textfields": {
     "userName": "اسم المستخدم",
     "password": "كلمة المرور",
-    "confirmPassword": "تأكد من كلمة المرور",
+    "confirmPassword": "اعد إدخال كملة المرور",
     "customerNum": "رقم الزبون",
     "customerNotes": "ملاحظات عن الزبون",
     "notes": "ملاحظات",
@@ -61,7 +61,7 @@
   "TextfieldErrors": {
     "Please enter your username": "ادخل اسم المستخدم",
     "Please enter your password": "ادخل كلمة المرور",
-    "please confirm your password": "عذرًا! كلمتا المرور غير متطابقتين. حاول مرة أخرى.",
+    "Both passwords must be identical": "عذرًا! كلمتا المرور غير متطابقتين.",
     "Please enter your first name": "ادخل الاسم الأول",
     "Please enter your father name": "ادخل الاسم الاب",
     "Please enter a valid email": "ادخل بريد الكتروني صحيح",
