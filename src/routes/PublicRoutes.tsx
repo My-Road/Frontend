@@ -17,13 +17,13 @@ const publicRoutes: RouteObject = {
       element: <Unauthenticated />,
     },
     {
+      path: "reset-password",
+      element: <ResetPassword />
+    },
+    {
       path: "*",
       element: <NotFound />,
     },
-    {
-      path: "reset-password",
-      element: <ResetPassword/>
-    }
   ],
 };
 
