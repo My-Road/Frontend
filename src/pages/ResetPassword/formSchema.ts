@@ -7,5 +7,5 @@ export const validationSchema = yup.object().shape({
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password"), undefined], "Both passwords must be identical")
-    .required("Please enter your password"),
+    .required("Please confirm your password"),
 });

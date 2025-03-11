@@ -9,16 +9,16 @@ const publicRoutes: RouteObject = {
       element: <Login />,
     },
     {
+      path: "reset-password",
+      element: <ResetPassword />
+    },
+    {
       path: "access-denied",
       element: <AccessDenied />,
     },
     {
       path: "unauthenticated",
       element: <Unauthenticated />,
-    },
-    {
-      path: "reset-password",
-      element: <ResetPassword />
     },
     {
       path: "*",
