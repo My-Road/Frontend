@@ -31,6 +31,7 @@
   "Textfields": {
     "userName": "Username",
     "password": "Password",
+    "confirmPassword": "Confirm Password",
     "customerNum": "Customer Number",
     "customerNotes": "Customer Notes",
     "notes": "Notes",
@@ -60,6 +61,8 @@
   "TextfieldErrors": {
     "Please enter your username": "Please enter your username",
     "Please enter your password": "Please enter your password",
+    "Please confirm your password": "Please confirm your password",
+    "Both passwords must be identical": "Both passwords must be identical",
     "Please enter your first name": "Please enter your first name",
     "Please enter your father name": "Please enter your father's name",
     "Please enter a valid email": "Please enter a valid email",
