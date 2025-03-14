@@ -31,7 +31,7 @@ const LoginForm = () => {
           <TextField name="userName" aria-label="Enter your username" />
           <PasswordField name="password" aria-label="Enter your password" />
           <Link to="/forgot-password" style={{ textDecoration: "none", color: "#1976d2" }}>
-              <Trans i18nKey="Buttons.forgetPassword">Forget your password? change password</Trans>
+              <Trans i18nKey="Buttons.forgetPassword">Forget your password?</Trans>
           </Link>
           <LoadingButton
             type="submit"
