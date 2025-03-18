@@ -27,7 +27,8 @@
     "deleteSale": "حذف حركة بيع",
     "addSale": "اضافة حركة بيع",
     "editSale": "تعديل حركة بيع",
-    "deleteVisit": "حذف الزيارة"
+    "deleteVisit": "حذف الزيارة",
+    "register": "تسجيل الدخول"
   },
   "Textfields": {
     "userName": "اسم المستخدم",
@@ -36,13 +37,12 @@
     "customerNum": "رقم الزبون",
     "customerNotes": "ملاحظات عن الزبون",
     "notes": "ملاحظات",
-    "fName": "الاسم الأول",
+    "firstName": "الاسم الاول",
+    "lastName": "الاسم العائلة",
     "mName": "الاسم الاب",
     "email": "البريد الإلكتروني",
-    "phone1": "رقم الهاتف",
-    "phone2": "رقم الهاتف 2",
+    "phoneNumber": "رقم الهاتف",
     "address": "العنوان",
-    "lName": "اسم العائلة",
     "idNum": "رقم الهوية",
     "cost": "التكلفة",
     "payment": "الدفعة",
@@ -57,7 +57,8 @@
     "salePrice": "سعر البيع",
     "Select Date and Time": "اختر التاريخ والوقت",
     "machine": "الجهاز",
-    "treatment": "العلاج"
+    "treatment": "العلاج",
+    "register": "تسجيل الدخول"
   },
   "TextfieldErrors": {
     "Please enter your username": "ادخل اسم المستخدم",
@@ -65,6 +66,7 @@
     "Please confirm your password": "يرجى تأكيد كلمة المرور الخاصة بك",
     "Both passwords must be identical": "عذرًا! كلمتا المرور غير متطابقتين.",
     "Please enter your first name": "ادخل الاسم الأول",
+    "Please enter your last name": "ادخل الاسم الاخير",
     "Please enter your father name": "ادخل الاسم الاب",
     "Please enter a valid email": "ادخل بريد الكتروني صحيح",
     "Email is required. Enter a valid address": "يرجى إدخال بريد إلكتروني صالح.",

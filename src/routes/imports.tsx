@@ -7,3 +7,4 @@ export const Login = lazy(() => import("@/pages/Login"));
 export const Home = lazy(() => import("@/pages/Home"));
 export const ResetPassword = lazy(() => import("@/pages/ResetPassword"))
 export const ForgotPassword = lazy(() => import("@/pages/ForgotPassword"))
+export const Register = lazy(() => import("@/pages/Register"))
