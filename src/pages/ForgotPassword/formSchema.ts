@@ -4,5 +4,5 @@ export const validationSchema = yup.object({
   email: yup
     .string()
     .email("Please enter a valid email")
-    .required("Email is required. Enter a valid address"),
+    .required("Email is required"),
 });
