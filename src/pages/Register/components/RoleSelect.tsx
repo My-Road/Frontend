@@ -1,5 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select, FormHelperText } from "@mui/material";
 import { useField } from "formik";
+import { Trans } from "react-i18next";
 
 interface RoleSelectProps {
   name: string;
@@ -12,8 +13,8 @@ const RoleSelect: React.FC<RoleSelectProps> = ({ name }) => {
 
   return (
     <FormControl fullWidth error={meta.touched && Boolean(meta.error)}>
-      <InputLabel id={`${name}-label`}>Select Role</InputLabel>
-      <Select labelId={`${name}-label`} {...field}>
+      <InputLabel id={`${name}-label`}><Trans i18nKey="Textfields.selectUserType">Select User Type</Trans></InputLabel>
+      <Select label="Select User Type" labelId={`${name}-label`} {...field}>
         {roles.map((role) => (
           <MenuItem key={role} value={role}>
             {role}

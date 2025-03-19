@@ -26,10 +26,7 @@ const RegisterForm = () => {
           <TextField name="firstName" aria-label="Enter your first name" />
           <TextField name="lastName" aria-label="Enter your last name" />
           <TextField name="phoneNumber" aria-label="Enter your phone number" />
-
-          {/* Use RoleSelect with name */}
           <RoleSelect name="role" />
-
           <Button
             type="submit"
             variant="contained"
