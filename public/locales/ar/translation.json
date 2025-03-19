@@ -58,7 +58,8 @@
     "Select Date and Time": "اختر التاريخ والوقت",
     "machine": "الجهاز",
     "treatment": "العلاج",
-    "register": "تسجيل الدخول"
+    "register": "تسجيل الدخول",
+    "selectUserType": "اختر نوع المستخدم"
   },
   "TextfieldErrors": {
     "Please enter your username": "ادخل اسم المستخدم",

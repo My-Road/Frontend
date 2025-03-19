@@ -58,7 +58,8 @@
     "Select Date and Time": "Select Date and Time",
     "machine": "Machine",
     "treatment": "Treatment",
-    "register": "Register"
+    "register": "Register",
+    "selectUserType": "select user type"
   },
   "TextfieldErrors": {
     "Please enter your username": "Please enter your username",
