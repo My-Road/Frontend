@@ -1,10 +1,10 @@
 import { RegisterPayLoad } from "./types";
-import { Role } from "./enums";
+import { Roles } from "@/enums/Roles";
 
 export const initialValues: RegisterPayLoad = {
   email: "",
   firstName: "",
   lastName: "",
   phoneNumber: "",
-  role: Role.Admin,
+  role: Roles.Admin,
 };
