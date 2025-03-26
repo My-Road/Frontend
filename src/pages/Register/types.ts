@@ -1,9 +1,9 @@
-import { Role } from "./enums";
+import { Roles } from "@/enums/Roles";
 
 export interface RegisterPayLoad {
   email: string;
   firstName: string;
   lastName: string;
   phoneNumber: string;
-  role: Role;
+  role: Roles;
 }
