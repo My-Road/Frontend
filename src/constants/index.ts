@@ -17,3 +17,5 @@ export const DEFAULT_PAGINATION_MODEL = {
   page: 0,
   pageSize: DEFAULT_PAGE_SIZE,
 };
+
+export const ROLES = ["Super Admin", "Admin", "Manager"];
