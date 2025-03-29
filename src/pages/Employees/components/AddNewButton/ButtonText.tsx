@@ -18,7 +18,7 @@ interface ButtonTextProps {
 }
 
 const ButtonText: React.FC<ButtonTextProps> = () => {
-  return <StyledText><Trans i18nKey="Buttons.addNew"></Trans></StyledText>;
+  return <StyledText><Trans i18nKey="Buttons.addNewEmployees"></Trans></StyledText>;
 };
 
 export default ButtonText;

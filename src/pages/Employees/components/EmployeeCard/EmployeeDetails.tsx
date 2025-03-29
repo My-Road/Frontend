@@ -21,7 +21,7 @@ interface EmployeeDetailsProps {
 
 const EmployeeDetails: React.FC<EmployeeDetailsProps> = ({ phoneNumber, address, idNumber, startDate, salary, email }) => {
   const employeeDetails = [
-    { icon: <PhoneIcon color="primary" />, label: "Textfields.phone1", value: `:${phoneNumber}` },
+    { icon: <PhoneIcon color="primary" />, label: "Textfields.phoneNumber", value: `:${phoneNumber}` },
     { icon: <HomeIcon color="primary" />, label: "Textfields.address", value: `:${address}` },
     { icon: <CreditCardIcon color="primary" />, label: "Textfields.idNum", value: `:${idNumber}` },
     { icon: <CalendarTodayIcon color="primary" />, label: "Textfields.startDate", value: `:${startDate}` },
