@@ -28,9 +28,9 @@
     "addSale": "Add Sale",
     "editSale": "Edit Sale",
     "deleteVisit": "Delete Visit",
-    "addNew":"ADD NEW",
-    "searchEmployees": "Search"
-
+    "addNewEmployees":"Add New Employees",
+    "searchEmployees": "Search Employees",
+    "register": "Register"
   },
   "Textfields": {
     "salary": "Salary",
@@ -43,13 +43,12 @@
     "customerNum": "Customer Number",
     "customerNotes": "Customer Notes",
     "notes": "Notes",
-    "fName": "First Name",
+    "firstName": "First Name",
+    "lastName": "Family Name",
     "mName": "Father Name",
     "email": "Email",
-    "phone1": "Phone",
-    "phone2": "Phone 2",
+    "phoneNumber": "Phone",
     "address": "Address",
-    "lName": "Family Name",
     "idNum": "ID Number",
     "cost": "Cost",
     "payment": "Payment",
@@ -63,15 +62,18 @@
     "paymant": "Payment",
     "salePrice": "Sale Price",
     "Select Date and Time": "Select Date and Time",
-    "machine": "Machine",
-    "treatment": "Treatment"
-    },
+    "machine": "Machine", 
+    "treatment": "Treatment",
+    "register": "Register",
+    "selectUserType": "select user type"
+  },
   "TextfieldErrors": {
     "Please enter your username": "Please enter your username",
     "Please enter your password": "Please enter your password",
     "Please confirm your password": "Please confirm your password",
     "Both passwords must be identical": "Both passwords must be identical",
     "Please enter your first name": "Please enter your first name",
+    "Please enter your last name": "Please enter your last name",
     "Please enter your father name": "Please enter your father's name",
     "Please enter a valid email": "Please enter a valid email",
     "Email is required": "Email is required",
