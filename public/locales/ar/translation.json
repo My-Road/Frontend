@@ -27,9 +27,14 @@
     "deleteSale": "حذف حركة بيع",
     "addSale": "اضافة حركة بيع",
     "editSale": "تعديل حركة بيع",
-    "deleteVisit": "حذف الزيارة"
+    "deleteVisit": "حذف الزيارة",
+    "addNew": "إضافة موظف جديد",
+    "searchEmployees": "بحث"
   },
   "Textfields": {
+    "salary": "الراتب",
+    "startDate": "تاريخ البدء",
+    "viewMore": "عرض المزيد",
     "userName": "اسم المستخدم",
     "password": "كلمة المرور",
     "confirmPassword": "تأكيد كلمة المرور",
