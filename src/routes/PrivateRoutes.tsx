@@ -1,7 +1,7 @@
 import AppLayout from "@/containers/Layout/AppLayout";
 import { RouteObject } from "react-router-dom";
 import AuthRoute from "./AuthRoute";
-import { Home } from "./imports";
+import { Employees, Home } from "./imports";
 
 const privateRoutes: RouteObject = {
   path: "/me",
@@ -13,6 +13,10 @@ const privateRoutes: RouteObject = {
         {
           index: true,
           element: <Home />,
+        },
+        {
+          path:"Employees",
+          element: <Employees />,
         },
       ],
     },
