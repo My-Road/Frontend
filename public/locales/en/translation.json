@@ -317,16 +317,5 @@
     "Error While Create Visit": "Error While Create Visit",
     "Error While Update Visit": "Error While Update Visit",
     "Invalid Visit Id": "Invalid Visit Id"
-  },
-  "EmployeesPage":{
-    "search_placeholder": "Search",
-  "ADD NEW": "Add New Employee",
-  "name": "Employee Name",
-  "phoneNumber": "Phone Number",
-  "address": "Address",
-  "idNumber": "ID Number",
-  "startDate": "Start Date",
-  "salary": "Salary",
-  "email": "Email"
   }
 }
