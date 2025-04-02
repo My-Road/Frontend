@@ -16,16 +16,21 @@ const useLoginAPI = () => {
 
   const { mutate: loginUser, isPending } = useMutation({
     mutationFn: loginAPI,
-    onSuccess: ({ token, refreshToken }) => {
+    onSuccess: ({ token }) => {
       setTimeout(
-        () => showSuccessSnackbar({ message: "Login successful" }),
+        () =>
+          showSuccessSnackbar({
+            message: "Login successful",
+            autoHideDuration: 1000,
+          }),
         1000
       );
 
-      setRefreshSession(refreshToken);
+      setRefreshSession(token);
 
       setSession(token);
       const payload = jwtDecode<User>(token);
+      
       dispatch(login(payload));
 
       axiosInstance.defaults.headers.common[
@@ -35,7 +40,10 @@ const useLoginAPI = () => {
       navigate("/me");
     },
     onError: () => {
-      showErrorSnackbar({ message: "Invalid Credentials" });
+      showErrorSnackbar({
+        message: "Invalid Credentials",
+        autoHideDuration: 1000,
+      });
     },
   });
 
