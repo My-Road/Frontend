@@ -12,3 +12,5 @@ export const selectUserBranchId = createSelector(
   selectUser,
   (user) => user.branchId
 );
+
+export const selectUserEmail = createSelector(selectUser, (user) => user.email);
