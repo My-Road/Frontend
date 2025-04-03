@@ -223,7 +223,7 @@
   "SnackbarMessages": {
     "Something went wrong!": "حدث خطأ ما",
     "customer phone exists": "رقم الهاتف موجود بالفعل",
-    "Invalid Credentials": "بيانات الدخول غير صحيحة",
+    "Invalid Credentials": "البريد الالكتروني او كلمة المرور غير صحيحة",
     "Customer added successfully": "تمت إضافة الزبون بنجاح",
     "Login successful": "تم تسجيل الدخول بنجاح",
     "Customer updated successfully": "تم تحديث الزبون بنجاح",
