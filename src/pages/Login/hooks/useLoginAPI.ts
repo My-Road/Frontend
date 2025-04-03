@@ -1,13 +1,15 @@
 import { axiosInstance } from "@/config/axios.config";
 import { login } from "@/features/User";
 import { useSnackBar } from "@/hooks/useSnackbar";
-import { setRefreshSession, setSession } from "@/lib/session";
+import {  setSession } from "@/lib/session";
 import { useAppDispatch } from "@/store";
 import { User } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { loginAPI } from "../API";
+import { errorHandler } from "../utils/errorHandler";
+import { AxiosError } from "axios";
 
 const useLoginAPI = () => {
   const { showSuccessSnackbar, showErrorSnackbar } = useSnackBar();
@@ -26,8 +28,6 @@ const useLoginAPI = () => {
         1000
       );
 
-      setRefreshSession(token);
-
       setSession(token);
       const payload = jwtDecode<User>(token);
       
@@ -39,11 +39,8 @@ const useLoginAPI = () => {
 
       navigate("/me");
     },
-    onError: () => {
-      showErrorSnackbar({
-        message: "Invalid Credentials",
-        autoHideDuration: 1000,
-      });
+    onError: (error: AxiosError) => {
+      errorHandler(error, showErrorSnackbar)
     },
   });
 
