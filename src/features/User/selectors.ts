@@ -10,7 +10,7 @@ export const selectIsLoggedIn = createSelector(
 
 export const selectUserRole = createSelector(
   selectUser,
-  (user) => user.role
+  (user) => user.userRole
 );
 
 export const selectUserEmail = createSelector(selectUser, (user) => user.email);

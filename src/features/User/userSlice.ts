@@ -8,7 +8,7 @@ const initialState: User = {
   phone: "",
   email: "",
   fullName: "",
-  role: "",
+  userRole: "",
 };
 
 const userSlice = createSlice({

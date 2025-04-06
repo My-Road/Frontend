@@ -13,8 +13,12 @@ const Home: FC = () => {
 
   return (
     <div>
-      Welcome {userEmail}
+      Welcome {user.fullName}
       {isLogged && <div style={{ display: "block" }}>Hello World with id {user.uid}</div>}
+      <div>
+        Email: {userEmail} <br/>
+        User Role: {user.userRole}
+      </div>
     </div>
   );
 };
