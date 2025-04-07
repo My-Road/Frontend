@@ -224,7 +224,7 @@
   "SnackbarMessages": {
     "Something went wrong!": "Something went wrong!",
     "customer phone exists": "Customer phone number already exists",
-    "Invalid Credentials": "Invalid Credentials",
+    "Invalid email or password.": "Invalid email or password. ",
     "Customer added successfully": "Customer added successfully",
     "Login successful": "Login Successful",
     "Customer updated successfully": "Customer updated successfully",
