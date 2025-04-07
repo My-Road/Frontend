@@ -5,6 +5,7 @@ import {
   selectIsLoggedIn,
   selectUser
 } from "@/features/User";
+import { Box } from "@mui/material";
 
 const Home: FC = () => {
   const userEmail = useSelector(selectUserEmail);
@@ -12,14 +13,14 @@ const Home: FC = () => {
   const user = useSelector(selectUser);
 
   return (
-    <div>
+    <Box>
       Welcome {user.fullName}
-      {isLogged && <div style={{ display: "block" }}>Hello World with id {user.uid}</div>}
-      <div>
-        Email: {userEmail} <br/>
+      {isLogged && <Box style={{ display: "block" }}>Hello World with id {user.uid}</Box>}
+      <Box>
+        Email: {userEmail} 
         User Role: {user.userRole}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
