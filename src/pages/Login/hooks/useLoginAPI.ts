@@ -1,15 +1,15 @@
 import { axiosInstance } from "@/config/axios.config";
 import { login } from "@/features/User";
 import { useSnackBar } from "@/hooks/useSnackbar";
-import {  setSession } from "@/lib/session";
+import { setSession } from "@/lib/session";
 import { useAppDispatch } from "@/store";
 import { User } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { loginAPI } from "../API";
-import { errorHandler } from "../utils/errorHandler";
-import { AxiosError } from "axios";
+import { extractErrorMessage } from "@/utils/errorHandling";
+import { AxiosBaseError } from "@/types/axios";
 
 const useLoginAPI = () => {
   const { showSuccessSnackbar, showErrorSnackbar } = useSnackBar();
@@ -23,14 +23,13 @@ const useLoginAPI = () => {
         () =>
           showSuccessSnackbar({
             message: "Login successful",
-            autoHideDuration: 1000,
           }),
         1000
       );
 
       setSession(token);
       const payload = jwtDecode<User>(token);
-      
+
       dispatch(login(payload));
 
       axiosInstance.defaults.headers.common[
@@ -39,8 +38,9 @@ const useLoginAPI = () => {
 
       navigate("/me");
     },
-    onError: (error: AxiosError) => {
-      errorHandler(error, showErrorSnackbar)
+    onError: (error) => {
+      const errorMessage = extractErrorMessage(error as AxiosBaseError);
+      showErrorSnackbar({ message: errorMessage });
     },
   });
 
