@@ -62,7 +62,7 @@
     "selectUserType": "select user type"
   },
   "TextfieldErrors": {
-    "Please enter your username": "Please enter your username",
+    "Please enter your email": "Please enter your email",
     "Please enter your password": "Please enter your password",
     "Please confirm your password": "Please confirm your password",
     "Both passwords must be identical": "Both passwords must be identical",
@@ -224,7 +224,7 @@
   "SnackbarMessages": {
     "Something went wrong!": "Something went wrong!",
     "customer phone exists": "Customer phone number already exists",
-    "Invalid Credentials": "Invalid Credentials",
+    "Invalid email or password.": "Invalid email or password. ",
     "Customer added successfully": "Customer added successfully",
     "Login successful": "Login Successful",
     "Customer updated successfully": "Customer updated successfully",

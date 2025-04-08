@@ -1,21 +1,21 @@
 import useSession from "@/hooks/useSession";
 import { FC } from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import BlockUI from "@/containers/BlockUI";
 
 const AuthRoute: FC = () => {
-  const { isUpdatingSession } = useSession();
+  const { isUpdatingSession, isLoggedIn } = useSession();
 
   if (isUpdatingSession) return <BlockUI />;
 
-  // if (!isLoggedIn)
-  //   return (
-  //     <Navigate
-  //       to="/unauthenticated"
-  //       replace
-  //       state={{ from: location.pathname }}
-  //     />
-  //   );
+  if (!isLoggedIn)
+    return (
+      <Navigate
+        to="/unauthenticated"
+        replace
+        state={{ from: location.pathname }}
+      />
+    );
 
   return <Outlet />;
 };

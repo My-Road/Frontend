@@ -1,13 +1,15 @@
 import { axiosInstance } from "@/config/axios.config";
 import { login } from "@/features/User";
 import { useSnackBar } from "@/hooks/useSnackbar";
-import { setRefreshSession, setSession } from "@/lib/session";
+import { setSession } from "@/lib/session";
 import { useAppDispatch } from "@/store";
 import { User } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { loginAPI } from "../API";
+import { extractErrorMessage } from "@/utils/errorHandling";
+import { AxiosBaseError } from "@/types/axios";
 
 const useLoginAPI = () => {
   const { showSuccessSnackbar, showErrorSnackbar } = useSnackBar();
@@ -16,16 +18,18 @@ const useLoginAPI = () => {
 
   const { mutate: loginUser, isPending } = useMutation({
     mutationFn: loginAPI,
-    onSuccess: ({ token, refreshToken }) => {
+    onSuccess: ({ token }) => {
       setTimeout(
-        () => showSuccessSnackbar({ message: "Login successful" }),
+        () =>
+          showSuccessSnackbar({
+            message: "Login successful",
+          }),
         1000
       );
 
-      setRefreshSession(refreshToken);
-
       setSession(token);
       const payload = jwtDecode<User>(token);
+
       dispatch(login(payload));
 
       axiosInstance.defaults.headers.common[
@@ -34,8 +38,9 @@ const useLoginAPI = () => {
 
       navigate("/me");
     },
-    onError: () => {
-      showErrorSnackbar({ message: "Invalid Credentials" });
+    onError: (error) => {
+      const errorMessage = extractErrorMessage(error as AxiosBaseError);
+      showErrorSnackbar({ message: errorMessage });
     },
   });
 

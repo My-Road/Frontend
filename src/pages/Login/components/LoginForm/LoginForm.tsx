@@ -28,7 +28,7 @@ const LoginForm = () => {
     <FormikProvider value={formikProps}>
       <Form>
         <Stack gap={2}>
-          <TextField name="userName" aria-label="Enter your username" />
+          <TextField name="email" aria-label="Enter your email" />
           <PasswordField name="password" aria-label="Enter your password" />
           <Link to="/forgot-password" style={{ textDecoration: "none", color: "#1976d2" }}>
               <Trans i18nKey="Buttons.forgetPassword">Forget your password?</Trans>

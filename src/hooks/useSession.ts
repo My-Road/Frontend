@@ -28,7 +28,7 @@ const useSession = () => {
       dispatch(updateUserSession(payload));
       axiosInstance.defaults.headers.common[
         "Authorization"
-      ] = `Crystal__${session}`;
+      ] = `MyRoad__${session}`;
       setState({
         isLoggedIn: true,
         isUpdatingSession: false,

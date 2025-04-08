@@ -62,7 +62,7 @@
     "selectUserType": "اختر نوع المستخدم"
   },
   "TextfieldErrors": {
-    "Please enter your username": "ادخل اسم المستخدم",
+    "Please enter your email": "ادخل البريد الالكتروني",
     "Please enter your password": "ادخل كلمة المرور",
     "Please confirm your password": "يرجى تأكيد كلمة المرور الخاصة بك",
     "Both passwords must be identical": "عذرًا! كلمتا المرور غير متطابقتين.",
@@ -223,7 +223,7 @@
   "SnackbarMessages": {
     "Something went wrong!": "حدث خطأ ما",
     "customer phone exists": "رقم الهاتف موجود بالفعل",
-    "Invalid Credentials": "بيانات الدخول غير صحيحة",
+    "Invalid email or password.": "البريد الالكتروني او كلمة المرور غير صحيحة",
     "Customer added successfully": "تمت إضافة الزبون بنجاح",
     "Login successful": "تم تسجيل الدخول بنجاح",
     "Customer updated successfully": "تم تحديث الزبون بنجاح",

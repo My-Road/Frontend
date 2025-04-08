@@ -7,6 +7,7 @@ export interface BaseResponse {
   traceId: string;
   errors: Record<string, string[]>;
   message: string;
+  detail: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type

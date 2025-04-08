@@ -5,10 +5,12 @@ export const selectUser = ({ user }: RootState) => user;
 
 export const selectIsLoggedIn = createSelector(
   selectUser,
-  (user) => user.id !== ""
+  (user) => user.uid !== ""
 );
 
-export const selectUserBranchId = createSelector(
+export const selectUserRole = createSelector(
   selectUser,
-  (user) => user.branchId
+  (user) => user.userRole
 );
+
+export const selectUserEmail = createSelector(selectUser, (user) => user.email);

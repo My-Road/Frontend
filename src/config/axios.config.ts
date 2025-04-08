@@ -10,7 +10,7 @@ const getDefaultAxiosSettings = (): AxiosRequestConfig => {
   };
 
   if (accessToken) {
-    headers.Authorization = `Crystal__${accessToken}`;
+    headers.Authorization = `MyRoad__${accessToken}`;
   }
   return { headers };
 };
