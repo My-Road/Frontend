@@ -1,19 +1,19 @@
 import { Form, FormikProvider, useFormik } from "formik";
-import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { LoadingButton } from "@mui/lab";
 import TextField from "@/components/Fields/TextField";
 import { ResetPasswordPayLoad } from "../types";
 import { validationSchema } from "../formSchema";
 import { initialValues } from "../constants";
 import { Trans } from "react-i18next";
+import  useForgetPasswordAPI  from "../hooks/useForgetPasswordAPI";
 
 const ForgetPasswordForm: React.FC = () => {
-  const navigate = useNavigate();
+  const { forgetPassword, isPending } = useForgetPasswordAPI();
 
   const onSubmit = (values: ResetPasswordPayLoad) => {
     //for now
     console.log("Form Data:", values);
-    navigate(`/reset-password`);
+    forgetPassword(values)
   };
 
   const formik = useFormik({
@@ -26,15 +26,16 @@ const ForgetPasswordForm: React.FC = () => {
     <FormikProvider value={formik}>
       <Form>
         <TextField name="email" aria-label="enter a valid email" />
-        <Button
+        <LoadingButton
           type="submit"
           variant="contained"
           color="primary"
           fullWidth
           sx={{ mt: 2 }}
+          loading = {isPending}
         >
-          <Trans i18nKey="Buttons.reset">Reset</Trans>
-        </Button>
+          <Trans i18nKey="LoadingButtons.reset">Reset</Trans>
+        </LoadingButton>
       </Form>
     </FormikProvider>
   );
