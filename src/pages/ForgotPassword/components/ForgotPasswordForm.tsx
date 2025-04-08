@@ -11,8 +11,6 @@ const ForgetPasswordForm: React.FC = () => {
   const { forgetPassword, isPending } = useForgetPasswordAPI();
 
   const onSubmit = (values: ResetPasswordPayLoad) => {
-    //for now
-    console.log("Form Data:", values);
     forgetPassword(values)
   };
 

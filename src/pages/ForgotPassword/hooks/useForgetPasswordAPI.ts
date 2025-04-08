@@ -13,7 +13,7 @@ const useForgetPasswordAPI = () => {
     onSuccess: ({}) => {
       setTimeout(() =>
         showSuccessSnackbar({
-          message: "Check your email to complete resetting your password",
+          message: "Please check your email",
         })
       );
     },

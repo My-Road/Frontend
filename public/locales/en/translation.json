@@ -312,7 +312,7 @@
     "Error While Update Visit": "Error While Update Visit",
     "Invalid Visit Id": "Invalid Visit Id",
     "Not Found User with this Email": "Not Found User with this Email",
-    "Check your email to complete resetting your password": "Check your email to complete resetting your password",
+    "Please check your email": "Please check your email",
     "Internal Server Error": "Internal Server Error"
   }
 }
