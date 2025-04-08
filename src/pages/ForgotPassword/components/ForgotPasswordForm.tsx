@@ -34,7 +34,7 @@ const ForgetPasswordForm: React.FC = () => {
           sx={{ mt: 2 }}
           loading = {isPending}
         >
-          <Trans i18nKey="LoadingButtons.reset">Reset</Trans>
+          <Trans i18nKey="Buttons.reset">Reset</Trans>
         </LoadingButton>
       </Form>
     </FormikProvider>
