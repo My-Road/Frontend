@@ -309,6 +309,9 @@
     "Visit Not Found": "لم يتم العثور على الزيارة",
     "Error While Create Visit": "خطأ أثناء إنشاء الزيارة",
     "Error While Update Visit": "خطأ أثناء تحديث الزيارة",
-    "Invalid Visit Id": "معرف الزيارة غير صالح"
+    "Invalid Visit Id": "معرف الزيارة غير صالح",
+    "Not Found User with this Email": "لم يتم العثور على مستخدم بهذا البريد الإلكتروني",
+    "Please check your email": "يرجى التحقق من بريدك الإلكتروني",
+    "Internal Server Error": "حدث خطأ ما"
   }
 }
