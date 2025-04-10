@@ -34,6 +34,8 @@
     "userName": "اسم المستخدم",
     "password": "كلمة المرور",
     "confirmPassword": "تأكيد كلمة المرور",
+    "currentPassword": "كلمة المرور الحالية",
+    "newPassword": "كلمة المرور الجديدة",
     "customerNum": "رقم الزبون",
     "customerNotes": "ملاحظات عن الزبون",
     "notes": "ملاحظات",
@@ -64,6 +66,8 @@
   "TextfieldErrors": {
     "Please enter your email": "ادخل البريد الالكتروني",
     "Please enter your password": "ادخل كلمة المرور",
+    "Please enter your current password": "ادخل كلمة المرور الحالية",
+    "Please enter your new password": "ادخل كملة المرور الجديدة",
     "Please confirm your password": "يرجى تأكيد كلمة المرور الخاصة بك",
     "Both passwords must be identical": "عذرًا! كلمتا المرور غير متطابقتين.",
     "Please enter your first name": "ادخل الاسم الأول",
@@ -81,6 +85,11 @@
     "Please enter the Expense": "ادخل المصروف",
     "Please enter the Name": "ادخل الاسم",
     "Please enter the Price": "ادخل السعر",
+    "New password must be at least 8 characters": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "New password must contain at least one uppercase letter": "يجب أن تحتوي كلمة المرور على حرف كبير",
+    "New password must contain at least one lowercase letter": "يجب أن تحتوي كلمة المرور على حرف صغير",
+    "New password must contain at least one digit": "يجب أن تحتوي كلمة المرور على رقم",
+    "New password must contain at least one special character": "كلمة السر يجب أن تحتوي على رمز مميز واحد على الأقل",
     "First name must be at least 2 characters": "الاسم الأول يجب أن يكون حرفين على الأقل",
     "Father name must be at least 2 characters": "اسم الأب يجب أن يكون حرفين على الأقل",
     "Last name must be at least 2 characters": "اسم العائلة يجب أن يكون حرفين على الأقل",
@@ -312,6 +321,13 @@
     "Invalid Visit Id": "معرف الزيارة غير صالح",
     "Not Found User with this Email": "لم يتم العثور على مستخدم بهذا البريد الإلكتروني",
     "Please check your email": "يرجى التحقق من بريدك الإلكتروني",
-    "Internal Server Error": "حدث خطأ ما"
+    "Internal Server Error": "حدث خطأ ما",
+    "Your password has been changed successfully": "تم تغيير كلمة المرور الخاصة بك بنجاح",
+    "New password must be at least 8 characters": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "New password must contain at least one uppercase letter": "يجب أن تحتوي كلمة المرور على حرف كبير",
+    "New password must contain at least one lowercase letter": "يجب أن تحتوي كلمة المرور على حرف صغير",
+    "New password must contain at least one digit": "يجب أن تحتوي كلمة المرور على رقم",
+    "New password must contain at least one special character": "كلمة السر يجب أن تحتوي على رمز مميز واحد على الأقل",
+    "Current password is wrong": "كلمة المرور الحالية غير صحيحة"    
   }
 }

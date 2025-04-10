@@ -34,6 +34,8 @@
     "userName": "Username",
     "password": "Password",
     "confirmPassword": "Confirm Password",
+    "currentPassword": "currentPassword",
+    "newPassword": "newPassword",
     "customerNum": "Customer Number",
     "customerNotes": "Customer Notes",
     "notes": "Notes",
@@ -64,6 +66,8 @@
   "TextfieldErrors": {
     "Please enter your email": "Please enter your email",
     "Please enter your password": "Please enter your password",
+    "Please enter your current password": "Please enter your current password",
+    "Please enter your new password": "Please enter your new password",
     "Please confirm your password": "Please confirm your password",
     "Both passwords must be identical": "Both passwords must be identical",
     "Please enter your first name": "Please enter your first name",
@@ -81,6 +85,11 @@
     "Please enter the Expense": "Please enter the Expense",
     "Please enter the Name": "Please enter the Name",
     "Please enter the Price": "Please enter the Price",
+    "New password must be at least 8 characters": "New password must be at least 8 characters",
+    "New password must contain at least one uppercase letter": "New password must contain at least one uppercase letter",
+    "New password must contain at least one lowercase letter": "New password must contain at least one lowercase letter",
+    "New password must contain at least one digit": "New password must contain at least one digit",
+    "New password must contain at least one special character": "New password must contain at least one special character",
     "First name must be at least 2 characters": "First name must be at least 2 characters",
     "Father name must be at least 2 characters": "Father name must be at least 2 characters",
     "Last name must be at least 2 characters": "Last name must be at least 2 characters",
@@ -313,6 +322,13 @@
     "Invalid Visit Id": "Invalid Visit Id",
     "Not Found User with this Email": "Not Found User with this Email",
     "Please check your email": "Please check your email",
-    "Internal Server Error": "Internal Server Error"
+    "Internal Server Error": "Internal Server Error",
+    "Your password has been changed successfully": "Your password has been changed successfully",
+    "New password must be at least 8 characters": "New password must be at least 8 characters",
+    "New password must contain at least one uppercase letter": "New password must contain at least one uppercase letter",
+    "New password must contain at least one lowercase letter": "New password must contain at least one lowercase letter",
+    "New password must contain at least one digit": "New password must contain at least one digit",
+    "New password must contain at least one special character": "New password must contain at least one special character",
+    "Current password is wrong": "Current password is wrong"
   }
 }
