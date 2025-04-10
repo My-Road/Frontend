@@ -10,7 +10,7 @@ const getDefaultAxiosSettings = (): AxiosRequestConfig => {
   };
 
   if (accessToken) {
-    headers.Authorization = `MyRoad__${accessToken}`;
+    headers.Authorization = `Bearer ${accessToken}`;
   }
   return { headers };
 };

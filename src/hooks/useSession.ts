@@ -28,7 +28,7 @@ const useSession = () => {
       dispatch(updateUserSession(payload));
       axiosInstance.defaults.headers.common[
         "Authorization"
-      ] = `MyRoad__${session}`;
+      ] = `Bearer ${session}`;
       setState({
         isLoggedIn: true,
         isUpdatingSession: false,

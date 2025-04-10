@@ -34,7 +34,7 @@ const useLoginAPI = () => {
 
       axiosInstance.defaults.headers.common[
         "Authorization"
-      ] = `MyRoad__${token}`;
+      ] = `Bearer ${token}`;
 
       navigate("/me");
     },
