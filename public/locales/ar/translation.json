@@ -328,6 +328,8 @@
     "New password must contain at least one lowercase letter": "يجب أن تحتوي كلمة المرور على حرف صغير",
     "New password must contain at least one digit": "يجب أن تحتوي كلمة المرور على رقم",
     "New password must contain at least one special character": "كلمة السر يجب أن تحتوي على رمز مميز واحد على الأقل",
-    "Current password is wrong": "كلمة المرور الحالية غير صحيحة"    
+    "Current password is wrong": "كلمة المرور الحالية غير صحيحة",
+    "Registration successful": "تم التسجيل بنجاح",
+    "User Email Already Exists": "البريد الإلكتروني مستخدم بالفعل"    
   }
 }

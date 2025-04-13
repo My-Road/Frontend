@@ -329,6 +329,8 @@
     "New password must contain at least one lowercase letter": "New password must contain at least one lowercase letter",
     "New password must contain at least one digit": "New password must contain at least one digit",
     "New password must contain at least one special character": "New password must contain at least one special character",
-    "Current password is wrong": "Current password is wrong"
+    "Current password is wrong": "Current password is wrong",
+    "Registration successful": "Registration successful",
+    "User Email Already Exists": "User Email Already Exists"
   }
 }
