@@ -12,7 +12,7 @@ const useResetForgetPasswordAPI = () => {
       setTimeout(
         () =>
           showSuccessSnackbar({
-            message: "Login successful",
+            message: "Your password has been changed successfully",
           }),
         1000
       );
