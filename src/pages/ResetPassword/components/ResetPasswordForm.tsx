@@ -1,15 +1,28 @@
 import { Form, FormikProvider, useFormik } from "formik";
-import { Button, Typography, Stack } from "@mui/material";
+import { Typography, Stack } from "@mui/material";
 import PasswordField from "@/components/Fields/PasswordField/PasswordField.tsx";
 import { validationSchema } from "../formSchema.ts";
-import { ConfirmPasswordPayLoad } from "../types.ts";
+import { resetForgetPasswordPayload } from "../types.ts";
 import { initialValues } from "../constants.ts";
 import { Trans } from "react-i18next";
+import useResetForgetPasswordAPI from "../hooks/useResetForgetPasswordAPI.ts";
+import { LoadingButton } from "@mui/lab";
 
 const ResetPasswordForm: React.FC = () => {
-  const onSubmit = (values: ConfirmPasswordPayLoad) => {
+  const {resetPassword, isPending} = useResetForgetPasswordAPI();
+
+  const url = new URL(location.href);
+  const token = url.searchParams.get("token") ?? "";
+  const userIdParam = url.searchParams.get("userId");
+  const userId = userIdParam ? Number(userIdParam) : 0;
+  console.log(token);
+  
+  const onSubmit = (values: resetForgetPasswordPayload) => {
     //for now
+    values = {...values, token, userId}
+    console.log(values);
     console.log("Form Data:", values);
+    resetPassword(values);
   };
 
   const formik = useFormik({
@@ -25,20 +38,21 @@ const ResetPasswordForm: React.FC = () => {
           <Typography variant="h5" gutterBottom align="center">
             <Trans i18nKey="Buttons.changePassword">Change Password</Trans>
           </Typography>
-          <PasswordField name="password" aria-label="Enter your password" />
+          <PasswordField name="newPassword" aria-label="Enter your password" />
           <PasswordField
-            name="confirmPassword"
+            name="confirmNewPassword"
             aria-label="Confirm your password"
           />
-          <Button
+          <LoadingButton
             type="submit"
             variant="contained"
             color="primary"
             fullWidth
             sx={{ mt: 2 }}
+            loading = {isPending}
           >
             <Trans i18nKey="Buttons.changePassword">Change Password</Trans>
-          </Button>
+          </LoadingButton>
         </Stack>
       </Form>
     </FormikProvider>

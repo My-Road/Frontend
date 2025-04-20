@@ -1,4 +1,6 @@
-export interface ConfirmPasswordPayLoad{
-    password: string;
-    confirmPassword: string;
+export interface resetForgetPasswordPayload{
+    userId: number;
+    token: string;
+    newPassword: string;
+    confirmNewPassword: string;
 }
