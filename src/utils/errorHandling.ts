@@ -12,8 +12,9 @@ const extractErrorMessages = (error: AxiosBaseError) => {
 
   const detail = error.response?.data?.detail;
   if (detail && detail.includes(":")) {
-    // Extract everything after the colon
-    return [detail.split(":").slice(1).join(":").trim()];
+    // Extract everything after the last colon
+    const lastMessage = detail.substring(detail.lastIndexOf(":") + 1).trim();
+    return [lastMessage];
   }
 
   // If the response does not have `errors` key, try to extract `title` key from response. This will usually work for non-validation errors

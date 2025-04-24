@@ -1,4 +1,4 @@
-import { Form, FormikProvider, useFormik } from "formik";
+import { Form, FormikHelpers, FormikProvider, useFormik } from "formik";
 import { Typography, Stack } from "@mui/material";
 import PasswordField from "@/components/Fields/PasswordField/PasswordField.tsx";
 import { validationSchema } from "../formSchema.ts";
@@ -10,10 +10,15 @@ import { LoadingButton } from "@mui/lab";
 
 const ChangePasswordForm: React.FC = () => {
   const { changePassword, isPending } = useChangePasswordAPI();
-  const onSubmit = (values: ChangePasswordPayload) => {
-    //for now
-    console.log("Form Data:", values);
-    changePassword(values);
+  const onSubmit = (
+    values: ChangePasswordPayload,
+    { resetForm }: FormikHelpers<ChangePasswordPayload>
+  ) => {
+    changePassword(values, {
+      onSuccess: () => {
+        resetForm();
+      }
+    });
   };
 
   const formik = useFormik({

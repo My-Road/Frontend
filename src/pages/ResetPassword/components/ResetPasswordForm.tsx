@@ -1,4 +1,4 @@
-import { Form, FormikProvider, useFormik } from "formik";
+import { Form, FormikHelpers, FormikProvider, useFormik } from "formik";
 import { Typography, Stack } from "@mui/material";
 import PasswordField from "@/components/Fields/PasswordField/PasswordField.tsx";
 import { validationSchema } from "../formSchema.ts";
@@ -9,20 +9,24 @@ import useResetForgetPasswordAPI from "../hooks/useResetForgetPasswordAPI.ts";
 import { LoadingButton } from "@mui/lab";
 
 const ResetPasswordForm: React.FC = () => {
-  const {resetPassword, isPending} = useResetForgetPasswordAPI();
+  const { resetPassword, isPending } = useResetForgetPasswordAPI();
 
   const url = new URL(location.href);
-  const token = url.searchParams.get("token") ?? "";
+  const rawToken = url.search.split("token=")[1]?.split("&")[0] ?? "";
+  const token = decodeURIComponent(rawToken);
   const userIdParam = url.searchParams.get("userId");
   const userId = userIdParam ? Number(userIdParam) : 0;
-  console.log(token);
-  
-  const onSubmit = (values: resetForgetPasswordPayload) => {
-    //for now
-    values = {...values, token, userId}
-    console.log(values);
-    console.log("Form Data:", values);
-    resetPassword(values);
+
+  const onSubmit = (
+    values: resetForgetPasswordPayload,
+    { resetForm }: FormikHelpers<resetForgetPasswordPayload>
+  ) => {
+    const payload = { ...values, token, userId };
+    resetPassword(payload, {
+      onSuccess: () => {
+        resetForm();
+      },
+    });
   };
 
   const formik = useFormik({
@@ -49,7 +53,7 @@ const ResetPasswordForm: React.FC = () => {
             color="primary"
             fullWidth
             sx={{ mt: 2 }}
-            loading = {isPending}
+            loading={isPending}
           >
             <Trans i18nKey="Buttons.changePassword">Change Password</Trans>
           </LoadingButton>

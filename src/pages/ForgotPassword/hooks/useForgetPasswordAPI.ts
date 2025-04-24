@@ -10,12 +10,10 @@ const useForgetPasswordAPI = () => {
 
   const { mutate: forgetPassword, isPending } = useMutation({
     mutationFn: forgetPasswordAPI,
-    onSuccess: ({}) => {
-      setTimeout(() =>
-        showSuccessSnackbar({
-          message: "Please check your email",
-        })
-      );
+    onSuccess: () => {
+      showSuccessSnackbar({
+        message: "Please check your email",
+      });
     },
     onError: (error: AxiosError) => {
       const errorMessage = extractErrorMessage(error as AxiosBaseError);

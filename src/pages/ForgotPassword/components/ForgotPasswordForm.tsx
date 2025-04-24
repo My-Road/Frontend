@@ -1,4 +1,4 @@
-import { Form, FormikProvider, useFormik } from "formik";
+import { Form, FormikHelpers, FormikProvider, useFormik } from "formik";
 import { LoadingButton } from "@mui/lab";
 import TextField from "@/components/Fields/TextField";
 import { ResetPasswordPayLoad } from "../types";
@@ -10,8 +10,12 @@ import  useForgetPasswordAPI  from "../hooks/useForgetPasswordAPI";
 const ForgetPasswordForm: React.FC = () => {
   const { forgetPassword, isPending } = useForgetPasswordAPI();
 
-  const onSubmit = (values: ResetPasswordPayLoad) => {
-    forgetPassword(values)
+  const onSubmit = (values: ResetPasswordPayLoad,  { resetForm }: FormikHelpers<ResetPasswordPayLoad>) => {
+    forgetPassword(values, {
+      onSuccess: () => {
+        resetForm();
+      }
+    })
   };
 
   const formik = useFormik({

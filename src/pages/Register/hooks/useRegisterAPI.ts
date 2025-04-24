@@ -6,16 +6,12 @@ import { AxiosBaseError } from "@/types/axios";
 
 const useRegisterAPI = () => {
   const { showSuccessSnackbar, showErrorSnackbar } = useSnackBar();
-  const { mutateAsync: registerUser, isPending, isSuccess } = useMutation({
+  const { mutate: registerUser, isPending } = useMutation({
     mutationFn: registerAPI,
     onSuccess: () => {
-      setTimeout(
-        () =>
-          showSuccessSnackbar({
-            message: "Registration successful",
-          }),
-        1000
-      );
+      showSuccessSnackbar({
+        message: "Registration successful",
+      });
     },
     onError: (error) => {
       const errorMessage = extractErrorMessage(error as AxiosBaseError);
@@ -26,7 +22,6 @@ const useRegisterAPI = () => {
   return {
     registerUser,
     isPending,
-    isSuccess
   };
 };
 

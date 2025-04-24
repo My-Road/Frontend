@@ -1,6 +1,6 @@
 import TextField from "@/components/Fields/TextField";
 import { Stack } from "@mui/material";
-import { Form, FormikProvider, useFormik } from "formik";
+import { Form, FormikHelpers, FormikProvider, useFormik } from "formik";
 import { initialValues } from "../constants";
 import { validationSchema } from "../formSchema";
 import { Trans } from "react-i18next";
@@ -10,19 +10,17 @@ import useRegisterAPI from "../hooks/useRegisterAPI";
 import { LoadingButton } from "@mui/lab";
 
 const RegisterForm = () => {
-  const { registerUser, isPending, isSuccess } = useRegisterAPI();
+  const { registerUser, isPending } = useRegisterAPI();
 
-  const onSubmit = async (values: RegisterPayLoad, { resetForm }: any) => {
-    try {
-      await registerUser(values);
-
-      if (isSuccess) {
+  const onSubmit = async (
+    values: RegisterPayLoad,
+    { resetForm }: FormikHelpers<RegisterPayLoad>
+  ) => {
+    registerUser(values, {
+      onSuccess: () => {
         resetForm();
-      }
-      
-    } catch (error) {
-      console.error("Registration error:", error);
-    }
+      },
+    });
   };
 
   const formikProps = useFormik({
