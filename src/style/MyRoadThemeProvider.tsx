@@ -1,15 +1,15 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { PropsWithChildren } from "react";
-import anharTheme from "./crystalTheme";
+import MyRoadTheme from "./MyRoadTheme";
 
-const CrystalThemeProvider = ({ children }: PropsWithChildren) => {
+const MyRoadThemeProvider = ({ children }: PropsWithChildren) => {
   return (
-    <ThemeProvider theme={anharTheme}>
+    <ThemeProvider theme={MyRoadTheme}>
       <CssBaseline />
       {children}
     </ThemeProvider>
   );
 };
 
-export default CrystalThemeProvider;
+export default MyRoadThemeProvider;

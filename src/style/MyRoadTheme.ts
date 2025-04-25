@@ -20,7 +20,7 @@ const AlertTextColor = {
   error: "#721c24",
 };
 
-const crystalTheme = createTheme(
+const MyRoadTheme = createTheme(
   {
     direction: "rtl",
     mixins: customMixins,
@@ -544,4 +544,4 @@ const crystalTheme = createTheme(
   arSD
 );
 
-export default responsiveFontSizes(crystalTheme);
+export default responsiveFontSizes(MyRoadTheme);

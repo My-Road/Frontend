@@ -1,6 +1,6 @@
-import CrystalQueryClientProvider from "@/containers/MyRoadQueryClientProvider";
-import CrystalStore from "@/store/store";
-import CrystalThemeProvider from "@/style/CrystalThemeProvider";
+import MyRoadQueryClientProvider from "@/containers/MyRoadQueryClientProvider";
+import MyRoad from "@/store/store";
+import MyRoadThemeProvider from "@/style/MyRoadThemeProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { FC, PropsWithChildren } from "react";
 import { Provider } from "react-redux";
@@ -17,18 +17,18 @@ const cache = createCache({
 
 const Providers: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <Provider store={CrystalStore}>
+    <Provider store={MyRoad}>
       <CacheProvider value={cache}>
-        <CrystalQueryClientProvider>
+        <MyRoadQueryClientProvider>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <CrystalThemeProvider>{children}</CrystalThemeProvider>
+            <MyRoadThemeProvider>{children}</MyRoadThemeProvider>
             <ReactQueryDevtools
               initialIsOpen={false}
               position="right"
               buttonPosition="bottom-right"
             />
           </LocalizationProvider>
-        </CrystalQueryClientProvider>
+        </MyRoadQueryClientProvider>
       </CacheProvider>
     </Provider>
   );
