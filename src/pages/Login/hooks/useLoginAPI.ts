@@ -8,11 +8,9 @@ import { useMutation } from "@tanstack/react-query";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { loginAPI } from "../API";
-import { extractErrorMessage } from "@/utils/errorHandling";
-import { AxiosBaseError } from "@/types/axios";
 
 const useLoginAPI = () => {
-  const { showSuccessSnackbar, showErrorSnackbar } = useSnackBar();
+  const { showSuccessSnackbar } = useSnackBar();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -37,10 +35,6 @@ const useLoginAPI = () => {
       ] = `Bearer ${token}`;
 
       navigate("/me");
-    },
-    onError: (error) => {
-      const errorMessage = extractErrorMessage(error as AxiosBaseError);
-      showErrorSnackbar({ message: errorMessage });
     },
   });
 
