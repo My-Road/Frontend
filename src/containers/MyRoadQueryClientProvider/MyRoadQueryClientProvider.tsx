@@ -20,10 +20,17 @@ const MyRoadQueryClientProvider: FC<PropsWithChildren> = ({ children }) => {
     defaultOptions: {
       queries: {
         refetchOnWindowFocus: false,
-        refetchInterval: 60 * 60 * 1000, // 1 hour
+        refetchInterval: 60 * 60 * 1000,
+      },
+      mutations: {
+        onError: (error) => {
+          const errorMessage = extractErrorMessage(error as AxiosBaseError);
+          showErrorSnackbar({ message: errorMessage });
+        },
       },
     },
   });
+
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );

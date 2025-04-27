@@ -18,4 +18,14 @@ export const DEFAULT_PAGINATION_MODEL = {
   pageSize: DEFAULT_PAGE_SIZE,
 };
 
-export const ROLES = ["Super Admin", "Admin", "Manager"];
+export const ROLES = [
+  { name: "Super Admin", role: 1 },
+  {
+    name: "Admin",
+    role: 2,
+  },
+  {
+    name: "Manager",
+    role: 3,
+  },
+];

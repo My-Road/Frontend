@@ -2,30 +2,22 @@ import { Form, FormikHelpers, FormikProvider, useFormik } from "formik";
 import { Typography, Stack } from "@mui/material";
 import PasswordField from "@/components/Fields/PasswordField/PasswordField.tsx";
 import { validationSchema } from "../formSchema.ts";
-import { resetForgetPasswordPayload } from "../types.ts";
+import { ChangePasswordPayload } from "../types.ts";
 import { initialValues } from "../constants.ts";
 import { Trans } from "react-i18next";
-import useResetForgetPasswordAPI from "../hooks/useResetForgetPasswordAPI.ts";
+import useChangePasswordAPI from "../hooks/useChangePasswordAPI.ts";
 import { LoadingButton } from "@mui/lab";
 
-const ResetPasswordForm: React.FC = () => {
-  const { resetPassword, isPending } = useResetForgetPasswordAPI();
-
-  const url = new URL(location.href);
-  const rawToken = url.search.split("token=")[1]?.split("&")[0] ?? "";
-  const token = decodeURIComponent(rawToken);
-  const userIdParam = url.searchParams.get("userId");
-  const userId = userIdParam ? Number(userIdParam) : 0;
-
+const ChangePasswordForm: React.FC = () => {
+  const { changePassword, isPending } = useChangePasswordAPI();
   const onSubmit = (
-    values: resetForgetPasswordPayload,
-    { resetForm }: FormikHelpers<resetForgetPasswordPayload>
+    values: ChangePasswordPayload,
+    { resetForm }: FormikHelpers<ChangePasswordPayload>
   ) => {
-    const payload = { ...values, token, userId };
-    resetPassword(payload, {
+    changePassword(values, {
       onSuccess: () => {
         resetForm();
-      },
+      }
     });
   };
 
@@ -42,17 +34,18 @@ const ResetPasswordForm: React.FC = () => {
           <Typography variant="h5" gutterBottom align="center">
             <Trans i18nKey="Buttons.changePassword">Change Password</Trans>
           </Typography>
-          <PasswordField name="newPassword" aria-label="Enter your password" />
           <PasswordField
-            name="confirmNewPassword"
-            aria-label="Confirm your password"
+            name="currentPassword"
+            aria-label="Enter your current password"
+          />
+          <PasswordField
+            name="newPassword"
+            aria-label="Enter your new password"
           />
           <LoadingButton
             type="submit"
-            variant="contained"
             color="primary"
-            fullWidth
-            sx={{ mt: 2 }}
+            variant="contained"
             loading={isPending}
           >
             <Trans i18nKey="Buttons.changePassword">Change Password</Trans>
@@ -63,4 +56,4 @@ const ResetPasswordForm: React.FC = () => {
   );
 };
 
-export default ResetPasswordForm;
+export default ChangePasswordForm;

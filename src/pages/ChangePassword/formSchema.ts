@@ -1,6 +1,10 @@
 import * as yup from "yup";
 
 export const validationSchema = yup.object().shape({
+  currentPassword: yup
+    .string()
+    .required("Please enter your current password"),
+
   newPassword: yup
     .string()
     .required("Please enter your new password")
@@ -12,8 +16,4 @@ export const validationSchema = yup.object().shape({
       /[!@#$%^&*(),.?":{}|<>_\-\\[\];'`~+=/]/,
       "New password must contain at least one special character"
     ),
-  confirmNewPassword: yup
-    .string()
-    .oneOf([yup.ref("newPassword"), undefined], "Both passwords must be identical")
-    .required("Please confirm your password"),
 });
