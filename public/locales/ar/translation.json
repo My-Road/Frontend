@@ -28,7 +28,9 @@
     "addSale": "اضافة حركة بيع",
     "editSale": "تعديل حركة بيع",
     "deleteVisit": "حذف الزيارة",
-    "register": "تسجيل الدخول"
+    "register": "تسجيل الدخول",
+    "viewDetails": "عرض التفاصيل",
+    "search": "ابحث"
   },
   "Textfields": {
     "userName": "اسم المستخدم",
@@ -37,12 +39,14 @@
     "currentPassword": "كلمة المرور الحالية",
     "confirmNewPassword": "تأكيد كلمة المرور",
     "newPassword": "كلمة المرور الجديدة",
+    "customerName": "اسم الزبون",
     "customerNum": "رقم الزبون",
     "customerNotes": "ملاحظات عن الزبون",
     "notes": "ملاحظات",
     "firstName": "الاسم الاول",
     "lastName": "الاسم العائلة",
-    "mName": "الاسم الاب",
+    "fullName": "الاسم الكامل",
+    "fatherName": "الاسم الاب",
     "email": "البريد الإلكتروني",
     "phoneNumber": "رقم الهاتف",
     "address": "العنوان",
@@ -62,7 +66,9 @@
     "machine": "الجهاز",
     "treatment": "العلاج",
     "register": "تسجيل الدخول",
-    "selectUserType": "اختر نوع المستخدم"
+    "selectUserType": "اختر نوع المستخدم",
+    "startDate": "تاريخ البداية",
+    "endDate": "تاريخ النهاية"
   },
   "TextfieldErrors": {
     "Please enter your email": "ادخل البريد الالكتروني",
@@ -74,6 +80,7 @@
     "Please enter your first name": "ادخل الاسم الأول",
     "Please enter your last name": "ادخل الاسم العائلة",
     "Please enter your father name": "ادخل الاسم الاب",
+    "Please enter your full name": "ادخل الاسم الكامل",
     "Please enter a valid email": "ادخل بريد الكتروني صحيح",
     "Email is required": "البريد الالكتروني مطلوب",
     "Please enter a valid phone number": "ادخل رقم هاتف صحيح",
@@ -93,6 +100,7 @@
     "New password must contain at least one special character": "كلمة السر يجب أن تحتوي على رمز مميز واحد على الأقل",
     "First name must be at least 2 characters": "الاسم الأول يجب أن يكون حرفين على الأقل",
     "Father name must be at least 2 characters": "اسم الأب يجب أن يكون حرفين على الأقل",
+    "Full name must be at least 2 characters": "الاسم الكامل يجب ان يكون من حرفين على الاقل",
     "Last name must be at least 2 characters": "اسم العائلة يجب أن يكون حرفين على الأقل",
     "Address must be at least 3 characters": "العنوان يجب أن يكون 3 أحرف على الأقل",
     "First name must be at most 20 characters": "الاسم الأول يجب أن يكون 20 حرفًا على الأكثر",
@@ -119,7 +127,8 @@
     "Please select the Employee": "الرجاء اختيار الموظف",
     "Please select the Product": "الرجاء اختيار المنتج",
     "Please enter a Machine name": "الرجاء ادخال اسم الجهاز",
-    "Please enter The Treatment": "الرجاء ادخال العلاج"
+    "Please enter The Treatment": "الرجاء ادخال العلاج",
+    "Customer name is required": "اسم الزبون مطلوب"
   },
   "AutoComplete": {
     "treatment": "العلاج",
@@ -166,6 +175,7 @@
       "Amount": "المبلغ",
       "Expense": "المصروف",
       "FileNumber": "رقم الملف",
+      "FullName": "الاسم الكامل",
       "FirstName": "الاسم الأول",
       "FatherName": "اسم الأب",
       "FamilyName": "اسم العائلة",
@@ -180,7 +190,8 @@
       "saleDate": "تاريخ البيع",
       "bonus": "البونص",
       "TotalDebts": "إجمالي الديون",
-      "machine": "الجهاز"
+      "machine": "الجهاز",
+      "details": "التفاصيل"
     },
     "noData": "لا توجد بيانات لعرضها",
     "columns": "الأعمدة",

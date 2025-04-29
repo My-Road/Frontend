@@ -28,7 +28,9 @@
     "addSale": "Add Sale",
     "editSale": "Edit Sale",
     "deleteVisit": "Delete Visit",
-    "register": "Register"
+    "register": "Register",
+    "viewDetails": "viewDetails",
+    "search": "Search"
   },
   "Textfields": {
     "userName": "Username",
@@ -37,12 +39,14 @@
     "confirmNewPassword": "Confirm New Password",
     "currentPassword": "Current Password",
     "newPassword": "New Password",
+    "customerName": "Customer Name",
     "customerNum": "Customer Number",
     "customerNotes": "Customer Notes",
     "notes": "Notes",
     "firstName": "First Name",
     "lastName": "Family Name",
-    "mName": "Father Name",
+    "fullName": "Full Name",
+    "fatherName": "Father Name",
     "email": "Email",
     "phoneNumber": "Phone",
     "address": "Address",
@@ -62,7 +66,9 @@
     "machine": "Machine",
     "treatment": "Treatment",
     "register": "Register",
-    "selectUserType": "select user type"
+    "selectUserType": "select user type",
+    "startDate": "Start Date",
+    "endDate": "End Date"
   },
   "TextfieldErrors": {
     "Please enter your email": "Please enter your email",
@@ -74,6 +80,7 @@
     "Please enter your first name": "Please enter your first name",
     "Please enter your last name": "Please enter your last name",
     "Please enter your father name": "Please enter your father's name",
+    "Please enter your full name": "Please enter your full name",
     "Please enter a valid email": "Please enter a valid email",
     "Email is required": "Email is required",
     "Please enter a valid phone number": "Please enter a valid phone number",
@@ -94,6 +101,7 @@
     "First name must be at least 2 characters": "First name must be at least 2 characters",
     "Father name must be at least 2 characters": "Father name must be at least 2 characters",
     "Last name must be at least 2 characters": "Last name must be at least 2 characters",
+    "Full name must be at least 2 characters": "Full name must be at least 2 characters",
     "Address must be at least 3 characters": "Address must be at least 3 characters",
     "First name must be at most 20 characters": "First name must be at most 20 characters",
     "Father name must be at most 20 characters": "Father name must be at most 20 characters",
@@ -119,7 +127,8 @@
     "Please select a Employee": "Please select a Employee",
     "Price must more than 0": "Price must more than 0",
     "Please enter The Treatment": "Please enter The Treatment",
-    "Please enter a Machine name": "Please enter a Machine name"
+    "Please enter a Machine name": "Please enter a Machine name",
+    "Customer name is required": "Customer name is required"
   },
   "AutoComplete": {
     "treatment": "Treatment",
@@ -167,6 +176,7 @@
       "Expense": "Expense",
       "FileNumber": "File number",
       "FirstName": "First name",
+      "FullName": "Full Name",
       "FatherName": "Father name",
       "Email": "Email",
       "FamilyName": "Family name",
@@ -181,7 +191,8 @@
       "saleBonus": "Sale Bonus",
       "bonus": "Bonus",
       "TotalDebts": "Total Debts",
-      "machine": "Machine"
+      "machine": "Machine",
+      "details": "Details"
     },
     "noData": "No records to display",
     "columns": "Columns",
