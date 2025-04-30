@@ -4,7 +4,7 @@ import { getColumns } from "./utils/getColumns";
 import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { useSearchCustomers } from "../hooks/SearchCustomersAPI";
+import { useSearchCustomers } from "../hooks/useSearchCustomersAPI";
 import { useState } from "react";
 import { PaginationProps, SearchParams } from "@/types";
 

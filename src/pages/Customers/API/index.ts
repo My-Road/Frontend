@@ -1,5 +1,6 @@
 import { axiosInstance } from "@/config/axios.config";
-import { AddCustomerPayLoad, SearchParams, SearchResponse } from "../types";
+import { AddCustomerPayLoad, SearchResponse } from "../types";
+import { SearchParams } from "@/types";
 
 export const addCustomerAPI = async (payload: AddCustomerPayLoad) => {
   const res = await axiosInstance.post<AddCustomerPayLoad>(

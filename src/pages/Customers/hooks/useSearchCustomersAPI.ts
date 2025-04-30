@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { SearchParams } from "../types";
+import { SearchParams } from "@/types";
 import { searchCustomersAPI } from "../API";
 
 export function useSearchCustomers(params: SearchParams) {
