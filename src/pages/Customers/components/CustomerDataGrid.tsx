@@ -1,15 +1,15 @@
 import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { getColumns } from "../constants";
+import { getColumns } from "./utils/getColumns";
 import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useSearchCustomers } from "../hooks/SearchCustomersAPI";
 import { useState } from "react";
-import { PaginationProps } from "@/types";
+import { PaginationProps, SearchParams } from "@/types";
 
 interface CustomerDataGridProps {
-  searchParams: any;
+  searchParams: SearchParams;
 }
 
 export default function CustomerDataGrid({ searchParams }: CustomerDataGridProps) {
@@ -55,13 +55,15 @@ export default function CustomerDataGrid({ searchParams }: CustomerDataGridProps
  
   if (isError) return <div>Something went wrong while fetching customers.</div>;
 
+  const filterIsDelete = data?.items.filter((customer) => !customer.isDeleted)
+
   return (
     <Box width="100%" sx={{
       "& .even-row": { backgroundColor: "#f9f9f9" },
       "& .odd-row": { backgroundColor: "#ffffff" },
     }}>
       <DataGrid
-        rows={data?.items || []}
+        rows={filterIsDelete || []}
         columns={gridColumns}
         rowCount={data?.totalCount || 0} 
         paginationMode="server"           

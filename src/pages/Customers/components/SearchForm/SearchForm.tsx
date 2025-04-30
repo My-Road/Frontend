@@ -6,11 +6,11 @@ import { Trans } from "react-i18next";
 import { validationSchema } from "./formSchema";
 import { initialValues } from "./constants";
 import { SearchFormValues } from "./types";
-import { SearchParams } from "../../types";
-import { Dispatch, SetStateAction } from "react"; // ✅ Correct import
+import { SearchParams } from "@/types";
+import { Dispatch, SetStateAction } from "react"; 
 
 interface SearchFormProps {
-  setSearchParams: Dispatch<SetStateAction<SearchParams>>; // ✅ Type-safe setter
+  setSearchParams: Dispatch<SetStateAction<SearchParams>>; 
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {

@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 export const validationSchema = yup.object({
-  fullName: yup
+  customerName: yup
     .string()
     .required("Please enter your full name")
     .min(2, "Full name must be at least 2 characters"),

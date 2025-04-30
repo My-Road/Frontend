@@ -3,12 +3,12 @@ import AddCustomerForm from "./components/AddCustomerForm";
 import CustomerDataGrid from "./components/CustomerDataGrid";
 import SearchForm from "./components/SearchForm/SearchForm";
 import { useState } from "react";
-import { SearchParams } from "./types";
+import { SearchParams } from "@/types";
 
 export default function DataGridDemo() {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     page: 1,
-    pageSize: 10,
+    pageSize: 15,
     filters: "",
   });
   return (

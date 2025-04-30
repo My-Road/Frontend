@@ -18,7 +18,7 @@ function AddCustomerForm() {
     setExpanded(false);
   };
 
-  const onSubmit = async (
+  const onSubmit = (
     values: AddCustomerPayLoad,
     { resetForm }: FormikHelpers<AddCustomerPayLoad>
   ) => {
@@ -50,9 +50,15 @@ function AddCustomerForm() {
         <FormikProvider value={formikProps}>
           <Form>
             <Stack gap={2}>
-              <TextField name="fullName" aria-label="enter a valid customer name" />
+              <TextField
+                name="customerName"
+                aria-label="enter a valid customer name"
+              />
               <TextField name="email" aria-label="enter a valid email" />
-              <TextField name="phoneNumber" aria-label="enter a valid phone number" />
+              <TextField
+                name="phoneNumber"
+                aria-label="enter a valid phone number"
+              />
               <TextField name="address" aria-label="enter a valid address" />
               <Stack flexDirection="row" alignItems="center" gap={1}>
                 <LoadingButton
