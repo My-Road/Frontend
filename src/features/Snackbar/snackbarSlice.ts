@@ -37,7 +37,6 @@ const snackbarSlice = createSlice({
       action: PayloadAction<ShowSnackbarPayload>
     ) => {
       const payload: ShowSnackbarPayload = {
-        autoHideDuration: null,
         ...action.payload,
         severity: "warning",
       };
