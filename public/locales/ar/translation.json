@@ -15,6 +15,7 @@
     "addToFollowUp": "اضافة الي المتابعات الطبية",
     "deleteCustomer": "حذف الزبون",
     "cancel": "إلغاء",
+    "confirm": "بالتاكيد",
     "book": "حجز",
     "delete": "حذف",
     "print": "طباعة",
@@ -26,11 +27,19 @@
     "edit": "تعديل",
     "deleteSale": "حذف حركة بيع",
     "addSale": "اضافة حركة بيع",
+    "addOrder": "اضافة طلب",
+    "addPayment": "اضافة دفعة",
     "editSale": "تعديل حركة بيع",
     "deleteVisit": "حذف الزيارة",
     "register": "تسجيل الدخول",
     "viewDetails": "عرض التفاصيل",
-    "search": "ابحث"
+    "search": "ابحث",
+    "save": "حفظ"
+  },
+  "Messages":{
+    "heHasDues": "عليه مستحقات",
+    "paid": "مدفوع",
+    "noPurchases": "لم يتم إجراء أي عمليات شراء"
   },
   "Textfields": {
     "userName": "اسم المستخدم",
@@ -68,7 +77,13 @@
     "register": "تسجيل الدخول",
     "selectUserType": "اختر نوع المستخدم",
     "startDate": "تاريخ البداية",
-    "endDate": "تاريخ النهاية"
+    "endDate": "تاريخ النهاية",
+    "totalDueAmount": "المبلغ الاجمالي",
+    "totalPaidAmount": "المبلغ المدفوع",
+    "remainingAmount": "المبلغ المتبقي",
+    "recipientName": "اسم المستلم",
+    "recipientPhoneNumber": "رقم هاتف المستلم",
+    "quantity": "الكمية"
   },
   "TextfieldErrors": {
     "Please enter your email": "ادخل البريد الالكتروني",
@@ -81,6 +96,7 @@
     "Please enter your last name": "ادخل الاسم العائلة",
     "Please enter your father name": "ادخل الاسم الاب",
     "Please enter your full name": "ادخل الاسم الكامل",
+    "Please enter the recipient name": "ادخل اسم المستلم",
     "Please enter a valid email": "ادخل بريد الكتروني صحيح",
     "Email is required": "البريد الالكتروني مطلوب",
     "Please enter a valid phone number": "ادخل رقم هاتف صحيح",
@@ -93,6 +109,11 @@
     "Please enter the Expense": "ادخل المصروف",
     "Please enter the Name": "ادخل الاسم",
     "Please enter the Price": "ادخل السعر",
+    "Please enter the notes": "ادخل الملاحظات",
+    "Please enter the Quantity": "ادخل الكمية",
+    "Quantity is required": "الكمية مطلوبة",
+    "Quantity must more than 0": "الكمية يجب ان تكون اكثر من 0",
+    "Quantity must be an integer": "الكمية يجب ان تكون عدد صحيح",
     "New password must be at least 8 characters": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
     "New password must contain at least one uppercase letter": "يجب أن تحتوي كلمة المرور الجديدة على حرف كبير واحد على الأقل",
     "New password must contain at least one lowercase letter": "يجب أن تحتوي كلمة المرور الجديدة على حرف صغير واحد على الأقل",
@@ -165,6 +186,7 @@
       "Payment": "الدفعة",
       "Notes": "الملاحظات",
       "CustomerName": "اسم الزبون",
+      "RecipientName": "اسم المستلم",
       "Phone": "رقم الهاتف",
       "Debts": "الديون",
       "Price": "السعر",
@@ -172,6 +194,8 @@
       "Product": "المنتج",
       "EmployeeName": "اسم الموظف",
       "NumberOfTreatments": "عدد العلاجات",
+      "TotalDueAmount": "المبلغ الاجمالي",
+      "Quantity": "الكمية",
       "Amount": "المبلغ",
       "Expense": "المصروف",
       "FileNumber": "رقم الملف",
@@ -211,7 +235,17 @@
       "min": "الحد الأدنى",
       "value": "القيمة"
     },
+    "Title": {
+      "deleteCustomer" : "حذف الزبون",
+      "editCustomer": "تعديل الزبون",
+      "deleteOrder": "حذف الطلب",
+      "deletePayment": "حذف الطلب"
+
+    },
     "confirmCustomerDelete": "هل انت متأكد من حذف هذا الزبون؟",
+    "confirmCustomerEdit": "هل انت متأكد من تعديل بيانات هذا الزبون؟",
+    "confirmOrderDelete": "هل انت متأكد من حذف هذا الطلب؟",
+    "confirmPaymentDelete": "هل انت متأكد من حذف هذه الدفعة؟",
     "confirmAppointmentDelete": "هل انت متأكد من حذف هذا الحجز؟",
     "confirmEmployeeDelete": "هل انت متأكد من حذف هذا الموظف؟",
     "confirmVisitDelete": "هل انت متأكد من حذف هذه الزيارة؟",
@@ -240,6 +274,17 @@
       "addExpense": "إضافة مصروف جديد"
     },
     "actions": "الإجراءات"
+  },
+  "PrivatePages": {
+    "Customers": {
+      "addCustomer": "إضافة زبون جديد",
+      "customerInformation": "معلومات الزبون",
+      "financialInformation": "المعلومات المالية",
+      "customerOrders": "طلبات الزبون",
+      "customerPayments": "دفعات الزبون",
+      "addOrder": "اضافة طلب",
+      "addPayment": "اضافة دفعة"
+    }
   },
   "SnackbarMessages": {
     "Something went wrong!": "حدث خطأ ما",
