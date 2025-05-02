@@ -1,6 +1,7 @@
 export interface DialogState {
     isOpen: boolean;
-    title?: string;
-    message?: string;
-    onConfirm?: () => void;
+    title: string;
+    message: string;
+    isPending?: boolean;
+    onConfirm: () => void;
   }
