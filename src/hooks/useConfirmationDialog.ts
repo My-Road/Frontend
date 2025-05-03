@@ -6,13 +6,15 @@ import {
   } from "@/features/ConfirmationDialog";
 import { DialogState } from "@/features/ConfirmationDialog/types";
   import { useAppDispatch, useAppSelector } from "@/store";
+
+  type DialogStateOption = Omit<DialogState,"isOpen">
   
   export const useConfirmationDialog = () => {
     const dispatch = useAppDispatch();
     const dialogState = useAppSelector(selectDialogState);
   
-    const showConfirmationDialog = (options: DialogState) => {
-      dispatch(openDialog(options));
+    const showConfirmationDialog = (options: DialogStateOption) => {
+      dispatch(openDialog({...options, }));
     };
   
     const hideConfirmationDialog = () => {
