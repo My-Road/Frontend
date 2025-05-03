@@ -8,13 +8,17 @@ import { initialValues } from "./constants";
 import { SearchFormValues } from "./types";
 import { Dispatch, SetStateAction } from "react";
 import { SearchParams } from "@/types";
+import SearchIcon from "@mui/icons-material/Search";
 
 interface SearchFormProps {
   setSearchParams: Dispatch<SetStateAction<SearchParams>>;
   dateFieldKey: string;
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams, dateFieldKey }) => {
+const SearchForm: React.FC<SearchFormProps> = ({
+  setSearchParams,
+  dateFieldKey,
+}) => {
   const [isInSearchMode, setIsInSearchMode] = useState(false);
   const onSubmit = (values: SearchFormValues) => {
     setIsInSearchMode(true);
@@ -62,9 +66,32 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams, dateFieldKey }
           alignItems="center"
           gap={2}
         >
-          <TextField name="startDate" type="date" />
-          <TextField name="endDate" type="date" />
-          <Button type="submit" variant="contained" color="primary">
+          <TextField
+            name="startDate"
+            slotProps={{
+              inputLabel: {
+                shrink: true,
+              },
+            }}
+            type="date"
+          />
+          <TextField
+            name="endDate"
+            slotProps={{
+              inputLabel: {
+                shrink: true,
+              },
+            }}
+            type="date"
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            endIcon={<SearchIcon />}
+            sx={{ minWidth: 100 }}
+            disabled={!formikProps.isValid}
+          >
             <Trans i18nKey="Buttons.search">Search</Trans>
           </Button>
           {isInSearchMode && (
@@ -73,6 +100,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams, dateFieldKey }
               variant="contained"
               color="info"
               onClick={handleClearSearch}
+              sx={{ minWidth: 100 }}
             >
               <Trans i18nKey="Buttons.cancel">Clear Search</Trans>
             </Button>
