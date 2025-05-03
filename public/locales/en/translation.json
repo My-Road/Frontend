@@ -34,7 +34,8 @@
     "register": "Register",
     "viewDetails": "viewDetails",
     "search": "Search",
-    "save": "Save"
+    "save": "Save",
+    "notes": "Notes"
   },
   "Messages":{
     "heHasDues": "He has dues",
@@ -149,7 +150,10 @@
     "Price must more than 0": "Price must more than 0",
     "Please enter The Treatment": "Please enter The Treatment",
     "Please enter a Machine name": "Please enter a Machine name",
-    "Customer name is required": "Customer name is required"
+    "Customer name is required": "Customer name is required",
+    "Start date is required": "Start date is required",
+    "Invalid start date": "Invalid start date",
+    "End date cannot be before start date": "End date cannot be before start date"
   },
   "AutoComplete": {
     "treatment": "Treatment",
@@ -283,8 +287,9 @@
       "customerOrders": "Customer Orders",
       "customerPayments": "Customer Payments",
       "addOrder": "Add Order",
-      "addPayment": "Add Payment"
-
+      "addPayment": "Add Payment",
+      "editOrder":"Edit Order",
+      "editPayment": "Edit Payment"
     }
   },
   "SnackbarMessages": {
@@ -389,6 +394,18 @@
     "New password must contain at least one special character": "New password must contain at least one special character",
     "Current password is wrong": "Current password is wrong",
     "Registration successful": "Registration successful",
-    "User Email Already Exists": "User Email Already Exists"
+    "User Email Already Exists": "User Email Already Exists",
+    "No changes made": "No changes made",
+    "Customer Edited Successfully": "Customer Edited Successfully",
+    "Customer deleted successfully": "Customer Deleted Successfully",
+    "Customer Added Successfully": "Customer Adeed Successfully",
+    "Order Added Successfully": "Order Added Successfully",
+    "Order deleted successfully": "Order deleted successfully",
+    "Order Edited Successfully": "Order Edited Successfully",
+    "Cannot remove this order because it would result in overpayment or the customer has already fully paid.": "Cannot remove this order because it would result in overpayment or the customer has already fully paid.",
+    "Payment Added Successfully": "Payment Added Successfully",
+    "Payment deleted successfully": "Payment deleted successfully",
+    "Payment Edited Successfully": "Payment Edited Successfully",
+    "The paid amount is invalid.": "The paid amount is invalid"
   }
 }

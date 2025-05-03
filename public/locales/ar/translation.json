@@ -34,7 +34,8 @@
     "register": "تسجيل الدخول",
     "viewDetails": "عرض التفاصيل",
     "search": "ابحث",
-    "save": "حفظ"
+    "save": "حفظ",
+    "notes": "ملاحظات"
   },
   "Messages":{
     "heHasDues": "عليه مستحقات",
@@ -149,7 +150,10 @@
     "Please select the Product": "الرجاء اختيار المنتج",
     "Please enter a Machine name": "الرجاء ادخال اسم الجهاز",
     "Please enter The Treatment": "الرجاء ادخال العلاج",
-    "Customer name is required": "اسم الزبون مطلوب"
+    "Customer name is required": "اسم الزبون مطلوب",
+    "Start date is required": "تاريخ البداية مطلوب",
+    "Invalid start date": "تاريخ البداية غير صالح",
+    "End date cannot be before start date": "لا يمكن ان يكون تاريخ النهاية قبل تاريخ البداية"
   },
   "AutoComplete": {
     "treatment": "العلاج",
@@ -283,7 +287,9 @@
       "customerOrders": "طلبات الزبون",
       "customerPayments": "دفعات الزبون",
       "addOrder": "اضافة طلب",
-      "addPayment": "اضافة دفعة"
+      "addPayment": "اضافة دفعة",
+      "editOrder":"تعديل الطلب",
+      "editPayment": "تعديل الدفعة"
     }
   },
   "SnackbarMessages": {
@@ -388,6 +394,18 @@
     "New password must contain at least one special character": "كلمة السر يجب أن تحتوي على رمز مميز واحد على الأقل",
     "Current password is wrong": "كلمة المرور الحالية غير صحيحة",
     "Registration successful": "تم التسجيل بنجاح",
-    "User Email Already Exists": "البريد الإلكتروني مستخدم بالفعل"    
+    "User Email Already Exists": "البريد الإلكتروني مستخدم بالفعل",
+    "No changes made": "لم يتم إجراء اي تغييرات",
+    "Customer Edited Successfully": "تم تعديل بيانات الزبون بنجاح",
+    "Customer deleted successfully": "تم حذف الزبون بنجاح",
+    "Customer Added Successfully": "تم اضافة الزبون بنجاح",
+    "Order Added Successfully": "تم اضافة الطلب بنجاح",
+    "Order deleted successfully": "تم حذف الطلب بنجاح",
+    "Order Edited Successfully": "تم تعديل بيانات الطلب بنجاح",
+    "Cannot remove this order because it would result in overpayment or the customer has already fully paid.": "لا يمكن إزالة هذا الطلب لأنه سيؤدي إلى دفع زائد أو لأن العميل قد سدد المبلغ بالكامل بالفعل",
+    "Payment Added Successfully": "تم اضافة الدفعة بنجاح",
+    "Payment deleted successfully": "تم حذف الدفعة بنجاح",
+    "Payment Edited Successfully": "تم تعديل الدفعة بنجاح",
+    "The paid amount is invalid.": "المبلغ المدفوع غير صالح"
   }
 }
