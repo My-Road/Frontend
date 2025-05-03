@@ -1,73 +1,117 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { getColumns } from "./util/getColumns";
 import { useState } from "react";
-import { PaginationProps, SearchParams } from "@/types";
+import { useTranslation } from "react-i18next";
+import { FormikHelpers } from "formik";
 
-import { Trans, useTranslation } from "react-i18next";
+import { PaginationProps, SearchParams } from "@/types";
+import { Payment, CustomerPaymentPayload } from "../../types";
 import { useSearchPayments } from "../../hooks/useSearchPaymentsAPI";
-import { Payment } from "../../types";
-import { formatDate } from "../../utils/formatDate";
 import useDeletePaymentAPI from "../../hooks/useDeletePaymentAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
+import useUpdatePaymentDataAPI from "../../hooks/useUpdatePaymentDataAPI";
+import { useSnackBar } from "@/hooks/useSnackbar";
 
+import PaymentFormDialog from "./PaymentFormDialog";
+import DataGridActions from "../DataGridActions";
+import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
+
+import { transformPaymentToPayload } from "./util/transformPaymentToPayload";
+import { getGenericGridColumns } from "@/constants/gridColumns";
+
+// Component Props interface
 interface Props {
   searchParams: SearchParams;
   customerId: number;
 }
 
 export default function PaymentDataGrid({ searchParams, customerId }: Props) {
+  // State variables
   const [paginationModel, setPaginationModel] = useState<PaginationProps>({
     page: 1,
     pageSize: 15,
   });
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const [noteDialogOpen, setNoteDialogOpen] = useState(false);
+  const [selectedPayment, setSelectedPayment] =
+    useState<CustomerPaymentPayload | null>(null);
+  const [noteContent, setNoteContent] = useState<string>("");
 
+  // API hooks
   const { data, isLoading, isError } = useSearchPayments(customerId, {
     ...searchParams,
     page: paginationModel.page + 1,
     pageSize: paginationModel.pageSize,
   });
-  const { showConfirmationDialog } = useConfirmationDialog();
-
   const { deletePayment, isPending } = useDeletePaymentAPI();
+  const { updatePayment, isPending: isEditing } = useUpdatePaymentDataAPI();
+
+  // Snackbar & Dialog hooks
+  const { showConfirmationDialog } = useConfirmationDialog();
+  const { showWarningSnackbar } = useSnackBar();
+
+  // Translations
   const { t } = useTranslation();
 
   const gridColumns: GridColDef[] = [
+    getGenericGridColumns(t).paymentDate(),
+    getGenericGridColumns(t).amount(),
     {
-      field: "paymentDate",
-      headerName: t("Tables.Headers.Date"),
-      flex: 1,
-      minWidth: 120,
-      renderCell: (params) => formatDate(params.row.paymentDate),
-    },
-    ...getColumns(t),
-    {
-      field: "actions",
-      headerName: t("Tables.Headers.Actions"),
-      flex: 1,
-      minWidth: 100,
-      sortable: false,
+      ...getGenericGridColumns(t).actions(),
       renderCell: (params) => (
-        <Button
-          variant="outlined"
-          size="small"
-          onClick={() => handleView(params.row)}
-        >
-          <Trans i18nKey="Buttons.delete">Delete</Trans>
-        </Button>
+        <DataGridActions<Payment>
+          row={params.row}
+          onDelete={handleDelete}
+          onEdit={(row) => handleEdit(transformPaymentToPayload(row))}
+          onViewNotes={handleViewNotes}
+        />
       ),
     },
   ];
-  if (isError) return <div>Something went wrong while fetching customers.</div>;
 
-  const handleView = (row: Payment) => {
-    console.log(row.id);
+  // Handling Errors
+  if (isError) return <div>{t("Errors.fetchPayments")}</div>;
+
+  // Handlers
+  const handleViewNotes = (order: Payment) => {
+    setNoteContent(order.notes ?? "");
+    setNoteDialogOpen(true);
+  };
+
+  const handleDelete = (row: Payment) => {
     showConfirmationDialog({
-      isOpen: true,
       message: t("Dialogs.confirmPaymentDelete"),
       onConfirm: () => deletePayment(row.id),
-      isPending: isPending || false,
+      isPending,
       title: t("Dialogs.Title.deletePayment"),
+    });
+  };
+
+  const handleEdit = (order: CustomerPaymentPayload) => {
+    setSelectedPayment(order);
+    setEditDialogOpen(true);
+  };
+
+  const handleUpdate = (
+    values: CustomerPaymentPayload,
+    helpers: FormikHelpers<CustomerPaymentPayload>
+  ) => {
+    if (!selectedPayment) return;
+
+    // Check if any data was changed
+    const isEqual = JSON.stringify(values) === JSON.stringify(selectedPayment);
+    if (isEqual) {
+      helpers.setSubmitting(false);
+      setEditDialogOpen(false);
+      showWarningSnackbar({ message: t("No changes made") });
+      return;
+    }
+
+    updatePayment(values, {
+      onSuccess: () => {
+        helpers.resetForm();
+        setEditDialogOpen(false);
+      },
     });
   };
 
@@ -95,22 +139,26 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
           }
         />
       </Box>
-      {/* <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>Order Details</DialogTitle>
-          <DialogContent dividers>
-            <Typography>
-              <strong>Amount:</strong> ${selectedRow?.amount.toFixed(2)}
-            </Typography>
-            <Typography sx={{ mt: 1 }}>
-              <strong>Notes:</strong> {selectedRow?.notes}
-            </Typography>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} variant="contained" color="primary">
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog> */}
+
+      {/* Text Preview Dialog for Notes */}
+      <TextPreviewDialog
+        open={noteDialogOpen}
+        onClose={() => setNoteDialogOpen(false)}
+        content={noteContent}
+        title={t("Tables.Headers.Notes")}
+      />
+
+      {/* Payment Edit Form Dialog */}
+      {selectedPayment && (
+        <PaymentFormDialog
+          open={editDialogOpen}
+          handleClose={() => setEditDialogOpen(false)}
+          initialValues={selectedPayment}
+          onSubmit={handleUpdate}
+          isPending={isEditing}
+          title={t("PrivatePages.Customers.editPayment")}
+        />
+      )}
     </>
   );
 }

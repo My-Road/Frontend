@@ -12,11 +12,11 @@ interface Props {
 }
 
 function CustomerPayments({ customerId }: Props) {
-    const [searchParams, setSearchParams] = useState<SearchParams>({
-      page: 1,
-      pageSize: 15,
-      filters: "",
-    });
+  const [searchParams, setSearchParams] = useState<SearchParams>({
+    page: 1,
+    pageSize: 15,
+    filters: "",
+  });
   return (
     <Paper>
       <Stack p={4} gap={4}>
@@ -28,9 +28,14 @@ function CustomerPayments({ customerId }: Props) {
           </Typography>
           <Divider />
         </Box>
-        <AddPaymentForm customerId={customerId} />
-        <SearchForm setSearchParams = {setSearchParams} dateFieldKey="paymentDate" />
-        <PaymentDataGrid searchParams = {searchParams} customerId = {customerId} />
+        <Box mb={3}>
+          <AddPaymentForm customerId={customerId} />
+        </Box>
+        <SearchForm
+          setSearchParams={setSearchParams}
+          dateFieldKey="paymentDate"
+        />
+        <PaymentDataGrid searchParams={searchParams} customerId={customerId} />
       </Stack>
     </Paper>
   );

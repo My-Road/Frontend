@@ -234,5 +234,63 @@ export const getGenericGridColumns = (
       flex: 1,
       minWidth: 120,
     }),
+    paymentDate: (fieldName = "paymentDate") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Date"),
+      flex: 1,
+      type: "date",
+      valueFormatter: (_, row) =>
+        dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
+      minWidth: 150,
+    }),
+    orderDate: (fieldName = "orderDate") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Date"),
+      flex: 1,
+      type: "date",
+      valueFormatter: (_, row) =>
+        dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
+      minWidth: 150,
+    }),
+    recipientName: (fieldName = "recipientName") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.RecipientName"),
+      sortable: false,
+      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
+      flex: 1,
+      minWidth: 120,
+    }),
+    recipientPhoneNumber: (fieldName = "recipientPhoneNumber") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Phone"),
+      sortable: false,
+      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
+      flex: 1,
+      minWidth: 120,
+    }),
+    quantity: (fieldName = "quantity") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Quantity"),
+      sortable: false,
+      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
+      flex: 1,
+      minWidth: 120,
+    }),
+    price: (fieldName = "price") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Price"),
+      sortable: false,
+      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
+      flex: 1,
+      minWidth: 120,
+    }),
+    totalDueAmount: (fieldName = "totalDueAmount") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.TotalDueAmount"),
+      sortable: false,
+      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
+      flex: 1,
+      minWidth: 120,
+    }),
   };
 };

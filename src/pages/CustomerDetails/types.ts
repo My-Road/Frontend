@@ -19,18 +19,30 @@ export interface CustomerPaymentPayload {
 
 export interface Order {
   id: number;
-  orderDate: string; // ISO string format like "2025-05-01T15:12:07.663"
+  orderDate: string; 
   recipientName: string;
   recipientPhoneNumber: string;
   quantity: number;
   price: number;
   totalDueAmount: number;
-  notes?: string;
+  notes: string;
   customerId: number;
-  customer: Customer | null; // Replace `any` with a proper `Customer` interface if available
+  customer: Customer | null; 
   isDeleted: boolean;
   deletedAt: string | null;
   isCompleted: boolean;
+  createdByUserId: number;
+}
+
+
+export interface CustomerOrderPayload {
+  recipientName: string;
+  recipientPhoneNumber: string;
+  quantity: number;
+  price: number;
+  orderDate: Date;
+  notes: string;
+  customerId: number;
   createdByUserId: number;
 }
 
@@ -45,12 +57,9 @@ export interface Payment {
   id: number
 }
 
-export interface SearchResponseForOrders {
+export interface SearchResponseForOrders extends SearchParams{
   items: Order[];
   totalCount: number;
-  page: number;
-  pageSize: number;
-  totalPages: number;
 }
 
 export interface SearchResponseForPayments extends SearchParams {
@@ -59,13 +68,3 @@ export interface SearchResponseForPayments extends SearchParams {
 }
 
 
-export interface CustomerOrderPayload {
-  recipientName: string;
-  recipientPhoneNumber: string;
-  quantity: number;
-  price: number;
-  orderDate: Date;
-  notes: string;
-  customerId: number;
-  createdByUserId: number;
-}

@@ -10,7 +10,7 @@ const useAddOrderAPI = () => {
     mutationFn: addOrderAPI,
     onSuccess: () => {
       showSuccessSnackbar({
-        message: "Payment Added Successfully",
+        message: "Order Added Successfully",
       });
     },
   });

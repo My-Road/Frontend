@@ -1,5 +1,5 @@
 import { axiosInstance } from "@/config/axios.config";
-import { CustomerOrderPayload, SearchResponseForOrders } from "../../types";
+import { CustomerOrderPayload, Order, SearchResponseForOrders } from "../../types";
 import { SearchParams } from "@/types";
 // import { SearchParams } from "@/types";
 // import { SearchResponse } from "@/pages/Customers/types";
@@ -20,4 +20,9 @@ export const searchOrdersAPI = async (id: number, params?: SearchParams) => {
 export const deleteOrderAPI = async (id: number) => {
   const res = await axiosInstance.delete(`/api/v1/order/${id}`);
   return res.data;
+};
+
+export const updateOrderDataAPI = async (customerOrder: CustomerOrderPayload) => {
+  const res = await axiosInstance.put(`/api/v1/order`, customerOrder);
+  return res.data as Order;
 };
