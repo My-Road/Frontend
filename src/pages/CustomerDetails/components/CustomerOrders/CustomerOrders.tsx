@@ -29,8 +29,13 @@ function CustomerOrders({ customerId }: Props) {
           </Typography>
           <Divider />
         </Box>
-        <AddOrderForm customerId={customerId} />
-        <SearchForm setSearchParams={setSearchParams} dateFieldKey="orderDate" />
+        <Box mb={3}>
+          <AddOrderForm customerId={customerId} />
+        </Box>
+        <SearchForm
+          setSearchParams={setSearchParams}
+          dateFieldKey="orderDate"
+        />
         <OrdersDataGrid customerId={customerId} searchParams={searchParams} />
       </Stack>
     </Paper>

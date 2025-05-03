@@ -1,15 +1,25 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { getColumns } from "./util/getColumns";
 import { useState } from "react";
-import { PaginationProps, SearchParams } from "@/types";
-import { Order } from "../../types";
-import { useSearchOrders } from "../../hooks/useSearchOrders";
+import { useTranslation } from "react-i18next";
+import { FormikHelpers } from "formik";
 
-import { Trans, useTranslation } from "react-i18next";
+import { PaginationProps, SearchParams } from "@/types";
+import { CustomerOrderPayload, Order } from "../../types";
+
+import { useSearchOrders } from "../../hooks/useSearchOrders";
 import useDeleteOrderAPI from "../../hooks/useDeleteOrderAPI";
-import { formatDate } from "../../utils/formatDate";
+import useUpdateOrderDataAPI from "../../hooks/useUpdateOrderDataAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
+import { useSnackBar } from "@/hooks/useSnackbar";
+
+
+import { transformOrderToPayload } from "./util/transformOrderToPayload";
+
+import OrderFormDialog from "./OrderFormDialog";
+import DataGridActions from "../DataGridActions";
+import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
+import { getGenericGridColumns } from "@/constants/gridColumns";
 
 interface Props {
   searchParams: SearchParams;
@@ -17,10 +27,19 @@ interface Props {
 }
 
 export default function OrdersDataGrid({ searchParams, customerId }: Props) {
+  const { t } = useTranslation();
+
   const [paginationModel, setPaginationModel] = useState<PaginationProps>({
     page: 1,
     pageSize: 15,
   });
+
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const [selectedOrder, setSelectedOrder] =
+    useState<CustomerOrderPayload | null>(null);
+
+  const [noteDialogOpen, setNoteDialogOpen] = useState(false);
+  const [noteContent, setNoteContent] = useState<string>("");
 
   const { data, isLoading, isError } = useSearchOrders(customerId, {
     ...searchParams,
@@ -28,48 +47,73 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
     pageSize: paginationModel.pageSize,
   });
 
-  const { t } = useTranslation();
+  const { updateOrder, isPending: isEditing } = useUpdateOrderDataAPI();
   const { deleteOrder, isPending } = useDeleteOrderAPI();
+
   const { showConfirmationDialog } = useConfirmationDialog();
+  const { showWarningSnackbar } = useSnackBar();
+
+  const handleDelete = (order: Order) => {
+    showConfirmationDialog({
+      message: t("Dialogs.confirmOrderDelete"),
+      title: t("Dialogs.Title.deleteOrder"),
+      onConfirm: () => deleteOrder(order.id),
+      isPending: isPending || false,
+    });
+  };
+
+  const handleEdit = (order: CustomerOrderPayload) => {
+    setSelectedOrder(order);
+    setEditDialogOpen(true);
+  };
+
+  const handleUpdate = (
+    values: CustomerOrderPayload,
+    helpers: FormikHelpers<CustomerOrderPayload>
+  ) => {
+    if (!selectedOrder) return;
+
+    const noChanges = JSON.stringify(values) === JSON.stringify(selectedOrder);
+    if (noChanges) {
+      helpers.setSubmitting(false);
+      setEditDialogOpen(false);
+      showWarningSnackbar({ message: "No changes made" });
+      return;
+    }
+
+    updateOrder(values, {
+      onSuccess: () => {
+        helpers.resetForm();
+        setEditDialogOpen(false);
+      },
+    });
+  };
+
+  const handleViewNotes = (order: Order) => {
+    setNoteContent(order.notes ?? "");
+    setNoteDialogOpen(true);
+  };
 
   const gridColumns: GridColDef[] = [
+    getGenericGridColumns(t).orderDate(),
+    getGenericGridColumns(t).recipientName(),
+    getGenericGridColumns(t).recipientPhoneNumber(),
+    getGenericGridColumns(t).quantity(),
+    getGenericGridColumns(t).price(),
     {
-      field: "orderDate",
-      headerName: t("Tables.Headers.Date"),
-      flex: 1,
-      minWidth: 120,
-      renderCell: (params) => formatDate(params.row.orderDate),
-    },
-    ...getColumns(t),
-    {
-      field: "actions",
-      headerName: t("Tables.Headers.Actions"),
-      flex: 1,
-      minWidth: 100,
-      sortable: false,
+      ...getGenericGridColumns(t).actions(),
       renderCell: (params) => (
-        <Button
-          variant="outlined"
-          size="small"
-          onClick={() => handleView(params.row)}
-        >
-          <Trans i18nKey="Buttons.delete">Delete</Trans>
-        </Button>
+        <DataGridActions<Order>
+          row={params.row}
+          onDelete={handleDelete}
+          onEdit={(row) => handleEdit(transformOrderToPayload(row))}
+          onViewNotes={handleViewNotes}
+        />
       ),
     },
   ];
-  if (isError) return <div>Something went wrong while fetching customers.</div>;
 
-  const handleView = (row: Order) => {
-    console.log(row.id);
-    showConfirmationDialog({
-      isOpen: true,
-      message: t("Dialogs.confirmOrderDelete"), 
-      onConfirm: () => deleteOrder(row.id), 
-      isPending: isPending || false, 
-      title: t("Dialogs.Title.deleteOrder"),
-    });
-  };
+  if (isError) return <div>{t("Errors.fetchingData")}</div>;
 
   return (
     <>
@@ -95,22 +139,24 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
           }
         />
       </Box>
-      {/* <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Order Details</DialogTitle>
-        <DialogContent dividers>
-          <Typography>
-            <strong>Amount:</strong> ${selectedRow?.amount.toFixed(2)}
-          </Typography>
-          <Typography sx={{ mt: 1 }}>
-            <strong>Notes:</strong> {selectedRow?.notes}
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} variant="contained" color="primary">
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog> */}
+
+      <TextPreviewDialog
+        open={noteDialogOpen}
+        onClose={() => setNoteDialogOpen(false)}
+        content={noteContent}
+        title={t("Tables.Headers.Notes")}
+      />
+
+      {selectedOrder && (
+        <OrderFormDialog
+          open={editDialogOpen}
+          handleClose={() => setEditDialogOpen(false)}
+          initialValues={selectedOrder}
+          onSubmit={handleUpdate}
+          isPending={isEditing}
+          title={t("PrivatePages.Customers.editOrder")}
+        />
+      )}
     </>
   );
 }

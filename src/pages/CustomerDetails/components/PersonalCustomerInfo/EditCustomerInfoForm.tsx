@@ -13,6 +13,7 @@ import { useAppDispatch } from "@/store";
 import { openDialog } from "@/features/ConfirmationDialog";
 import { Trans, useTranslation } from "react-i18next";
 import { useSnackBar } from "@/hooks/useSnackbar";
+import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 
 interface Props {
   customerData: CustomerData;
@@ -29,7 +30,8 @@ function EditCustomerInfoForm({
   const { updateCustomer, isPending } = useUpdateCustomerDataAPI();
   const { deleteCustomer, isPending: isDeleting } = useDeleteCustomerAPI();
   const { t } = useTranslation();
-  const {showWarningSnackbar} = useSnackBar();
+  const { showWarningSnackbar } = useSnackBar();
+  const { showConfirmationDialog } = useConfirmationDialog();
 
   const onSubmit = (values: CustomerData) => {
     const hasChanged = JSON.stringify(values) !== JSON.stringify(customerData);
@@ -37,20 +39,19 @@ function EditCustomerInfoForm({
     if (!hasChanged) {
       setIsEditing(false);
       showWarningSnackbar({
-        message: "Your data didn't changed"
+        message: "No changes made",
       });
       return;
     }
-
-    dispatch(
-      openDialog({
-        title: t("Dialogs.Title.editCustomer"),
-        message: t("Dialogs.confirmCustomerEdit"),
-        onConfirm: () => updateCustomer(values, {
-          onSuccess : () => setIsEditing(false)
+    showConfirmationDialog({
+      title: t("Dialogs.Title.editCustomer"),
+      message: t("Dialogs.confirmCustomerEdit"),
+      onConfirm: () =>
+        updateCustomer(values, {
+          onSuccess: () => setIsEditing(false),
         }),
-      })
-    );
+      isPending,
+    });
   };
 
   const handleCancelClick = () => {
@@ -60,6 +61,12 @@ function EditCustomerInfoForm({
 
   const handleDeleteClick = () => {
     formikProps.resetForm();
+    showConfirmationDialog({
+      title: t("Dialogs.Title.deleteCustomer"),
+      message: t("Dialogs.confirmCustomerDelete"),
+      onConfirm: () => deleteCustomer(customerData.id),
+      isPending: isDeleting
+    });
     dispatch(
       openDialog({
         title: t("Dialogs.Title.deleteCustomer"),

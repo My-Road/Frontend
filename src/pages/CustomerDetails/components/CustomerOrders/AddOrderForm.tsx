@@ -1,26 +1,15 @@
 import { useState } from "react";
-import {
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Stack,
-  Box,
-} from "@mui/material";
-import { FormikHelpers, FormikProvider, useFormik, Form } from "formik";
+import { Button, Box } from "@mui/material";
+import { FormikHelpers } from "formik";
 import { useSelector } from "react-redux";
-import {
-  selectUser
-} from "@/features/User";
+import { selectUser } from "@/features/User";
 
-import TextField from "@/components/Fields/TextField";
-import { LoadingButton } from "@mui/lab";
 import { Trans } from "react-i18next";
 import { CustomerOrderPayload } from "../../types";
-import { validationSchema } from "./formSchema";
 import { initialValues } from "./constants";
 import useAddOrderAPI from "../../hooks/useAddOrderAPI";
+import AddIcon from "@mui/icons-material/Add";
+import OrderFormDialog from "./OrderFormDialog";
 
 interface Props {
   customerId: number;
@@ -31,78 +20,43 @@ function AddOrderForm({ customerId }: Props) {
   const { addOrder, isPending } = useAddOrderAPI();
   const user = useSelector(selectUser);
   const handleClose = () => setOpen(false);
-  console.log(user.uid);
-    
-  const onSubmit = async (
+
+  const handleAdd = (
     values: CustomerOrderPayload,
-    { resetForm }: FormikHelpers<CustomerOrderPayload>
+    helpers: FormikHelpers<CustomerOrderPayload>
   ) => {
-    values = { ...values, customerId, createdByUserId: Number(user.uid) };
-   
-    addOrder(values, {
+    const payload = {
+      ...values,
+      customerId,
+      createdByUserId: Number(user.uid),
+    };
+
+    addOrder(payload, {
       onSuccess: () => {
-        resetForm();
+        helpers.resetForm();
         handleClose();
       },
     });
   };
 
-  const formikProps = useFormik({
-    initialValues,
-    onSubmit,
-    validationSchema,
-  });
-
   return (
     <Box>
-      <Button variant="contained" onClick={() => setOpen(true)}>
+      <Button
+        variant="contained"
+        endIcon={<AddIcon />}
+        onClick={() => setOpen(true)}
+      >
         <Trans i18nKey="Buttons.addOrder">Add Order</Trans>
       </Button>
 
-      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
-        <DialogTitle sx={{ fontWeight: "bold", textAlign: "center" }}>
-          <Trans i18nKey="PrivatePages.Customers.addOrder">Add Order</Trans>
-        </DialogTitle>
-
-        <FormikProvider value={formikProps}>
-          <Form>
-            <DialogContent>
-              <Stack gap={2}>
-                <TextField
-                  name="recipientName"
-                  aria-label="enter a valid recipientName"
-                />
-                <TextField
-                  name="recipientPhoneNumber"
-                  aria-label="enter a valid recipientPhoneNumber"
-                />
-                <TextField
-                  name="quantity"
-                  aria-label="enter a valid quantity"
-                />
-                <TextField name="price" aria-label="enter a valid price" />
-                <TextField
-                  name="notes"
-                  aria-label="enter a valid payment date"
-                />
-              </Stack>
-            </DialogContent>
-            <DialogActions sx={{ px: 3, pb: 2 }}>
-              <LoadingButton
-                type="submit"
-                variant="contained"
-                color="primary"
-                loading={isPending}
-              >
-                <Trans i18nKey="Buttons.add">Add</Trans>
-              </LoadingButton>
-              <Button variant="contained" color="error" onClick={handleClose}>
-                <Trans i18nKey="Buttons.cancel">Cancel</Trans>
-              </Button>
-            </DialogActions>
-          </Form>
-        </FormikProvider>
-      </Dialog>
+      <OrderFormDialog
+        open={open}
+        handleClose={handleClose}
+        initialValues={initialValues}
+        onSubmit={handleAdd}
+        isPending={isPending}
+        title="PrivatePages.Customers.addOrder"
+      />
     </Box>
   );
 }
