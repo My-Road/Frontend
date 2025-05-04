@@ -66,7 +66,7 @@ export default function GenericFormDialog<T extends FormikValues>({
           <DialogContent>
             <Stack gap={2}>{children}</Stack>
           </DialogContent>
-          <DialogActions sx={{ px: 3, pb: 2 }}>
+          <DialogActions sx={{ px: 3, pb: 2, display:"flex", justifyContent:"flex-start" }}>
             <LoadingButton
               type="submit"
               variant="contained"
