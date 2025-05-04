@@ -71,7 +71,6 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
     },
   ];
 
-  // Handling Errors
   if (isError) return <div>{t("Errors.fetchPayments")}</div>;
 
   // Handlers

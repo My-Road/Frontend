@@ -406,6 +406,8 @@
     "Payment Added Successfully": "تم اضافة الدفعة بنجاح",
     "Payment deleted successfully": "تم حذف الدفعة بنجاح",
     "Payment Edited Successfully": "تم تعديل الدفعة بنجاح",
-    "The paid amount is invalid.": "المبلغ المدفوع غير صالح"
+    "The paid amount is invalid.": "المبلغ المدفوع غير صالح",
+    "Customer with phone number already exists": "رقم الهاتف مسجّل مسبقا",
+    "Customer with email already exists": "البريد الإلكتروني مسجّل مسبقا"
   }
 }

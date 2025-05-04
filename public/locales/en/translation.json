@@ -406,6 +406,8 @@
     "Payment Added Successfully": "Payment Added Successfully",
     "Payment deleted successfully": "Payment deleted successfully",
     "Payment Edited Successfully": "Payment Edited Successfully",
-    "The paid amount is invalid.": "The paid amount is invalid"
+    "The paid amount is invalid.": "The paid amount is invalid",
+    "Customer with phone number already exists": "Customer with phone number already exists",
+    "Customer with email already exists": "Customer with email already exists"
   }
 }

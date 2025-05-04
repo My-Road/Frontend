@@ -9,7 +9,9 @@ export const validationSchema = yup.object({
   email: yup
     .string()
     .email("Please enter a valid email")
-    .required("Please enter your email"),
+    .required("Please enter your email")
+    .nullable()
+    .notRequired(),
 
   phoneNumber: yup
     .string()

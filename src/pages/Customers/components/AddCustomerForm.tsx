@@ -9,6 +9,7 @@ import { initialValues } from "../constants";
 import { AddCustomerPayLoad } from "../types";
 import { validationSchema } from "../formSchema";
 import useAddCustomerAPI from "../hooks/useAddCustomerAPI";
+import AddIcon from "@mui/icons-material/Add";
 
 function AddCustomerForm() {
   const [expanded, setExpanded] = useState(false);
@@ -16,6 +17,7 @@ function AddCustomerForm() {
 
   const handleCancel = () => {
     setExpanded(false);
+    formikProps.resetForm();
   };
 
   const onSubmit = (
@@ -66,8 +68,9 @@ function AddCustomerForm() {
                   variant="contained"
                   color="primary"
                   loading={isPending}
+                  endIcon={<AddIcon />}
                 >
-                  <Trans i18nKey="Buttons.add">Reset</Trans>
+                  <Trans i18nKey="Buttons.add">Add</Trans>
                 </LoadingButton>
                 <Button
                   variant="contained"

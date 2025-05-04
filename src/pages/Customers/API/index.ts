@@ -1,5 +1,5 @@
 import { axiosInstance } from "@/config/axios.config";
-import { AddCustomerPayLoad, SearchResponse } from "../types";
+import { AddCustomerPayLoad, SearchResponseForCustomers } from "../types";
 import { SearchParams } from "@/types";
 
 export const addCustomerAPI = async (payload: AddCustomerPayLoad) => {
@@ -12,8 +12,8 @@ export const addCustomerAPI = async (payload: AddCustomerPayLoad) => {
 
 export const searchCustomersAPI = async (
   params: SearchParams
-): Promise<SearchResponse> => {
-  const res = await axiosInstance.post<SearchResponse>(
+): Promise<SearchResponseForCustomers> => {
+  const res = await axiosInstance.post<SearchResponseForCustomers>(
     "/api/v1/customer/search",
     params
   );

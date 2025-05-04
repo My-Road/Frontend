@@ -45,12 +45,13 @@ export const getGenericGridColumns = (
       minWidth: 150,
       sortable: false,
     }),
-    phone1: (fieldName = "phone1") => ({
+    phoneNumber: (fieldName = "phoneNumber") => ({
       field: fieldName,
       sortable: false,
-      minWidth: 150,
-      headerName: t("Tables.Headers.FirstPhone"),
       flex: 1,
+      editable: true,
+      minWidth: 130,
+      headerName: t("Tables.Headers.Phone"),
     }),
     phone2: (fieldName = "phone2") => ({
       field: fieldName,
@@ -285,6 +286,14 @@ export const getGenericGridColumns = (
       minWidth: 120,
     }),
     totalDueAmount: (fieldName = "totalDueAmount") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.TotalDueAmount"),
+      sortable: false,
+      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
+      flex: 1,
+      minWidth: 120,
+    }),
+    id: (fieldName = "id") => ({
       field: fieldName,
       headerName: t("Tables.Headers.TotalDueAmount"),
       sortable: false,

@@ -8,13 +8,14 @@ import { initialValues } from "./constants";
 import { SearchFormValues } from "./types";
 import { SearchParams } from "@/types";
 import { Dispatch, SetStateAction } from "react"; 
+import SearchIcon from "@mui/icons-material/Search";
 
 interface SearchFormProps {
   setSearchParams: Dispatch<SetStateAction<SearchParams>>; 
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
-  const [isInSearchMode, setIsInSearchMode] = useState<boolean>(false);
+  const [isInSearchMode, setIsInSearchMode] = useState(false);
   const onSubmit = (values: SearchFormValues) => {
     setIsInSearchMode(true);
     setSearchParams((prev: SearchParams) => ({
@@ -49,7 +50,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
           gap={2}
         >
           <TextField name="customerName" />
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="contained" color="primary" endIcon = {<SearchIcon/>}>
             <Trans i18nKey="Buttons.search">Search</Trans>
           </Button>
           {isInSearchMode && (

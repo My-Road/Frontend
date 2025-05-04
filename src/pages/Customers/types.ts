@@ -1,4 +1,4 @@
-import { Customer } from "@/types";
+import { Customer, SearchParams } from "@/types";
 
 export interface AddCustomerPayLoad {
   customerName: string;
@@ -7,10 +7,7 @@ export interface AddCustomerPayLoad {
   address: string;
 }
 
-export interface SearchResponse {
+export interface SearchResponseForCustomers extends SearchParams {
   items: Customer[];
   totalCount: number;
-  page: number;
-  pageSize: number;
-  totalPages: number;
 }
