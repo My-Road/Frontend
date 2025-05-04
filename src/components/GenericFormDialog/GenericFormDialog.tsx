@@ -43,11 +43,21 @@ export default function GenericFormDialog<T extends FormikValues>({
     initialValues,
     onSubmit,
     validationSchema,
-    enableReinitialize: true,
+    enableReinitialize: true, 
   });
 
+  const closeDialog = () => {
+    formik.resetForm(); 
+    handleClose();
+  };
+
   return (
-    <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
+    <Dialog
+      open={open}
+      onClose={closeDialog}
+      fullWidth
+      maxWidth="sm"
+    >
       <DialogTitle sx={{ fontWeight: "bold", textAlign: "center" }}>
         {title}
       </DialogTitle>
@@ -64,7 +74,7 @@ export default function GenericFormDialog<T extends FormikValues>({
             >
               <Trans i18nKey="Buttons.save">Save</Trans>
             </LoadingButton>
-            <Button variant="contained" color="error" onClick={handleClose}>
+            <Button variant="contained" color="error" onClick={closeDialog}>
               <Trans i18nKey="Buttons.cancel">Cancel</Trans>
             </Button>
           </DialogActions>
