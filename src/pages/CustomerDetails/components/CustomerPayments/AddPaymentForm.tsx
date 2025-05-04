@@ -50,7 +50,7 @@ function AddPaymentForm({ customerId }: Props) {
         initialValues={initialValues}
         onSubmit={handleAddPayment}
         isPending={isPending}
-        title={t("PrivatePages.Customers.addPayments")}
+        title={t("PrivatePages.Customers.addPayment")}
       />
     </Box>
   );

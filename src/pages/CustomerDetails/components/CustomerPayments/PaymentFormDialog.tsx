@@ -35,7 +35,7 @@ const PaymentFormDialog = ({
       validationSchema={paymentValidationSchema}
     >
       <TextField name="amount" aria-label="Enter a valid amount" />
-      <TextField name="notes" aria-label="Enter a valid notes" />
+      <TextField name="notes" multiline rows={4} aria-label="Enter a valid notes" />
     </GenericFormDialog>
   );
 };
