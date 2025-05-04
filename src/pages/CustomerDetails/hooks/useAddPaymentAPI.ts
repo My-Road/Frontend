@@ -12,9 +12,9 @@ const useAddPaymentAPI = () => {
       showSuccessSnackbar({
         message: "Payment Added Successfully",
       });
+      queryClient.invalidateQueries({ queryKey: ["payments"] });
     },
   });
-  queryClient.invalidateQueries({queryKey: ["payments"]})
 
   return {
     addPayment,

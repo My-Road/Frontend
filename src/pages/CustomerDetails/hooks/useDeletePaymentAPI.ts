@@ -10,10 +10,10 @@ const useDeletePaymentAPI = () => {
     mutationFn: (id: number) => deletePaymentAPI(id),
     onSuccess: () => {
       showSuccessSnackbar({ message: "Payment deleted successfully" });
+      queryClient.invalidateQueries({ queryKey: ["payments"] });
+      queryClient.invalidateQueries({ queryKey: ["customer"] });
     },
   });
-  queryClient.invalidateQueries({queryKey: ["payments"]})
-  queryClient.invalidateQueries({queryKey: ["customer"]})
 
   return {
     deletePayment,

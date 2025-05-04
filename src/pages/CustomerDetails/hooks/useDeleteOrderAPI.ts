@@ -10,10 +10,10 @@ const useDeleteOrderAPI = () => {
     mutationFn: (id: number) => deleteOrderAPI(id),
     onSuccess: () => {
       showSuccessSnackbar({ message: "Order deleted successfully" });
+      queryClient.invalidateQueries({ queryKey: ["orders"] });
+      queryClient.invalidateQueries({ queryKey: ["customer"] });
     },
   });
-  queryClient.invalidateQueries({queryKey: ["orders"]})
-  queryClient.invalidateQueries({queryKey: ["customer"]})
 
   return {
     deleteOrder,

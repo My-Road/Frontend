@@ -12,9 +12,9 @@ const useAddOrderAPI = () => {
       showSuccessSnackbar({
         message: "Order Added Successfully",
       });
-    },
+      queryClient.invalidateQueries({queryKey: ["orders"]})
+    }
   });
-  queryClient.invalidateQueries({queryKey: ["orders"]})
 
   return {
     addOrder,
