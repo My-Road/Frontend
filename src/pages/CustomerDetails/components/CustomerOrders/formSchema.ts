@@ -12,12 +12,14 @@ export const validationSchema: yup.ObjectSchema<CustomerOrderPayload> =
 
     quantity: yup
       .number()
+      .typeError("Quantity must be an integer")
       .required("Please enter the Quantity")
       .positive("Quantity must more than 0")
       .integer("Quantity must be an integer"),
 
     price: yup
       .number()
+      .typeError("Price must be a number")
       .required("Please enter the Price")
       .positive("Price must more than 0"),
 
