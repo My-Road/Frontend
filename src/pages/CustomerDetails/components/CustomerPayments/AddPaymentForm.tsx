@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Box } from "@mui/material";
 import { FormikHelpers } from "formik";
 
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { CustomerPaymentPayload } from "../../types";
 import { initialValues } from "./constants";
 import useAddPaymentAPI from "../../hooks/useAddPaymentAPI";
@@ -18,6 +18,7 @@ function AddPaymentForm({ customerId }: Props) {
   const { addPayment, isPending } = useAddPaymentAPI();
 
   const handleClose = () => setOpen(false);
+  const {t} = useTranslation();
 
   const handleAddPayment = async (
     values: CustomerPaymentPayload,
@@ -49,7 +50,7 @@ function AddPaymentForm({ customerId }: Props) {
         initialValues={initialValues}
         onSubmit={handleAddPayment}
         isPending={isPending}
-        title="Add Order"
+        title={t("PrivatePages.Customers.addPayments")}
       />
     </Box>
   );

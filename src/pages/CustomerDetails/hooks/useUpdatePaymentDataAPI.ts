@@ -13,6 +13,7 @@ const useUpdatePaymentDataAPI = () => {
         message: "Payment Edited Successfully",
       });
       queryClient.invalidateQueries({ queryKey: ["payments"] });
+      queryClient.invalidateQueries({ queryKey: ["customer"] });
     },
   });
 

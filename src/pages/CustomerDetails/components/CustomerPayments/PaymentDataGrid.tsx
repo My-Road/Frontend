@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormikHelpers } from "formik";
@@ -18,6 +18,8 @@ import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog"
 
 import { transformPaymentToPayload } from "./util/transformPaymentToPayload";
 import { getGenericGridColumns } from "@/constants/gridColumns";
+import GenericDataGrid from "@/components/GenericDataGrid";
+
 
 // Component Props interface
 interface Props {
@@ -124,19 +126,13 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
           "& .odd-row": { backgroundColor: "#ffffff" },
         }}
       >
-        <DataGrid
+        <GenericDataGrid<Payment>
           rows={data?.items || []}
           columns={gridColumns}
-          rowCount={data?.totalCount || 0}
-          paginationMode="server"
           paginationModel={paginationModel}
-          onPaginationModelChange={(model) => setPaginationModel(model)}
-          pageSizeOptions={[15, 30, 50]}
+          onPaginationChange={setPaginationModel}
+          rowCount={data?.totalCount || 0}
           loading={isLoading}
-          disableRowSelectionOnClick
-          getRowClassName={(params) =>
-            params.indexRelativeToCurrentPage % 2 === 0 ? "even-row" : "odd-row"
-          }
         />
       </Box>
 

@@ -26,7 +26,6 @@ function CustomerDetails() {
         <PersonalCustomerInfo customerData={customerData} />
         <CustomerOrders customerId={customerData.id} />
         <CustomerPayments customerId={customerData.id} />
-        
       </Stack>
     </Container>
   );

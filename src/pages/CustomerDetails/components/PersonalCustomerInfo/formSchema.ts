@@ -22,10 +22,3 @@ export const validationSchema = yup.object({
     .min(3, "Address must be at least 3 characters"),
 });
 
-export const paymentValidationSchema = yup.object({
-  amount: yup
-    .number()
-    .required("Please enter the Amount")
-    .positive("Amount must be at least 1"),
-  notes: yup.string().required("Please enter the notes"),
-});

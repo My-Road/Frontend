@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormikHelpers } from "formik";
@@ -13,13 +13,13 @@ import useUpdateOrderDataAPI from "../../hooks/useUpdateOrderDataAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 import { useSnackBar } from "@/hooks/useSnackbar";
 
-
 import { transformOrderToPayload } from "./util/transformOrderToPayload";
 
 import OrderFormDialog from "./OrderFormDialog";
 import DataGridActions from "../DataGridActions";
 import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
 import { getGenericGridColumns } from "@/constants/gridColumns";
+import GenericDataGrid from "@/components/GenericDataGrid";
 
 interface Props {
   searchParams: SearchParams;
@@ -124,19 +124,13 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
           "& .odd-row": { backgroundColor: "#ffffff" },
         }}
       >
-        <DataGrid
+        <GenericDataGrid<Order>
           rows={data?.items || []}
           columns={gridColumns}
-          rowCount={data?.totalCount || 0}
-          paginationMode="server"
           paginationModel={paginationModel}
-          onPaginationModelChange={(model) => setPaginationModel(model)}
-          pageSizeOptions={[15, 30, 50]}
+          onPaginationChange={setPaginationModel}
+          rowCount={data?.totalCount || 0}
           loading={isLoading}
-          disableRowSelectionOnClick
-          getRowClassName={(params) =>
-            params.indexRelativeToCurrentPage % 2 === 0 ? "even-row" : "odd-row"
-          }
         />
       </Box>
 

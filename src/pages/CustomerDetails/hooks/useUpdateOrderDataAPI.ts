@@ -13,6 +13,7 @@ const useUpdateOrderDataAPI = () => {
         message: "Order Edited Successfully",
       });
       queryClient.invalidateQueries({ queryKey: ["orders"] });
+      queryClient.invalidateQueries({ queryKey: ["customer"] });
     },
   });
 

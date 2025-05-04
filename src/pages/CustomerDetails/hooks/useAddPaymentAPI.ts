@@ -13,6 +13,7 @@ const useAddPaymentAPI = () => {
         message: "Payment Added Successfully",
       });
       queryClient.invalidateQueries({ queryKey: ["payments"] });
+      queryClient.invalidateQueries({ queryKey: ["customer"] });
     },
   });
 

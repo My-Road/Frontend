@@ -4,7 +4,7 @@ import { FormikHelpers } from "formik";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/features/User";
 
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { CustomerOrderPayload } from "../../types";
 import { initialValues } from "./constants";
 import useAddOrderAPI from "../../hooks/useAddOrderAPI";
@@ -20,6 +20,7 @@ function AddOrderForm({ customerId }: Props) {
   const { addOrder, isPending } = useAddOrderAPI();
   const user = useSelector(selectUser);
   const handleClose = () => setOpen(false);
+  const { t } = useTranslation();
 
   const handleAdd = (
     values: CustomerOrderPayload,
@@ -55,7 +56,7 @@ function AddOrderForm({ customerId }: Props) {
         initialValues={initialValues}
         onSubmit={handleAdd}
         isPending={isPending}
-        title="PrivatePages.Customers.addOrder"
+        title={t("PrivatePages.Customers.addOrder")}
       />
     </Box>
   );

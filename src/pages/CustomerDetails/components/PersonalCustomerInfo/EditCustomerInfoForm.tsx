@@ -5,7 +5,7 @@ import { Form } from "formik";
 import useUpdateCustomerDataAPI from "../../hooks/useUpdateCustomerDataAPI";
 import useDeleteCustomerAPI from "../../hooks/useDeleteCustomerAPI";
 import { CustomerData } from "../../types";
-import { validationSchema } from "../../formSchema";
+import { validationSchema } from "./formSchema";
 import { LoadingButton } from "@mui/lab";
 import { Dispatch, SetStateAction } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
