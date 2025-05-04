@@ -72,6 +72,10 @@ const SearchForm: React.FC<SearchFormProps> = ({
               inputLabel: {
                 shrink: true,
               },
+              htmlInput: {
+                min:"2000-1-1",
+                max: "9999-12-30",
+              },
             }}
             type="date"
           />
@@ -80,6 +84,10 @@ const SearchForm: React.FC<SearchFormProps> = ({
             slotProps={{
               inputLabel: {
                 shrink: true,
+              },
+              htmlInput: {
+                min:"2000-1-1",
+                max: "9999-12-30",
               },
             }}
             type="date"

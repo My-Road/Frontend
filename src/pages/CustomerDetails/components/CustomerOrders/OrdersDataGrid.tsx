@@ -41,7 +41,7 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
   const [noteDialogOpen, setNoteDialogOpen] = useState(false);
   const [noteContent, setNoteContent] = useState<string>("");
 
-  const { data, isLoading, isError } = useSearchOrders(customerId, {
+  const { data, isLoading } = useSearchOrders(customerId, {
     ...searchParams,
     page: paginationModel.page + 1,
     pageSize: paginationModel.pageSize,
@@ -112,8 +112,6 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
       ),
     },
   ];
-
-  if (isError) return <div>{t("Errors.fetchingData")}</div>;
 
   return (
     <>

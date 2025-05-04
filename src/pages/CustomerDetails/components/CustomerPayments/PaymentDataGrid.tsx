@@ -40,7 +40,7 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
   const [noteContent, setNoteContent] = useState<string>("");
 
   // API hooks
-  const { data, isLoading, isError } = useSearchPayments(customerId, {
+  const { data, isLoading } = useSearchPayments(customerId, {
     ...searchParams,
     page: paginationModel.page + 1,
     pageSize: paginationModel.pageSize,
@@ -70,8 +70,6 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
       ),
     },
   ];
-
-  if (isError) return <div>{t("Errors.fetchPayments")}</div>;
 
   // Handlers
   const handleViewNotes = (order: Payment) => {

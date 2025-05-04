@@ -410,6 +410,8 @@
     "Payment Edited Successfully": "تم تعديل الدفعة بنجاح",
     "The paid amount is invalid.": "المبلغ المدفوع غير صالح",
     "Customer with phone number already exists": "رقم الهاتف مسجّل مسبقا",
-    "Customer with email already exists": "البريد الإلكتروني مسجّل مسبقا"
+    "Customer with email already exists": "البريد الإلكتروني مسجّل مسبقا",
+    "this user Unauthorized": "هذا المستخدم غير مصرح له"
+
   }
 }

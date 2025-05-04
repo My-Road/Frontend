@@ -13,6 +13,7 @@ const useAddOrderAPI = () => {
         message: "Order Added Successfully",
       });
       queryClient.invalidateQueries({queryKey: ["orders"]})
+      queryClient.invalidateQueries({ queryKey: ["customer"] });
     }
   });
 
