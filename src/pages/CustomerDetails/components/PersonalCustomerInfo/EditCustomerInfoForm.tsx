@@ -9,8 +9,6 @@ import { validationSchema } from "./formSchema";
 import { LoadingButton } from "@mui/lab";
 import { Dispatch, SetStateAction } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useAppDispatch } from "@/store";
-import { openDialog } from "@/features/ConfirmationDialog";
 import { Trans, useTranslation } from "react-i18next";
 import { useSnackBar } from "@/hooks/useSnackbar";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
@@ -26,7 +24,6 @@ function EditCustomerInfoForm({
   isEditing,
   setIsEditing,
 }: Props) {
-  const dispatch = useAppDispatch();
   const { updateCustomer, isPending } = useUpdateCustomerDataAPI();
   const { deleteCustomer, isPending: isDeleting } = useDeleteCustomerAPI();
   const { t } = useTranslation();
@@ -67,13 +64,6 @@ function EditCustomerInfoForm({
       onConfirm: () => deleteCustomer(customerData.id),
       isPending: isDeleting
     });
-    dispatch(
-      openDialog({
-        title: t("Dialogs.Title.deleteCustomer"),
-        message: t("Dialogs.confirmCustomerDelete"),
-        onConfirm: () => deleteCustomer(customerData.id),
-      })
-    );
   };
 
   const formikProps = useFormik({
