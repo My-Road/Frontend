@@ -54,6 +54,7 @@ const ResetPasswordForm: React.FC = () => {
             fullWidth
             sx={{ mt: 2 }}
             loading={isPending}
+            disabled={!formik.isValid || !formik.dirty}
           >
             <Trans i18nKey="Buttons.changePassword">Change Password</Trans>
           </LoadingButton>

@@ -27,6 +27,7 @@ interface GenericFormDialogProps<T extends FormikValues> {
   title: string;
   validationSchema: yup.ObjectSchema<T>;
   children: ReactNode;
+  formType?: string;
 }
 
 export default function GenericFormDialog<T extends FormikValues>({
@@ -38,26 +39,24 @@ export default function GenericFormDialog<T extends FormikValues>({
   title,
   validationSchema,
   children,
+  formType = "add",
 }: GenericFormDialogProps<T>) {
   const formik = useFormik<T>({
     initialValues,
     onSubmit,
     validationSchema,
-    enableReinitialize: true, 
+    enableReinitialize: true,
   });
 
   const closeDialog = () => {
-    formik.resetForm(); 
+    formik.resetForm();
     handleClose();
   };
 
+  const buttonTranslation = formType ==="edit"? "Buttons.save": "Buttons.add";
+
   return (
-    <Dialog
-      open={open}
-      onClose={closeDialog}
-      fullWidth
-      maxWidth="sm"
-    >
+    <Dialog open={open} onClose={closeDialog} fullWidth maxWidth="sm">
       <DialogTitle sx={{ fontWeight: "bold", textAlign: "center" }}>
         {title}
       </DialogTitle>
@@ -66,13 +65,16 @@ export default function GenericFormDialog<T extends FormikValues>({
           <DialogContent>
             <Stack gap={2}>{children}</Stack>
           </DialogContent>
-          <DialogActions sx={{ px: 3, pb: 2, display:"flex", justifyContent:"flex-start" }}>
+          <DialogActions
+            sx={{ px: 3, pb: 2, display: "flex", justifyContent: "flex-start" }}
+          >
             <LoadingButton
               type="submit"
               variant="contained"
               loading={isPending}
+              disabled={!formik.isValid || !formik.dirty}
             >
-              <Trans i18nKey="Buttons.save">Save</Trans>
+              <Trans i18nKey={buttonTranslation}>Add</Trans>
             </LoadingButton>
             <Button variant="contained" color="error" onClick={closeDialog}>
               <Trans i18nKey="Buttons.cancel">Cancel</Trans>

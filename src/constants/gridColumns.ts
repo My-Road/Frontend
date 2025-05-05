@@ -49,7 +49,6 @@ export const getGenericGridColumns = (
       field: fieldName,
       sortable: false,
       flex: 1,
-      editable: true,
       minWidth: 130,
       headerName: t("Tables.Headers.Phone"),
     }),
@@ -295,7 +294,7 @@ export const getGenericGridColumns = (
     }),
     id: (fieldName = "id") => ({
       field: fieldName,
-      headerName: t("Tables.Headers.TotalDueAmount"),
+      headerName: t("ID"),
       sortable: false,
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,

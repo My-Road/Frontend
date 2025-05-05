@@ -29,6 +29,7 @@ function AddOrderForm({ customerId }: Props) {
     const payload = {
       ...values,
       customerId,
+      notes: values.notes.trim(),
       createdByUserId: Number(user.uid),
     };
 
@@ -57,6 +58,7 @@ function AddOrderForm({ customerId }: Props) {
         onSubmit={handleAdd}
         isPending={isPending}
         title={t("PrivatePages.Customers.addOrder")}
+        formType="add"
       />
     </Box>
   );

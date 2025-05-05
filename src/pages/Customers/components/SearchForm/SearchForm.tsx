@@ -7,11 +7,11 @@ import { validationSchema } from "./formSchema";
 import { initialValues } from "./constants";
 import { SearchFormValues } from "./types";
 import { SearchParams } from "@/types";
-import { Dispatch, SetStateAction } from "react"; 
+import { Dispatch, SetStateAction } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 
 interface SearchFormProps {
-  setSearchParams: Dispatch<SetStateAction<SearchParams>>; 
+  setSearchParams: Dispatch<SetStateAction<SearchParams>>;
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
@@ -26,7 +26,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
   };
 
   const handleClearSearch = () => {
-    setIsInSearchMode(false)
+    setIsInSearchMode(false);
     formikProps.resetForm();
     setSearchParams({
       page: 1,
@@ -50,7 +50,12 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
           gap={2}
         >
           <TextField name="customerName" />
-          <Button type="submit" variant="contained" color="primary" endIcon = {<SearchIcon/>}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            endIcon={<SearchIcon />}
+          >
             <Trans i18nKey="Buttons.search">Search</Trans>
           </Button>
           {isInSearchMode && (
@@ -59,6 +64,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
               variant="contained"
               color="info"
               onClick={handleClearSearch}
+              disabled={!formikProps.isValid || !formikProps.dirty}
             >
               <Trans i18nKey="Buttons.cancel">Clear Search</Trans>
             </Button>

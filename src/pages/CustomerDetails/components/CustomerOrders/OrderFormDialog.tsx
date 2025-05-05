@@ -14,6 +14,7 @@ interface Props {
   ) => void;
   isPending: boolean;
   title: string;
+  formType?: string
 }
 
 const OrderFormDialog = ({
@@ -23,6 +24,7 @@ const OrderFormDialog = ({
   onSubmit,
   isPending,
   title,
+  formType = "add"
 }: Props) => {
 
   return (
@@ -34,6 +36,7 @@ const OrderFormDialog = ({
       isPending={isPending}
       title={title}
       validationSchema={validationSchema}
+      formType={formType}
     >
       <TextField
         name="recipientName"

@@ -147,6 +147,7 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
           onSubmit={handleUpdate}
           isPending={isEditing}
           title={t("PrivatePages.Customers.editOrder")}
+          formType = "edit"
         />
       )}
     </>

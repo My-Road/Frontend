@@ -98,8 +98,8 @@ const SearchForm: React.FC<SearchFormProps> = ({
             color="primary"
             endIcon={<SearchIcon />}
             sx={{ minWidth: 100 }}
-            disabled={!formikProps.isValid}
-          >
+            disabled={!formikProps.isValid || !formikProps.dirty}
+            >
             <Trans i18nKey="Buttons.search">Search</Trans>
           </Button>
           {isInSearchMode && (

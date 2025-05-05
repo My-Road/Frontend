@@ -14,6 +14,7 @@ interface Props {
   ) => void;
   isPending: boolean;
   title: string;
+  formType?: string;
 }
 
 const PaymentFormDialog = ({
@@ -23,6 +24,7 @@ const PaymentFormDialog = ({
   onSubmit,
   isPending,
   title,
+  formType = "add"
 }: Props) => {
   return (
     <GenericFormDialog<CustomerPaymentPayload>
@@ -33,6 +35,7 @@ const PaymentFormDialog = ({
       isPending={isPending}
       title={title}
       validationSchema={paymentValidationSchema}
+      formType={formType}
     >
       <TextField name="amount" aria-label="Enter a valid amount" />
       <TextField name="notes" multiline rows={4} aria-label="Enter a valid notes" />

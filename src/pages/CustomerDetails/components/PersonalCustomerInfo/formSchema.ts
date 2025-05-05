@@ -6,10 +6,12 @@ export const validationSchema = yup.object({
     .required("Please enter your full name")
     .min(2, "Full name must be at least 2 characters"),
 
-  email: yup
+    email: yup
     .string()
     .email("Please enter a valid email")
-    .required("Please enter your email"),
+    .required("Please enter your email")
+    .nullable()
+    .notRequired(),
 
   phoneNumber: yup
     .string()

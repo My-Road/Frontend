@@ -69,7 +69,8 @@ function AddCustomerForm() {
                   color="primary"
                   loading={isPending}
                   endIcon={<AddIcon />}
-                >
+                  disabled={!formikProps.isValid || !formikProps.dirty}
+                  >
                   <Trans i18nKey="Buttons.add">Add</Trans>
                 </LoadingButton>
                 <Button

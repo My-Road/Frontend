@@ -150,6 +150,7 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
           onSubmit={handleUpdate}
           isPending={isEditing}
           title={t("PrivatePages.Customers.editPayment")}
+          formType="edit"
         />
       )}
     </>
