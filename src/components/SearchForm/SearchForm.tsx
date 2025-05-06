@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Stack } from "@mui/material";
 import { Form, FormikProvider, useFormik } from "formik";
-import TextField from "@/components/Fields/TextField";
 import { Trans } from "react-i18next";
 import { validationSchema } from "./formSchema";
 import { initialValues } from "./constants";
@@ -9,6 +8,8 @@ import { SearchFormValues } from "./types";
 import { Dispatch, SetStateAction } from "react";
 import { SearchParams } from "@/types";
 import SearchIcon from "@mui/icons-material/Search";
+import DatePickerField from "../Fields/DatePickerField";
+import dayjs from "dayjs";
 
 interface SearchFormProps {
   setSearchParams: Dispatch<SetStateAction<SearchParams>>;
@@ -66,31 +67,15 @@ const SearchForm: React.FC<SearchFormProps> = ({
           alignItems="center"
           gap={2}
         >
-          <TextField
+          <DatePickerField
             name="startDate"
-            slotProps={{
-              inputLabel: {
-                shrink: true,
-              },
-              htmlInput: {
-                min:"2000-1-1",
-                max: "9999-12-30",
-              },
-            }}
-            type="date"
+            minDate={dayjs("2000-01-01")}
+            maxDate={dayjs("9999-12-30")}
           />
-          <TextField
+          <DatePickerField
             name="endDate"
-            slotProps={{
-              inputLabel: {
-                shrink: true,
-              },
-              htmlInput: {
-                min:"2000-1-1",
-                max: "9999-12-30",
-              },
-            }}
-            type="date"
+            minDate={dayjs("2000-01-01")}
+            maxDate={dayjs("9999-12-30")}
           />
           <Button
             type="submit"
@@ -99,7 +84,7 @@ const SearchForm: React.FC<SearchFormProps> = ({
             endIcon={<SearchIcon />}
             sx={{ minWidth: 100 }}
             disabled={!formikProps.isValid || !formikProps.dirty}
-            >
+          >
             <Trans i18nKey="Buttons.search">Search</Trans>
           </Button>
           {isInSearchMode && (
