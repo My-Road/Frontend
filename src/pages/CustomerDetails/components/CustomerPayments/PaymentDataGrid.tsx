@@ -56,6 +56,7 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
   const { t } = useTranslation();
 
   const gridColumns: GridColDef[] = [
+    getGenericGridColumns(t).id(),
     getGenericGridColumns(t).paymentDate(),
     getGenericGridColumns(t).amount(),
     {
@@ -72,8 +73,8 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
   ];
 
   // Handlers
-  const handleViewNotes = (order: Payment) => {
-    setNoteContent(order.notes ?? "");
+  const handleViewNotes = (payment: Payment) => {
+    setNoteContent(payment.notes ?? "");
     setNoteDialogOpen(true);
   };
 
@@ -86,8 +87,8 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
     });
   };
 
-  const handleEdit = (order: CustomerPaymentPayload) => {
-    setSelectedPayment(order);
+  const handleEdit = (payment: CustomerPaymentPayload) => {
+    setSelectedPayment(payment);
     setEditDialogOpen(true);
   };
 

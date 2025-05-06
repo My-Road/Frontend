@@ -95,6 +95,7 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
   };
 
   const gridColumns: GridColDef[] = [
+    getGenericGridColumns(t).id(),
     getGenericGridColumns(t).orderDate(),
     getGenericGridColumns(t).recipientName(),
     getGenericGridColumns(t).recipientPhoneNumber(),
