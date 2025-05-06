@@ -19,14 +19,12 @@ function CustomerDetails() {
   }
 
   const customerData = data!;
-  const hasTotalPaid = customerData.totalPaidAmount == 0
-
   return (
     <Container sx={{ my: 5 }}>
       <Stack gap={5}>
         <PersonalCustomerInfo customerData={customerData} />
         <CustomerOrders customerId={customerData.id} />
-        {!hasTotalPaid && (<CustomerPayments customerId={customerData.id} />)}
+        <CustomerPayments customerId={customerData.id} />
       </Stack>
     </Container>
   );
