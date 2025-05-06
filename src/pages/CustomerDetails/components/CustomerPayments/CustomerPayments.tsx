@@ -6,17 +6,14 @@ import { Trans } from "react-i18next";
 import { SearchParams } from "@/types";
 import { useState } from "react";
 import SearchForm from "@/components/SearchForm/SearchForm";
+import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 
 interface Props {
   customerId: number;
 }
 
 function CustomerPayments({ customerId }: Props) {
-  const [searchParams, setSearchParams] = useState<SearchParams>({
-    page: 1,
-    pageSize: 15,
-    filters: "",
-  });
+  const [searchParams, setSearchParams] = useState<SearchParams>(DEFAULT_SEARCH_PARAMS);
   return (
     <Paper>
       <Stack p={4} gap={4}>

@@ -19,7 +19,7 @@ import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog"
 import { transformPaymentToPayload } from "./util/transformPaymentToPayload";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
-
+import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 
 // Component Props interface
 interface Props {
@@ -29,10 +29,9 @@ interface Props {
 
 export default function PaymentDataGrid({ searchParams, customerId }: Props) {
   // State variables
-  const [paginationModel, setPaginationModel] = useState<PaginationProps>({
-    page: 1,
-    pageSize: 15,
-  });
+  const [paginationModel, setPaginationModel] = useState<PaginationProps>(
+    DEFAULT_PAGINATION_PROPS
+  );
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [noteDialogOpen, setNoteDialogOpen] = useState(false);
   const [selectedPayment, setSelectedPayment] =

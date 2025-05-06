@@ -20,6 +20,7 @@ import DataGridActions from "../DataGridActions";
 import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
+import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 
 interface Props {
   searchParams: SearchParams;
@@ -29,10 +30,7 @@ interface Props {
 export default function OrdersDataGrid({ searchParams, customerId }: Props) {
   const { t } = useTranslation();
 
-  const [paginationModel, setPaginationModel] = useState<PaginationProps>({
-    page: 1,
-    pageSize: 15,
-  });
+  const [paginationModel, setPaginationModel] = useState<PaginationProps>(DEFAULT_PAGINATION_PROPS);
 
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [selectedOrder, setSelectedOrder] =

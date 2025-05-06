@@ -8,6 +8,7 @@ import { useState } from "react";
 import { Customer, PaginationProps, SearchParams } from "@/types";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
+import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 
 interface CustomerDataGridProps {
   searchParams: SearchParams;
@@ -19,10 +20,7 @@ export default function CustomerDataGrid({
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const [paginationModel, setPaginationModel] = useState<PaginationProps>({
-    page: 1,
-    pageSize: 15,
-  });
+  const [paginationModel, setPaginationModel] = useState<PaginationProps>(DEFAULT_PAGINATION_PROPS);
 
   const { data, isLoading, isError } = useSearchCustomers({
     ...searchParams,

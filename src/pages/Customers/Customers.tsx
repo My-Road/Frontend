@@ -4,13 +4,10 @@ import CustomerDataGrid from "./components/CustomerDataGrid";
 import SearchForm from "./components/SearchForm/SearchForm";
 import { useState } from "react";
 import { SearchParams } from "@/types";
+import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 
 export default function DataGridDemo() {
-  const [searchParams, setSearchParams] = useState<SearchParams>({
-    page: 1,
-    pageSize: 15,
-    filters: "",
-  });
+  const [searchParams, setSearchParams] = useState<SearchParams>(DEFAULT_SEARCH_PARAMS);
   return (
     <Container>
       <Stack gap={4}>
