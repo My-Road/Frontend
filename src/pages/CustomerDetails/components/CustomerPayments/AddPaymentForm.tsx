@@ -24,7 +24,7 @@ function AddPaymentForm({ customerId }: Props) {
     values: CustomerPaymentPayload,
     { resetForm }: FormikHelpers<CustomerPaymentPayload>
   ) => {
-    values = { ...values, notes: values.notes.trim(),customerId, paymentDate: new Date() };
+    values = { ...values, notes: values.notes.trim(),customerId };
     console.log(values);
     addPayment(values, {
       onSuccess: () => {

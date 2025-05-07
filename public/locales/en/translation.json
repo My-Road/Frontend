@@ -84,7 +84,9 @@
     "remainingAmount": "Remaining Amount",
     "recipientName": "Recipient Name",
     "recipientPhoneNumber": "Recipient PhoneNumber",
-    "quantity": "Quantity"
+    "quantity": "Quantity",
+    "orderDate": "Order Date",
+    "paymentDate": "Payment Date"
   },
   "TextfieldErrors": {
     "Please enter your email": "Please enter your email",
@@ -133,7 +135,7 @@
     "Last name must be at most 20 characters": "Last name must be at most 20 characters",
     "Address must be at most 25 characters": "Address must be at most 25 characters",
     "Phone number must be at least 10 characters": "Phone number must be at least 10 characters",
-    "Phone number must be at most 14 characters": "Phone number must be at most 15 characters",
+    "Phone number must be at most 14 characters": "Phone number must be at most 14 characters",
     "ID number must be at least 9 characters": "ID number must be at least 9 characters",
     "ID number must be at most 9 characters": "ID number must be at most 9 characters",
     "Phone number must contain numbers only": "Phone number must contain numbers only",
@@ -414,6 +416,7 @@
     "The paid amount is invalid.": "The paid amount is invalid",
     "Customer with phone number already exists": "Customer with phone number already exists",
     "Customer with email already exists": "Customer with email already exists",
-    "this user Unauthorized": "this user Unauthorized"
+    "this user Unauthorized": "this user Unauthorized",
+    "can't find this customer.": "can't find this customer"
   }
 }

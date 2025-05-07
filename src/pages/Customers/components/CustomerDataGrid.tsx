@@ -22,7 +22,7 @@ export default function CustomerDataGrid({
 
   const [paginationModel, setPaginationModel] = useState<PaginationProps>(DEFAULT_PAGINATION_PROPS);
 
-  const { data, isLoading, isError } = useSearchCustomers({
+  const { data, isLoading } = useSearchCustomers({
     ...searchParams,
     page: paginationModel.page + 1,
     pageSize: paginationModel.pageSize,
@@ -53,7 +53,6 @@ export default function CustomerDataGrid({
     },
   ];
 
-  if (isError) return <div>Something went wrong while fetching customers.</div>;
   //for now because there is issue from BE returned all customers deleted or not
   const filterIsDelete = data?.items.filter((customer) => !customer.isDeleted);
 
