@@ -15,7 +15,9 @@ export const validationSchema = yup.object({
 
   phoneNumber: yup
     .string()
-    .matches(/^\+?\d{10,15}$/, "Phone number must contain numbers only")
+    .min(10, "Phone number must be at least 10 characters")
+    .max(14, "Phone number must be at most 14 characters")
+    .matches(/^\+?\d{9,15}$/, "Phone number must contain numbers only")
     .required("Please enter a valid phone number"),
 
   address: yup

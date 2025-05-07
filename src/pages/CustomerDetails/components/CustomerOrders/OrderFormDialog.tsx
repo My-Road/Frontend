@@ -3,6 +3,7 @@ import TextField from "@/components/Fields/TextField";
 import { CustomerOrderPayload } from "../../types";
 import { validationSchema } from "./formSchema";
 import GenericFormDialog from "@/components/GenericFormDialog";
+import DatePickerField from "@/components/Fields/DatePickerField";
 
 interface Props {
   open: boolean;
@@ -38,6 +39,7 @@ const OrderFormDialog = ({
       validationSchema={validationSchema}
       formType={formType}
     >
+      <DatePickerField name="orderDate" />
       <TextField
         name="recipientName"
         aria-label="enter a valid recipient name"

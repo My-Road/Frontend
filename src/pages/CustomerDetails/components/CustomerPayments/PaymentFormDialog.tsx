@@ -3,6 +3,7 @@ import TextField from "@/components/Fields/TextField";
 import { CustomerPaymentPayload } from "../../types";
 import { paymentValidationSchema } from "./formSchema";
 import GenericFormDialog from "@/components/GenericFormDialog";
+import DatePickerField from "@/components/Fields/DatePickerField";
 
 interface Props {
   open: boolean;
@@ -24,7 +25,7 @@ const PaymentFormDialog = ({
   onSubmit,
   isPending,
   title,
-  formType = "add"
+  formType = "add",
 }: Props) => {
   return (
     <GenericFormDialog<CustomerPaymentPayload>
@@ -37,8 +38,14 @@ const PaymentFormDialog = ({
       validationSchema={paymentValidationSchema}
       formType={formType}
     >
+      <DatePickerField name="paymentDate" />
       <TextField name="amount" aria-label="Enter a valid amount" />
-      <TextField name="notes" multiline rows={4} aria-label="Enter a valid notes" />
+      <TextField
+        name="notes"
+        multiline
+        rows={4}
+        aria-label="Enter a valid notes"
+      />
     </GenericFormDialog>
   );
 };

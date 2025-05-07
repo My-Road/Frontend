@@ -1,13 +1,16 @@
 import * as yup from "yup";
 import { CustomerOrderPayload } from "../../types";
 
+
 export const validationSchema: yup.ObjectSchema<CustomerOrderPayload> =
   yup.object({
     recipientName: yup.string().required("Please enter the recipient name"),
 
     recipientPhoneNumber: yup
       .string()
-      .matches(/^\+?\d{10,15}$/, "Phone number must contain numbers only")
+      .min(10, "Phone number must be at least 10 characters")
+      .max(14, "Phone number must be at most 14 characters")
+      .matches(/^\+?\d{9,15}$/, "Phone number must contain numbers only")
       .required("Please enter a valid phone number"),
 
     quantity: yup

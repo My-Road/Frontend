@@ -84,7 +84,9 @@
     "remainingAmount": "المبلغ المتبقي",
     "recipientName": "اسم المستلم",
     "recipientPhoneNumber": "رقم هاتف المستلم",
-    "quantity": "الكمية"
+    "quantity": "الكمية",
+    "orderDate": "تاريخ الطلب",
+    "paymentDate": "تاريخ الدفعة"
   },
   "TextfieldErrors": {
     "Please enter your email": "ادخل البريد الالكتروني",
@@ -414,7 +416,8 @@
     "The paid amount is invalid.": "المبلغ المدفوع غير صالح",
     "Customer with phone number already exists": "رقم الهاتف مسجّل مسبقا",
     "Customer with email already exists": "البريد الإلكتروني مسجّل مسبقا",
-    "this user Unauthorized": "هذا المستخدم غير مصرح له"
+    "this user Unauthorized": "هذا المستخدم غير مصرح له",
+    "can't find this customer.": "تعذر العثور على الزبون"
 
   }
 }
