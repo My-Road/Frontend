@@ -1,0 +1,70 @@
+import { Customer, SearchParams } from "@/types";
+
+export type CustomerData = Pick<
+  Customer,
+  "id" | "customerName" | "email" | "phoneNumber" | "address"
+>;
+
+export type CustomerPayments = Pick<
+  Customer,
+  "totalPaidAmount" | "totalDueAmount" | "remainingAmount"
+>;
+
+export interface CustomerPaymentPayload {
+  amount: number;
+  paymentDate: Date;
+  notes: string;
+  customerId: number;
+}
+
+export interface Order {
+  id: number;
+  orderDate: string; 
+  recipientName: string;
+  recipientPhoneNumber: string;
+  quantity: number;
+  price: number;
+  totalDueAmount: number;
+  notes: string;
+  customerId: number;
+  customer: Customer | null; 
+  isDeleted: boolean;
+  deletedAt: string | null;
+  isCompleted: boolean;
+  createdByUserId: number;
+}
+
+
+export interface CustomerOrderPayload {
+  recipientName: string;
+  recipientPhoneNumber: string;
+  quantity: number;
+  price: number;
+  orderDate: Date;
+  notes: string;
+  customerId: number;
+  createdByUserId: number;
+}
+
+export interface Payment {
+  customerId: number;
+  customer: Customer,
+  amount: number;
+  paymentDate: string;
+  notes: string;
+  isDeleted: boolean;
+  deletedAt: string;
+  id: number
+}
+
+export interface SearchResponseForOrders extends SearchParams{
+  items: Order[];
+  totalCount: number;
+}
+
+export interface SearchResponseForPayments extends SearchParams {
+  items: Payment[];
+  totalCount: number
+}
+
+

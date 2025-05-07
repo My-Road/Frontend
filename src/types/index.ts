@@ -11,20 +11,27 @@ export interface IAppMenuItem {
   items?: IAppMenuItem[];
   useIsVisible?: () => boolean;
 }
+
+export interface SearchParams {
+  page?: number;
+  pageSize?: number;
+  filters?: string;
+  sorts?: string
+}
+
 export interface Customer {
-  [index: string]: string | number;
-  _id: string;
-  fileNumber: number;
-  fName: string;
-  mName: string;
-  lName: string;
-  phone1: string;
-  branchId: string;
-  phone2: string;
-  idNum: string;
-  address: string;
+  customerName: string;
   email: string;
-  notes: string;
+  phoneNumber: string;
+  address: string;
+  totalPaidAmount: number;
+  totalDueAmount: number;
+  isDeleted: boolean;
+  deletedAt: string | null;
+  remainingAmount: number;
+  orders: never[];
+  customerPayments: never[];
+  id: number;
 }
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface Employee extends Omit<Customer, "notes"> {}

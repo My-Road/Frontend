@@ -17,7 +17,7 @@ const ChangePasswordForm: React.FC = () => {
     changePassword(values, {
       onSuccess: () => {
         resetForm();
-      }
+      },
     });
   };
 
@@ -47,6 +47,7 @@ const ChangePasswordForm: React.FC = () => {
             color="primary"
             variant="contained"
             loading={isPending}
+            disabled={!formik.isValid || !formik.dirty}
           >
             <Trans i18nKey="Buttons.changePassword">Change Password</Trans>
           </LoadingButton>

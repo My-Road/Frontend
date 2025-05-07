@@ -1,0 +1,67 @@
+import { FormikHelpers } from "formik";
+import TextField from "@/components/Fields/TextField";
+import { CustomerOrderPayload } from "../../types";
+import { validationSchema } from "./formSchema";
+import GenericFormDialog from "@/components/GenericFormDialog";
+
+interface Props {
+  open: boolean;
+  handleClose: () => void;
+  initialValues: CustomerOrderPayload;
+  onSubmit: (
+    values: CustomerOrderPayload,
+    helpers: FormikHelpers<CustomerOrderPayload>
+  ) => void;
+  isPending: boolean;
+  title: string;
+  formType?: string
+}
+
+const OrderFormDialog = ({
+  open,
+  handleClose,
+  initialValues,
+  onSubmit,
+  isPending,
+  title,
+  formType = "add"
+}: Props) => {
+
+  return (
+    <GenericFormDialog<CustomerOrderPayload>
+      open={open}
+      handleClose={handleClose}
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      isPending={isPending}
+      title={title}
+      validationSchema={validationSchema}
+      formType={formType}
+    >
+      <TextField
+        name="recipientName"
+        aria-label="enter a valid recipient name"
+      />
+      <TextField
+        name="recipientPhoneNumber"
+        aria-label="enter a valid phone number"
+      />
+      <TextField
+        name="quantity"
+        aria-label="enter a valid quantity"
+      />
+      <TextField
+        name="price"
+        aria-label="enter a valid price"
+      />
+      <TextField
+        name="notes"
+        multiline
+        rows={4}
+        aria-label="enter valid notes"
+      />
+    </GenericFormDialog>
+  );
+};
+
+export default OrderFormDialog;

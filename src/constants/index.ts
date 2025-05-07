@@ -1,3 +1,5 @@
+import { PaginationProps, SearchParams } from "@/types";
+
 export const APP_SIDE_DRAWER_WIDTH = 240;
 
 export const NAVBAR_HEIGHT = 64;
@@ -29,3 +31,16 @@ export const ROLES = [
     role: 3,
   },
 ];
+
+export const DEFAULT_SEARCH_PARAMS: SearchParams = {
+  page: 1,
+  pageSize: 15,
+  filters: "",
+};
+
+
+export const DEFAULT_PAGINATION_PROPS: PaginationProps = {
+  page: 1,
+  pageSize: 15,
+};
+

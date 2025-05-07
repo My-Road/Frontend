@@ -15,6 +15,7 @@
     "addToFollowUp": "Add to Medical Follow-ups",
     "deleteCustomer": "Delete Customer",
     "cancel": "Cancel",
+    "confirm": "Confirm",
     "book": "Book",
     "delete": "Delete",
     "print": "Print",
@@ -26,9 +27,20 @@
     "edit": "Edit",
     "deleteSale": "Delete Sale",
     "addSale": "Add Sale",
+    "addOrder": "Add Order",
+    "addPayment": "Add Payment",
     "editSale": "Edit Sale",
     "deleteVisit": "Delete Visit",
-    "register": "Register"
+    "register": "Register",
+    "viewDetails": "viewDetails",
+    "search": "Search",
+    "save": "Save",
+    "notes": "Notes"
+  },
+  "Messages":{
+    "heHasDues": "He has dues",
+    "paid": "Paid",
+    "noPurchases": "No Purchases"
   },
   "Textfields": {
     "userName": "Username",
@@ -37,12 +49,14 @@
     "confirmNewPassword": "Confirm New Password",
     "currentPassword": "Current Password",
     "newPassword": "New Password",
+    "customerName": "Customer Name",
     "customerNum": "Customer Number",
     "customerNotes": "Customer Notes",
     "notes": "Notes",
     "firstName": "First Name",
     "lastName": "Family Name",
-    "mName": "Father Name",
+    "fullName": "Full Name",
+    "fatherName": "Father Name",
     "email": "Email",
     "phoneNumber": "Phone",
     "address": "Address",
@@ -62,7 +76,15 @@
     "machine": "Machine",
     "treatment": "Treatment",
     "register": "Register",
-    "selectUserType": "select user type"
+    "selectUserType": "select user type",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "totalDueAmount": "Total Due Amount",
+    "totalPaidAmount": "Total Paid Amount",
+    "remainingAmount": "Remaining Amount",
+    "recipientName": "Recipient Name",
+    "recipientPhoneNumber": "Recipient PhoneNumber",
+    "quantity": "Quantity"
   },
   "TextfieldErrors": {
     "Please enter your email": "Please enter your email",
@@ -74,6 +96,8 @@
     "Please enter your first name": "Please enter your first name",
     "Please enter your last name": "Please enter your last name",
     "Please enter your father name": "Please enter your father's name",
+    "Please enter your full name": "Please enter your full name",
+    "Please enter the recipient name": "Please enter the recipient name",
     "Please enter a valid email": "Please enter a valid email",
     "Email is required": "Email is required",
     "Please enter a valid phone number": "Please enter a valid phone number",
@@ -86,6 +110,14 @@
     "Please enter the Expense": "Please enter the Expense",
     "Please enter the Name": "Please enter the Name",
     "Please enter the Price": "Please enter the Price",
+    "Please enter the notes": "Please enter the notes",
+    "Please enter the Quantity": "Please enter the Quantity",
+    "Quantity must not contain spaces": "Quantity must not contain spaces",
+    "Price must not contain spaces": "Price must not contain spaces",
+    "Amount must not contain spaces": "Amount must not contain spaces",
+    "Quantity is required": "Quantity is required",
+    "Quantity must more than 0": "Quantity must more than 0",
+    "Quantity must be an integer": "Quantity must be an integer",
     "New password must be at least 8 characters": "New password must be at least 8 characters",
     "New password must contain at least one uppercase letter": "New password must contain at least one uppercase letter",
     "New password must contain at least one lowercase letter": "New password must contain at least one lowercase letter",
@@ -94,6 +126,7 @@
     "First name must be at least 2 characters": "First name must be at least 2 characters",
     "Father name must be at least 2 characters": "Father name must be at least 2 characters",
     "Last name must be at least 2 characters": "Last name must be at least 2 characters",
+    "Full name must be at least 2 characters": "Full name must be at least 2 characters",
     "Address must be at least 3 characters": "Address must be at least 3 characters",
     "First name must be at most 20 characters": "First name must be at most 20 characters",
     "Father name must be at most 20 characters": "Father name must be at most 20 characters",
@@ -115,11 +148,17 @@
     "Please enter the cost": "Please enter the cost",
     "Expense must be at least 3 characters": "Expense must be at least 3 characters",
     "Amount must be at least 1": "Amount must be at least 1",
+    "Amount must be a number": "Amount must be a number",
     "Please select a Product": "Please select a Product",
     "Please select a Employee": "Please select a Employee",
     "Price must more than 0": "Price must more than 0",
+    "Price must be a number": "Price must be a number",
     "Please enter The Treatment": "Please enter The Treatment",
-    "Please enter a Machine name": "Please enter a Machine name"
+    "Please enter a Machine name": "Please enter a Machine name",
+    "Customer name is required": "Customer name is required",
+    "Start date is required": "Start date is required",
+    "Invalid start date": "Invalid start date",
+    "End date cannot be before start date": "End date cannot be before start date"
   },
   "AutoComplete": {
     "treatment": "Treatment",
@@ -156,6 +195,7 @@
       "Payment": "Payment",
       "Notes": "Notes",
       "CustomerName": "Customer Name",
+      "RecipientName": "Recipient Name",
       "Phone": "Phone",
       "Debts": "Debts",
       "Price": "Price",
@@ -164,9 +204,12 @@
       "EmployeeName": "Employee name",
       "NumberOfTreatments": "Number of Treatments",
       "Amount": "Amount",
+      "TotalDueAmount": "Total Due Amount",
+      "Quantity": "Quantity",
       "Expense": "Expense",
       "FileNumber": "File number",
       "FirstName": "First name",
+      "FullName": "Full Name",
       "FatherName": "Father name",
       "Email": "Email",
       "FamilyName": "Family name",
@@ -181,7 +224,8 @@
       "saleBonus": "Sale Bonus",
       "bonus": "Bonus",
       "TotalDebts": "Total Debts",
-      "machine": "Machine"
+      "machine": "Machine",
+      "details": "Details"
     },
     "noData": "No records to display",
     "columns": "Columns",
@@ -201,7 +245,16 @@
       "min": "Min",
       "value": "Value"
     },
+    "Title": {
+      "deleteCustomer" : "Delete Customer",
+      "editCustomer": "Edit Customer",
+      "deleteOrder": "Delete Order",
+      "deletePayment": "Delete Payment"
+    },
     "confirmCustomerDelete": "Are you sure you want to delete this Customer?",
+    "confirmCustomerEdit": "Are you sure you want to edit this Customer?",
+    "confirmOrderDelete": "Are you sure you want to delete this Order?",
+    "confirmPaymentDelete": "Are you sure you want to delete this payment?",
     "confirmVisitDelete": "Are you sure you want to delete this Visit?",
     "confirmAppointmentDelete": "Are you sure you want to delete this Appointment?",
     "confirmEmployeeDelete": "Are you sure you want to delete this Employee?",
@@ -230,6 +283,19 @@
       "addExpense": "Add new Expense"
     },
     "actions": "Actions"
+  },
+  "PrivatePages": {
+    "Customers": {
+      "addCustomer": "Add new Customer",
+      "customerInformation": "Customer Information",
+      "financialInformation": "Financial Information",
+      "customerOrders": "Customer Orders",
+      "customerPayments": "Customer Payments",
+      "addOrder": "Add Order",
+      "addPayment": "Add Payment",
+      "editOrder":"Edit Order",
+      "editPayment": "Edit Payment"
+    }
   },
   "SnackbarMessages": {
     "Something went wrong!": "Something went wrong!",
@@ -333,6 +399,21 @@
     "New password must contain at least one special character": "New password must contain at least one special character",
     "Current password is wrong": "Current password is wrong",
     "Registration successful": "Registration successful",
-    "User Email Already Exists": "User Email Already Exists"
+    "User Email Already Exists": "User Email Already Exists",
+    "No changes made": "No changes made",
+    "Customer Edited Successfully": "Customer Edited Successfully",
+    "Customer deleted successfully": "Customer Deleted Successfully",
+    "Customer Added Successfully": "Customer Adeed Successfully",
+    "Order Added Successfully": "Order Added Successfully",
+    "Order deleted successfully": "Order deleted successfully",
+    "Order Edited Successfully": "Order Edited Successfully",
+    "Cannot remove this order because it would result in overpayment or the customer has already fully paid.": "Cannot remove this order because it would result in overpayment or the customer has already fully paid.",
+    "Payment Added Successfully": "Payment Added Successfully",
+    "Payment deleted successfully": "Payment deleted successfully",
+    "Payment Edited Successfully": "Payment Edited Successfully",
+    "The paid amount is invalid.": "The paid amount is invalid",
+    "Customer with phone number already exists": "Customer with phone number already exists",
+    "Customer with email already exists": "Customer with email already exists",
+    "this user Unauthorized": "this user Unauthorized"
   }
 }

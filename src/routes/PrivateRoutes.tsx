@@ -1,7 +1,13 @@
 import AppLayout from "@/containers/Layout/AppLayout";
 import { RouteObject } from "react-router-dom";
 import AuthRoute from "./AuthRoute";
-import { Home, ChangePassword, Register } from "./imports";
+import {
+  Home,
+  ChangePassword,
+  Register,
+  Customers,
+  CustomerDetails,
+} from "./imports";
 
 const privateRoutes: RouteObject = {
   path: "/me",
@@ -21,6 +27,14 @@ const privateRoutes: RouteObject = {
         {
           path: "register",
           element: <Register />,
+        },
+        {
+          path: "customers",
+          element: <Customers />,
+        },
+        {
+          path: "customer/:customerId",
+          element: <CustomerDetails />,
         },
       ],
     },

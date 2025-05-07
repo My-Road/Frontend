@@ -40,6 +40,7 @@ const LoginForm = () => {
             loadingIndicator={<CircularProgress color="inherit" size={20} />}
             endIcon={<LoginIcon />}
             loading={isPending}
+            disabled={!formikProps.isValid || !formikProps.dirty}
           >
             <Trans i18nKey="Buttons.login">Login</Trans>
           </LoadingButton>

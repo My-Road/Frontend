@@ -45,6 +45,7 @@ const RegisterForm = () => {
             fullWidth
             sx={{ mt: 2 }}
             loading={isPending}
+            disabled={!formikProps.isValid || !formikProps.dirty}
           >
             <Trans i18nKey="Textfields.register">Register</Trans>
           </LoadingButton>
