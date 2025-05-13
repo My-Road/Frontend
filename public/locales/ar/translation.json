@@ -127,7 +127,7 @@
     "Quantity must not contain spaces": "الكمية يجب الا تحتوي على فراغات",
     "Price must not contain spaces": "السعر يجب الا تحتوي على فراغات",
     "Quantity is required": "الكمية مطلوبة",
-    "Quantity must more than 0": "الكمية يجب ان تكون اكثر من 0",
+    "Quantity must be more than 0": "الكمية يجب ان تكون اكثر من 0",
     "Quantity must be an integer": "الكمية يجب ان تكون عدد صحيح",
     "New password must be at least 8 characters": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
     "New password must contain at least one uppercase letter": "يجب أن تحتوي كلمة المرور الجديدة على حرف كبير واحد على الأقل",
@@ -161,7 +161,7 @@
     "Amount must be at least 1": "القيمة يجب أن تكون 1 على الأقل",
     "Amount must be a number": "القيمة يجب ان تكون رقم",
     "Amount must not contain spaces": "القيمة يجب الا تحتوي على فراغات",
-    "Price must more than 0": "السعر يجب أن يكون أكثر من 0",
+    "Price must be more than 0": "السعر يجب أن يكون أكثر من 0",
     "Price must be a number": "السعر يجب ان يكون رقم",
     "Please select the Employee": "الرجاء اختيار الموظف",
     "Please select the Product": "الرجاء اختيار المنتج",
@@ -187,7 +187,10 @@
     "Please enter the job title":"يرجى ادخال المسمى الوظيفي",
     "`Invalid Date` (cast from the value `Invalid Date`).":".تاريخ غير صالح",
     "Please enter a valid start date":"يرجى إدخال تاريخ بداية صالح",
-    "Please enter a valid date":"يرجى ادخال تاريخ صالح"
+    "Please enter a valid date":"يرجى ادخال تاريخ صالح",
+    "Please select an order date": "يرجى ادخال تاريخ الطلب",
+    "Please select an payment date": "يرجى ادخال تاريخ الدفعة",
+    "Employee name is required": "اسم الموظف مطلوب"
   },
   "AutoComplete": {
     "treatment": "العلاج",
