@@ -27,10 +27,15 @@ interface Props {
   employeeId: number;
 }
 
-export default function EmployeeLogsDataGrid({ searchParams, employeeId }: Props) {
+export default function EmployeeLogsDataGrid({
+  searchParams,
+  employeeId,
+}: Props) {
   const { t } = useTranslation();
 
-  const [paginationModel, setPaginationModel] = useState<PaginationProps>(DEFAULT_PAGINATION_PROPS);
+  const [paginationModel, setPaginationModel] = useState<PaginationProps>(
+    DEFAULT_PAGINATION_PROPS
+  );
 
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [selectedEmployeeLog, setSelectedEmployeeLog] =
@@ -45,7 +50,8 @@ export default function EmployeeLogsDataGrid({ searchParams, employeeId }: Props
     pageSize: paginationModel.pageSize,
   });
 
-  const { updateEmployeeLog, isPending: isEditing } = useUpdateEmployeeLogDataAPI();
+  const { updateEmployeeLog, isPending: isEditing } =
+    useUpdateEmployeeLogDataAPI();
   const { deleteEmployeeLog, isPending } = useDeleteEmployeeLogAPI();
 
   const { showConfirmationDialog } = useConfirmationDialog();
@@ -71,7 +77,8 @@ export default function EmployeeLogsDataGrid({ searchParams, employeeId }: Props
   ) => {
     if (!selectedEmployeeLog) return;
 
-    const noChanges = JSON.stringify(values) === JSON.stringify(selectedEmployeeLog);
+    const noChanges =
+      JSON.stringify(values) === JSON.stringify(selectedEmployeeLog);
     if (noChanges) {
       helpers.setSubmitting(false);
       setEditDialogOpen(false);
@@ -98,7 +105,6 @@ export default function EmployeeLogsDataGrid({ searchParams, employeeId }: Props
     getGenericGridColumns(t).checkIn(),
     getGenericGridColumns(t).checkOut(),
     getGenericGridColumns(t).hourlyWage(),
-    getGenericGridColumns(t).notes(),
     {
       ...getGenericGridColumns(t).actions(),
       renderCell: (params) => (
@@ -146,7 +152,7 @@ export default function EmployeeLogsDataGrid({ searchParams, employeeId }: Props
           onSubmit={handleUpdate}
           isPending={isEditing}
           title={t("PrivatePages.Employees.editEmployeeLog")}
-          formType = "edit"
+          formType="edit"
         />
       )}
     </>

@@ -28,7 +28,7 @@ const TextField: FC<TextFieldProps> = ({ name, ...rest }) => {
       }
       slotProps={{
         formHelperText: {
-          sx: { textAlign: "right" },
+          sx: { textAlign: "left" },
         },
       }}
       label={t(`Textfields.${name}`)}
