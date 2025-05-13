@@ -35,7 +35,9 @@
     "viewDetails": "viewDetails",
     "search": "Search",
     "save": "Save",
-    "notes": "Notes"
+    "notes": "Notes",
+    "restoreEmployee" : "Restore Employee",
+    "addEmployeeLog": "Add Employee Log"
   },
   "Messages":{
     "heHasDues": "He has dues",
@@ -86,7 +88,13 @@
     "recipientPhoneNumber": "Recipient PhoneNumber",
     "quantity": "Quantity",
     "orderDate": "Order Date",
-    "paymentDate": "Payment Date"
+    "paymentDate": "Payment Date",
+    "employeeName": "Employee Name",
+    "jobTitle": "Job Title",
+    "date":"Date",
+    "checkIn":"CheckIn",
+    "checkOut":"CheckOut",
+    "hourlyWage":"Hourly Wage"
   },
   "TextfieldErrors": {
     "Please enter your email": "Please enter your email",
@@ -160,7 +168,24 @@
     "Customer name is required": "Customer name is required",
     "Start date is required": "Start date is required",
     "Invalid start date": "Invalid start date",
-    "End date cannot be before start date": "End date cannot be before start date"
+    "End date cannot be before start date": "End date cannot be before start date",
+    "Hourly Wage must not contain spaces":"Hourly Wage must not contain spaces",
+    "Check-out must be after check-in":"Check-out must be after check-in",
+    "Check-in time is required":"Check-in time is required",
+    "Check-out time is required":"Check-out time is required",
+    "mm or HH.mm.ss format":"mm or HH.mm.ss format",
+    "Hourly wage is required":"Hourly wage is required",
+    "Hourly wage must be more than 0":"Hourly wage must be more than 0",
+    "Please select a date":"Please select a date",
+    "Please enter the start date":"Please enter the start date",
+    "Name must be at least 2 characters":"الاسم الكامل يجب ان يكون من حرفين على الاقل",
+    "Name must contain letters only (Arabic or English)":"Name must contain letters only (Arabic or English)",
+    "Please enter the full name":"Please enter the full name",
+    "Please enter the address":"Please enter the address",
+    "Please enter the job title":"Please enter the job title",
+    "`Invalid Date` (cast from the value `Invalid Date`).":"`Invalid Date` (cast from the value `Invalid Date`).",
+    "Please enter a valid start date":"Please enter a valid start date",
+    "Please enter a valid date":"Please enter a valid date"
   },
   "AutoComplete": {
     "treatment": "Treatment",
@@ -203,7 +228,7 @@
       "Price": "Price",
       "Extra": "Extra",
       "Product": "Product",
-      "EmployeeName": "Employee name",
+      "employeeName": "Employee name",
       "NumberOfTreatments": "Number of Treatments",
       "Amount": "Amount",
       "TotalDueAmount": "Total Due Amount",
@@ -227,7 +252,10 @@
       "bonus": "Bonus",
       "TotalDebts": "Total Debts",
       "machine": "Machine",
-      "details": "Details"
+      "details": "Details",
+      "hourlyWage":"Hourly Wage",
+      "CheckOut":"CheckOut",
+      "CheckIn":"CheckIn"
     },
     "noData": "No records to display",
     "columns": "Columns",
@@ -251,7 +279,10 @@
       "deleteCustomer" : "Delete Customer",
       "editCustomer": "Edit Customer",
       "deleteOrder": "Delete Order",
-      "deletePayment": "Delete Payment"
+      "deletePayment": "Delete Payment",
+      "editEmployee": "Edit Employee",
+      "confirmRestore":"Confirm Restore",
+      "deleteEmployeeLog":"Delete Employee Log"
     },
     "confirmCustomerDelete": "Are you sure you want to delete this Customer?",
     "confirmCustomerEdit": "Are you sure you want to edit this Customer?",
@@ -263,7 +294,10 @@
     "confirmProductDelete": "Are you sure you want to delete this Product?",
     "confirmFollowUpDelete": "Are you sure you want to delete this Follow-up?",
     "confirmExpenseDelete": "Are you sure you want to delete this Expense?",
-    "confirmSaleDelete": "Are you sure you want to delete this Sale?"
+    "confirmSaleDelete": "Are you sure you want to delete this Sale?",
+    "confirmEmployeeEdit": "Are you sure you want to edit this Employee?",
+    "confirmEmployeeRestore" : "Are you sure you want to restore this Employee?",
+    "confirmEmployeeLogDelete":"Are you sure you want to delete this daily record?"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -297,7 +331,18 @@
       "addPayment": "Add Payment",
       "editOrder":"Edit Order",
       "editPayment": "Edit Payment"
+    },
+    "Employees":{
+      "employeeInformation": "Employee Information",
+      "addEmployeeLog":"Add Employee Log",
+      "EmployeeLogs": "Employee Logs",
+      "editEmployeeLog":"Edit Employee Log",
+      "addPayment": "Add Payment",
+      "editPayment": "Edit Payment",
+      "employeePayments":"Employee Payments"
+
     }
+    
   },
   "SnackbarMessages": {
     "Something went wrong!": "Something went wrong!",
@@ -417,6 +462,21 @@
     "Customer with phone number already exists": "Customer with phone number already exists",
     "Customer with email already exists": "Customer with email already exists",
     "this user Unauthorized": "this user Unauthorized",
-    "can't find this customer.": "can't find this customer"
+    "can't find this customer.": "can't find this customer",
+    "Start date must be in the past or today" : "Start date must be in the past or today",
+    "Employee with phone number already exists" : "Employee with phone number already exists",
+    "Not Found Employee": "Not Found Employee",
+    "Employee Edited Successfully": "Employee Edited Successfully",
+    "Employee deleted successfully": "Employee deleted successfully",
+    "Employee has been successfully restored": "Employee has been successfully restored",
+    "Employee Log Added Successfully" : "Employee Log Added Successfully",
+    "Employee Log deleted successfully": "Employee Log deleted successfully",
+    "Employee Log Edited Successfully":"Employee Log Edited Successfully",
+    "can't find this payment":"Can't Find This Payment",
+    "Cannot remove this employee log because it would result in an overpayment — the paid amount would exceed the due amount.":"Cannot remove this employee log because it would result in an overpayment — the paid amount would exceed the due amount.",
+    "The update would cause the employee's total paid amount to exceed the total due amount.":"The update would cause the employee's total paid amount to exceed the total due amount.",
+    "Cannot update the order because the customer's paid amount would exceed their total due amount.":"Cannot update the order because the customer's paid amount would exceed their total due amount.",
+    "CheckIn cannot be empty":"CheckIn cannot be empty",
+    "CheckOut cannot be empty":"CheckOut cannot be empty"
   }
 }

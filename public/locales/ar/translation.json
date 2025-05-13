@@ -35,7 +35,9 @@
     "viewDetails": "عرض التفاصيل",
     "search": "ابحث",
     "save": "حفظ",
-    "notes": "ملاحظات"
+    "notes": "ملاحظات",
+    "restoreEmployee" : "اعادة التعيين",
+    "addEmployeeLog":"اضافة تفاصيل يومية "
   },
   "Messages":{
     "heHasDues": "عليه مستحقات",
@@ -86,7 +88,15 @@
     "recipientPhoneNumber": "رقم هاتف المستلم",
     "quantity": "الكمية",
     "orderDate": "تاريخ الطلب",
-    "paymentDate": "تاريخ الدفعة"
+    "paymentDate": "تاريخ الدفعة",
+    "employeeName": "اسم الموظف",
+    "jobTitle": "المسمى الوظيفي",
+    "date":"تاريخ اليوم",
+    "checkIn":"وقت الدخول",
+    "checkOut":"وقت الخروج",
+    "hourlyWage":"سعر الساعة"
+
+
   },
   "TextfieldErrors": {
     "Please enter your email": "ادخل البريد الالكتروني",
@@ -133,8 +143,8 @@
     "Father name must be at most 20 characters": "اسم الأب يجب أن يكون 20 حرفًا على الأكثر",
     "Last name must be at most 20 characters": "اسم العائلة يجب أن يكون 20 حرفًا على الأكثر",
     "Address must be at most 25 characters": "العنوان يجب أن يكون 25 حرفًا على الأكثر",
-    "Phone number must be at least 10 characters": "رقم الهاتف يجب أن يكون 10 رقمًا على الأقل",
-    "Phone number must be at most 14 characters": "رقم الهاتف يجب أن يكون 15 أرقام على الأكثر",
+    "Phone number must be at least 10 characters": "رقم الهاتف يجب أن يكون 10 ارقام على الأقل",
+    "Phone number must be at most 14 characters": "رقم الهاتف يجب أن يكون 15 رقما على الأكثر",
     "ID number must be at least 9 characters": "رقم الهوية يجب أن يكون 9 أرقام على الأقل",
     "ID number must be at most 9 characters": "رقم الهوية يجب أن يكون 9 أرقام على الأكثر",
     "Phone number must contain numbers only": "رقم هاتف يجب أن يحتوي على أرقام فقط",
@@ -160,7 +170,24 @@
     "Customer name is required": "اسم الزبون مطلوب",
     "Start date is required": "تاريخ البداية مطلوب",
     "Invalid start date": "تاريخ البداية غير صالح",
-    "End date cannot be before start date": "لا يمكن ان يكون تاريخ النهاية قبل تاريخ البداية"
+    "End date cannot be before start date": "لا يمكن ان يكون تاريخ النهاية قبل تاريخ البداية",
+    "Hourly Wage must not contain spaces":"سعر الساعة يجب ان لا يحتوي على فراغات",
+    "Check-out must be after check-in":"وقت الخروج يجب ان يكون بعد وقت الدخول",
+    "Check-in time is required":"وقت الدخول مطلوب ",
+    "Check-out time is required":"وقت الخروج مطلوب ",
+    "mm or HH.mm.ss format":"الوقت يجب ان يكون بتنسيق الساعات:الدقائق او الساعات:الدقائق:الثواني",
+    "Hourly wage is required":"سعر الساعة مطلوب",
+    "Hourly wage must be more than 0":"سعر الساعة يجب ان يكون اكبر من 0",
+    "Please select a date":"الرجاء اختيار تاريخ",
+    "Please enter the start date":"يرجى إدخال تاريخ البداية",
+    "Name must be at least 2 characters":"الاسم الكامل يجب ان يكون من حرفين على الاقل",
+    "Name must contain letters only (Arabic or English)":"يجب أن يحتوي الاسم الكامل على حروف فقط (بالعربية أو الإنجليزية)",
+    "Please enter the full name":"يرجى ادخال الاسم الكامل",
+    "Please enter the address":"يرجى ادخال العنوان",
+    "Please enter the job title":"يرجى ادخال المسمى الوظيفي",
+    "`Invalid Date` (cast from the value `Invalid Date`).":".تاريخ غير صالح",
+    "Please enter a valid start date":"يرجى إدخال تاريخ بداية صالح",
+    "Please enter a valid date":"يرجى ادخال تاريخ صالح"
   },
   "AutoComplete": {
     "treatment": "العلاج",
@@ -203,7 +230,7 @@
       "Price": "السعر",
       "Extra": "البونص",
       "Product": "المنتج",
-      "EmployeeName": "اسم الموظف",
+      "employeeName": "اسم الموظف",
       "NumberOfTreatments": "عدد العلاجات",
       "TotalDueAmount": "المبلغ الاجمالي",
       "Quantity": "الكمية",
@@ -226,7 +253,10 @@
       "bonus": "البونص",
       "TotalDebts": "إجمالي الديون",
       "machine": "الجهاز",
-      "details": "التفاصيل"
+      "details": "التفاصيل",
+      "hourlyWage":"سعر الساعة",
+      "CheckOut":"وقت الخروج",
+      "CheckIn":"وقت الدخول"
     },
     "noData": "لا توجد بيانات لعرضها",
     "columns": "الأعمدة",
@@ -250,7 +280,10 @@
       "deleteCustomer" : "حذف الزبون",
       "editCustomer": "تعديل الزبون",
       "deleteOrder": "حذف الطلب",
-      "deletePayment": "حذف الطلب"
+      "deletePayment": "حذف الطلب",
+      "editEmployee" : "تعديل الموظف",
+      "confirmRestore":" اعادة التعيين",
+      "deleteEmployeeLog":"حذف السجل اليومي"
 
     },
     "confirmCustomerDelete": "هل انت متأكد من حذف هذا الزبون؟",
@@ -263,7 +296,10 @@
     "confirmProductDelete": "هل انت متأكد من حذف هذا المنتج؟",
     "confirmFollowUpDelete": "هل انت متأكد من حذف هذه المتابعة؟",
     "confirmExpenseDelete": "هل انت متأكد من حذف هذا المصروف؟",
-    "confirmSaleDelete": "هل انت متأكد من حذف حركة البيع؟"
+    "confirmSaleDelete": "هل انت متأكد من حذف حركة البيع؟",
+    "confirmEmployeeEdit":"هل انت متاكد من تعديل بيانات هذا الموظف",
+    "confirmEmployeeRestore": "هل انت متاكد من اعادة تعيين الموظف؟",
+    "confirmEmployeeLogDelete":" هل انت متاكد من حذف هذا السجل اليومي؟"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -297,6 +333,15 @@
       "addPayment": "اضافة دفعة",
       "editOrder":"تعديل الطلب",
       "editPayment": "تعديل الدفعة"
+    },
+    "Employees":{
+      "employeeInformation": "معلومات الموظف",
+      "addEmployeeLog":"اضافة تفاصيل يومية ",
+      "EmployeeLogs":"التفاصيل اليومية",
+      "editEmployeeLog":"تعديل السجل اليومي",
+      "addPayment":"اضافة دفعة",
+      "editPayment": "تعديل الدفعة",
+      "employeePayments":"دفعات الموظف"
     }
   },
   "SnackbarMessages": {
@@ -417,7 +462,21 @@
     "Customer with phone number already exists": "رقم الهاتف مسجّل مسبقا",
     "Customer with email already exists": "البريد الإلكتروني مسجّل مسبقا",
     "this user Unauthorized": "هذا المستخدم غير مصرح له",
-    "can't find this customer.": "تعذر العثور على الزبون"
-
+    "can't find this customer.": "تعذر العثور على الزبون",
+    "Start date must be in the past or today" : "يجب أن يكون تاريخ البدء في الماضي أو اليوم",
+    "Employee with phone number already exists" : "رقم الهاتف مسجّل مسبقا",
+    "Not Found Employee": "الموظف غير موجود",
+    "Employee Edited Successfully" : "تم تعديل بيانات الموظف بنجاح",
+    "Employee deleted successfully": "تم حذف الموظف بنجاح",
+    "Employee has been successfully restored": "تم اعادة تعيين الموظف بنجاح",
+    "Employee Log Added Successfully" : "تم اضافة السجل اليومي بنجاح",
+    "Employee Log deleted successfully": "تم حذف السجل اليومي بنجاح",
+    "Employee Log Edited Successfully":"تم تعديل السجل اليومي بنجاح",
+    "can't find this payment": "تعذر العثور على هذه الدفعة",
+    "Cannot remove this employee log because it would result in an overpayment — the paid amount would exceed the due amount.":"لا يمكن حذف هذا السجل اليومي لأنه سيؤدي إلى دفع زائد — حيث سيتجاوز المبلغ المدفوع المبلغ المستحق.",
+    "The update would cause the employee's total paid amount to exceed the total due amount.":"سيؤدي هذا التعديل إلى تجاوز إجمالي المبلغ المدفوع للموظف للمبلغ المستحق عليه.",
+    "Cannot update the order because the customer's paid amount would exceed their total due amount.":"لا يمكن تعديل الطلب لأن المبلغ المدفوع من الزبون سيتجاوز المبلغ المستحق عليه.",
+    "CheckIn cannot be empty":"لا يمكن أن يكون وقت الدخول فارغًا",
+    "CheckOut cannot be empty":"لا يمكن ان يكون وقت الخروج فارغًا"
   }
 }

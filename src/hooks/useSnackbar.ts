@@ -8,6 +8,7 @@ import {
 import { ShowSnackbarPayload } from "@/features/Snackbar/types";
 import { useDispatch } from "react-redux";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface SnackbarOptions extends Omit<ShowSnackbarPayload, "variant"> {}
 
 export const useSnackBar = () => {

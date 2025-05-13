@@ -11,3 +11,7 @@ export const Register = lazy(() => import("@/pages/Register"))
 export const ChangePassword = lazy(() => import("@/pages/ChangePassword"))
 export const Customers = lazy(() => import("@/pages/Customers"))
 export const CustomerDetails = lazy(() => import("@/pages/CustomerDetails"))
+export const Employees = lazy (()=>import ("@/pages/Employees")); 
+export const EmployeeDetails = lazy (()=>import ("@/pages/EmployeeDetails")); 
+
+

@@ -87,7 +87,7 @@ export const getGenericGridColumns = (
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1.4,
     }),
-    date: (fieldName = "createdAt") => ({
+    date: (fieldName = "date") => ({
       field: fieldName,
       headerName: t("Tables.Headers.Date"),
       flex: 1,
@@ -114,7 +114,7 @@ export const getGenericGridColumns = (
     }),
     employeeName: (fieldName = "employeeName") => ({
       field: fieldName,
-      headerName: t("Tables.Headers.Treater"),
+      headerName: t("Tables.Headers.employeeName"),
       flex: 1,
       sortable: false,
       minWidth: 200,
@@ -128,7 +128,7 @@ export const getGenericGridColumns = (
       flex: 1,
       minWidth: 150,
     }),
-    payment: (fieldName = "payment") => ({
+    payment: (fieldName = "payment") => ({ 
       field: fieldName,
       headerName: t("Tables.Headers.Payment"),
       type: "number",
@@ -299,6 +299,79 @@ export const getGenericGridColumns = (
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
       minWidth: 120,
+    }),
+    startDate: (fieldName = "startDate") => ({
+      field: fieldName,
+      headerName: t("Textfields.startDate"),
+      flex: 1,
+      type: "date",
+      valueFormatter: (_, row) =>
+        dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
+      minWidth: 150,
+    }),
+    jobTitle :  (fieldName = "jobTitle") => ({ 
+      field: fieldName,
+      headerName: t("Textfields.jobTitle"),
+      type: "string",
+      headerAlign: "left",
+      align: "left",
+      flex: 0.5,
+      minWidth: 100,
+    }),
+    paymentNumber: (fieldName = "paymentNumber") => ({ 
+      field: fieldName,
+      headerName: t("Tables.Headers.PaymentNumber"),
+      type: "number",
+      headerAlign: "left",
+      align: "left",
+      flex: 0.5,
+      minWidth: 100,
+    }),
+    paidAmount: (fieldName = "paidAmount") => ({ 
+      field: fieldName,
+      headerName: t("Tables.Headers.PaidAmount"),
+      type: "number",
+      headerAlign: "left",
+      align: "left",
+      flex: 1,
+      minWidth: 130,
+    }),
+
+    workDate: (fieldName = "date") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Date"),
+      type: "date",
+      flex: 1,
+      minWidth: 150,
+      valueFormatter: (_, row) => dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
+    }),
+    checkIn: (fieldName = "checkIn") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.CheckIn"),
+      type: "string",
+      flex: 0.75,
+      minWidth: 120,
+    }),
+    checkOut: (fieldName = "checkOut") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.CheckOut"),
+      type: "string",
+      flex: 0.75,
+      minWidth: 120,
+    }),
+    workHours: (fieldName = "workHours") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.WorkHours"),
+      type: "number",
+      flex: 0.75,
+      minWidth: 130,
+    }),
+    hourlyWage: (fieldName = "hourlyWage") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.hourlyWage"),
+      type: "number",
+      flex: 0.75,
+      minWidth: 130,
     }),
   };
 };

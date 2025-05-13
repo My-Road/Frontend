@@ -16,11 +16,11 @@ import { useSnackBar } from "@/hooks/useSnackbar";
 import { transformOrderToPayload } from "./util/transformOrderToPayload";
 
 import OrderFormDialog from "./OrderFormDialog";
-import DataGridActions from "../DataGridActions";
 import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
+import DataGridActions from "@/components/DataGridActions/DataGridActions";
 
 interface Props {
   searchParams: SearchParams;

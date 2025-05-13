@@ -1,0 +1,5 @@
+import { SearchFormValues } from "./types";
+
+export const initialValues: SearchFormValues = {
+    employeeName : "",
+};

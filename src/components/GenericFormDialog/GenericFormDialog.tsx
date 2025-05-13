@@ -71,9 +71,7 @@ export default function GenericFormDialog<T extends FormikValues>({
             <LoadingButton
               type="submit"
               variant="contained"
-              loading={isPending}
-              disabled={!formik.isValid || !formik.dirty}
-            >
+              loading={isPending}            >
               <Trans i18nKey={buttonTranslation}>Add</Trans>
             </LoadingButton>
             <Button variant="contained" color="error" onClick={closeDialog}>
