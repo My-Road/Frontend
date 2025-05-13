@@ -18,6 +18,16 @@ export const paymentValidationSchema: yup.ObjectSchema<CustomerPaymentPayload> =
       .trim()
       .min(1, "Please enter the notes")
       .required("Please enter the notes"),
-    paymentDate: yup.date().required("Please select a payment date"),
+    paymentDate: yup
+      .date()
+      .typeError("Please enter a valid date")
+      .required("Please select an payment date")
+      .test(
+        "is-valid-date",
+        "Please enter a complete and valid date",
+        (value) => {
+          return value instanceof Date && !isNaN(value.getTime());
+        }
+      ),
     customerId: yup.number().required("Please select a customer"),
   });

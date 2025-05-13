@@ -1,7 +1,6 @@
 import * as yup from "yup";
 import { CustomerOrderPayload } from "../../types";
 
-
 export const validationSchema: yup.ObjectSchema<CustomerOrderPayload> =
   yup.object({
     recipientName: yup.string().required("Please enter the recipient name"),
@@ -36,7 +35,17 @@ export const validationSchema: yup.ObjectSchema<CustomerOrderPayload> =
       })
       .positive("Price must be more than 0"),
 
-    orderDate: yup.date().required("Please select an order date"),
+    orderDate: yup
+      .date()
+      .typeError("Please enter a valid date")
+      .required("Please select an order date")
+      .test(
+        "is-valid-date",
+        "Please enter a complete and valid date",
+        (value) => {
+          return value instanceof Date && !isNaN(value.getTime());
+        }
+      ),
 
     notes: yup
       .string()
