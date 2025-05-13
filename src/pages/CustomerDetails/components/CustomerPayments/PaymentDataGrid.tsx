@@ -13,13 +13,13 @@ import useUpdatePaymentDataAPI from "../../hooks/useUpdatePaymentDataAPI";
 import { useSnackBar } from "@/hooks/useSnackbar";
 
 import PaymentFormDialog from "./PaymentFormDialog";
-import DataGridActions from "../DataGridActions";
 import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
 
 import { transformPaymentToPayload } from "./util/transformPaymentToPayload";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
+import DataGridActions from "@/components/DataGridActions/DataGridActions";
 
 // Component Props interface
 interface Props {
