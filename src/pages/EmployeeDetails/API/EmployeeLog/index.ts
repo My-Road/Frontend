@@ -27,6 +27,6 @@ export const deleteEmployeeLogAPI = async (id: number) => {
 };
 
 export const updateEmployeeLogAPI = async (employeeId: EmployeeLogPayload) => {
-  const res = await axiosInstance.put(`/api/v1/employeelog`, employeeId);
-  return res.data as EmployeeLog;
+  const res = await axiosInstance.put<EmployeeLog>(`/api/v1/employeelog`, employeeId);
+  return res.data ;
 };

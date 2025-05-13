@@ -3,8 +3,8 @@ import { EmployeePaymentPayload, Payment, SearchResponseForPayments } from "../.
 import { SearchParams } from "@/types";
 
 export const AddPaymentAPI = async (payment: EmployeePaymentPayload) => {
-  const res = await axiosInstance.post(`/api/v1/employee-payments/`, payment);
-  return res.data as Payment;
+  const res = await axiosInstance.post<Payment>(`/api/v1/employee-payments/`, payment);
+  return res.data ;
 };
 
 export const searchPaymentsAPI = async (id: number, params?: SearchParams) => {
@@ -21,6 +21,6 @@ export const deletePaymentAPI = async (id: number) => {
 };
 
 export const updatePaymentDataAPI = async (payload: EmployeePaymentPayload ) => {
-  const res = await axiosInstance.put(`/api/v1/employee-payments`, payload);
-  return res.data as Payment;
+  const res = await axiosInstance.put<Payment>(`/api/v1/employee-payments`, payload);
+  return res.data ;
 };

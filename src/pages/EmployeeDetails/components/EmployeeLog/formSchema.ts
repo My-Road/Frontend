@@ -41,8 +41,6 @@ export const employeeLogValidationSchema: yup.ObjectSchema<EmployeeLogPayload> =
 
         const checkInDate = new Date(0, 0, 0, checkInHour, checkInMinute);
         const checkOutDate = new Date(0, 0, 0, checkOutHour, checkOutMinute);
-
-        // إذا كان وقت الخروج أقل من أو يساوي الدخول، اعتبره في اليوم التالي
         if (checkOutDate <= checkInDate) {
           checkOutDate.setDate(checkOutDate.getDate() + 1);
         }

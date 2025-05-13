@@ -1,6 +1,4 @@
 import { Paper, Typography, Stack, Divider, Box } from "@mui/material";
-// import { DataGrid } from "@mui/x-data-grid"
-
 import AddEmployeeLogForm from "./AddEmployeeLogForm";
 import EmployeeLogsDataGrid from "./EmployeeLogsDataGrid";
 import { SearchParams } from "@/types";
@@ -13,14 +11,16 @@ interface Props {
 }
 
 function EmployeeLog({ employeeId }: Props) {
-  const [searchParams, setSearchParams] = useState<SearchParams>(DEFAULT_SEARCH_PARAMS);
+  const [searchParams, setSearchParams] = useState<SearchParams>(
+    DEFAULT_SEARCH_PARAMS
+  );
   return (
     <Paper>
       <Stack p={4} gap={4}>
         <Box>
           <Typography variant="h5">
             <Trans i18nKey="PrivatePages.Employees.EmployeeLogs">
-            Employee Log
+              Employee Log
             </Trans>
           </Typography>
           <Divider />
@@ -28,11 +28,11 @@ function EmployeeLog({ employeeId }: Props) {
         <Box mb={3}>
           <AddEmployeeLogForm employeeId={employeeId} />
         </Box>
-        <SearchForm
-          setSearchParams={setSearchParams}
-          dateFieldKey="date"
+        <SearchForm setSearchParams={setSearchParams} dateFieldKey="date" />
+        <EmployeeLogsDataGrid
+          employeeId={employeeId}
+          searchParams={searchParams}
         />
-        <EmployeeLogsDataGrid employeeId={employeeId} searchParams={searchParams} />
       </Stack>
     </Paper>
   );
