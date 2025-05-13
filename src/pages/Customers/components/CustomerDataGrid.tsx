@@ -1,6 +1,5 @@
 import Box from "@mui/material/Box";
 import { GridColDef } from "@mui/x-data-grid";
-import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useSearchCustomers } from "../hooks/useSearchCustomersAPI";
@@ -9,6 +8,9 @@ import { Customer, PaginationProps, SearchParams } from "@/types";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
+import CellActionButton from "@/components/CellActionButton";
+import useRestCustomerAPI from "../hooks/useResetCustomerAPI";
+import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 
 interface CustomerDataGridProps {
   searchParams: SearchParams;
@@ -20,13 +22,19 @@ export default function CustomerDataGrid({
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const [paginationModel, setPaginationModel] = useState<PaginationProps>(DEFAULT_PAGINATION_PROPS);
+  const [paginationModel, setPaginationModel] = useState<PaginationProps>(
+    DEFAULT_PAGINATION_PROPS
+  );
 
   const { data, isLoading } = useSearchCustomers({
     ...searchParams,
     page: paginationModel.page + 1,
     pageSize: paginationModel.pageSize,
   });
+
+  const { restCustomer, isPending } = useRestCustomerAPI();
+
+  const { showConfirmationDialog } = useConfirmationDialog();
 
   const gridColumns: GridColDef[] = [
     getGenericGridColumns(t).id(),
@@ -36,25 +44,32 @@ export default function CustomerDataGrid({
     getGenericGridColumns(t).address(),
     {
       ...getGenericGridColumns(t).actions(),
-      renderCell: (params) => (
-        <Button
-          variant="text"
-          color="info"
-          size="small"
-          onClick={() => {
-            if (params.row.id) {
-              navigate(`/me/customer/${params.row.id}`);
-            }
-          }}
-        >
-          {t("Buttons.viewDetails")}
-        </Button>
-      ),
+      renderCell: (params) => {
+        const customer = params.row as Customer;
+        const isActive = Boolean(!customer.isDeleted);
+
+        return (
+          <CellActionButton
+            row={customer}
+            isActive={isActive}
+            onActiveClick={() => navigate(`/me/customer/${customer.id}`)}
+            onInactiveClick={handleRestoreClick}
+            isPending={isPending}
+          />
+        );
+      },
     },
   ];
 
-  //for now because there is issue from BE returned all customers deleted or not
-  const filterIsDelete = data?.items.filter((customer) => !customer.isDeleted);
+  const handleRestoreClick = (customer: Customer) => {
+    showConfirmationDialog({
+      title: t("Dialogs.Title.confirmRestore"),
+      message: t("Dialogs.confirmCustomerRestore", {
+        name: customer.customerName,
+      }),
+      onConfirm: () => restCustomer(customer.id),
+    });
+  };
 
   return (
     <Box
@@ -65,7 +80,7 @@ export default function CustomerDataGrid({
       }}
     >
       <GenericDataGrid<Customer>
-        rows={filterIsDelete || []}
+        rows={data?.items || []}
         columns={gridColumns}
         paginationModel={paginationModel}
         onPaginationChange={setPaginationModel}

@@ -19,3 +19,8 @@ export const searchCustomersAPI = async (
   );
   return res.data;
 };
+
+export const resetCustomerAPI = async (id: number) =>{
+  const res = await axiosInstance.put(`/api/v1/customer/restore/${id}`)
+  return res.data;
+}

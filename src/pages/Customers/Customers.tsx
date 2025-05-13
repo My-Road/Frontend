@@ -7,7 +7,7 @@ import { SearchParams } from "@/types";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 
 export default function DataGridDemo() {
-  const [searchParams, setSearchParams] = useState<SearchParams>(DEFAULT_SEARCH_PARAMS);
+  const [searchParams, setSearchParams] = useState<SearchParams>({...DEFAULT_SEARCH_PARAMS, sorts: "isDeleted"});
   return (
     <Container>
       <Stack gap={4}>
