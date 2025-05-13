@@ -1,20 +1,13 @@
 import { Divider, Stack, Typography, TextField } from "@mui/material";
 import { Trans, useTranslation } from "react-i18next";
-{/*import { getSalaryStatusMessageAndColor } from "./utils/getPaymentStatusMessageAndColor";*/}
 import { EmployeePayments } from "../../types";
-
 interface Props {
- employeePayment : EmployeePayments
+  employeePayment: EmployeePayments;
 }
 
-function PaymentsEmployeeInfo({
-    employeePayment
-}: Props) {
+function PaymentsEmployeeInfo({ employeePayment }: Props) {
   const { t } = useTranslation();
-
- {/*} const { message: statusMessage, color: statusColor } =
-  getSalaryStatusMessageAndColor(totalDueAmount, remainingAmount, t);*/}
- console.log (employeePayment.totalPaidAmount)
+  console.log(employeePayment.totalPaidAmount);
   return (
     <>
       <Typography variant="h5" gutterBottom>
@@ -40,15 +33,8 @@ function PaymentsEmployeeInfo({
           label={t("Textfields.remainingAmount")}
           value={employeePayment.remainingAmount}
         />
-      {/*  <Box alignItems="center" display="flex">
-          <Typography color={statusColor} variant="h6">
-            {statusMessage}
-          </Typography>
-        </Box>*/}
       </Stack>
     </>
   );
 }
-
 export default PaymentsEmployeeInfo;
-

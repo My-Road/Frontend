@@ -7,8 +7,6 @@ export const paymentValidationSchema: yup.ObjectSchema<EmployeePaymentPayload> =
     .number()
     .typeError("Amount must be a number")
     .required("Please enter the Amount")
-      .typeError("Amount must be a number")
-      .required("Please enter the Amount")
       .positive("Amount must be at least 1")
       .integer("Amount must be an integer")
       .test("no-spaces", "Amount must not contain spaces", function (_, ctx) {

@@ -21,7 +21,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
     setIsInSearchMode(true);
     setSearchParams((prev: SearchParams) => ({
       ...prev,
-      filters: `FullName@=${values.fullName}`,
+      filters: `FullName@=${values.employeeName}`,
       page: 1,
     }));
   };
@@ -50,14 +50,14 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
           alignItems="center"
           gap={2}
         >
-          <TextField name="fullName" label="الاسم الكامل" />
+          <TextField name="employeeName" />
           <Button
             type="submit"
             variant="contained"
             color="primary"
             endIcon={<SearchIcon />}
           >
-            <Trans i18nKey="Buttons.search">بحث</Trans>
+            <Trans i18nKey="Buttons.search">Search</Trans>
           </Button>
           {isInSearchMode && (
             <Button
@@ -67,7 +67,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
               onClick={handleClearSearch}
               disabled={!formikProps.isValid || !formikProps.dirty}
             >
-              <Trans i18nKey="Buttons.cancel">إلغاء البحث</Trans>
+              <Trans i18nKey="Buttons.cancel">Cancel</Trans>
             </Button>
           )}
         </Stack>

@@ -46,5 +46,3 @@ import {
   }
   
   export default PersonalEmployeeInfo;
-  
-  
