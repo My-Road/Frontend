@@ -21,14 +21,12 @@ import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import DataGridActions from "@/components/DataGridActions/DataGridActions";
 
-// Component Props interface
 interface Props {
   searchParams: SearchParams;
   customerId: number;
 }
 
 export default function PaymentDataGrid({ searchParams, customerId }: Props) {
-  // State variables
   const [paginationModel, setPaginationModel] = useState<PaginationProps>(
     DEFAULT_PAGINATION_PROPS
   );
@@ -38,7 +36,6 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
     useState<CustomerPaymentPayload | null>(null);
   const [noteContent, setNoteContent] = useState<string>("");
 
-  // API hooks
   const { data, isLoading } = useSearchPayments(customerId, {
     ...searchParams,
     page: paginationModel.page + 1,
@@ -47,11 +44,9 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
   const { deletePayment, isPending } = useDeletePaymentAPI();
   const { updatePayment, isPending: isEditing } = useUpdatePaymentDataAPI();
 
-  // Snackbar & Dialog hooks
   const { showConfirmationDialog } = useConfirmationDialog();
   const { showWarningSnackbar } = useSnackBar();
 
-  // Translations
   const { t } = useTranslation();
 
   const gridColumns: GridColDef[] = [
@@ -71,7 +66,7 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
     },
   ];
 
-  // Handlers
+  
   const handleViewNotes = (payment: Payment) => {
     setNoteContent(payment.notes ?? "");
     setNoteDialogOpen(true);
@@ -97,7 +92,6 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
   ) => {
     if (!selectedPayment) return;
 
-    // Check if any data was changed
     const isEqual = JSON.stringify(values) === JSON.stringify(selectedPayment);
     if (isEqual) {
       helpers.setSubmitting(false);
@@ -133,7 +127,6 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
         />
       </Box>
 
-      {/* Text Preview Dialog for Notes */}
       <TextPreviewDialog
         open={noteDialogOpen}
         onClose={() => setNoteDialogOpen(false)}
@@ -141,7 +134,6 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
         title={t("Tables.Headers.Notes")}
       />
 
-      {/* Payment Edit Form Dialog */}
       {selectedPayment && (
         <PaymentFormDialog
           open={editDialogOpen}

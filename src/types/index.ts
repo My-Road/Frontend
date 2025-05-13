@@ -33,8 +33,25 @@ export interface Customer {
   customerPayments: never[];
   id: number;
 }
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface Employee extends Omit<Customer, "notes"> {}
+export interface Employee {
+  id: number;
+  employeeName: string;
+  phoneNumber: string;
+  address: string;
+  jobTitle: string;
+  idNumber: string;
+  startDate: string;
+  endDate: string;
+  status: boolean;
+  email: string;
+  totalDueAmount: number;
+  totalPaidAmount: number;
+  remainingAmount: number;
+  payments: [],
+  logs: [],
+
+}
+
 export interface Visit {
   _id: string;
   payment: number;

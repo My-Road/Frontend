@@ -8,7 +8,7 @@ const RootReducer = combineReducers({
   user: userReducer,
   snackbar: snackbarReducer,
   appSettings: appSettingsReducer,
-  confirmationDialog: confirmationDialogReducer,  
+  confirmationDialog: confirmationDialogReducer,
 });
 
 export default RootReducer;
