@@ -12,7 +12,7 @@ export type EmployeePayments = Pick<
 
 export interface EmployeePaymentPayload {
   amount: number;
-  paymentDate: Date;
+  paymentDate: string;
   notes: string;
   employeeId: number;
 }

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import { GridColDef } from "@mui/x-data-grid";
-import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
@@ -11,6 +10,7 @@ import { Employee, PaginationProps, SearchParams } from "@/types";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
+import CellActionButton from "@/components/CellActionButton";
 
 interface EmployeeDataGridProps {
   searchParams: SearchParams;
@@ -34,15 +34,6 @@ export default function EmployeeDataGrid({
 
   const { restoreEmployee, isPending } = useRestoreEmployeeAPI();
 
-  const sortedEmployees = [...(data?.items || [])].sort((a, b) => {
-    const statusA = Boolean(a.status);
-    const statusB = Boolean(b.status);
-
-    if (!statusA && statusB) return 1;
-    if (statusA && !statusB) return -1;
-    return a.id - b.id;
-  });
-
   const handleRestoreClick = (employee: Employee) => {
     showConfirmationDialog({
       title: t("Dialogs.Title.confirmRestore"),
@@ -64,31 +55,16 @@ export default function EmployeeDataGrid({
       ...getGenericGridColumns(t).actions(),
       renderCell: (params) => {
         const employee = params.row as Employee;
-
         const isActive = Boolean(employee.status);
-        const label = isActive
-          ? t("Buttons.viewDetails")
-          : t("Buttons.restoreEmployee");
-        const handleClick = () => {
-          if (isActive) {
-            navigate(`/me/employees/${employee.id}`);
-          } else {
-            handleRestoreClick(employee);
-          }
-        };
 
         return (
-          <Button
-            variant={"text"}
-            sx={{
-              color: isActive ? "info.main" : "warning.main",
-            }}
-            size="small"
-            onClick={handleClick}
-            disabled={!isActive && isPending}
-          >
-            {label}
-          </Button>
+          <CellActionButton
+            row={employee}
+            isActive={isActive}
+            onActiveClick={() => navigate(`/me/employees/${employee.id}`)}
+            onInactiveClick={handleRestoreClick}
+            isPending={isPending}
+          />
         );
       },
     },
@@ -102,7 +78,7 @@ export default function EmployeeDataGrid({
       }}
     >
       <GenericDataGrid<Employee>
-        rows={sortedEmployees || []}
+        rows={data?.items || []}
         columns={gridColumns}
         paginationModel={paginationModel}
         onPaginationChange={setPaginationModel}

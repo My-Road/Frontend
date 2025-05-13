@@ -1,9 +1,9 @@
 import { CustomerPaymentPayload, Payment } from "@/pages/CustomerDetails/types";
 
-export function transformPaymentToPayload(order: Payment): CustomerPaymentPayload {
+export function transformPaymentToPayload(payment: Payment): CustomerPaymentPayload {
     return {
-      ...order,
-      paymentDate: new Date(order.paymentDate),
+      ...payment,
+      paymentDate: payment.paymentDate ,
     };
   }
   

@@ -349,14 +349,14 @@ export const getGenericGridColumns = (
       field: fieldName,
       headerName: t("Tables.Headers.CheckIn"),
       type: "string",
-      flex: 0.75,
+      flex: 1,
       minWidth: 120,
     }),
     checkOut: (fieldName = "checkOut") => ({
       field: fieldName,
       headerName: t("Tables.Headers.CheckOut"),
       type: "string",
-      flex: 0.75,
+      flex: 1,
       minWidth: 120,
     }),
     workHours: (fieldName = "workHours") => ({
@@ -369,8 +369,8 @@ export const getGenericGridColumns = (
     hourlyWage: (fieldName = "hourlyWage") => ({
       field: fieldName,
       headerName: t("Tables.Headers.hourlyWage"),
-      type: "number",
-      flex: 0.75,
+      type: "string",
+      flex: 1,
       minWidth: 130,
     }),
   };

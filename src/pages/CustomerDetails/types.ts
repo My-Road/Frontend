@@ -12,7 +12,7 @@ export type CustomerPayments = Pick<
 
 export interface CustomerPaymentPayload {
   amount: number;
-  paymentDate: Date;
+  paymentDate: string;
   notes: string;
   customerId: number;
 }
@@ -40,7 +40,7 @@ export interface CustomerOrderPayload {
   recipientPhoneNumber: string;
   quantity: number;
   price: number;
-  orderDate: Date;
+  orderDate: string;
   notes: string;
   customerId: number;
   createdByUserId: number;

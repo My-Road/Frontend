@@ -1,7 +1,6 @@
 import * as yup from "yup";
 import { CustomerOrderPayload } from "../../types";
 
-
 export const validationSchema: yup.ObjectSchema<CustomerOrderPayload> =
   yup.object({
     recipientName: yup.string().required("Please enter the recipient name"),
@@ -17,26 +16,31 @@ export const validationSchema: yup.ObjectSchema<CustomerOrderPayload> =
       .number()
       .typeError("Quantity must be an integer")
       .required("Please enter the Quantity")
+      .positive("Quantity must be more than 0")
       .test("no-spaces", "Quantity must not contain spaces", function (_, ctx) {
         const original = ctx.originalValue;
         return typeof original === "string" ? /^\d+$/.test(original) : true;
       })
-      .positive("Quantity must be more than 0")
       .integer("Quantity must be an integer"),
 
     price: yup
       .number()
       .typeError("Price must be a number")
       .required("Please enter the Price")
+      .positive("Price must be more than 0")
       .test("no-spaces", "Price must not contain spaces", function (_, ctx) {
         const original = ctx.originalValue;
         return typeof original === "string"
           ? /^\d+(\.\d{1,2})?$/.test(original)
           : true;
-      })
-      .positive("Price must be more than 0"),
-
-    orderDate: yup.date().required("Please select an order date"),
+      }),
+    orderDate: yup
+      .string()
+      .typeError("Please enter a valid date")
+      .required("Please select an order date")
+      .test("is-valid-date", "Please enter a valid date", (value) => {
+        return value ? !isNaN(Date.parse(value)) : false;
+      }),
 
     notes: yup
       .string()
