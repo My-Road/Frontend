@@ -42,7 +42,7 @@ const privateRoutes: RouteObject = {
           path:"employees",
           element: <Employees />,
         },{
-          path: "employee/:employeeId", 
+          path: "employees/:employeeId", 
           element: <EmployeeDetails />,
         },
       ],

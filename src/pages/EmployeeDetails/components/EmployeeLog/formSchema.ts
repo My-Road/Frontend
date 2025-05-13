@@ -18,7 +18,11 @@ export const employeeLogValidationSchema: yup.ObjectSchema<EmployeeLogPayload> =
 
     date: yup
     .string()
-    .required("Please select a date"),
+    .required("Please select a date")
+    .test("is-valid-date", "Please enter a valid date", (value) => {
+      return value ? !isNaN(Date.parse(value)) : false;
+    }),
+  
 
   checkIn: yup
     .string()

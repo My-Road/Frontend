@@ -71,7 +71,7 @@ export default function EmployeeDataGrid({
           : t("Buttons.restoreEmployee");
         const handleClick = () => {
           if (isActive) {
-            navigate(`/me/employee/${employee.id}`);
+            navigate(`/me/employees/${employee.id}`);
           } else {
             handleRestoreClick(employee);
           }

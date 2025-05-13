@@ -182,7 +182,10 @@
     "Name must contain letters only (Arabic or English)":"Name must contain letters only (Arabic or English)",
     "Please enter the full name":"Please enter the full name",
     "Please enter the address":"Please enter the address",
-    "Please enter the job title":"Please enter the job title"
+    "Please enter the job title":"Please enter the job title",
+    "`Invalid Date` (cast from the value `Invalid Date`).":"`Invalid Date` (cast from the value `Invalid Date`).",
+    "Please enter a valid start date":"Please enter a valid start date",
+    "Please enter a valid date":"Please enter a valid date"
   },
   "AutoComplete": {
     "treatment": "Treatment",

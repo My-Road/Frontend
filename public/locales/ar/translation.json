@@ -184,7 +184,10 @@
     "Name must contain letters only (Arabic or English)":"يجب أن يحتوي الاسم الكامل على حروف فقط (بالعربية أو الإنجليزية)",
     "Please enter the full name":"يرجى ادخال الاسم الكامل",
     "Please enter the address":"يرجى ادخال العنوان",
-    "Please enter the job title":"يرجى ادخال المسمى الوظيفي"
+    "Please enter the job title":"يرجى ادخال المسمى الوظيفي",
+    "`Invalid Date` (cast from the value `Invalid Date`).":".تاريخ غير صالح",
+    "Please enter a valid start date":"يرجى إدخال تاريخ بداية صالح",
+    "Please enter a valid date":"يرجى ادخال تاريخ صالح"
   },
   "AutoComplete": {
     "treatment": "العلاج",
