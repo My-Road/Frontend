@@ -143,8 +143,8 @@
     "Father name must be at most 20 characters": "اسم الأب يجب أن يكون 20 حرفًا على الأكثر",
     "Last name must be at most 20 characters": "اسم العائلة يجب أن يكون 20 حرفًا على الأكثر",
     "Address must be at most 25 characters": "العنوان يجب أن يكون 25 حرفًا على الأكثر",
-    "Phone number must be at least 10 characters": "رقم الهاتف يجب أن يكون 10 رقمًا على الأقل",
-    "Phone number must be at most 14 characters": "رقم الهاتف يجب أن يكون 15 أرقام على الأكثر",
+    "Phone number must be at least 10 characters": "رقم الهاتف يجب أن يكون 10 ارقام على الأقل",
+    "Phone number must be at most 14 characters": "رقم الهاتف يجب أن يكون 15 رقما على الأكثر",
     "ID number must be at least 9 characters": "رقم الهوية يجب أن يكون 9 أرقام على الأقل",
     "ID number must be at most 9 characters": "رقم الهوية يجب أن يكون 9 أرقام على الأكثر",
     "Phone number must contain numbers only": "رقم هاتف يجب أن يحتوي على أرقام فقط",
@@ -179,7 +179,12 @@
     "Hourly wage is required":"سعر الساعة مطلوب",
     "Hourly wage must be more than 0":"سعر الساعة يجب ان يكون اكبر من 0",
     "Please select a date":"الرجاء اختيار تاريخ",
-    "Please enter the start date":"يرجى إدخال تاريخ البداية"
+    "Please enter the start date":"يرجى إدخال تاريخ البداية",
+    "Name must be at least 2 characters":"الاسم الكامل يجب ان يكون من حرفين على الاقل",
+    "Name must contain letters only (Arabic or English)":"يجب أن يحتوي الاسم الكامل على حروف فقط (بالعربية أو الإنجليزية)",
+    "Please enter the full name":"يرجى ادخال الاسم الكامل",
+    "Please enter the address":"يرجى ادخال العنوان",
+    "Please enter the job title":"يرجى ادخال المسمى الوظيفي"
   },
   "AutoComplete": {
     "treatment": "العلاج",
