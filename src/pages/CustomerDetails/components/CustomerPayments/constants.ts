@@ -3,6 +3,6 @@ import { CustomerPaymentPayload } from "../../types";
 export const initialValues : CustomerPaymentPayload  = { 
     amount: 0,
     notes: "",
-    paymentDate: new Date(),
+    paymentDate: "",
     customerId : 0
  }
