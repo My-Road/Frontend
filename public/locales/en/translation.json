@@ -297,7 +297,8 @@
     "confirmSaleDelete": "Are you sure you want to delete this Sale?",
     "confirmEmployeeEdit": "Are you sure you want to edit this Employee?",
     "confirmEmployeeRestore" : "Are you sure you want to restore this Employee?",
-    "confirmEmployeeLogDelete":"Are you sure you want to delete this daily record?"
+    "confirmEmployeeLogDelete":"Are you sure you want to delete this daily record?",
+    "confirmCustomerRestore": "Are you sure you want to restore this Customer?"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -477,6 +478,7 @@
     "The update would cause the employee's total paid amount to exceed the total due amount.":"The update would cause the employee's total paid amount to exceed the total due amount.",
     "Cannot update the order because the customer's paid amount would exceed their total due amount.":"Cannot update the order because the customer's paid amount would exceed their total due amount.",
     "CheckIn cannot be empty":"CheckIn cannot be empty",
-    "CheckOut cannot be empty":"CheckOut cannot be empty"
+    "CheckOut cannot be empty":"CheckOut cannot be empty",
+    "Customer has been successfully restored": "Customer has been successfully restored"
   }
 }

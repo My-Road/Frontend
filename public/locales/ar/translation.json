@@ -299,7 +299,8 @@
     "confirmSaleDelete": "هل انت متأكد من حذف حركة البيع؟",
     "confirmEmployeeEdit":"هل انت متاكد من تعديل بيانات هذا الموظف",
     "confirmEmployeeRestore": "هل انت متاكد من اعادة تعيين الموظف؟",
-    "confirmEmployeeLogDelete":" هل انت متاكد من حذف هذا السجل اليومي؟"
+    "confirmEmployeeLogDelete":" هل انت متاكد من حذف هذا السجل اليومي؟",
+    "confirmCustomerRestore": "هل انت متأكد من اعادة تعيين هذا الزبون؟"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -477,6 +478,7 @@
     "The update would cause the employee's total paid amount to exceed the total due amount.":"سيؤدي هذا التعديل إلى تجاوز إجمالي المبلغ المدفوع للموظف للمبلغ المستحق عليه.",
     "Cannot update the order because the customer's paid amount would exceed their total due amount.":"لا يمكن تعديل الطلب لأن المبلغ المدفوع من الزبون سيتجاوز المبلغ المستحق عليه.",
     "CheckIn cannot be empty":"لا يمكن أن يكون وقت الدخول فارغًا",
-    "CheckOut cannot be empty":"لا يمكن ان يكون وقت الخروج فارغًا"
+    "CheckOut cannot be empty":"لا يمكن ان يكون وقت الخروج فارغًا",
+    "Customer has been successfully restored": "تم اعادة تعيين الزبون بنجاح"
   }
 }
