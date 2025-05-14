@@ -17,11 +17,11 @@ export const validationSchema: yup.ObjectSchema<CustomerOrderPayload> =
       .typeError("Quantity must be an integer")
       .required("Please enter the Quantity")
       .positive("Quantity must be more than 0")
+      .integer("Quantity must be an integer")
       .test("no-spaces", "Quantity must not contain spaces", function (_, ctx) {
         const original = ctx.originalValue;
         return typeof original === "string" ? /^\d+$/.test(original) : true;
-      })
-      .integer("Quantity must be an integer"),
+      }),
 
     price: yup
       .number()

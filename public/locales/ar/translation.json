@@ -482,6 +482,10 @@
     "Cannot update the order because the customer's paid amount would exceed their total due amount.":"لا يمكن تعديل الطلب لأن المبلغ المدفوع من الزبون سيتجاوز المبلغ المستحق عليه.",
     "CheckIn cannot be empty":"لا يمكن أن يكون وقت الدخول فارغًا",
     "CheckOut cannot be empty":"لا يمكن ان يكون وقت الخروج فارغًا",
-    "Customer has been successfully restored": "تم اعادة تعيين الزبون بنجاح"
+    "Customer has been successfully restored": "تم اعادة تعيين الزبون بنجاح",
+    "The payment amount exceeds the total due.": "المبلغ المدفوع يتجاوز المبلغ الاجمالي.",
+    "There is no due amount left to pay.": "لا يوجد أي مبلغ مستحق للدفع.",
+    "Payment cannot be made because the amount has been paid in full.": "لا يمكن اجراء دفعة لان المبلغ مسدد بالكامل",
+    "You can't make a payment because there are no orders.": "لا يمكنك إجراء دفعة لأنه لا توجد طلبات."
   }
 }

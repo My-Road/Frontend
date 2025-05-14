@@ -482,6 +482,10 @@
     "Cannot update the order because the customer's paid amount would exceed their total due amount.":"Cannot update the order because the customer's paid amount would exceed their total due amount.",
     "CheckIn cannot be empty":"CheckIn cannot be empty",
     "CheckOut cannot be empty":"CheckOut cannot be empty",
-    "Customer has been successfully restored": "Customer has been successfully restored"
+    "Customer has been successfully restored": "Customer has been successfully restored",
+    "The payment amount exceeds the total due.": "The payment amount exceeds the total due.",
+    "There is no due amount left to pay.": "There is no due amount left to pay.",
+    "Payment cannot be made because the amount has been paid in full.": "Payment cannot be made because the amount has been paid in full.",
+    "You can't make a payment because there are no orders.": "You can't make a payment because there are no orders."
   }
 }
