@@ -1,24 +1,26 @@
 import { useState } from "react";
 import { Button, Box } from "@mui/material";
 import { FormikHelpers } from "formik";
-
 import { Trans, useTranslation } from "react-i18next";
-import { EmployeePaymentPayload } from "../../types";
+import { EmployeePaymentPayload, PaymentState } from "../../types";
 import { initialValues } from "./constants";
 import useAddPaymentAPI from "../../hooks/useAddPaymentAPI";
 import PaymentFormDialog from "./PaymentFormDialog";
 import AddIcon from "@mui/icons-material/Add";
+import { useSnackBar } from "@/hooks/useSnackbar";
 
 interface Props {
   employeeId: number;
+  paymentState: PaymentState;
 }
 
-function AddPaymentForm({ employeeId }: Props) {
+function AddPaymentForm({ employeeId, paymentState }: Props) {
   const [open, setOpen] = useState(false);
   const { addPayment, isPending } = useAddPaymentAPI();
 
   const handleClose = () => setOpen(false);
   const { t } = useTranslation();
+  const { showWarningSnackbar } = useSnackBar();
 
   const handleAddPayment = async (
     values: EmployeePaymentPayload,
@@ -33,13 +35,17 @@ function AddPaymentForm({ employeeId }: Props) {
       },
     });
   };
-
+  const hasToPaid = paymentState.status;
   return (
     <Box>
       <Button
         variant="contained"
         endIcon={<AddIcon />}
-        onClick={() => setOpen(true)}
+        onClick={() =>
+          hasToPaid
+            ? setOpen(true)
+            : showWarningSnackbar({ message: paymentState.msg })
+        }
       >
         <Trans i18nKey="Buttons.addPayment">Add Payment</Trans>
       </Button>

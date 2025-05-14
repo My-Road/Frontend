@@ -1,5 +1,4 @@
 import { Paper, Typography, Stack, Divider, Box } from "@mui/material";
-
 import AddPaymentForm from "./AddPaymentForm";
 import PaymentDataGrid from "./PaymentDataGrid";
 import { Trans } from "react-i18next";
@@ -7,12 +6,14 @@ import { SearchParams } from "@/types";
 import { useState } from "react";
 import SearchForm from "@/components/SearchForm/SearchForm";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
+import { PaymentState } from "../../types";
 
 interface Props {
   employeeId: number;
+  paymentState: PaymentState
 }
 
-function EmployeePayments({ employeeId }: Props) {
+function EmployeePayments({ employeeId, paymentState }: Props) {
   const [searchParams, setSearchParams] = useState<SearchParams>(DEFAULT_SEARCH_PARAMS);
   return (
     <Paper>
@@ -26,7 +27,7 @@ function EmployeePayments({ employeeId }: Props) {
           <Divider />
         </Box>
         <Box mb={3}>
-          <AddPaymentForm employeeId={employeeId} />
+          <AddPaymentForm employeeId={employeeId} paymentState={paymentState} />
         </Box>
         <SearchForm
           setSearchParams={setSearchParams}

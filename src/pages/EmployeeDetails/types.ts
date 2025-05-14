@@ -63,4 +63,7 @@ export interface Payment {
     totalCount: number;
 }
 
-
+export type PaymentState = {
+  status: boolean;
+  msg: string;
+};

@@ -486,6 +486,7 @@
     "The payment amount exceeds the total due.": "المبلغ المدفوع يتجاوز المبلغ الاجمالي.",
     "There is no due amount left to pay.": "لا يوجد أي مبلغ مستحق للدفع.",
     "Payment cannot be made because the amount has been paid in full.": "لا يمكن اجراء دفعة لان المبلغ مسدد بالكامل",
-    "You can't make a payment because there are no orders.": "لا يمكنك إجراء دفعة لأنه لا توجد طلبات."
+    "You can't make a payment because there are no orders.": "لا يمكنك إجراء دفعة لأنه لا توجد طلبات.",
+    "You can't make a payment because there are no logs": "لا يمكنك إجراء الدفع لأنه لا توجد سجلات."
   }
 }
