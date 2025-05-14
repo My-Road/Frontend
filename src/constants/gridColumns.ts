@@ -128,7 +128,7 @@ export const getGenericGridColumns = (
       flex: 1,
       minWidth: 150,
     }),
-    payment: (fieldName = "payment") => ({ 
+    payment: (fieldName = "payment") => ({
       field: fieldName,
       headerName: t("Tables.Headers.Payment"),
       type: "number",
@@ -309,7 +309,7 @@ export const getGenericGridColumns = (
         dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
       minWidth: 150,
     }),
-    jobTitle :  (fieldName = "jobTitle") => ({ 
+    jobTitle: (fieldName = "jobTitle") => ({
       field: fieldName,
       headerName: t("Textfields.jobTitle"),
       type: "string",
@@ -318,7 +318,7 @@ export const getGenericGridColumns = (
       flex: 0.5,
       minWidth: 100,
     }),
-    paymentNumber: (fieldName = "paymentNumber") => ({ 
+    paymentNumber: (fieldName = "paymentNumber") => ({
       field: fieldName,
       headerName: t("Tables.Headers.PaymentNumber"),
       type: "number",
@@ -327,7 +327,7 @@ export const getGenericGridColumns = (
       flex: 0.5,
       minWidth: 100,
     }),
-    paidAmount: (fieldName = "paidAmount") => ({ 
+    paidAmount: (fieldName = "paidAmount") => ({
       field: fieldName,
       headerName: t("Tables.Headers.PaidAmount"),
       type: "number",
@@ -343,7 +343,8 @@ export const getGenericGridColumns = (
       type: "date",
       flex: 1,
       minWidth: 150,
-      valueFormatter: (_, row) => dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
+      valueFormatter: (_, row) =>
+        dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
     }),
     checkIn: (fieldName = "checkIn") => ({
       field: fieldName,
@@ -369,6 +370,13 @@ export const getGenericGridColumns = (
     hourlyWage: (fieldName = "hourlyWage") => ({
       field: fieldName,
       headerName: t("Tables.Headers.hourlyWage"),
+      type: "string",
+      flex: 1,
+      minWidth: 130,
+    }),
+    duePrice: (fieldName = "duePrice") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.DuePrice"),
       type: "string",
       flex: 1,
       minWidth: 130,

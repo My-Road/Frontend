@@ -258,7 +258,8 @@
       "details": "Details",
       "hourlyWage":"Hourly Wage",
       "CheckOut":"CheckOut",
-      "CheckIn":"CheckIn"
+      "CheckIn":"CheckIn",
+      "DuePrice": "DuePrice"
     },
     "noData": "No records to display",
     "columns": "Columns",

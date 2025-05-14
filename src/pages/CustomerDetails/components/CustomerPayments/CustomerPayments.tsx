@@ -15,7 +15,7 @@ interface Props {
 }
 
 function CustomerPayments({ customerId, paymentState }: Props) {
-  const [searchParams, setSearchParams] = useState<SearchParams>(DEFAULT_SEARCH_PARAMS);
+  const [searchParams, setSearchParams] = useState<SearchParams>({...DEFAULT_SEARCH_PARAMS, sorts: "-paymentDate"});
   return (
     <Paper>
       <Stack p={4} gap={4}>

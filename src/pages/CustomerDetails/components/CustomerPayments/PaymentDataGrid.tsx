@@ -1,9 +1,7 @@
-import { Box } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormikHelpers } from "formik";
-
 import { PaginationProps, SearchParams } from "@/types";
 import { Payment, CustomerPaymentPayload } from "../../types";
 import { useSearchPayments } from "../../hooks/useSearchPaymentsAPI";
@@ -11,10 +9,8 @@ import useDeletePaymentAPI from "../../hooks/useDeletePaymentAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 import useUpdatePaymentDataAPI from "../../hooks/useUpdatePaymentDataAPI";
 import { useSnackBar } from "@/hooks/useSnackbar";
-
 import PaymentFormDialog from "./PaymentFormDialog";
 import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
-
 import { transformPaymentToPayload } from "./util/transformPaymentToPayload";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
@@ -50,7 +46,6 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
   const { t } = useTranslation();
 
   const gridColumns: GridColDef[] = [
-    getGenericGridColumns(t).id(),
     getGenericGridColumns(t).paymentDate(),
     getGenericGridColumns(t).amount(),
     {
@@ -66,7 +61,6 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
     },
   ];
 
-  
   const handleViewNotes = (payment: Payment) => {
     setNoteContent(payment.notes ?? "");
     setNoteDialogOpen(true);
@@ -110,22 +104,14 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
 
   return (
     <>
-      <Box
-        width="100%"
-        sx={{
-          "& .even-row": { backgroundColor: "#f9f9f9" },
-          "& .odd-row": { backgroundColor: "#ffffff" },
-        }}
-      >
-        <GenericDataGrid<Payment>
-          rows={data?.items || []}
-          columns={gridColumns}
-          paginationModel={paginationModel}
-          onPaginationChange={setPaginationModel}
-          rowCount={data?.totalCount || 0}
-          loading={isLoading}
-        />
-      </Box>
+      <GenericDataGrid<Payment>
+        rows={data?.items || []}
+        columns={gridColumns}
+        paginationModel={paginationModel}
+        onPaginationChange={setPaginationModel}
+        rowCount={data?.totalCount || 0}
+        loading={isLoading}
+      />
 
       <TextPreviewDialog
         open={noteDialogOpen}

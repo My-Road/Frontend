@@ -22,6 +22,9 @@ export default function GenericDataGrid<T>({
   return (
     <Box
       width="100%"
+      display="flex"
+      flexDirection="column"
+      height="100%"
       sx={{
         "& .even-row": { backgroundColor: "#f9f9f9" },
         "& .odd-row": { backgroundColor: "#ffffff" },
@@ -38,9 +41,7 @@ export default function GenericDataGrid<T>({
         loading={loading}
         disableRowSelectionOnClick
         getRowClassName={(params) =>
-          params.indexRelativeToCurrentPage % 2 === 0
-            ? "even-row"
-            : "odd-row"
+          params.indexRelativeToCurrentPage % 2 === 0 ? "even-row" : "odd-row"
         }
       />
     </Box>
