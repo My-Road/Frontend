@@ -67,4 +67,7 @@ export interface SearchResponseForPayments extends SearchParams {
   totalCount: number
 }
 
-
+export type PaymentState = {
+  status: boolean;
+  msg: string;
+};

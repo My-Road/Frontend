@@ -7,12 +7,14 @@ import { SearchParams } from "@/types";
 import { useState } from "react";
 import SearchForm from "@/components/SearchForm/SearchForm";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
+import { PaymentState } from "../../types";
 
 interface Props {
   customerId: number;
+  paymentState: PaymentState
 }
 
-function CustomerPayments({ customerId }: Props) {
+function CustomerPayments({ customerId, paymentState }: Props) {
   const [searchParams, setSearchParams] = useState<SearchParams>(DEFAULT_SEARCH_PARAMS);
   return (
     <Paper>
@@ -26,7 +28,7 @@ function CustomerPayments({ customerId }: Props) {
           <Divider />
         </Box>
         <Box mb={3}>
-          <AddPaymentForm customerId={customerId} />
+          <AddPaymentForm customerId={customerId} paymentState={paymentState} />
         </Box>
         <SearchForm
           setSearchParams={setSearchParams}

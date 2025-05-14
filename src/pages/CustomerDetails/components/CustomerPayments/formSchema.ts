@@ -10,7 +10,9 @@ export const paymentValidationSchema: yup.ObjectSchema<CustomerPaymentPayload> =
       .positive("Amount must be at least 1")
       .test("no-spaces", "Amount must not contain spaces", function (_, ctx) {
         const original = ctx.originalValue;
-        return typeof original === "string" ? /^\d+$/.test(original) : true;
+        return typeof original === "string"
+          ? /^\d+(\.\d{1,2})?$/.test(original)
+          : true;
       }),
 
     notes: yup

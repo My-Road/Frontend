@@ -5,6 +5,7 @@ import { Navigate, useParams } from "react-router-dom";
 import Loader from "@/components/Loader";
 import CustomerPayments from "./components/CustomerPayments/CustomerPayments";
 import CustomerOrders from "./components/CustomerOrders/CustomerOrders";
+import { getPaymentState } from "./utils/getPaymentState";
 
 function CustomerDetails() {
   const { customerId } = useParams();
@@ -19,12 +20,21 @@ function CustomerDetails() {
   }
 
   const customerData = data!;
+  const paymentState = getPaymentState(
+    customerData?.remainingAmount ?? 0,
+    customerData?.totalDueAmount ?? 0
+  );
+console.log(paymentState);
+
   return (
     <Container sx={{ my: 5 }}>
       <Stack gap={5}>
         <PersonalCustomerInfo customerData={customerData} />
         <CustomerOrders customerId={customerData.id} />
-        <CustomerPayments customerId={customerData.id} />
+        <CustomerPayments
+          customerId={customerData.id}
+          paymentState={paymentState}
+        />
       </Stack>
     </Container>
   );
