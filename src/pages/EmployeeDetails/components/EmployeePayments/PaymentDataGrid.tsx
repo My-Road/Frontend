@@ -3,7 +3,6 @@ import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormikHelpers } from "formik";
-
 import { PaginationProps, SearchParams } from "@/types";
 import { Payment, EmployeePaymentPayload } from "../../types";
 import { useSearchPayments } from "../../hooks/useSearchPaymentsAPI";
@@ -11,24 +10,20 @@ import useDeletePaymentAPI from "../../hooks/useDeletePaymentAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 import useUpdatePaymentDataAPI from "../../hooks/useUpdatePaymentDataAPI";
 import { useSnackBar } from "@/hooks/useSnackbar";
-
 import PaymentFormDialog from "./PaymentFormDialog";
 import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
-
 import { transformPaymentToPayload } from "./util/transformPaymentToPayload";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import DataGridActions from "@/components/DataGridActions/DataGridActions";
 
-// Component Props interface
 interface Props {
   searchParams: SearchParams;
   employeeId: number;
 }
 
 export default function PaymentDataGrid({ searchParams, employeeId }: Props) {
-  // State variables
   const [paginationModel, setPaginationModel] = useState<PaginationProps>(
     DEFAULT_PAGINATION_PROPS
   );
@@ -38,7 +33,6 @@ export default function PaymentDataGrid({ searchParams, employeeId }: Props) {
     useState<EmployeePaymentPayload | null>(null);
   const [noteContent, setNoteContent] = useState<string>("");
 
-  // API hooks
   const { data, isLoading } = useSearchPayments(employeeId, {
     ...searchParams,
     page: paginationModel.page + 1,
@@ -47,15 +41,12 @@ export default function PaymentDataGrid({ searchParams, employeeId }: Props) {
   const { deletePayment, isPending } = useDeletePaymentAPI();
   const { updatePayment, isPending: isEditing } = useUpdatePaymentDataAPI();
 
-  // Snackbar & Dialog hooks
   const { showConfirmationDialog } = useConfirmationDialog();
   const { showWarningSnackbar } = useSnackBar();
 
-  // Translations
   const { t } = useTranslation();
 
   const gridColumns: GridColDef[] = [
-    getGenericGridColumns(t).id(),
     getGenericGridColumns(t).paymentDate(),
     getGenericGridColumns(t).amount(),
     {
@@ -71,7 +62,6 @@ export default function PaymentDataGrid({ searchParams, employeeId }: Props) {
     },
   ];
 
-  // Handlers
   const handleViewNotes = (payment: Payment) => {
     setNoteContent(payment.notes ?? "");
     setNoteDialogOpen(true);
@@ -104,13 +94,14 @@ export default function PaymentDataGrid({ searchParams, employeeId }: Props) {
       return;
     }
     updatePayment(
-        { ...values, },
-        {
-      onSuccess: () => {
-        helpers.resetForm();
-        setEditDialogOpen(false);
-      },
-    });
+      { ...values },
+      {
+        onSuccess: () => {
+          helpers.resetForm();
+          setEditDialogOpen(false);
+        },
+      }
+    );
   };
 
   return (

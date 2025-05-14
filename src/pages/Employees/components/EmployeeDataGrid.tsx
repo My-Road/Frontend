@@ -45,7 +45,6 @@ export default function EmployeeDataGrid({
   };
 
   const gridColumns: GridColDef[] = [
-    getGenericGridColumns(t).id(),
     getGenericGridColumns(t).employeeName(),
     getGenericGridColumns(t).phoneNumber(),
     getGenericGridColumns(t).address(),

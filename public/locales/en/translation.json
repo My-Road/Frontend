@@ -259,7 +259,8 @@
       "hourlyWage":"Hourly Wage",
       "CheckOut":"CheckOut",
       "CheckIn":"CheckIn",
-      "DuePrice": "DuePrice"
+      "DuePrice": "DuePrice",
+      "WorkHours": "WorkHours"
     },
     "noData": "No records to display",
     "columns": "Columns",

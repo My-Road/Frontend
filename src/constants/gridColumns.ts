@@ -74,10 +74,10 @@ export const getGenericGridColumns = (
     address: (fieldName = "address") => ({
       field: fieldName,
       sortable: false,
-      minWidth: 250,
+      minWidth: 130,
       headerName: t("Tables.Headers.Address"),
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
-      flex: 1.2,
+      flex: 1,
     }),
     email: (fieldName = "email") => ({
       field: fieldName,
@@ -307,7 +307,7 @@ export const getGenericGridColumns = (
       type: "date",
       valueFormatter: (_, row) =>
         dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
-      minWidth: 150,
+      minWidth: 200,
     }),
     jobTitle: (fieldName = "jobTitle") => ({
       field: fieldName,
@@ -315,8 +315,8 @@ export const getGenericGridColumns = (
       type: "string",
       headerAlign: "left",
       align: "left",
-      flex: 0.5,
-      minWidth: 100,
+      flex: 1.3,
+      minWidth: 200,
     }),
     paymentNumber: (fieldName = "paymentNumber") => ({
       field: fieldName,
@@ -351,35 +351,35 @@ export const getGenericGridColumns = (
       headerName: t("Tables.Headers.CheckIn"),
       type: "string",
       flex: 1,
-      minWidth: 120,
+      minWidth: 200,
     }),
     checkOut: (fieldName = "checkOut") => ({
       field: fieldName,
       headerName: t("Tables.Headers.CheckOut"),
       type: "string",
       flex: 1,
-      minWidth: 120,
+      minWidth: 200,
     }),
     workHours: (fieldName = "workHours") => ({
       field: fieldName,
       headerName: t("Tables.Headers.WorkHours"),
-      type: "number",
-      flex: 0.75,
-      minWidth: 130,
+      type: "string",
+      flex: 1,
+      minWidth: 200,
     }),
     hourlyWage: (fieldName = "hourlyWage") => ({
       field: fieldName,
       headerName: t("Tables.Headers.hourlyWage"),
       type: "string",
       flex: 1,
-      minWidth: 130,
+      minWidth: 200,
     }),
     duePrice: (fieldName = "duePrice") => ({
       field: fieldName,
       headerName: t("Tables.Headers.DuePrice"),
       type: "string",
       flex: 1,
-      minWidth: 130,
+      minWidth: 200,
     }),
   };
 };
