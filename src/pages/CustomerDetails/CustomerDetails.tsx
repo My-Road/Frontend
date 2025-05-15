@@ -24,7 +24,6 @@ function CustomerDetails() {
     customerData?.remainingAmount ?? 0,
     customerData?.totalDueAmount ?? 0
   );
-console.log(paymentState);
 
   return (
     <Container sx={{ my: 5 }}>

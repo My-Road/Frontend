@@ -7,7 +7,6 @@ interface Props {
 
 function PaymentsEmployeeInfo({ employeePayment }: Props) {
   const { t } = useTranslation();
-  console.log(employeePayment.totalPaidAmount);
   return (
     <>
       <Typography variant="h5" gutterBottom>

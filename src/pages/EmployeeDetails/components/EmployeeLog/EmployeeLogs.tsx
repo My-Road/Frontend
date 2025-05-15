@@ -4,16 +4,17 @@ import EmployeeLogsDataGrid from "./EmployeeLogsDataGrid";
 import { SearchParams } from "@/types";
 import { useState } from "react";
 import { Trans } from "react-i18next";
-import SearchForm from "@/components/SearchForm/SearchForm";
+import SearchFormByDate from "@/components/SearchFormByDate/SearchFormByDate";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 interface Props {
   employeeId: number;
 }
 
 function EmployeeLog({ employeeId }: Props) {
-  const [searchParams, setSearchParams] = useState<SearchParams>(
-    DEFAULT_SEARCH_PARAMS
-  );
+  const [searchParams, setSearchParams] = useState<SearchParams>({
+    ...DEFAULT_SEARCH_PARAMS,
+    sorts: "-date",
+  });
   return (
     <Paper>
       <Stack p={4} gap={4}>
@@ -28,7 +29,7 @@ function EmployeeLog({ employeeId }: Props) {
         <Box mb={3}>
           <AddEmployeeLogForm employeeId={employeeId} />
         </Box>
-        <SearchForm setSearchParams={setSearchParams} dateFieldKey="date" />
+        <SearchFormByDate setSearchParams={setSearchParams} dateFieldKey="date" />
         <EmployeeLogsDataGrid
           employeeId={employeeId}
           searchParams={searchParams}

@@ -1,3 +1,3 @@
 export interface SearchFormValues {
-    employeeName: string;
+    fullName: string;
   }

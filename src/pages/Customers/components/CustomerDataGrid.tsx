@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import { GridColDef } from "@mui/x-data-grid";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -37,7 +36,6 @@ export default function CustomerDataGrid({
   const { showConfirmationDialog } = useConfirmationDialog();
 
   const gridColumns: GridColDef[] = [
-    getGenericGridColumns(t).id(),
     getGenericGridColumns(t).customerName(),
     getGenericGridColumns(t).email(),
     getGenericGridColumns(t).phoneNumber(),
@@ -72,21 +70,13 @@ export default function CustomerDataGrid({
   };
 
   return (
-    <Box
-      width="100%"
-      sx={{
-        "& .even-row": { backgroundColor: "#f9f9f9" },
-        "& .odd-row": { backgroundColor: "#ffffff" },
-      }}
-    >
-      <GenericDataGrid<Customer>
-        rows={data?.items || []}
-        columns={gridColumns}
-        paginationModel={paginationModel}
-        onPaginationChange={setPaginationModel}
-        rowCount={data?.totalCount || 0}
-        loading={isLoading}
-      />
-    </Box>
+    <GenericDataGrid<Customer>
+      rows={data?.items || []}
+      columns={gridColumns}
+      paginationModel={paginationModel}
+      onPaginationChange={setPaginationModel}
+      rowCount={data?.totalCount || 0}
+      loading={isLoading}
+    />
   );
 }

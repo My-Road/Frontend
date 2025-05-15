@@ -1,26 +1,22 @@
-import { Box } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormikHelpers } from "formik";
-
 import { PaginationProps, SearchParams } from "@/types";
 import { EmployeeLogPayload, EmployeeLog } from "../../types";
-
 import { useSearchEmployeeLogs } from "../../hooks/useSearchEmployeeLogs";
 import useDeleteEmployeeLogAPI from "../../hooks/useDeleteEmployeeLogAPI";
 import useUpdateEmployeeLogDataAPI from "../../hooks/useUpdateEmployeeLogDataAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 import { useSnackBar } from "@/hooks/useSnackbar";
-
 import { transformEmployeeLogToPayload } from "./util/transformEmployeeLogToPayload";
-
 import EmployeeLogFormDialog from "./EmployeeLogFormDialog";
 import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import DataGridActions from "@/components/DataGridActions/DataGridActions";
+import { getWorkHours } from "./util/getWorkHours";
 
 interface Props {
   searchParams: SearchParams;
@@ -57,17 +53,17 @@ export default function EmployeeLogsDataGrid({
   const { showConfirmationDialog } = useConfirmationDialog();
   const { showWarningSnackbar } = useSnackBar();
 
-  const handleDelete = (employeelog: EmployeeLog) => {
+  const handleDelete = (employeeLog: EmployeeLog) => {
     showConfirmationDialog({
       message: t("Dialogs.confirmEmployeeLogDelete"),
       title: t("Dialogs.Title.deleteEmployeeLog"),
-      onConfirm: () => deleteEmployeeLog(employeelog.id),
+      onConfirm: () => deleteEmployeeLog(employeeLog.id),
       isPending: isPending || false,
     });
   };
 
-  const handleEdit = (employeelog: EmployeeLogPayload) => {
-    setSelectedEmployeeLog(employeelog);
+  const handleEdit = (employeeLog: EmployeeLogPayload) => {
+    setSelectedEmployeeLog(employeeLog);
     setEditDialogOpen(true);
   };
 
@@ -94,17 +90,31 @@ export default function EmployeeLogsDataGrid({
     });
   };
 
-  const handleViewNotes = (employeelog: EmployeeLog) => {
-    setNoteContent(employeelog.notes ?? "");
+  const handleViewNotes = (employeeLog: EmployeeLog) => {
+    setNoteContent(employeeLog.notes ?? "");
     setNoteDialogOpen(true);
   };
 
   const gridColumns: GridColDef[] = [
-    getGenericGridColumns(t).id(),
     getGenericGridColumns(t).date(),
     getGenericGridColumns(t).checkIn(),
     getGenericGridColumns(t).checkOut(),
     getGenericGridColumns(t).hourlyWage(),
+    {
+      ...getGenericGridColumns(t).workHours(),
+      renderCell: (params) => {
+        const hours = getWorkHours(params.row.checkIn, params.row.checkOut);
+        return hours !== null ? hours.toFixed(2) : "-";
+      },
+    },
+    {
+      ...getGenericGridColumns(t).duePrice(),
+      renderCell: (params) => {
+        const hours = getWorkHours(params.row.checkIn, params.row.checkOut);
+        const wage = params.row.hourlyWage;
+        return hours !== null && wage ? (hours * wage).toFixed(2) : "-";
+      },
+    },
     {
       ...getGenericGridColumns(t).actions(),
       renderCell: (params) => (
@@ -120,22 +130,14 @@ export default function EmployeeLogsDataGrid({
 
   return (
     <>
-      <Box
-        width="100%"
-        sx={{
-          "& .even-row": { backgroundColor: "#f9f9f9" },
-          "& .odd-row": { backgroundColor: "#ffffff" },
-        }}
-      >
-        <GenericDataGrid<EmployeeLog>
-          rows={data?.items || []}
-          columns={gridColumns}
-          paginationModel={paginationModel}
-          onPaginationChange={setPaginationModel}
-          rowCount={data?.totalCount || 0}
-          loading={isLoading}
-        />
-      </Box>
+      <GenericDataGrid<EmployeeLog>
+        rows={data?.items || []}
+        columns={gridColumns}
+        paginationModel={paginationModel}
+        onPaginationChange={setPaginationModel}
+        rowCount={data?.totalCount || 0}
+        loading={isLoading}
+      />
 
       <TextPreviewDialog
         open={noteDialogOpen}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Stack } from "@mui/material";
 import { Form, FormikProvider, useFormik } from "formik";
 import TextField from "@/components/Fields/TextField";
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { validationSchema } from "./formSchema";
 import { initialValues } from "./constants";
 import { SearchFormValues } from "./types";
@@ -12,16 +12,24 @@ import SearchIcon from "@mui/icons-material/Search";
 
 interface SearchFormProps {
   setSearchParams: Dispatch<SetStateAction<SearchParams>>;
+  name: string;
+  sortsBy: string;
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
+const SearchFormByName: React.FC<SearchFormProps> = ({
+  setSearchParams,
+  name,
+  sortsBy,
+}) => {
   const [isInSearchMode, setIsInSearchMode] = useState(false);
+  const { t } = useTranslation();
   const onSubmit = (values: SearchFormValues) => {
     setIsInSearchMode(true);
     setSearchParams((prev: SearchParams) => ({
       ...prev,
-      filters: `FullName@=${values.customerName}`,
+      filters: `FullName@=${values.fullName}`,
       page: 1,
+      sorts: sortsBy,
     }));
   };
 
@@ -30,7 +38,8 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
     formikProps.resetForm();
     setSearchParams({
       page: 1,
-      pageSize: 10,
+      pageSize: 15,
+      sorts: sortsBy,
     });
   };
 
@@ -49,7 +58,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
           alignItems="center"
           gap={2}
         >
-          <TextField name="customerName" />
+          <TextField name="fullName" label={t(`Textfields.${name}`)} />
           <Button
             type="submit"
             variant="contained"
@@ -75,4 +84,4 @@ const SearchForm: React.FC<SearchFormProps> = ({ setSearchParams }) => {
   );
 };
 
-export default SearchForm;
+export default SearchFormByName;

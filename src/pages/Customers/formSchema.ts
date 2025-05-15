@@ -1,6 +1,7 @@
 import * as yup from "yup";
+import { AddCustomerPayLoad } from "./types";
 
-export const validationSchema = yup.object({
+export const validationSchema: yup.ObjectSchema<AddCustomerPayLoad> = yup.object({
   customerName: yup
     .string()
     .required("Please enter your full name")

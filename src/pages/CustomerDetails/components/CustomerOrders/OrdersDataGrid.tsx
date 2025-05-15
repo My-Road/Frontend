@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -30,7 +29,9 @@ interface Props {
 export default function OrdersDataGrid({ searchParams, customerId }: Props) {
   const { t } = useTranslation();
 
-  const [paginationModel, setPaginationModel] = useState<PaginationProps>(DEFAULT_PAGINATION_PROPS);
+  const [paginationModel, setPaginationModel] = useState<PaginationProps>(
+    DEFAULT_PAGINATION_PROPS
+  );
 
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [selectedOrder, setSelectedOrder] =
@@ -92,13 +93,20 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
     setNoteDialogOpen(true);
   };
 
-  const gridColumns: GridColDef[] = [
-    getGenericGridColumns(t).id(),
+  const gridColumns: GridColDef<Order>[] = [
     getGenericGridColumns(t).orderDate(),
     getGenericGridColumns(t).recipientName(),
     getGenericGridColumns(t).recipientPhoneNumber(),
     getGenericGridColumns(t).quantity(),
     getGenericGridColumns(t).price(),
+    {
+      ...getGenericGridColumns(t).duePrice(),
+      renderCell: (params: { row: Order }) => {
+        const quantity = params.row.quantity ?? 0;
+        const price = params.row.price ?? 0;
+        return quantity * price;
+      },
+    },
     {
       ...getGenericGridColumns(t).actions(),
       renderCell: (params) => (
@@ -114,22 +122,14 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
 
   return (
     <>
-      <Box
-        width="100%"
-        sx={{
-          "& .even-row": { backgroundColor: "#f9f9f9" },
-          "& .odd-row": { backgroundColor: "#ffffff" },
-        }}
-      >
-        <GenericDataGrid<Order>
-          rows={data?.items || []}
-          columns={gridColumns}
-          paginationModel={paginationModel}
-          onPaginationChange={setPaginationModel}
-          rowCount={data?.totalCount || 0}
-          loading={isLoading}
-        />
-      </Box>
+      <GenericDataGrid<Order>
+        rows={data?.items || []}
+        columns={gridColumns}
+        paginationModel={paginationModel}
+        onPaginationChange={setPaginationModel}
+        rowCount={data?.totalCount || 0}
+        loading={isLoading}
+      />
 
       <TextPreviewDialog
         open={noteDialogOpen}
@@ -146,7 +146,7 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
           onSubmit={handleUpdate}
           isPending={isEditing}
           title={t("PrivatePages.Customers.editOrder")}
-          formType = "edit"
+          formType="edit"
         />
       )}
     </>
