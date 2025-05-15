@@ -16,7 +16,7 @@ interface SearchFormProps {
   dateFieldKey: string;
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({
+const SearchFormByDate: React.FC<SearchFormProps> = ({
   setSearchParams,
   dateFieldKey,
 }) => {
@@ -40,6 +40,7 @@ const SearchForm: React.FC<SearchFormProps> = ({
       ...prev,
       filters,
       page: 1,
+      sorts: `-${dateFieldKey}`,
     }));
   };
 
@@ -49,6 +50,7 @@ const SearchForm: React.FC<SearchFormProps> = ({
     setSearchParams({
       page: 1,
       pageSize: 15,
+      sorts: `-${dateFieldKey}`,
     });
   };
 
@@ -104,4 +106,4 @@ const SearchForm: React.FC<SearchFormProps> = ({
   );
 };
 
-export default SearchForm;
+export default SearchFormByDate;
