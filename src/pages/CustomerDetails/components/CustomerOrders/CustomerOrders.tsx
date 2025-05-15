@@ -1,12 +1,10 @@
 import { Paper, Typography, Stack, Divider, Box } from "@mui/material";
-// import { DataGrid } from "@mui/x-data-grid"
-
 import AddOrderForm from "./AddOrderForm";
 import OrdersDataGrid from "./OrdersDataGrid";
 import { SearchParams } from "@/types";
 import { useState } from "react";
 import { Trans } from "react-i18next";
-import SearchForm from "@/components/SearchForm/SearchForm";
+import SearchFormByDate from "@/components/SearchFormByDate/SearchFormByDate";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 
 interface Props {
@@ -29,7 +27,7 @@ function CustomerOrders({ customerId }: Props) {
         <Box mb={3}>
           <AddOrderForm customerId={customerId} />
         </Box>
-        <SearchForm
+        <SearchFormByDate
           setSearchParams={setSearchParams}
           dateFieldKey="orderDate"
         />

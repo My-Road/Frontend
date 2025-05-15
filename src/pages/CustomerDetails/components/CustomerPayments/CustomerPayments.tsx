@@ -1,21 +1,23 @@
 import { Paper, Typography, Stack, Divider, Box } from "@mui/material";
-
 import AddPaymentForm from "./AddPaymentForm";
 import PaymentDataGrid from "./PaymentDataGrid";
 import { Trans } from "react-i18next";
 import { SearchParams } from "@/types";
 import { useState } from "react";
-import SearchForm from "@/components/SearchForm/SearchForm";
+import SearchFormByDate from "@/components/SearchFormByDate/SearchFormByDate";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 import { PaymentState } from "../../types";
 
 interface Props {
   customerId: number;
-  paymentState: PaymentState
+  paymentState: PaymentState;
 }
 
 function CustomerPayments({ customerId, paymentState }: Props) {
-  const [searchParams, setSearchParams] = useState<SearchParams>({...DEFAULT_SEARCH_PARAMS, sorts: "-paymentDate"});
+  const [searchParams, setSearchParams] = useState<SearchParams>({
+    ...DEFAULT_SEARCH_PARAMS,
+    sorts: "-paymentDate",
+  });
   return (
     <Paper>
       <Stack p={4} gap={4}>
@@ -30,7 +32,7 @@ function CustomerPayments({ customerId, paymentState }: Props) {
         <Box mb={3}>
           <AddPaymentForm customerId={customerId} paymentState={paymentState} />
         </Box>
-        <SearchForm
+        <SearchFormByDate
           setSearchParams={setSearchParams}
           dateFieldKey="paymentDate"
         />

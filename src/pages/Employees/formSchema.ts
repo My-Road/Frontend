@@ -1,6 +1,7 @@
 import * as yup from "yup";
+import { AddEmployeePayload } from "./types";
 
-export const employeeValidationSchema = yup.object({
+export const employeeValidationSchema: yup.ObjectSchema<AddEmployeePayload> = yup.object({
   employeeName: yup
     .string()
     .required("Please enter the full name")
@@ -27,7 +28,7 @@ export const employeeValidationSchema = yup.object({
     .required("Please enter the job title")
     .min(2, "Job title must be at least 2 characters"),
   startDate: yup
-    .date()
+    .string()
     .transform((value, originalValue) =>
       originalValue === "" || originalValue === null ? null : value
     )

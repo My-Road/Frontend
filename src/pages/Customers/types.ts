@@ -2,7 +2,7 @@ import { Customer, SearchParams } from "@/types";
 
 export interface AddCustomerPayLoad {
   customerName: string;
-  email: string;
+  email?: string | null;
   phoneNumber: string;
   address: string;
 }

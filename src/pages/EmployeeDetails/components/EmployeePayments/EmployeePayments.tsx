@@ -4,17 +4,20 @@ import PaymentDataGrid from "./PaymentDataGrid";
 import { Trans } from "react-i18next";
 import { SearchParams } from "@/types";
 import { useState } from "react";
-import SearchForm from "@/components/SearchForm/SearchForm";
+import SearchFormByDate from "@/components/SearchFormByDate/SearchFormByDate";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 import { PaymentState } from "../../types";
 
 interface Props {
   employeeId: number;
-  paymentState: PaymentState
+  paymentState: PaymentState;
 }
 
 function EmployeePayments({ employeeId, paymentState }: Props) {
-  const [searchParams, setSearchParams] = useState<SearchParams>({...DEFAULT_SEARCH_PARAMS, sorts: "-paymentDate"});
+  const [searchParams, setSearchParams] = useState<SearchParams>({
+    ...DEFAULT_SEARCH_PARAMS,
+    sorts: "-paymentDate",
+  });
   return (
     <Paper>
       <Stack p={4} gap={4}>
@@ -29,7 +32,7 @@ function EmployeePayments({ employeeId, paymentState }: Props) {
         <Box mb={3}>
           <AddPaymentForm employeeId={employeeId} paymentState={paymentState} />
         </Box>
-        <SearchForm
+        <SearchFormByDate
           setSearchParams={setSearchParams}
           dateFieldKey="paymentDate"
         />
