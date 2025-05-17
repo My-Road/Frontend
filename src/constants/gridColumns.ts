@@ -360,9 +360,16 @@ export const getGenericGridColumns = (
       flex: 1,
       minWidth: 200,
     }),
-    workHours: (fieldName = "workHours") => ({
+    totalHours: (fieldName = "totalHours") => ({
       field: fieldName,
       headerName: t("Tables.Headers.WorkHours"),
+      type: "string",
+      flex: 1,
+      minWidth: 200,
+    }),
+    dailyWage: (fieldName = "dailyWage") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.DuePrice"),
       type: "string",
       flex: 1,
       minWidth: 200,
