@@ -33,14 +33,14 @@ export const ROLES = [
 ];
 
 export const DEFAULT_SEARCH_PARAMS: SearchParams = {
-  page: 1,
+  page: 0,
   pageSize: 15,
   filters: "",
 };
 
 
 export const DEFAULT_PAGINATION_PROPS: PaginationProps = {
-  page: 1,
+  page: 0,
   pageSize: 15,
 };
 
