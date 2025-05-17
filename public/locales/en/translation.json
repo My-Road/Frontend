@@ -94,7 +94,8 @@
     "date":"Date",
     "checkIn":"CheckIn",
     "checkOut":"CheckOut",
-    "hourlyWage":"Hourly Wage"
+    "hourlyWage":"Hourly Wage",
+    "SupplierName": "Supplier Name"
   },
   "TextfieldErrors": {
     "Please enter your email": "Please enter your email",
@@ -212,7 +213,8 @@
     "Achievements": "Achievements",
     "Employess": "ُEmployess",
     "Products": "Products",
-    "Health follow-ups": "Health follow-ups"
+    "Health follow-ups": "Health follow-ups",
+    "Suppliers": "Suppliers"
   },
   "Tables": {
     "Headers": {
@@ -323,6 +325,9 @@
     },
     "Expenses": {
       "addExpense": "Add new Expense"
+    },
+    "Suppliers":{
+      "addSupplier": "Add new Supplier"
     },
     "actions": "Actions"
   },
@@ -489,6 +494,7 @@
     "There is no due amount left to pay.": "There is no due amount left to pay.",
     "Payment cannot be made because the amount has been paid in full.": "Payment cannot be made because the amount has been paid in full.",
     "You can't make a payment because there are no orders.": "You can't make a payment because there are no orders.",
-    "You can't make a payment because there are no logs": "You can't make a payment because there are no logs"
+    "You can't make a payment because there are no logs": "You can't make a payment because there are no logs",
+    "The employee has overlapping this day.": "The employee has overlapping this day"
   }
 }

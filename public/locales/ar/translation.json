@@ -94,9 +94,8 @@
     "date":"تاريخ اليوم",
     "checkIn":"وقت الدخول",
     "checkOut":"وقت الخروج",
-    "hourlyWage":"سعر الساعة"
-
-
+    "hourlyWage":"سعر الساعة",
+    "SupplierName": "اسم المورد"
   },
   "TextfieldErrors": {
     "Please enter your email": "ادخل البريد الالكتروني",
@@ -214,7 +213,8 @@
     "Achievements": "الإنجازات",
     "Employess": "الموظفين",
     "Products": "المنتجات",
-    "Health follow-ups": "المتابعات الصحية"
+    "Health follow-ups": "المتابعات الصحية",
+    "Suppliers": "الموردين"
   },
   "Tables": {
     "Headers": {
@@ -325,6 +325,9 @@
     },
     "Expenses": {
       "addExpense": "إضافة مصروف جديد"
+    },
+    "Suppliers":{
+      "addSupplier": "اضافة مورد جديد"
     },
     "actions": "الإجراءات"
   },
@@ -489,6 +492,7 @@
     "There is no due amount left to pay.": "لا يوجد أي مبلغ مستحق للدفع.",
     "Payment cannot be made because the amount has been paid in full.": "لا يمكن اجراء دفعة لان المبلغ مسدد بالكامل",
     "You can't make a payment because there are no orders.": "لا يمكنك إجراء دفعة لأنه لا يوجد طلبات.",
-    "You can't make a payment because there are no logs": "لا يمكنك إجراء دفعة لأنه لا يوجد سجلات."
+    "You can't make a payment because there are no logs": "لا يمكنك إجراء دفعة لأنه لا يوجد سجلات.",
+    "The employee has overlapping this day.": "يوجد تداخل في جدول عمل الموظف في هذا اليوم."
   }
 }
