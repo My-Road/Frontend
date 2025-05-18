@@ -95,7 +95,7 @@
     "checkIn":"وقت الدخول",
     "checkOut":"وقت الخروج",
     "hourlyWage":"سعر الساعة",
-    "SupplierName": "اسم المورد"
+    "supplierName": "اسم ٱلْمُوَرِّد"
   },
   "TextfieldErrors": {
     "Please enter your email": "ادخل البريد الالكتروني",
@@ -211,10 +211,10 @@
     "Sales": "المبيعات",
     "Expenses": "النفقات",
     "Achievements": "الإنجازات",
-    "Employess": "الموظفين",
+    "Employees": "الموظفين",
     "Products": "المنتجات",
     "Health follow-ups": "المتابعات الصحية",
-    "Suppliers": "الموردين"
+    "Suppliers": "ٱلْمُوَرِّدين"
   },
   "Tables": {
     "Headers": {
@@ -261,7 +261,8 @@
       "CheckOut":"وقت الخروج",
       "CheckIn":"وقت الدخول",
       "DuePrice": "السعر المستحق",
-      "WorkHours": "ساعات العمل"
+      "WorkHours": "ساعات العمل",
+      "SupplierName":"اسم ٱلْمُوَرِّد"
     },
     "noData": "لا توجد بيانات لعرضها",
     "columns": "الأعمدة",
@@ -327,7 +328,7 @@
       "addExpense": "إضافة مصروف جديد"
     },
     "Suppliers":{
-      "addSupplier": "اضافة مورد جديد"
+      "addSupplier": "اضافة ٱلْمُوَرِّد جديد"
     },
     "actions": "الإجراءات"
   },
@@ -493,6 +494,8 @@
     "Payment cannot be made because the amount has been paid in full.": "لا يمكن اجراء دفعة لان المبلغ مسدد بالكامل",
     "You can't make a payment because there are no orders.": "لا يمكنك إجراء دفعة لأنه لا يوجد طلبات.",
     "You can't make a payment because there are no logs": "لا يمكنك إجراء دفعة لأنه لا يوجد سجلات.",
-    "The employee has overlapping this day.": "يوجد تداخل في جدول عمل الموظف في هذا اليوم."
+    "The employee has overlapping this day.": "يوجد تداخل في جدول عمل الموظف في هذا اليوم.",
+    "Supplier Added Successfully": "تم اضافة ٱلْمُوَرِّد بنجاح",
+    "Supplier has been successfully restored": "تم اعادة تعيين ٱلْمُوَرِّد بنجاح"
   }
 }

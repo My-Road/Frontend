@@ -1,13 +1,13 @@
-import { Customer, SearchParams } from "@/types";
+import { Supplier, SearchParams } from "@/types";
 
-export interface AddCustomerPayLoad {
-  suppliersName: string;
+export interface AddSupplierPayLoad {
+  supplierName: string;
   email?: string | null;
   phoneNumber: string;
   address: string;
 }
 
-export interface SearchResponseForCustomers extends SearchParams {
-  items: Customer[];
+export interface SearchResponseForSuppliers extends SearchParams {
+  items: Supplier[];
   totalCount: number;
 }

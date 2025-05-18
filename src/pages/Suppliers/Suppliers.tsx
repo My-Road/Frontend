@@ -17,7 +17,7 @@ export default function Suppliers() {
         <AddSupplierForm />
         <SearchFormByName
           setSearchParams={setSearchParams}
-          name="SupplierName"
+          name="supplierName"
           sortsBy="isDeleted"
         />
         <SupplierDataGrid searchParams={searchParams} />

@@ -1,8 +1,8 @@
 import * as yup from "yup";
-import { AddCustomerPayLoad } from "./types";
+import { AddSupplierPayLoad } from "./types";
 
-export const validationSchema: yup.ObjectSchema<AddCustomerPayLoad> = yup.object({
-  suppliersName: yup
+export const validationSchema: yup.ObjectSchema<AddSupplierPayLoad> = yup.object({
+  supplierName: yup
     .string()
     .required("Please enter your full name")
     .min(2, "Full name must be at least 2 characters"),

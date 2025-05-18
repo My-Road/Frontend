@@ -1,24 +1,24 @@
 import { useSnackBar } from "@/hooks/useSnackbar";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { resetCustomerAPI } from "../API";
+import { resetSupplierAPI } from "../API";
 
 const useRestSupplierAPI = () => {
   const { showSuccessSnackbar } = useSnackBar();
   const queryClient = useQueryClient();
 
-  const { mutate: restCustomer, isPending } = useMutation({
-    mutationFn: resetCustomerAPI,
+  const { mutate: restSupplier, isPending } = useMutation({
+    mutationFn: resetSupplierAPI,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["customers"] });
+      queryClient.invalidateQueries({ queryKey: ["suppliers"] });
 
       showSuccessSnackbar({
-        message: "Customer has been successfully restored", 
+        message: "Supplier has been successfully restored", 
       });
     },
   });
 
   return {
-    restCustomer,
+    restSupplier,
     isPending,
   };
 };

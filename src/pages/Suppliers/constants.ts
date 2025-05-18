@@ -1,7 +1,7 @@
-import { AddCustomerPayLoad } from "./types";
+import { AddSupplierPayLoad } from "./types";
 
-export const initialValues: AddCustomerPayLoad = {
-  suppliersName: "",
+export const initialValues: AddSupplierPayLoad = {
+  supplierName: "",
   email: "",
   phoneNumber: "",
   address: "",

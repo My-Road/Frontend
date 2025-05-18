@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useSearchSupplier } from "../hooks/useSearchSupplierAPI";
 import { useState } from "react";
-import { Customer, PaginationProps, SearchParams } from "@/types";
+import { PaginationProps, SearchParams, Supplier } from "@/types";
 import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
@@ -11,13 +11,13 @@ import CellActionButton from "@/components/CellActionButton";
 import useRestSupplierAPI from "../hooks/useResetSupplierAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 
-interface CustomerDataGridProps {
+interface supplierDataGridProps {
   searchParams: SearchParams;
 }
 
 export default function SupplierDataGrid({
   searchParams,
-}: CustomerDataGridProps) {
+}: supplierDataGridProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -31,26 +31,26 @@ export default function SupplierDataGrid({
     pageSize: paginationModel.pageSize,
   });
 
-  const { restCustomer, isPending } = useRestSupplierAPI();
+  const { restSupplier, isPending } = useRestSupplierAPI();
 
   const { showConfirmationDialog } = useConfirmationDialog();
 
   const gridColumns: GridColDef[] = [
-    getGenericGridColumns(t).customerName(),
+    getGenericGridColumns(t).supplierName(),
     getGenericGridColumns(t).email(),
     getGenericGridColumns(t).phoneNumber(),
     getGenericGridColumns(t).address(),
     {
       ...getGenericGridColumns(t).actions(),
       renderCell: (params) => {
-        const customer = params.row as Customer;
-        const isActive = Boolean(!customer.isDeleted);
+        const supplier = params.row as Supplier;
+        const isActive = Boolean(!supplier.isDeleted);
 
         return (
           <CellActionButton
-            row={customer}
+            row={supplier}
             isActive={isActive}
-            onActiveClick={() => navigate(`/me/customer/${customer.id}`)}
+            onActiveClick={() => navigate(`/me/supplier/${supplier.id}`)}
             onInactiveClick={handleRestoreClick}
             isPending={isPending}
           />
@@ -59,18 +59,18 @@ export default function SupplierDataGrid({
     },
   ];
 
-  const handleRestoreClick = (customer: Customer) => {
+  const handleRestoreClick = (supplier: Supplier) => {
     showConfirmationDialog({
       title: t("Dialogs.Title.confirmRestore"),
-      message: t("Dialogs.confirmCustomerRestore", {
-        name: customer.customerName,
+      message: t("Dialogs.confirmSupplierRestore", {
+        name: supplier.supplierName,
       }),
-      onConfirm: () => restCustomer(customer.id),
+      onConfirm: () => restSupplier(supplier.id),
     });
   };
 
   return (
-    <GenericDataGrid<Customer>
+    <GenericDataGrid<Supplier>
       rows={data?.items || []}
       columns={gridColumns}
       paginationModel={paginationModel}

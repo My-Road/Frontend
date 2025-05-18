@@ -51,7 +51,7 @@ const CollapsibleForm = <T extends FormikValues>({
                   color="primary"
                   loading={isPending}
                   endIcon={<AddIcon />}
-                  disabled={!formikProps.isValid || !formikProps.dirty}
+                  // disabled={!formikProps.isValid || !formikProps.dirty}
                 >
                   <Trans i18nKey="Buttons.add">Add</Trans>
                 </LoadingButton>

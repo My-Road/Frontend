@@ -1,24 +1,24 @@
 import { useSnackBar } from "@/hooks/useSnackbar";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addCustomerAPI } from "../API";
+import { addSupplierAPI } from "../API";
 
 const useAddSupplierAPI = () => {
   const { showSuccessSnackbar } = useSnackBar();
   const queryClient = useQueryClient();
 
-  const { mutate: addCustomer, isPending } = useMutation({
-    mutationFn: addCustomerAPI,
+  const { mutate: addSupplier, isPending } = useMutation({
+    mutationFn: addSupplierAPI,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["customers"] });
+      queryClient.invalidateQueries({ queryKey: ["suppliers"] });
 
       showSuccessSnackbar({
-        message: "Customer Added Successfully",
+        message: "Supplier Added Successfully",
       });
     },
   });
 
   return {
-    addCustomer,
+    addSupplier,
     isPending,
   };
 };

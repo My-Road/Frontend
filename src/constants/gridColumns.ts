@@ -336,7 +336,6 @@ export const getGenericGridColumns = (
       flex: 1,
       minWidth: 130,
     }),
-
     workDate: (fieldName = "date") => ({
       field: fieldName,
       headerName: t("Tables.Headers.Date"),
@@ -386,6 +385,13 @@ export const getGenericGridColumns = (
       headerName: t("Tables.Headers.DuePrice"),
       type: "string",
       flex: 1,
+      minWidth: 200,
+    }),
+    supplierName: (fieldName = "supplierName") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.SupplierName"),
+      flex: 1,
+      sortable: false,
       minWidth: 200,
     }),
   };

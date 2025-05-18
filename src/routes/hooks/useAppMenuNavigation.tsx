@@ -17,7 +17,7 @@ const useAppMenuNavigation = () => {
       Icon: () => <GroupsIcon />,
     },
     {
-      label: "Employess",
+      label: "Employees",
       link: "/me/employees",
       Icon: () => <BadgeTwoToneIcon />,
     },
