@@ -37,12 +37,15 @@
     "save": "حفظ",
     "notes": "ملاحظات",
     "restoreEmployee" : "اعادة التعيين",
-    "addEmployeeLog":"اضافة تفاصيل يومية "
+    "addEmployeeLog":"اضافة تفاصيل يومية ",
+    "addPurchases":"اضافة مشتريات"
   },
   "Messages":{
     "heHasDues": "عليه مستحقات",
     "paid": "مدفوع",
-    "noPurchases": "لم يتم إجراء أي عمليات شراء"
+    "noPurchases": "لم يتم إجراء أي عمليات شراء",
+    "youHaveToPay":"عليك مستحقات للمورّد",
+    "fullyPaidToSupplier":"تم دفع كامل المبلغ للمورّد"
   },
   "Textfields": {
     "userName": "اسم المستخدم",
@@ -95,7 +98,10 @@
     "checkIn":"وقت الدخول",
     "checkOut":"وقت الخروج",
     "hourlyWage":"سعر الساعة",
-    "supplierName": "اسم ٱلْمُوَرِّد"
+    "supplierName": "اسم ٱلْمُوَرِّد",
+    "goodsDelivererPhoneNumber":"رقم هاتف الموزّع",
+    "goodsDeliverer": "اسم الموزّع",
+    "purchasesDate":"تاريخ الشراء"
   },
   "TextfieldErrors": {
     "Please enter your email": "ادخل البريد الالكتروني",
@@ -189,7 +195,9 @@
     "Please enter a valid date":"يرجى ادخال تاريخ صالح",
     "Please select an order date": "يرجى ادخال تاريخ الطلب",
     "Please select an payment date": "يرجى ادخال تاريخ الدفعة",
-    "Employee name is required": "اسم الموظف مطلوب"
+    "Employee name is required": "اسم الموظف مطلوب",
+    "Please select an purchase date":"يرجى اختيار تاريخ الشراء",
+    "Please enter the goodsDeliverer name":"يرجى إدخال اسم الموزّع"
   },
   "AutoComplete": {
     "treatment": "العلاج",
@@ -262,7 +270,8 @@
       "CheckIn":"وقت الدخول",
       "DuePrice": "السعر المستحق",
       "WorkHours": "ساعات العمل",
-      "SupplierName":"اسم ٱلْمُوَرِّد"
+      "SupplierName":"اسم ٱلْمُوَرِّد",
+      "goodsDeliverer":"اسم الموزّع"
     },
     "noData": "لا توجد بيانات لعرضها",
     "columns": "الأعمدة",
@@ -289,7 +298,9 @@
       "deletePayment": "حذف الطلب",
       "editEmployee" : "تعديل الموظف",
       "confirmRestore":" اعادة التعيين",
-      "deleteEmployeeLog":"حذف السجل اليومي"
+      "deleteEmployeeLog":"حذف السجل اليومي",
+      "deletePurchase":" حذف عملية الشراء",
+      "deleteSupplier":" حذف المورّد"
 
     },
     "confirmCustomerDelete": "هل انت متأكد من حذف هذا الزبون؟",
@@ -306,7 +317,10 @@
     "confirmEmployeeEdit":"هل انت متاكد من تعديل بيانات هذا الموظف",
     "confirmEmployeeRestore": "هل انت متاكد من اعادة تعيين الموظف؟",
     "confirmEmployeeLogDelete":" هل انت متاكد من حذف هذا السجل اليومي؟",
-    "confirmCustomerRestore": "هل انت متأكد من اعادة تعيين هذا الزبون؟"
+    "confirmCustomerRestore": "هل انت متأكد من اعادة تعيين هذا الزبون؟",
+    "confirmPurchaseDelete":" هل أنت متأكد من حذف عملية الشراء؟",
+    "confirmSupplierDelete":"هل أنت متأكد من حذف هذا المورّد؟",
+    "confirmSupplierRestore":"هل أنت متأكد من اعادة تعيين هذا المورّد؟"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -328,7 +342,7 @@
       "addExpense": "إضافة مصروف جديد"
     },
     "Suppliers":{
-      "addSupplier": "اضافة ٱلْمُوَرِّد جديد"
+      "addSupplier": "اضافة مُوَرِّد جديد"
     },
     "actions": "الإجراءات"
   },
@@ -342,6 +356,17 @@
       "addOrder": "اضافة طلب",
       "addPayment": "اضافة دفعة",
       "editOrder":"تعديل الطلب",
+      "editPayment": "تعديل الدفعة"
+    },
+    "Suppliers": {
+      "addSupplier": "إضافة مُوَرِّد جديد",
+      "supplierInformation": "معلومات المُوَرِّد",
+      "financialInformation": "المعلومات المالية",
+      "Purchases": " المشتريات",
+      "supplierPayments": "دفعات المُوَرِّد",
+      "addPurchases": "اضافة مشتريات",
+      "addPayment": "اضافة دفعة",
+      "editPurchase":"تعديل المشتريات",
       "editPayment": "تعديل الدفعة"
     },
     "Employees":{
@@ -496,6 +521,8 @@
     "You can't make a payment because there are no logs": "لا يمكنك إجراء دفعة لأنه لا يوجد سجلات.",
     "The employee has overlapping this day.": "يوجد تداخل في جدول عمل الموظف في هذا اليوم.",
     "Supplier Added Successfully": "تم اضافة ٱلْمُوَرِّد بنجاح",
-    "Supplier has been successfully restored": "تم اعادة تعيين ٱلْمُوَرِّد بنجاح"
+    "Supplier has been successfully restored": "تم اعادة تعيين ٱلْمُوَرِّد بنجاح",
+    "can't find this supplier.":"هذا ٱلْمُوَرِّد غير موجود",
+    "Supplier deleted successfully":"تم حذف ٱلْمُوَرِّد بنجاح"
   }
 }

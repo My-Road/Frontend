@@ -37,12 +37,15 @@
     "save": "Save",
     "notes": "Notes",
     "restoreEmployee" : "Restore Employee",
-    "addEmployeeLog": "Add Employee Log"
+    "addEmployeeLog": "Add Employee Log",
+    "addPurchases":"Add Purchases"
   },
   "Messages":{
     "heHasDues": "He has dues",
     "paid": "Paid",
-    "noPurchases": "No Purchases"
+    "noPurchases": "No Purchases",
+    "youHaveToPay":"You Have ToPay",
+    "fullyPaidToSupplier":"Fully PaidToSupplier"
   },
   "Textfields": {
     "userName": "Username",
@@ -95,7 +98,10 @@
     "checkIn":"CheckIn",
     "checkOut":"CheckOut",
     "hourlyWage":"Hourly Wage",
-    "supplierName": "Supplier Name"
+    "supplierName": "Supplier Name",
+    "goodsDelivererPhoneNumber":"Goods DelivererPhoneNumber",
+    "goodsDeliverer": "Goods DelivererName",
+    "purchasesDate":"Purchases Date"
   },
   "TextfieldErrors": {
     "Please enter your email": "Please enter your email",
@@ -189,7 +195,9 @@
     "Please enter a valid date":"Please enter a valid date",
     "Please select an order date": "Please select an order date",
     "Please select an payment date": "Please select an payment date",
-    "Employee name is required": "Employee name is required"
+    "Employee name is required": "Employee name is required",
+    "Please select an purchase date":"Please select an purchase date",
+    "Please enter the goodsDeliverer name":"Please enter the goodsDeliverer name"
   },
   "AutoComplete": {
     "treatment": "Treatment",
@@ -263,7 +271,8 @@
       "CheckIn":"CheckIn",
       "DuePrice": "DuePrice",
       "WorkHours": "WorkHours",
-      "SupplierName":"Supplier Name"
+      "SupplierName":"Supplier Name",
+      "goodsDeliverer":"Goods Deliverer Name"
     },
     "noData": "No records to display",
     "columns": "Columns",
@@ -290,7 +299,9 @@
       "deletePayment": "Delete Payment",
       "editEmployee": "Edit Employee",
       "confirmRestore":"Confirm Restore",
-      "deleteEmployeeLog":"Delete Employee Log"
+      "deleteEmployeeLog":"Delete Employee Log",
+      "deletePurchase":"Delete Purchase",
+      "deleteSupplier":"Delete Supplier"
     },
     "confirmCustomerDelete": "Are you sure you want to delete this Customer?",
     "confirmCustomerEdit": "Are you sure you want to edit this Customer?",
@@ -306,7 +317,10 @@
     "confirmEmployeeEdit": "Are you sure you want to edit this Employee?",
     "confirmEmployeeRestore" : "Are you sure you want to restore this Employee?",
     "confirmEmployeeLogDelete":"Are you sure you want to delete this daily record?",
-    "confirmCustomerRestore": "Are you sure you want to restore this Customer?"
+    "confirmCustomerRestore": "Are you sure you want to restore this Customer?",
+    "confirmPurchaseDelete":"Are you sure you want to delete this Purchase?",
+    "confirmSupplierDelete":"Are you sure you want to delete this Supplier?",
+    "confirmSupplierRestore":"Are you sure you want to restore this Supplier?"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -342,6 +356,17 @@
       "addOrder": "Add Order",
       "addPayment": "Add Payment",
       "editOrder":"Edit Order",
+      "editPayment": "Edit Payment"
+    },
+    "Suppliers": {
+      "addSupplier": "Add Supplier",
+      "supplierInformation": "Supplier Information",
+      "financialInformation": "Financial Information",
+      "Purchases": "Purchases",
+      "supplierPayments": "Supplier Payments",
+      "addPurchases":"Add Purchases",
+      "addPayment": "Add Payment",
+      "editPurchase":"Edit Purchase",
       "editPayment": "Edit Payment"
     },
     "Employees":{
@@ -498,6 +523,8 @@
     "You can't make a payment because there are no logs": "You can't make a payment because there are no logs",
     "The employee has overlapping this day.": "The employee has overlapping this day",
     "Supplier Added Successfully": "Supplier Added Successfully",
-    "Supplier has been successfully restored": "Supplier has been successfully restored"
+    "Supplier has been successfully restored": "Supplier has been successfully restored",
+    "can't find this supplier.":"can't find this supplier.",
+    "Supplier deleted successfully":"Supplier deleted successfully"
   }
 }
