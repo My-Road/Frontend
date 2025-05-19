@@ -96,6 +96,15 @@ export const getGenericGridColumns = (
         dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
       minWidth: 150,
     }),
+    purchasesDate: (fieldName = "purchasesDate") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Date"),
+      flex: 1,
+      type: "date",
+      valueFormatter: (_, row) =>
+        dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
+      minWidth: 150,
+    }),
     time: (fieldName = "createdAt") => ({
       field: "time",
       headerName: t("Tables.Headers.Time"),
@@ -115,6 +124,13 @@ export const getGenericGridColumns = (
     employeeName: (fieldName = "employeeName") => ({
       field: fieldName,
       headerName: t("Tables.Headers.employeeName"),
+      flex: 1,
+      sortable: false,
+      minWidth: 200,
+    }),
+    goodsDeliverer: (fieldName = "goodsDeliverer") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.goodsDeliverer"),
       flex: 1,
       sortable: false,
       minWidth: 200,
@@ -261,6 +277,14 @@ export const getGenericGridColumns = (
       minWidth: 120,
     }),
     recipientPhoneNumber: (fieldName = "recipientPhoneNumber") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Phone"),
+      sortable: false,
+      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
+      flex: 1,
+      minWidth: 120,
+    }),
+    goodsDelivererPhoneNumber: (fieldName = "goodsDelivererPhoneNumber") => ({
       field: fieldName,
       headerName: t("Tables.Headers.Phone"),
       sortable: false,
