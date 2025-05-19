@@ -44,8 +44,11 @@
     "heHasDues": "عليه مستحقات",
     "paid": "مدفوع",
     "noPurchases": "لم يتم إجراء أي عمليات شراء",
-    "youHaveToPay":"عليك مستحقات للمورّد",
-    "fullyPaidToSupplier":"تم دفع كامل المبلغ للمورّد"
+    "youHavePayToSupplier":"عليك مستحقات للمورّد",
+    "fullyPaidToSupplier":"تم دفع كامل المبلغ للمورّد",
+    "noLogs":"لا يوجد نشاط مسجل",
+    "fullyPaidToEmployee":"تم دفع كامل المبلغ للموظف",
+    "youHavePayToEmployee":"عليك مستحقات للموظف"
   },
   "Textfields": {
     "userName": "اسم المستخدم",
@@ -300,7 +303,8 @@
       "confirmRestore":" اعادة التعيين",
       "deleteEmployeeLog":"حذف السجل اليومي",
       "deletePurchase":" حذف عملية الشراء",
-      "deleteSupplier":" حذف المورّد"
+      "deleteSupplier":" حذف المورّد",
+      "editSupplier":"تعديل المُوَرِّد"
 
     },
     "confirmCustomerDelete": "هل انت متأكد من حذف هذا الزبون؟",
@@ -320,7 +324,8 @@
     "confirmCustomerRestore": "هل انت متأكد من اعادة تعيين هذا الزبون؟",
     "confirmPurchaseDelete":" هل أنت متأكد من حذف عملية الشراء؟",
     "confirmSupplierDelete":"هل أنت متأكد من حذف هذا المورّد؟",
-    "confirmSupplierRestore":"هل أنت متأكد من اعادة تعيين هذا المورّد؟"
+    "confirmSupplierRestore":"هل أنت متأكد من اعادة تعيين هذا المورّد؟",
+    "confirmSupplierEdit":"هل انت متأكد من تعديل بيانات هذا المورّد؟"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -523,6 +528,11 @@
     "Supplier Added Successfully": "تم اضافة ٱلْمُوَرِّد بنجاح",
     "Supplier has been successfully restored": "تم اعادة تعيين ٱلْمُوَرِّد بنجاح",
     "can't find this supplier.":"هذا ٱلْمُوَرِّد غير موجود",
-    "Supplier deleted successfully":"تم حذف ٱلْمُوَرِّد بنجاح"
+    "Supplier deleted successfully":"تم حذف ٱلْمُوَرِّد بنجاح",
+    "Supplier Edited Successfully":"تم تعديل ٱلْمُوَرِّد بنجاح ",
+    "Supplier with phone number already exists":"رقم الهاتف مسجّل مسبقا ",
+    "Purchase Added Successfully":"تمت إضافة عملية الشراء بنجاح",
+    "Purchase deleted successfully":"تم حذف عملية الشراء بنجاح",
+    "The updated payment amount exceeds the total due amount.":"المبلغ المدفوع بعد التحديث يتجاوز إجمالي المبلغ المستحق."
   }
 }
