@@ -50,7 +50,7 @@ export default function SupplierDataGrid({
           <CellActionButton
             row={supplier}
             isActive={isActive}
-            onActiveClick={() => navigate(`/me/supplier/${supplier.id}`)}
+            onActiveClick={() => navigate(`/me/suppliers/${supplier.id}`)}
             onInactiveClick={handleRestoreClick}
             isPending={isPending}
           />
