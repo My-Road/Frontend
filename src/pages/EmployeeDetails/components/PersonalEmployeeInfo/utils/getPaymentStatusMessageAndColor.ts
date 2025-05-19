@@ -8,11 +8,10 @@ export function getPaymentStatusMessageAndColor(
   t: TFunction
 ): { message: string; color: StatusColor } {
   if (totalDue === 0) {
-    return { message: t("Messages.noPurchases"), color: "text.primary" };
+    return { message: t("Messages.noLogs"), color: "text.primary" };
   } else if (remaining > 0) {
-    return { message: t("Messages.youHavePayToSupplier"), color: "error" };
+    return { message: t("Messages.youHavePayToEmployee"), color: "error" };
   } else {
-    return { message: t("Messages.fullyPaidToSupplier"), color: "success.main" }; 
+    return { message: t("Messages.fullyPaidToEmployee"), color: "success.main" }; 
   }
 }
-
