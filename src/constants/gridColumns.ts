@@ -290,7 +290,7 @@ export const getGenericGridColumns = (
       sortable: false,
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
-      minWidth: 120,
+      minWidth: 160
     }),
     quantity: (fieldName = "quantity") => ({
       field: fieldName,

@@ -129,6 +129,7 @@ export default function PurchasesDataGrid({ searchParams, supplierId }: Props) {
         onPaginationChange={setPaginationModel}
         rowCount={data?.totalCount || 0}
         loading={isLoading}
+        height="500px"
       />
 
       <TextPreviewDialog

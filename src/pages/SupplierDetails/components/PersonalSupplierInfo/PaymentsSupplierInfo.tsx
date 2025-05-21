@@ -2,6 +2,7 @@ import { Divider, Stack, Typography, TextField, Box } from "@mui/material";
 import { SupplierPayments } from "../../types";
 import { Trans, useTranslation } from "react-i18next";
 import { getPaymentStatusMessageAndColor } from "./utils/getPaymentStatusMessageAndColor";
+import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 
 interface Props {
   supplierPayments: SupplierPayments;
@@ -19,9 +20,12 @@ function PaymentsSupplierInfo({ supplierPayments }: Props) {
   return (
     <>
       <Typography variant="h5" gutterBottom>
-        <Trans i18nKey="PrivatePages.Suppliers.financialInformation">
-          Financial Information
-        </Trans>
+        <Box display="flex" alignContent="center">
+          <SellOutlinedIcon />
+          <Trans i18nKey="PrivatePages.Suppliers.financialInformation">
+            Financial Information
+          </Trans>
+        </Box>
         <Divider />
       </Typography>
 

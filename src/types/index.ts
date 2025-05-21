@@ -49,7 +49,7 @@ export interface Employee {
   idNumber: string;
   startDate: string;
   endDate: string;
-  status: boolean;
+  isActive: boolean;
   email: string;
   totalDueAmount: number;
   totalPaidAmount: number;
