@@ -541,6 +541,7 @@
     "Date must be in the past or today": "Date must be in the past or today",
     "Order date must be in the past or today": "Order date must be in the past or today",
     "Purchase date must be in the past or today": "Purchase date must be in the past or today",
-    "Payment date must be in the past or today": "Payment date must be in the past or today"
+    "Payment date must be in the past or today": "Payment date must be in the past or today",
+    "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid."
   }
 }

@@ -539,6 +539,7 @@
     "Date must be in the past or today": "يجب أن يكون التاريخ في الماضي او اليوم",
     "Order date must be in the past or today": "يجب ان يكون تاريخ الطلبية في الماضي او اليوم",
     "Purchase date must be in the past or today": "يجب ان يكون تاريخ عملية الشراء في الماضي او اليوم",
-    "Payment date must be in the past or today": "يجب ان يكون تاريخ الدفعة في الماضي او اليوم"
+    "Payment date must be in the past or today": "يجب ان يكون تاريخ الدفعة في الماضي او اليوم",
+    "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "لا يمكن إزالة هذا الشراء لأنه سيؤدي إلى دفع مبلغ زائد أو تم دفع المبلغ بالكامل بالفعل."
   }
 }
