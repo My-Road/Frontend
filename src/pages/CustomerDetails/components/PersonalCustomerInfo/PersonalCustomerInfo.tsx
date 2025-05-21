@@ -1,4 +1,5 @@
 import {
+  Box,
   Divider,
   IconButton,
   Paper,
@@ -11,9 +12,10 @@ import EditCustomerInfoForm from "./EditCustomerInfoForm";
 import PaymentsCustomerInfo from "./PaymentsCustomerInfo";
 import { Customer } from "@/types";
 import { Trans } from "react-i18next";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 interface Props {
-  customerData: Customer ;
+  customerData: Customer;
 }
 
 function PersonalCustomerInfo({ customerData }: Props) {
@@ -24,13 +26,22 @@ function PersonalCustomerInfo({ customerData }: Props) {
     <Paper>
       <Stack p={4} gap={4} justifyContent="flex-start">
         <Typography variant="h5" gutterBottom>
-          <Trans i18nKey="PrivatePages.Customers.customerInformation">Customer Information</Trans>
-          <IconButton onClick={handleEditClick}>
-            {!isEditing && (<EditIcon />)}
-          </IconButton>
+          <Box display="flex" alignContent="center" alignItems="center">
+            <PersonOutlineOutlinedIcon fontSize="large" />
+            <Trans i18nKey="PrivatePages.Customers.customerInformation">
+              Customer Information
+            </Trans>
+            <IconButton onClick={handleEditClick}>
+              {!isEditing && <EditIcon />}
+            </IconButton>
+          </Box>
           <Divider />
         </Typography>
-        <EditCustomerInfoForm customerData={customerData} isEditing = {isEditing} setIsEditing = {setIsEditing} />
+        <EditCustomerInfoForm
+          customerData={customerData}
+          isEditing={isEditing}
+          setIsEditing={setIsEditing}
+        />
         <PaymentsCustomerInfo customerPayments={customerData} />
       </Stack>
     </Paper>
