@@ -10,6 +10,7 @@ import { SearchParams } from "@/types";
 import SearchIcon from "@mui/icons-material/Search";
 import DatePickerField from "../Fields/DatePickerField";
 import dayjs from "dayjs";
+import { LoadingButton } from "@mui/lab";
 
 interface SearchFormProps {
   setSearchParams: Dispatch<SetStateAction<SearchParams>>;
@@ -21,11 +22,13 @@ const SearchFormByDate: React.FC<SearchFormProps> = ({
   dateFieldKey,
 }) => {
   const [isInSearchMode, setIsInSearchMode] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const onSubmit = (values: SearchFormValues) => {
+    setLoading(true);
     setIsInSearchMode(true);
-
     const filtersArray: string[] = [];
-
+    
     if (values.startDate) {
       filtersArray.push(`${dateFieldKey}>=${values.startDate}`);
     }
@@ -35,13 +38,15 @@ const SearchFormByDate: React.FC<SearchFormProps> = ({
     }
 
     const filters = filtersArray.join(",");
-
     setSearchParams((prev: SearchParams) => ({
       ...prev,
       filters,
       page: 1,
       sorts: `-${dateFieldKey}`,
     }));
+    setTimeout(() => {
+      setLoading(false);
+    }, 250);
   };
 
   const handleClearSearch = () => {
@@ -79,16 +84,17 @@ const SearchFormByDate: React.FC<SearchFormProps> = ({
             minDate={dayjs("2000-01-01")}
             maxDate={dayjs("9999-12-30")}
           />
-          <Button
+          <LoadingButton
             type="submit"
             variant="contained"
             color="primary"
             endIcon={<SearchIcon />}
             sx={{ minWidth: 100 }}
             disabled={!formikProps.isValid || !formikProps.dirty}
+            loading={loading}
           >
             <Trans i18nKey="Buttons.search">Search</Trans>
-          </Button>
+          </LoadingButton>
           {isInSearchMode && (
             <Button
               type="submit"

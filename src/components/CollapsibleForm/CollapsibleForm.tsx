@@ -30,7 +30,7 @@ const CollapsibleForm = <T extends FormikValues>({
   const collapseTitle = `PublicPages.${title}`;
 
   return (
-    <Paper sx={{ p: 2, mt: 5 }}>
+    <Paper sx={{ p: 2 }}>
       <Collapse in={!expanded}>
         <Box onClick={() => setExpanded(true)} sx={{ cursor: "pointer" }}>
           <Trans i18nKey={collapseTitle} />

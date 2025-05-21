@@ -1,46 +1,33 @@
 import React, { useState } from "react";
-import { Button, Stack } from "@mui/material";
+import { Paper, Stack } from "@mui/material";
 import { Form, FormikProvider, useFormik } from "formik";
-import TextField from "@/components/Fields/TextField";
+import SearchInput from "./SearchInput";
 import { Trans, useTranslation } from "react-i18next";
 import { validationSchema } from "./formSchema";
 import { initialValues } from "./constants";
-import { SearchFormValues } from "./types";
+import { SearchFormProps, SearchFormValues } from "./types";
 import { SearchParams } from "@/types";
-import { Dispatch, SetStateAction } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-
-interface SearchFormProps {
-  setSearchParams: Dispatch<SetStateAction<SearchParams>>;
-  name: string;
-  sortsBy: string;
-}
+import { LoadingButton } from "@mui/lab";
 
 const SearchFormByName: React.FC<SearchFormProps> = ({
   setSearchParams,
   name,
   sortsBy,
 }) => {
-  const [isInSearchMode, setIsInSearchMode] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
   const { t } = useTranslation();
-  const onSubmit = (values: SearchFormValues) => {
-    setIsInSearchMode(true);
+
+  const onSubmit = async (values: SearchFormValues) => {
+    setIsSearching(true);
+    await new Promise((resolve) => setTimeout(resolve, 250));
     setSearchParams((prev: SearchParams) => ({
       ...prev,
       filters: `FullName@=${values.fullName}`,
       page: 1,
       sorts: sortsBy,
     }));
-  };
-
-  const handleClearSearch = () => {
-    setIsInSearchMode(false);
-    formikProps.resetForm();
-    setSearchParams({
-      page: 1,
-      pageSize: 15,
-      sorts: sortsBy,
-    });
+    setIsSearching(false);
   };
 
   const formikProps = useFormik({
@@ -49,38 +36,57 @@ const SearchFormByName: React.FC<SearchFormProps> = ({
     validationSchema,
   });
 
+  const { values, resetForm, handleChange } = formikProps;
+  const isSearchDisabled = !values.fullName || values.fullName.trim() === "";
+
+  const handleClearSearch = () => {
+    resetForm();
+    setSearchParams({
+      page: 1,
+      pageSize: 15,
+      sorts: sortsBy,
+    });
+  };
+
   return (
-    <FormikProvider value={formikProps}>
-      <Form>
-        <Stack
-          flexDirection={{ sm: "column", md: "row" }}
-          justifyContent="center"
-          alignItems="center"
-          gap={2}
-        >
-          <TextField name="fullName" label={t(`Textfields.${name}`)} />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            endIcon={<SearchIcon />}
+    <Paper
+      elevation={4}
+      sx={{
+        p: 4,
+        borderRadius: 4,
+        my: 5,
+      }}
+    >
+      <FormikProvider value={formikProps}>
+        <Form>
+          <Stack
+            flexDirection={{ sm: "column", md: "row" }}
+            justifyContent="center"
+            alignItems="center"
+            gap={2}
           >
-            <Trans i18nKey="Buttons.search">Search</Trans>
-          </Button>
-          {isInSearchMode && (
-            <Button
+            <SearchInput
+              name="fullName"
+              value={values.fullName}
+              onChange={handleChange}
+              label={t(`Textfields.${name}`)}
+              onClear={handleClearSearch}
+              isClearVisible={!isSearchDisabled}
+            />
+            <LoadingButton
               type="submit"
               variant="contained"
               color="info"
-              onClick={handleClearSearch}
-              disabled={!formikProps.isValid || !formikProps.dirty}
+              endIcon={<SearchIcon />}
+              disabled={isSearchDisabled}
+              loading={isSearching}
             >
-              <Trans i18nKey="Buttons.cancel">Clear Search</Trans>
-            </Button>
-          )}
-        </Stack>
-      </Form>
-    </FormikProvider>
+              <Trans i18nKey="Buttons.search">Search</Trans>
+            </LoadingButton>
+          </Stack>
+        </Form>
+      </FormikProvider>
+    </Paper>
   );
 };
 
