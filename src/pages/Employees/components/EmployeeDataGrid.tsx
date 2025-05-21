@@ -45,16 +45,16 @@ export default function EmployeeDataGrid({
   };
 
   const gridColumns: GridColDef[] = [
+    getGenericGridColumns(t).startDate(),
     getGenericGridColumns(t).employeeName(),
     getGenericGridColumns(t).phoneNumber(),
     getGenericGridColumns(t).address(),
     getGenericGridColumns(t).jobTitle(),
-    getGenericGridColumns(t).startDate(),
     {
       ...getGenericGridColumns(t).actions(),
       renderCell: (params) => {
         const employee = params.row as Employee;
-        const isActive = Boolean(employee.status);
+        const isActive = Boolean(employee.isActive);
 
         return (
           <CellActionButton
