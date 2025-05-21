@@ -120,6 +120,7 @@ export default function PaymentDataGrid({ searchParams, employeeId }: Props) {
           onPaginationChange={setPaginationModel}
           rowCount={data?.totalCount || 0}
           loading={isLoading}
+          height="500px"
         />
       </Box>
       <TextPreviewDialog

@@ -7,6 +7,7 @@ import { useState } from "react";
 import SearchFormByDate from "@/components/SearchFormByDate/SearchFormByDate";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 import { PaymentState } from "../../types";
+import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 
 interface Props {
   employeeId: number;
@@ -23,9 +24,12 @@ function EmployeePayments({ employeeId, paymentState }: Props) {
       <Stack p={4} gap={4}>
         <Box>
           <Typography variant="h5">
-            <Trans i18nKey="PrivatePages.Employees.employeePayments">
-              Employee Payments
-            </Trans>
+            <Box display="flex" alignContent="center">
+              <PaymentOutlinedIcon />
+              <Trans i18nKey="PrivatePages.Employees.employeePayments">
+                Employee Payments
+              </Trans>
+            </Box>
           </Typography>
           <Divider />
         </Box>

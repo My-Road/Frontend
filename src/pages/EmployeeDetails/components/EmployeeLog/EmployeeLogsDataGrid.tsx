@@ -123,6 +123,7 @@ export default function EmployeeLogsDataGrid({
         onPaginationChange={setPaginationModel}
         rowCount={data?.totalCount || 0}
         loading={isLoading}
+        height="550px"
       />
 
       <TextPreviewDialog
