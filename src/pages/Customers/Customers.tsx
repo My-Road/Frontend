@@ -35,7 +35,7 @@ export default function DataGridDemo() {
             <SearchFormByName
               setSearchParams={setSearchParams}
               name="customerName"
-              sortsBy="-isDeleted"
+              sortsBy="isDeleted"
             />
           </Box>
           <CustomerDataGrid searchParams={searchParams} />
