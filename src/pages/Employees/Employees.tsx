@@ -1,26 +1,52 @@
-import { Container, Stack } from "@mui/material";
+import {
+  Container,
+  Stack,
+  Box,
+  Typography,
+  Paper,
+  Divider,
+} from "@mui/material";
 import AddEmployeeForm from "./components/AddEmployeeForm";
 import EmployeeDataGrid from "./components/EmployeeDataGrid";
 import { useState } from "react";
 import { SearchParams } from "@/types";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 import SearchFormByName from "@/components/SearchFormByName";
+import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
+import { Trans } from "react-i18next";
 
-export default function DataGridDemo() {
+export default function Employees() {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
-    sorts: "-status",
+    sorts: "-isActive",
   });
+
   return (
-    <Container>
+    <Container sx={{ my: 5 }}>
       <Stack gap={4}>
         <AddEmployeeForm />
-        <SearchFormByName
-          setSearchParams={setSearchParams}
-          name="employeeName"
-          sortsBy="-status"
-        />
-        <EmployeeDataGrid searchParams={searchParams} />
+        <Paper elevation={3} sx={{ p: 3, borderRadius: 3 }}>
+          <Typography
+            variant="h5"
+            fontWeight={600}
+            gutterBottom
+            display="flex"
+            alignItems="center"
+            gap={1}
+          >
+            <GroupsTwoToneIcon fontSize="large" />
+            <Trans i18nKey="SideDrawerLinks.Employees">Employees</Trans>
+          </Typography>
+          <Divider />
+          <Box mb={4}>
+            <SearchFormByName
+              setSearchParams={setSearchParams}
+              name="employeeName"
+              sortsBy="-isActive"
+            />
+          </Box>
+          <EmployeeDataGrid searchParams={searchParams} />
+        </Paper>
       </Stack>
     </Container>
   );

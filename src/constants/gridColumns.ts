@@ -96,6 +96,15 @@ export const getGenericGridColumns = (
         dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
       minWidth: 150,
     }),
+    purchasesDate: (fieldName = "purchasesDate") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Date"),
+      flex: 1,
+      type: "date",
+      valueFormatter: (_, row) =>
+        dayjs.utc(row[fieldName]).format("YYYY-MM-DD"),
+      minWidth: 150,
+    }),
     time: (fieldName = "createdAt") => ({
       field: "time",
       headerName: t("Tables.Headers.Time"),
@@ -115,6 +124,13 @@ export const getGenericGridColumns = (
     employeeName: (fieldName = "employeeName") => ({
       field: fieldName,
       headerName: t("Tables.Headers.employeeName"),
+      flex: 1,
+      sortable: false,
+      minWidth: 200,
+    }),
+    goodsDeliverer: (fieldName = "goodsDeliverer") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.goodsDeliverer"),
       flex: 1,
       sortable: false,
       minWidth: 200,
@@ -268,6 +284,14 @@ export const getGenericGridColumns = (
       flex: 1,
       minWidth: 120,
     }),
+    goodsDelivererPhoneNumber: (fieldName = "goodsDelivererPhoneNumber") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Phone"),
+      sortable: false,
+      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
+      flex: 1,
+      minWidth: 160
+    }),
     quantity: (fieldName = "quantity") => ({
       field: fieldName,
       headerName: t("Tables.Headers.Quantity"),
@@ -336,7 +360,6 @@ export const getGenericGridColumns = (
       flex: 1,
       minWidth: 130,
     }),
-
     workDate: (fieldName = "date") => ({
       field: fieldName,
       headerName: t("Tables.Headers.Date"),
@@ -360,9 +383,16 @@ export const getGenericGridColumns = (
       flex: 1,
       minWidth: 200,
     }),
-    workHours: (fieldName = "workHours") => ({
+    totalHours: (fieldName = "totalHours") => ({
       field: fieldName,
       headerName: t("Tables.Headers.WorkHours"),
+      type: "string",
+      flex: 1,
+      minWidth: 200,
+    }),
+    dailyWage: (fieldName = "dailyWage") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.DuePrice"),
       type: "string",
       flex: 1,
       minWidth: 200,
@@ -379,6 +409,13 @@ export const getGenericGridColumns = (
       headerName: t("Tables.Headers.DuePrice"),
       type: "string",
       flex: 1,
+      minWidth: 200,
+    }),
+    supplierName: (fieldName = "supplierName") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.SupplierName"),
+      flex: 1,
+      sortable: false,
       minWidth: 200,
     }),
   };

@@ -2,18 +2,14 @@ import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormikHelpers } from "formik";
-
 import { PaginationProps, SearchParams } from "@/types";
 import { CustomerOrderPayload, Order } from "../../types";
-
 import { useSearchOrders } from "../../hooks/useSearchOrders";
 import useDeleteOrderAPI from "../../hooks/useDeleteOrderAPI";
 import useUpdateOrderDataAPI from "../../hooks/useUpdateOrderDataAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 import { useSnackBar } from "@/hooks/useSnackbar";
-
 import { transformOrderToPayload } from "./util/transformOrderToPayload";
-
 import OrderFormDialog from "./OrderFormDialog";
 import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
 import { getGenericGridColumns } from "@/constants/gridColumns";
@@ -129,6 +125,7 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
         onPaginationChange={setPaginationModel}
         rowCount={data?.totalCount || 0}
         loading={isLoading}
+        height="500px"
       />
 
       <TextPreviewDialog

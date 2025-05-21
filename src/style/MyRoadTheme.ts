@@ -490,8 +490,11 @@ const MyRoadTheme = createTheme(
       MuiTextField: {
         styleOverrides: {
           root: () => ({
-            "& label .Mui-focused": {
-              color: "white",
+            "& label.Mui-focused": {
+              color: brand[400],
+            },
+            "& label.Mui-disabled": {
+              color: "#aaa",
             },
             "& .MuiInputBase-input": {
               boxSizing: "border-box",
@@ -512,6 +515,10 @@ const MyRoadTheme = createTheme(
                 margin: 0,
               },
             },
+            "& .MuiInputBase-input.Mui-disabled": {
+              color: "#999",
+              WebkitTextFillColor: "#999",
+            },
             "& .MuiOutlinedInput-root": {
               boxSizing: "border-box",
               minWidth: 50,
@@ -524,7 +531,7 @@ const MyRoadTheme = createTheme(
                 background: `${alpha("#FFF", 0.3)}`,
               },
               "&.Mui-focused fieldset": {
-                borderWidth: 2, // Thicker border when focused, adjust as needed
+                borderWidth: 2,
                 borderColor: brand[400],
               },
               "&:hover": {
@@ -534,6 +541,14 @@ const MyRoadTheme = createTheme(
                 borderColor: brand[400],
                 outline: "1px solid",
                 outlineColor: brand[200],
+              },
+            },
+            "& .MuiOutlinedInput-root.Mui-disabled": {
+              backgroundColor: alpha("#f0f0f0", 0.6),
+              borderRadius: "10px",
+              color: "#999",
+              "& fieldset": {
+                borderColor: "#ccc",
               },
             },
           }),

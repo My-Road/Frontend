@@ -1,10 +1,13 @@
-import { Container, Stack } from "@mui/material";
+import { Container, Divider, Paper, Stack, Typography } from "@mui/material";
 import AddCustomerForm from "./components/AddCustomerForm";
 import CustomerDataGrid from "./components/CustomerDataGrid";
 import { useState } from "react";
 import { SearchParams } from "@/types";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 import SearchFormByName from "@/components/SearchFormByName";
+import { Trans } from "react-i18next";
+import { Box } from "@mui/material";
+import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
 
 export default function DataGridDemo() {
   const [searchParams, setSearchParams] = useState<SearchParams>({
@@ -12,15 +15,31 @@ export default function DataGridDemo() {
     sorts: "isDeleted",
   });
   return (
-    <Container>
+    <Container sx={{my: 5}}>
       <Stack gap={4}>
         <AddCustomerForm />
-        <SearchFormByName
-          setSearchParams={setSearchParams}
-          name="customerName"
-          sortsBy="isDeleted"
-        />
-        <CustomerDataGrid searchParams={searchParams} />
+        <Paper elevation={3} sx={{ p: 3, borderRadius: 3 }}>
+          <Typography
+            variant="h5"
+            fontWeight={600}
+            gutterBottom
+            display="flex"
+            alignItems="center"
+            gap={1}
+          >
+            <GroupsTwoToneIcon fontSize="large" />
+            <Trans i18nKey="SideDrawerLinks.Customers">Employees</Trans>
+          </Typography>
+          <Divider />
+          <Box mb={4}>
+            <SearchFormByName
+              setSearchParams={setSearchParams}
+              name="customerName"
+              sortsBy="-isDeleted"
+            />
+          </Box>
+          <CustomerDataGrid searchParams={searchParams} />
+        </Paper>
       </Stack>
     </Container>
   );

@@ -16,7 +16,6 @@ import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import DataGridActions from "@/components/DataGridActions/DataGridActions";
-import { getWorkHours } from "./util/getWorkHours";
 
 interface Props {
   searchParams: SearchParams;
@@ -100,21 +99,8 @@ export default function EmployeeLogsDataGrid({
     getGenericGridColumns(t).checkIn(),
     getGenericGridColumns(t).checkOut(),
     getGenericGridColumns(t).hourlyWage(),
-    {
-      ...getGenericGridColumns(t).workHours(),
-      renderCell: (params) => {
-        const hours = getWorkHours(params.row.checkIn, params.row.checkOut);
-        return hours !== null ? hours.toFixed(2) : "-";
-      },
-    },
-    {
-      ...getGenericGridColumns(t).duePrice(),
-      renderCell: (params) => {
-        const hours = getWorkHours(params.row.checkIn, params.row.checkOut);
-        const wage = params.row.hourlyWage;
-        return hours !== null && wage ? (hours * wage).toFixed(2) : "-";
-      },
-    },
+    getGenericGridColumns(t).totalHours(),
+    getGenericGridColumns(t).dailyWage(),
     {
       ...getGenericGridColumns(t).actions(),
       renderCell: (params) => (
@@ -137,6 +123,7 @@ export default function EmployeeLogsDataGrid({
         onPaginationChange={setPaginationModel}
         rowCount={data?.totalCount || 0}
         loading={isLoading}
+        height="550px"
       />
 
       <TextPreviewDialog

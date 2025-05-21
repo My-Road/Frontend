@@ -1,7 +1,8 @@
 import { House } from "lucide-react";
 import GroupsIcon from "@mui/icons-material/Groups";
-import BadgeTwoToneIcon from '@mui/icons-material/BadgeTwoTone';
+import BadgeTwoToneIcon from "@mui/icons-material/BadgeTwoTone";
 import { IAppMenuItem } from "@/types";
+import InventorySharpIcon from "@mui/icons-material/InventorySharp";
 
 const useAppMenuNavigation = () => {
   const appMenuItems: IAppMenuItem[] = [
@@ -16,9 +17,14 @@ const useAppMenuNavigation = () => {
       Icon: () => <GroupsIcon />,
     },
     {
-      label: "Employess",
+      label: "Employees",
       link: "/me/employees",
       Icon: () => <BadgeTwoToneIcon />,
+    },
+    {
+      label: "Suppliers",
+      link: "/me/suppliers",
+      Icon: () => <InventorySharpIcon />,
     },
   ];
 

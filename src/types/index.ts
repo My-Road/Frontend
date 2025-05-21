@@ -33,6 +33,13 @@ export interface Customer {
   customerPayments: never[];
   id: number;
 }
+
+export interface Supplier extends Omit<Customer, "customerName" | "orders" | "customerPayments"> {
+  supplierName: string;
+  purchases: never[];
+  supplierPayment: never[];
+}
+
 export interface Employee {
   id: number;
   employeeName: string;
@@ -42,7 +49,7 @@ export interface Employee {
   idNumber: string;
   startDate: string;
   endDate: string;
-  status: boolean;
+  isActive: boolean;
   email: string;
   totalDueAmount: number;
   totalPaidAmount: number;
