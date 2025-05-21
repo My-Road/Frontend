@@ -535,6 +535,12 @@
     "Supplier with phone number already exists":"Supplier with phone number already exists",
     "Purchase Added Successfully":"Purchase Added Successfully",
     "Purchase deleted successfully":"Purchase deleted successfully",
-    "The updated payment amount exceeds the total due amount.":"The updated payment amount exceeds the total due amount."
+    "The updated payment amount exceeds the total due amount.":"The updated payment amount exceeds the total due amount.",
+    "Purchase Edited Successfully": "Purchase Edited Successfully",
+    "The purchase cannot be updated because the amount paid to the supplier would exceed the total amount owed.": "The purchase cannot be updated because the amount paid to the supplier would exceed the total amount owed.",
+    "Date must be in the past or today": "Date must be in the past or today",
+    "Order date must be in the past or today": "Order date must be in the past or today",
+    "Purchase date must be in the past or today": "Purchase date must be in the past or today",
+    "Payment date must be in the past or today": "Payment date must be in the past or today"
   }
 }

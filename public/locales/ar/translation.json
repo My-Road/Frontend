@@ -533,6 +533,12 @@
     "Supplier with phone number already exists":"رقم الهاتف مسجّل مسبقا ",
     "Purchase Added Successfully":"تمت إضافة عملية الشراء بنجاح",
     "Purchase deleted successfully":"تم حذف عملية الشراء بنجاح",
-    "The updated payment amount exceeds the total due amount.":"المبلغ المدفوع بعد التحديث يتجاوز إجمالي المبلغ المستحق."
+    "The updated payment amount exceeds the total due amount.":"المبلغ المدفوع بعد التحديث يتجاوز إجمالي المبلغ المستحق.",
+    "Purchase Edited Successfully": "تم تعديل عملية الشراء بنجاح",
+    "The purchase cannot be updated because the amount paid to the supplier would exceed the total amount owed.": "لا يمكن تحديث عملية الشراء لأن المبلغ المدفوع للمُوَرِّد سيتجاوز المبلغ الإجمالي المستحق.",
+    "Date must be in the past or today": "يجب أن يكون التاريخ في الماضي او اليوم",
+    "Order date must be in the past or today": "يجب ان يكون تاريخ الطلبية في الماضي او اليوم",
+    "Purchase date must be in the past or today": "يجب ان يكون تاريخ عملية الشراء في الماضي او اليوم",
+    "Payment date must be in the past or today": "يجب ان يكون تاريخ الدفعة في الماضي او اليوم"
   }
 }
