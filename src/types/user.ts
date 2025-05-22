@@ -7,4 +7,4 @@ export interface User {
   userRole: UserRole;
 }
 
-export type UserRole = "Admin" | "SuperAdmin"| "Manager"
+export type UserRole = "Admin" | "SuperAdmin"| "Manager" | ""

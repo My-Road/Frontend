@@ -3,6 +3,7 @@ import { Paper, Stack, Typography } from "@mui/material";
 import Logo from "@/assets/images/logo.png";
 import { Trans } from "react-i18next";
 import RegisterForm from "./components/RegisterForm";
+import routeHOC from "@/routes/HOCs/routeHOC";
 
 const Register: React.FC = () => {
   return (
@@ -27,4 +28,9 @@ const Register: React.FC = () => {
   );
 };
 
-export default Register;
+const RegisterWithRoute = routeHOC({
+  title: "Register",
+  pageAccessName: "Register",
+})(Register);
+
+export default RegisterWithRoute;

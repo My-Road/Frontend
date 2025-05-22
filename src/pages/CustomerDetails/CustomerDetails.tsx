@@ -6,8 +6,9 @@ import Loader from "@/components/Loader";
 import CustomerPayments from "./components/CustomerPayments/CustomerPayments";
 import CustomerOrders from "./components/CustomerOrders/CustomerOrders";
 import { getPaymentState } from "./utils/getPaymentState";
+import routeHOC from "@/routes/HOCs/routeHOC";
 
-function CustomerDetails() {
+const CustomerDetails = () => {
   const { customerId } = useParams();
   const { data, isLoading, error } = useGetCustomerAPI(customerId || "0");
 
@@ -37,6 +38,11 @@ function CustomerDetails() {
       </Stack>
     </Container>
   );
-}
+};
 
-export default CustomerDetails;
+const CustomerDetailsWithRoute = routeHOC({
+  title: "CustomerDetails",
+  pageAccessName: "CustomerDetails",
+})(CustomerDetails);
+
+export default CustomerDetailsWithRoute;
