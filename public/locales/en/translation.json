@@ -225,7 +225,8 @@
     "Employees": "Employees",
     "Products": "Products",
     "Health follow-ups": "Health follow-ups",
-    "Suppliers": "Suppliers"
+    "Suppliers": "Suppliers",
+    "User Registration": "User Registration"
   },
   "Tables": {
     "Headers": {
@@ -331,6 +332,10 @@
     "Unauthenticated": {
       "title": "Authentication Required"
     },
+    "AdditionalAccess": {
+      "title": "Additional Access Required",
+      "description": "It seems you don't have access to this page. Please contact a system administrator if access is needed."
+    },
     "NotFound": {
       "title": "Page Not Found"
     },
@@ -382,9 +387,7 @@
       "addPayment": "Add Payment",
       "editPayment": "Edit Payment",
       "employeePayments":"Employee Payments"
-
     }
-    
   },
   "SnackbarMessages": {
     "Something went wrong!": "Something went wrong!",

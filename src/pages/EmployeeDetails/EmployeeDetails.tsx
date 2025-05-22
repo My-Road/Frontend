@@ -6,8 +6,9 @@ import Loader from "@/components/Loader";
 import EmployeeLog from "./components/EmployeeLog/EmployeeLogs";
 import EmployeePayments from "./components/EmployeePayments/EmployeePayments";
 import { getPaymentState } from "./utils/getPaymentState";
+import routeHOC from "@/routes/HOCs/routeHOC";
 
-function EmployeeDetails() {
+const EmployeeDetails = () => {
   const { employeeId } = useParams();
   const { data, isLoading, error } = useGetEmployeeAPI(employeeId || "0");
 
@@ -20,20 +21,27 @@ function EmployeeDetails() {
   }
 
   const employeeData = data!;
-    const paymentState = getPaymentState(
-      employeeData?.remainingAmount ?? 0,
-      employeeData?.totalDueAmount ?? 0
-    );
+  const paymentState = getPaymentState(
+    employeeData?.remainingAmount ?? 0,
+    employeeData?.totalDueAmount ?? 0
+  );
   return (
     <Container sx={{ my: 5 }}>
       <Stack gap={5}>
         <PersonalEmployeeInfo employeeData={employeeData} />
         <EmployeeLog employeeId={employeeData.id} />
-        <EmployeePayments employeeId={employeeData.id} paymentState={paymentState} />
-
+        <EmployeePayments
+          employeeId={employeeData.id}
+          paymentState={paymentState}
+        />
       </Stack>
     </Container>
   );
-}
+};
 
-export default EmployeeDetails;
+const EmployeeDetailsWithRoute = routeHOC({
+  title: "EmployeeDetails",
+  pageAccessName: "EmployeeDetails",
+})(EmployeeDetails);
+
+export default EmployeeDetailsWithRoute;

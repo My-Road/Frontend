@@ -8,14 +8,15 @@ import SearchFormByName from "@/components/SearchFormByName";
 import { Trans } from "react-i18next";
 import { Box } from "@mui/material";
 import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
+import routeHOC from "@/routes/HOCs/routeHOC";
 
-export default function DataGridDemo() {
+const Customers = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
     sorts: "isDeleted",
   });
   return (
-    <Container sx={{my: 5}}>
+    <Container sx={{ my: 5 }}>
       <Stack gap={4}>
         <AddCustomerForm />
         <Paper elevation={3} sx={{ p: 3, borderRadius: 3 }}>
@@ -43,4 +44,11 @@ export default function DataGridDemo() {
       </Stack>
     </Container>
   );
-}
+};
+
+const CustomersWithRoute = routeHOC({
+  title: "Customers",
+  pageAccessName: "Customers",
+})(Customers);
+
+export default CustomersWithRoute;

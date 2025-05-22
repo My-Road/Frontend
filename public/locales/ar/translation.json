@@ -31,7 +31,7 @@
     "addPayment": "اضافة دفعة",
     "editSale": "تعديل حركة بيع",
     "deleteVisit": "حذف الزيارة",
-    "register": "تسجيل الدخول",
+    "register": "تسجيل المستخدم",
     "viewDetails": "عرض التفاصيل",
     "search": "ابحث",
     "save": "حفظ",
@@ -225,7 +225,8 @@
     "Employees": "الموظفين",
     "Products": "المنتجات",
     "Health follow-ups": "المتابعات الصحية",
-    "Suppliers": "ٱلْمُوَرِّدين"
+    "Suppliers": "ٱلْمُوَرِّدين",
+    "User Registration": "تسجيل المستخدم"
   },
   "Tables": {
     "Headers": {
@@ -330,6 +331,10 @@
   "PublicPages": {
     "Unauthenticated": {
       "title": "يرجى تسجيل الدخول"
+    },
+    "AdditionalAccess": {
+      "title": "يتطلب صلاحيات إضافية",
+      "description": "يبدو أنك لا تستطيع الوصول إلى هذه الصفحة. يُرجى التواصل مع مسؤول النظام إذا كنت بحاجة إلى الوصول."
     },
     "NotFound": {
       "title": "الصفحة غير متوفرة"

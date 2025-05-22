@@ -4,5 +4,7 @@ export interface User {
   phone: string;
   email: string;
   fullName: string;
-  userRole: string;
+  userRole: UserRole;
 }
+
+export type UserRole = "Admin" | "SuperAdmin"| "Manager" | ""

@@ -14,8 +14,9 @@ import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 import SearchFormByName from "@/components/SearchFormByName";
 import { Trans } from "react-i18next";
 import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
+import routeHOC from "@/routes/HOCs/routeHOC";
 
-export default function Suppliers() {
+const Suppliers = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
     sorts: "isDeleted",
@@ -49,4 +50,11 @@ export default function Suppliers() {
       </Stack>
     </Container>
   );
-}
+};
+
+const SuppliersWithRoute = routeHOC({
+  title: "Suppliers",
+  pageAccessName: "Suppliers",
+})(Suppliers);
+
+export default SuppliersWithRoute;

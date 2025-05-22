@@ -6,8 +6,9 @@ import Loader from "@/components/Loader";
 import SupplierPayments from "./components/SupplierPayments/SupplierPayments";
 import CustomerOrders from "./components/Purchases/Purchases";
 import { getPaymentState } from "./utils/getPaymentState";
+import routeHOC from "@/routes/HOCs/routeHOC";
 
-function SupplierDetails() {
+const SupplierDetails = () => {
   const { supplierId } = useParams();
   const { data, isLoading, error } = useGetSupplierAPI(supplierId || "0");
 
@@ -37,6 +38,11 @@ function SupplierDetails() {
       </Stack>
     </Container>
   );
-}
+};
 
-export default SupplierDetails;
+const SupplierDetailsWithRoute = routeHOC({
+  title: "SupplierDetails",
+  pageAccessName: "SupplierDetails",
+})(SupplierDetails);
+
+export default SupplierDetailsWithRoute;

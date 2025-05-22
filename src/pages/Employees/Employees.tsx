@@ -14,8 +14,9 @@ import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 import SearchFormByName from "@/components/SearchFormByName";
 import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
 import { Trans } from "react-i18next";
+import routeHOC from "@/routes/HOCs/routeHOC";
 
-export default function Employees() {
+const Employees = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
     sorts: "-isActive",
@@ -50,4 +51,11 @@ export default function Employees() {
       </Stack>
     </Container>
   );
-}
+};
+
+const EmployeesWithRoute = routeHOC({
+  title: "Employees",
+  pageAccessName: "Employees",
+})(Employees);
+
+export default EmployeesWithRoute;
