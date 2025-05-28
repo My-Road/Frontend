@@ -45,11 +45,27 @@ export const getGenericGridColumns = (
       minWidth: 150,
       sortable: false,
     }),
+    firstName: (fieldName = "firstName") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.firstName"),
+      disableExport: true,
+      flex: 0.75,
+      minWidth: 95,
+      sortable: false,
+    }),
+    lastName: (fieldName = "lastName") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.lastName"),
+      disableExport: true,
+      flex: 0.75,
+      minWidth: 95,
+      sortable: false,
+    }),
     phoneNumber: (fieldName = "phoneNumber") => ({
       field: fieldName,
       sortable: false,
       flex: 1,
-      minWidth: 130,
+      minWidth: 100,
       headerName: t("Tables.Headers.Phone"),
     }),
     phone2: (fieldName = "phone2") => ({
@@ -71,6 +87,17 @@ export const getGenericGridColumns = (
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
     }),
+    id: (fieldName = "id") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.id"),
+      type: "number",
+      headerAlign: "left",
+      align: "left",
+      sortable: false,
+      minWidth: 80,
+      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
+      flex: 1,
+    }),
     address: (fieldName = "address") => ({
       field: fieldName,
       sortable: false,
@@ -82,7 +109,7 @@ export const getGenericGridColumns = (
     email: (fieldName = "email") => ({
       field: fieldName,
       sortable: false,
-      minWidth: 250,
+      minWidth: 300,
       headerName: t("Tables.Headers.Email"),
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1.4,
@@ -183,7 +210,7 @@ export const getGenericGridColumns = (
       disableExport: true,
       sortable: false,
       flex: 0.5,
-      minWidth: 180,
+      minWidth: 100,
     }),
     fullName: (fieldName = "fullName") => ({
       field: fieldName,
@@ -284,6 +311,7 @@ export const getGenericGridColumns = (
       flex: 1,
       minWidth: 120,
     }),
+
     goodsDelivererPhoneNumber: (fieldName = "goodsDelivererPhoneNumber") => ({
       field: fieldName,
       headerName: t("Tables.Headers.Phone"),
@@ -311,14 +339,6 @@ export const getGenericGridColumns = (
     totalDueAmount: (fieldName = "totalDueAmount") => ({
       field: fieldName,
       headerName: t("Tables.Headers.TotalDueAmount"),
-      sortable: false,
-      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
-      flex: 1,
-      minWidth: 120,
-    }),
-    id: (fieldName = "id") => ({
-      field: fieldName,
-      headerName: t("ID"),
       sortable: false,
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
@@ -418,5 +438,28 @@ export const getGenericGridColumns = (
       sortable: false,
       minWidth: 200,
     }),
+    role: (fieldName = "role") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Role"),
+      sortable: false,
+      flex: 1,
+      minWidth: 350,
+      renderCell: (params) => `${params.value || t("Tables.noResults")}`,
+    }),
+    
+    isActive: (fieldName = "isActive") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.Status"),
+      sortable: false,
+      flex: 0.7,
+      minWidth: 100,
+      renderCell: (params) => (
+        params.value
+          ? t("Tables.Active")
+          : t("Tables.Inactive")
+      ),
+    }),
+    
+    
   };
 };

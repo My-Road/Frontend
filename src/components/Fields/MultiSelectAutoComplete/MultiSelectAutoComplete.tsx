@@ -23,7 +23,6 @@ const MultiSelectAutoComplete = <T extends ReactNode>(
     values: Array<T>,
     getTagProps: AutocompleteRenderGetTagProps,
   ) => {
-    // eslint-disable-next-line react/prop-types
     const limitTags = props.limitTags ?? -1
     const shouldLimitTags = limitTags && values.length > limitTags
     const visibleChips = shouldLimitTags ? values.slice(0, limitTags) : values

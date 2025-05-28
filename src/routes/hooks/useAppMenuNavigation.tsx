@@ -6,7 +6,7 @@ import InventorySharpIcon from "@mui/icons-material/InventorySharp";
 import AppRegistrationRoundedIcon from '@mui/icons-material/AppRegistrationRounded';
 import { useAppSelector } from "@/store";
 import { selectUserRole } from "@/features/User";
-
+import GroupIcon from '@mui/icons-material/Group';
 const useAppMenuNavigation = () => {
   const userRole = useAppSelector(selectUserRole)
   const isForAdminOrManager = userRole === "Admin" || userRole === "Manager" 
@@ -38,6 +38,12 @@ const useAppMenuNavigation = () => {
       label: "User Registration",
       link: "/me/register",
       Icon: () => <AppRegistrationRoundedIcon />,
+      useIsVisible: () => !isForAdminOrManager
+    },
+    {
+      label: "Users",
+      link: "/me/users",
+      Icon: () => <GroupIcon />,
       useIsVisible: () => !isForAdminOrManager
     },
   ];
