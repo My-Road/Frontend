@@ -38,7 +38,9 @@
     "notes": "ملاحظات",
     "restoreEmployee" : "اعادة التعيين",
     "addEmployeeLog":"اضافة تفاصيل يومية ",
-    "addPurchases":"اضافة مشتريات"
+    "addPurchases":"اضافة مشتريات",
+    "deactivate":"غير مفعل",
+    "activate":"مفعل"
   },
   "Messages":{
     "heHasDues": "عليه مستحقات",
@@ -62,7 +64,7 @@
     "customerNotes": "ملاحظات عن الزبون",
     "notes": "ملاحظات",
     "firstName": "الاسم الاول",
-    "lastName": "الاسم العائلة",
+    "lastName": "الاسم العائلي",
     "fullName": "الاسم الكامل",
     "fatherName": "الاسم الاب",
     "email": "البريد الإلكتروني",
@@ -226,7 +228,8 @@
     "Products": "المنتجات",
     "Health follow-ups": "المتابعات الصحية",
     "Suppliers": "ٱلْمُوَرِّدين",
-    "User Registration": "تسجيل المستخدم"
+    "User Registration": "تسجيل المستخدم",
+    "Users": "المستخدمين"
   },
   "Tables": {
     "Headers": {
@@ -275,7 +278,11 @@
       "DuePrice": "السعر المستحق",
       "WorkHours": "ساعات العمل",
       "SupplierName":"اسم ٱلْمُوَرِّد",
-      "goodsDeliverer":"اسم الموزّع"
+      "goodsDeliverer":"اسم الموزّع",
+      "firstName":"الاسم الاول",
+      "lastName":"الاسم الثاني",
+      "Role": "الدور",
+      "id":"الرقم"
     },
     "noData": "لا توجد بيانات لعرضها",
     "columns": "الأعمدة",
@@ -305,7 +312,9 @@
       "deleteEmployeeLog":"حذف السجل اليومي",
       "deletePurchase":" حذف عملية الشراء",
       "deleteSupplier":" حذف المورّد",
-      "editSupplier":"تعديل المُوَرِّد"
+      "editSupplier":"تعديل المُوَرِّد",
+      "confirmDeactivate":"الغاء التفعيل",
+      "confirmActivate":"تفعيل"
 
     },
     "confirmCustomerDelete": "هل انت متأكد من حذف هذا الزبون؟",
@@ -326,7 +335,8 @@
     "confirmPurchaseDelete":" هل أنت متأكد من حذف عملية الشراء؟",
     "confirmSupplierDelete":"هل أنت متأكد من حذف هذا المورّد؟",
     "confirmSupplierRestore":"هل أنت متأكد من اعادة تعيين هذا المورّد؟",
-    "confirmSupplierEdit":"هل انت متأكد من تعديل بيانات هذا المورّد؟"
+    "confirmSupplierEdit":"هل انت متأكد من تعديل بيانات هذا المورّد؟",
+    "confirmUserToggle":"هل أنت متأكد من تغيير حالة هذا المستخدم؟"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -545,6 +555,9 @@
     "Order date must be in the past or today": "يجب ان يكون تاريخ الطلبية في الماضي او اليوم",
     "Purchase date must be in the past or today": "يجب ان يكون تاريخ عملية الشراء في الماضي او اليوم",
     "Payment date must be in the past or today": "يجب ان يكون تاريخ الدفعة في الماضي او اليوم",
-    "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "لا يمكن إزالة هذا الشراء لأنه سيؤدي إلى دفع مبلغ زائد أو تم دفع المبلغ بالكامل بالفعل."
+    "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "لا يمكن إزالة هذا الشراء لأنه سيؤدي إلى دفع مبلغ زائد أو تم دفع المبلغ بالكامل بالفعل.",
+    "User deactivated successfully":"تم تعطيل المستخدم بنجاح",
+    "User activated successfully":"تم تفعيل المستخدم بنجاح",
+    "The value '0,0' is invalid.":" القيمة '0,0' غير صالحة."
   }
 }

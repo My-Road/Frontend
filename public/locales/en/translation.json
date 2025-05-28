@@ -38,7 +38,9 @@
     "notes": "Notes",
     "restoreEmployee" : "Restore Employee",
     "addEmployeeLog": "Add Employee Log",
-    "addPurchases":"Add Purchases"
+    "addPurchases":"Add Purchases",
+    "deactivate":"deactivate",
+    "activate":"activate"
   },
   "Messages":{
     "heHasDues": "He has dues",
@@ -226,7 +228,8 @@
     "Products": "Products",
     "Health follow-ups": "Health follow-ups",
     "Suppliers": "Suppliers",
-    "User Registration": "User Registration"
+    "User Registration": "User Registration",
+    "Users":"Users"
   },
   "Tables": {
     "Headers": {
@@ -276,7 +279,11 @@
       "DuePrice": "DuePrice",
       "WorkHours": "WorkHours",
       "SupplierName":"Supplier Name",
-      "goodsDeliverer":"Goods Deliverer Name"
+      "goodsDeliverer":"Goods Deliverer Name",
+      "firstName":"First Name",
+      "lastName":"Last Name",
+      "Role": "Role",
+      "id":"ID"
     },
     "noData": "No records to display",
     "columns": "Columns",
@@ -306,7 +313,9 @@
       "deleteEmployeeLog":"Delete Employee Log",
       "deletePurchase":"Delete Purchase",
       "deleteSupplier":"Delete Supplier",
-      "editSupplier":"Edit Supplier"
+      "editSupplier":"Edit Supplier",
+      "confirmDeactivate":"confirmDeactivate",
+      "confirmActivate":"confirmActivate"
     },
     "confirmCustomerDelete": "Are you sure you want to delete this Customer?",
     "confirmCustomerEdit": "Are you sure you want to edit this Customer?",
@@ -326,7 +335,8 @@
     "confirmPurchaseDelete":"Are you sure you want to delete this Purchase?",
     "confirmSupplierDelete":"Are you sure you want to delete this Supplier?",
     "confirmSupplierRestore":"Are you sure you want to restore this Supplier?",
-    "confirmSupplierEdit":"Are you sure you want to edit this Supplier?"
+    "confirmSupplierEdit":"Are you sure you want to edit this Supplier?",
+    "confirmUserToggle":"Are you sure you want to toggle this user?"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -545,6 +555,9 @@
     "Order date must be in the past or today": "Order date must be in the past or today",
     "Purchase date must be in the past or today": "Purchase date must be in the past or today",
     "Payment date must be in the past or today": "Payment date must be in the past or today",
-    "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid."
+    "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.",
+    "User deactivated successfully":"User deactivated successfully",
+    "User activated successfully":"User activated successfully",
+    "The value '0,0' is invalid.":"The value '0,0' is invalid."
   }
 }
