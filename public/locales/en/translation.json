@@ -226,7 +226,9 @@
     "Products": "Products",
     "Health follow-ups": "Health follow-ups",
     "Suppliers": "Suppliers",
-    "User Registration": "User Registration"
+    "User Registration": "User Registration",
+    "Reports": "Reports",
+    "Customers Reports": "Customers Reports"
   },
   "Tables": {
     "Headers": {

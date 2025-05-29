@@ -226,7 +226,9 @@
     "Products": "المنتجات",
     "Health follow-ups": "المتابعات الصحية",
     "Suppliers": "ٱلْمُوَرِّدين",
-    "User Registration": "تسجيل المستخدم"
+    "User Registration": "تسجيل المستخدم",
+    "Reports": "التقارير",
+    "Customers Reports": "تقارير الزبائن"
   },
   "Tables": {
     "Headers": {
