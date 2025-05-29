@@ -290,7 +290,7 @@ export const getGenericGridColumns = (
       sortable: false,
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
-      minWidth: 160
+      minWidth: 160,
     }),
     quantity: (fieldName = "quantity") => ({
       field: fieldName,
@@ -414,6 +414,13 @@ export const getGenericGridColumns = (
     supplierName: (fieldName = "supplierName") => ({
       field: fieldName,
       headerName: t("Tables.Headers.SupplierName"),
+      flex: 1,
+      sortable: false,
+      minWidth: 200,
+    }),
+    customerId: (fieldName = "customerId") => ({
+      field: fieldName,
+      headerName: t("Tables.Headers.CustomerId"),
       flex: 1,
       sortable: false,
       minWidth: 200,

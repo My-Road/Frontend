@@ -4,6 +4,7 @@ import BadgeTwoToneIcon from "@mui/icons-material/BadgeTwoTone";
 import { IAppMenuItem } from "@/types";
 import InventorySharpIcon from "@mui/icons-material/InventorySharp";
 import AppRegistrationRoundedIcon from '@mui/icons-material/AppRegistrationRounded';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import { useAppSelector } from "@/store";
 import { selectUserRole } from "@/features/User";
 
@@ -40,6 +41,14 @@ const useAppMenuNavigation = () => {
       Icon: () => <AppRegistrationRoundedIcon />,
       useIsVisible: () => !isForAdminOrManager
     },
+    {
+      label: "Reports",
+      Icon: () => <ReceiptLongIcon/>,
+      items: [{
+        label: "Customers Reports",
+        link: "/me/reports/customers-orders"
+      }]
+    }
   ];
 
   return {
