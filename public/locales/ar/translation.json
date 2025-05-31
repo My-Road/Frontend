@@ -320,7 +320,8 @@
       "editSupplier":"تعديل المُوَرِّد",
       "confirmDeactivate":"الغاء التفعيل",
       "confirmActivate":"تفعيل",
-      "editUser":"تعديل بيانات المستخدم"
+      "editUser":"تعديل بيانات المستخدم",
+      "confirmRoleChange":"تعديل دور المستخدم"
 
     },
     "confirmCustomerDelete": "هل انت متأكد من حذف هذا الزبون؟",
@@ -343,7 +344,8 @@
     "confirmSupplierRestore":"هل أنت متأكد من اعادة تعيين هذا المورّد؟",
     "confirmSupplierEdit":"هل انت متأكد من تعديل بيانات هذا المورّد؟",
     "confirmUserToggle":"هل أنت متأكد من تغيير حالة هذا المستخدم؟",
-    "confirmUserEdit":"هل أنت متأكد من تعديل بيانات هذا المستخدم؟"
+    "confirmUserEdit":"هل أنت متأكد من تعديل بيانات هذا المستخدم؟",
+    "confirmRoleChangeMessage":"هل أنت متأكد من تغيير دور هذا المستخدم؟"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -566,6 +568,10 @@
     "User deactivated successfully":"تم تعطيل المستخدم بنجاح",
     "User activated successfully":"تم تفعيل المستخدم بنجاح",
     "The value '0,0' is invalid.":" القيمة '0,0' غير صالحة.",
-    "User profile updated successfully":"تم تحديث ملف المستخدم بنجاح"
+    "User profile updated successfully":"تم تحديث ملف المستخدم بنجاح",
+    "'Role' must not be empty.":"'الدور' لا يمكن أن يكون فارغًا.",
+    "Role updated successfully":"تم تحديث الدور بنجاح",
+    "Role must be either Admin or Manager":"يسمح بتعديل الدور إلى Admin أو Manager فقط",
+    "cannotChangeFactoryOwner":"لا يمكنك تغيير دور Factory Owner"
   }
 }

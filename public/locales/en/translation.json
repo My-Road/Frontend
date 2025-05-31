@@ -319,9 +319,10 @@
       "deletePurchase":"Delete Purchase",
       "deleteSupplier":"Delete Supplier",
       "editSupplier":"Edit Supplier",
-      "confirmDeactivate":"confirmDeactivate",
-      "confirmActivate":"confirmActivate",
-      "editUser":"Edit User"
+      "confirmDeactivate":"Confirm Deactivate",
+      "confirmActivate":"Confirm Activate",
+      "editUser":"Edit User",
+      "confirmRoleChange":"Confirm Role Change"
     },
     "confirmCustomerDelete": "Are you sure you want to delete this Customer?",
     "confirmCustomerEdit": "Are you sure you want to edit this Customer?",
@@ -343,7 +344,8 @@
     "confirmSupplierRestore":"Are you sure you want to restore this Supplier?",
     "confirmSupplierEdit":"Are you sure you want to edit this Supplier?",
     "confirmUserToggle":"Are you sure you want to toggle this user?",
-    "confirmUserEdit":"Are you sure you want to edit this user?"
+    "confirmUserEdit":"Are you sure you want to edit this user?",
+    "confirmRoleChangeMessage":"Are you sure you want to change the role of this user?"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -566,6 +568,10 @@
     "User deactivated successfully":"User deactivated successfully",
     "User activated successfully":"User activated successfully",
     "The value '0,0' is invalid.":"The value '0,0' is invalid.",
-    "User profile updated successfully":"User profile updated successfully"
+    "User profile updated successfully":"User profile updated successfully",
+    "'Role' must not be empty.":"'Role' must not be empty.",
+    "Role updated successfully":"Role updated successfully",
+    "Role must be either Admin or Manager":"Role must be either Admin or Manager",
+    "cannotChangeFactoryOwner":"Cannot change factory owner"
   }
 }
