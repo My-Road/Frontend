@@ -1,44 +1,28 @@
 import { useMemo, useState } from "react";
 import Box from "@mui/material/Box";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import { GridColDef } from "@mui/x-data-grid";
 import { useTranslation } from "react-i18next";
-import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 import { PaginationProps } from "@/types";
-import { User, SearchParams } from "../types";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import GenericDataGrid from "@/components/GenericDataGrid";
-import CellUsersActionButton from "@/components/CellActionButton/CellUsersActionButton";
+import { User, SearchParams } from "../types";
 import { useSearchUsersAPI } from "../hooks/useSearchUsersAPI";
 import { useToggleUserStatusAPI } from "../hooks/useToggleUserStatusAPI";
 import { useChangeUserRoleAPI } from "../hooks/useChangeUserRoleAPI";
-import { getGenericGridColumns } from "@/constants/gridColumns";
+import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
+import { useSnackBar } from "@/hooks/useSnackbar";
+import getUsersGridColumns from "./getUsersGridColumns";
 import { Roles } from "@/enums/Roles";
-
-const getRoleLabel = (role: number) => {
-  switch (role) {
-    case Roles.FactoryOwner:
-      return "FactoryOwner";
-    case Roles.Admin:
-      return "Admin";
-    case Roles.Manager:
-      return "Manager";
-    default:
-      return "";
-  }
-};
 
 export default function UsersDataGrid({ searchParams }: { searchParams: Partial<SearchParams> }) {
   const { t } = useTranslation();
   const { showConfirmationDialog } = useConfirmationDialog();
+  const { showErrorSnackbar } = useSnackBar();
 
   const [paginationModel, setPaginationModel] = useState<PaginationProps>(DEFAULT_PAGINATION_PROPS);
 
-  
   const effectiveParams: SearchParams = useMemo(() => ({
     ...searchParams,
-    page: paginationModel.page + 1, 
+    page: paginationModel.page + 1,
     pageSize: paginationModel.pageSize,
   }), [searchParams, paginationModel]);
 
@@ -59,50 +43,31 @@ export default function UsersDataGrid({ searchParams }: { searchParams: Partial<
   };
 
   const handleRoleChange = (userId: number, newRole: number) => {
-    changeUserRole(userId, newRole);
+    const user = data?.items.find((u) => u.id === userId);
+    if (!user) return;
+
+    if (user.role === Roles.FactoryOwner) {
+      showErrorSnackbar({ message: t("cannotChangeFactoryOwner") });
+      return;
+    }
+
+    showConfirmationDialog({
+      title: t("Dialogs.Title.confirmRoleChange"),
+      message: t("Dialogs.confirmRoleChangeMessage", {
+        name: `${user.firstName} ${user.lastName}`,
+        role: t(`Roles.${newRole}`),
+      }),
+      onConfirm: () => changeUserRole(userId, newRole),
+    });
   };
 
-  const columns: GridColDef<User>[] = [
-    getGenericGridColumns(t).id(),
-    getGenericGridColumns(t).firstName(),
-    getGenericGridColumns(t).lastName(),
-    getGenericGridColumns(t).email(),
-    getGenericGridColumns(t).phoneNumber(),
-    {
-      field: "role",
-      headerName: t("Tables.Headers.Role"),
-      flex: 1,
-      renderCell: ({ row }) => (
-        <Select
-          value={row.role ?? ""}
-          onChange={(e) => handleRoleChange(row.id, Number(e.target.value))}
-          size="small"
-          fullWidth
-          disabled={rolePending}
-        >
-          {Object.values(Roles)
-            .filter((v) => typeof v === "number")
-            .map((value) => (
-              <MenuItem key={value} value={value}>
-                {getRoleLabel(value as number)}
-              </MenuItem>
-            ))}
-        </Select>
-      ),
-    },
-    {
-      ...getGenericGridColumns(t).actions(),
-      renderCell: ({ row }) => (
-        <CellUsersActionButton
-          row={row}
-          isActive={row.isActive}
-          onActivate={() => handleToggleStatus(row)}
-          onDeactivate={() => handleToggleStatus(row)}
-          isPending={isPending}
-        />
-      ),
-    },
-  ];
+  const columns = getUsersGridColumns({
+    t,
+    rolePending,
+    handleRoleChange,
+    handleToggleStatus,
+    isPending,
+  });
 
   return (
     <Box width="100%">
@@ -117,6 +82,3 @@ export default function UsersDataGrid({ searchParams }: { searchParams: Partial<
     </Box>
   );
 }
-
-
-
