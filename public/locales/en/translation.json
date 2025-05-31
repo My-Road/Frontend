@@ -202,7 +202,11 @@
     "Please select an payment date": "Please select an payment date",
     "Employee name is required": "Employee name is required",
     "Please select an purchase date":"Please select an purchase date",
-    "Please enter the goodsDeliverer name":"Please enter the goodsDeliverer name"
+    "Please enter the goodsDeliverer name":"Please enter the goodsDeliverer name",
+    "Please enter the first name": "Please enter the first name",
+    "Please enter the last name": "Please enter the last name",
+    "First name must contain letters only (Arabic or English)": "First name must contain letters only (Arabic or English)",
+    "Last name must contain letters only (Arabic or English)": "Last name must contain letters"
   },
   "AutoComplete": {
     "treatment": "Treatment",
@@ -283,7 +287,8 @@
       "firstName":"First Name",
       "lastName":"Last Name",
       "Role": "Role",
-      "id":"ID"
+      "id":"ID",
+      "userId":"User ID"
     },
     "noData": "No records to display",
     "columns": "Columns",
@@ -315,7 +320,8 @@
       "deleteSupplier":"Delete Supplier",
       "editSupplier":"Edit Supplier",
       "confirmDeactivate":"confirmDeactivate",
-      "confirmActivate":"confirmActivate"
+      "confirmActivate":"confirmActivate",
+      "editUser":"Edit User"
     },
     "confirmCustomerDelete": "Are you sure you want to delete this Customer?",
     "confirmCustomerEdit": "Are you sure you want to edit this Customer?",
@@ -336,7 +342,8 @@
     "confirmSupplierDelete":"Are you sure you want to delete this Supplier?",
     "confirmSupplierRestore":"Are you sure you want to restore this Supplier?",
     "confirmSupplierEdit":"Are you sure you want to edit this Supplier?",
-    "confirmUserToggle":"Are you sure you want to toggle this user?"
+    "confirmUserToggle":"Are you sure you want to toggle this user?",
+    "confirmUserEdit":"Are you sure you want to edit this user?"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -558,6 +565,7 @@
     "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.",
     "User deactivated successfully":"User deactivated successfully",
     "User activated successfully":"User activated successfully",
-    "The value '0,0' is invalid.":"The value '0,0' is invalid."
+    "The value '0,0' is invalid.":"The value '0,0' is invalid.",
+    "User profile updated successfully":"User profile updated successfully"
   }
 }
