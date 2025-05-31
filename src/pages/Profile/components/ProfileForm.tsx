@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Formik, Form } from "formik";
-import { Box, Button } from "@mui/material";
+import { Form, FormikProvider, useFormik } from "formik";
+import { Box, Button, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { UpdateUserPayload } from "../types";
 import { ObjectSchema } from "yup";
@@ -33,45 +33,44 @@ const ProfileForm: FC<ProfileFormProps> = ({
   const { showWarningSnackbar } = useSnackBar();
   const { showConfirmationDialog } = useConfirmationDialog();
 
-  return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      enableReinitialize
-      onSubmit={(values) => {
-        const hasChanged =
-          JSON.stringify(values) !== JSON.stringify(initialValues);
+  const formikProps = useFormik({
+    initialValues,
+    validationSchema,
+    enableReinitialize: true,
+    onSubmit: (values) => {
+      const hasChanged =
+        JSON.stringify(values) !== JSON.stringify(initialValues);
 
-        if (!hasChanged) {
-          showWarningSnackbar({
-            message: t("No changes made"),
-          });
-          onCancel();
-          return;
-        }
-
-        // إزالة القيم غير المطلوبة من القيم المُرسلة
-        const {...payload } = values;
-
-        showConfirmationDialog({
-          title: t("Dialogs.Title.editUser"),
-          message: t("Dialogs.confirmUserEdit"),
-          onConfirm: () => onSubmit(payload),
-          isPending: isSubmitting,
+      if (!hasChanged) {
+        showWarningSnackbar({
+          message: t("No changes made"),
         });
-      }}
-    >
+        onCancel();
+        return;
+      }
+
+      const { ...payload } = values;
+
+      showConfirmationDialog({
+        title: t("Dialogs.Title.editUser"),
+        message: t("Dialogs.confirmUserEdit"),
+        onConfirm: () => onSubmit(payload),
+        isPending: isSubmitting,
+      });
+    },
+  });
+
+  return (
+    <FormikProvider value={formikProps}>
       <Form>
-        <Box mb={2}>
+        <Stack gap={2}>
           <TextField
             fullWidth
             name="id"
             disabled
             label={t("Tables.Headers.userId")}
           />
-        </Box>
 
-        <Box mb={2}>
           <TextField
             fullWidth
             name="role"
@@ -79,23 +78,12 @@ const ProfileForm: FC<ProfileFormProps> = ({
             label={t("Tables.Headers.Role")}
             value={Roles[initialValues.role]}
           />
-        </Box>
 
-        <Box mb={2}>
           <TextField fullWidth name="firstName" />
-        </Box>
-
-        <Box mb={2}>
           <TextField fullWidth name="lastName" />
-        </Box>
-
-        <Box mb={2}>
           <TextField fullWidth name="email" />
-        </Box>
-
-        <Box mb={2}>
           <TextField fullWidth name="phoneNumber" />
-        </Box>
+        </Stack>
 
         <Box mt={2} display="flex" justifyContent="flex-end" gap={2}>
           <Button
@@ -111,9 +99,10 @@ const ProfileForm: FC<ProfileFormProps> = ({
           </Button>
         </Box>
       </Form>
-    </Formik>
+    </FormikProvider>
   );
 };
 
 export default ProfileForm;
+
 
