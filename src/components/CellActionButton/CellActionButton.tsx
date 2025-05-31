@@ -1,16 +1,6 @@
 import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
-
-interface CellActionButtonProps<T> {
-  row: T;
-  isActive: boolean;
-  onActiveClick: (row: T) => void;
-  onInactiveClick: (row: T) => void;
-  isPending?: boolean;
-  activeLabelKey?: string;
-  inactiveLabelKey?: string;
-}
-
+import { CellActionButtonProps } from "./types";
 export default function CellActionButton<T>({
   row,
   isActive,

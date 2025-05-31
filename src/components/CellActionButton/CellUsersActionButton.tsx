@@ -1,16 +1,6 @@
 import { Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
-
-interface ToggleUserStatusButtonProps<T> {
-  row: T;
-  isActive: boolean;
-  onActivate: (row: T) => void;
-  onDeactivate: (row: T) => void;
-  isPending?: boolean;
-  activateLabelKey?: string;
-  deactivateLabelKey?: string;
-}
-
+import { ToggleUserStatusButtonProps } from "./types";
 export default function ToggleUserStatusButton<T>({
   row,
   isActive,
