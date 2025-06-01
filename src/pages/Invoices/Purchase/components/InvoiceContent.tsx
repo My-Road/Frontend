@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Divider, Grid2 as Grid, Box, Paper } from "@mui/material";
-import { Purchase } from "../types";
+import { Purchase } from "@/types";
 import { useTranslation } from "react-i18next";
 
 interface InvoiceProps {

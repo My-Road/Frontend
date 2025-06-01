@@ -1,53 +1,53 @@
 import React from "react";
 import { Typography, Divider, Grid2 as Grid, Box, Paper } from "@mui/material";
-import { Order } from "@/types";
+import { EmployeeLog } from "@/types";
 import { useTranslation } from "react-i18next";
 
 interface InvoiceProps {
-  order: Order;
+  employeeLog: EmployeeLog;
 }
 
-const InvoiceContent: React.FC<InvoiceProps> = ({ order }) => {
+const InvoiceContent: React.FC<InvoiceProps> = ({ employeeLog }) => {
   const { t } = useTranslation();
 
   return (
     <>
       <Grid size={{ xs: 12 }} display="flex" alignItems="center">
         <Typography variant="h6" p={1}>
-          {t("Invoice.Labels.orderDate")}
+          {t("Invoice.Labels.logDate")}
         </Typography>
         <Typography variant="body1">
-          : {new Date(order.orderDate).toLocaleDateString()}
+          : {new Date(employeeLog.date).toLocaleDateString()}
         </Typography>
       </Grid>
       <Paper elevation={4} sx={{ borderRadius: 3, width: "100%", p: 2, bgcolor: "white" }}>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, sm: 6 }} display="flex" alignItems="center">
             <Typography variant="subtitle1" p={1}>
-              {t("Invoice.Labels.customerName")}:
+              {t("Invoice.Labels.employeeName")}:
             </Typography>
             <Typography variant="body1">
-              {order.customer.customerName}
+              {employeeLog.employee?.employeeName}
             </Typography>
           </Grid>
           <Grid size={{ xs: 12, sm: 6 }} display="flex" alignItems="center">
             <Typography variant="subtitle1" p={1}>
               {t("Invoice.Labels.address")}:
             </Typography>
-            <Typography variant="body1">{order.customer.address}</Typography>
+            <Typography variant="body1">{employeeLog.employee?.address}</Typography>
           </Grid>
           <Grid size={{ xs: 12, sm: 6 }} display="flex" alignItems="center">
             <Typography variant="subtitle1" p={1}>
-              {t("Invoice.Labels.recipientName")}:
+              {t("Invoice.Labels.checkIn")}:
             </Typography>
-            <Typography variant="body1">{order.recipientName}</Typography>
+            <Typography variant="body1">{employeeLog.checkIn}</Typography>
           </Grid>
           <Grid size={{ xs: 12, sm: 6 }} display="flex" alignItems="center">
             <Typography variant="subtitle1" p={1}>
-              {t("Invoice.Labels.recipientPhoneNumber")}:
+              {t("Invoice.Labels.checkOut")}:
             </Typography>
             <Typography variant="body1">
-              {order.recipientPhoneNumber}
+              {employeeLog.checkOut}
             </Typography>
           </Grid>
         </Grid>
@@ -56,32 +56,32 @@ const InvoiceContent: React.FC<InvoiceProps> = ({ order }) => {
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, sm: 6 }} display="flex" alignItems="center">
             <Typography variant="subtitle1" p={1}>
-              {t("Invoice.Labels.quantity")}:
+              {t("Invoice.Labels.hourlyWage")}:
             </Typography>
-            <Typography variant="body1">{order.quantity}</Typography>
+            <Typography variant="body1">{employeeLog.hourlyWage}</Typography>
           </Grid>
           <Grid size={{ xs: 12, sm: 6 }} display="flex" alignItems="center">
             <Typography variant="subtitle1" p={1}>
-              {t("Invoice.Labels.price")}:
+              {t("Invoice.Labels.totalHours")}:
             </Typography>
-            <Typography variant="body1">{order.price}</Typography>
+            <Typography variant="body1">{employeeLog.totalHours}</Typography>
           </Grid>
           <Grid size={{ xs: 12, sm: 6 }} display="flex" alignItems="center">
             <Typography variant="subtitle1" p={1}>
-              {t("Invoice.Labels.totalDueAmount")}:
+              {t("Invoice.Labels.dailyWage")}:
             </Typography>
-            <Typography variant="body1">{order.totalDueAmount}</Typography>
+            <Typography variant="body1">{employeeLog.dailyWage}</Typography>
           </Grid>
           <Grid size={{ xs: 12, sm: 6 }} display="flex" alignItems="center">
             <Divider sx={{ mt: 3, mb: 2 }} />
             <Box display="flex" alignItems="center" gap={1} p={1}>
               <Typography variant="body1" color="text.primary">
-                {t("Invoice.Labels.orderComplete")}:
+                {t("Invoice.Labels.employeeLogComplete")}:
               </Typography>
               <Typography
-                color={order.isCompleted ? "success.main" : "error.main"}
+                color={employeeLog.isCompleted ? "success.main" : "error.main"}
               >
-                {order.isCompleted ? "نعم" : "لا"}
+                {employeeLog.isCompleted ? "نعم" : "لا"}
               </Typography>
             </Box>
           </Grid>
@@ -92,7 +92,7 @@ const InvoiceContent: React.FC<InvoiceProps> = ({ order }) => {
         <Typography variant="subtitle1" p={1}>
           {t("Invoice.Labels.notes")}:
         </Typography>
-        <Typography variant="body1">{order.notes}</Typography>
+        <Typography variant="body1">{employeeLog.notes}</Typography>
       </Grid>
       </Paper>
     </>

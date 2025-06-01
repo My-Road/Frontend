@@ -43,7 +43,8 @@
     "customerDetails": "Customer Details" ,
     "deactivate":"deactivate",
     "activate":"activate",
-    "supplierDetails":"Supplier Details"
+    "supplierDetails":"Supplier Details",
+    "employeeDetails": "Employee Details"
   },
   "Messages":{
     "heHasDues": "He has dues",
@@ -239,7 +240,8 @@
     "Reports": "Reports",
     "Customers Reports": "Customers Reports",
     "Users":"Users",
-    "Purchases Reports":"Purchases Reports"
+    "Purchases Reports":"Purchases Reports",
+    "Employees Reports": "Employees Reports"
   },
   "Tables": {
     "Headers": {
@@ -306,7 +308,8 @@
   "Invoice":{
       "Titles":{
         "OrderInvoice": "Order Invoice",
-        "PurchaseInvoice":"Purchase Invoice"
+        "PurchaseInvoice":"Purchase Invoice",
+        "employeeLogInvoice": "Employee Log Invoice"
       },
       "Labels": {
         "orderDate": "order Date",
@@ -324,7 +327,15 @@
         "goodsDelivererPhoneNumber":"Goods DelivererPhoneNumber",
         "goodsDeliverer": "Goods DelivererName",
         "purchasesDate":"Purchases Date",
-        "purchaseComplete":"Purchase Complete"
+        "purchaseComplete":"Purchase Complete",
+        "logDate": "Log Date",
+        "employeeName": "Employee Name",
+        "checkIn": "Check In",
+        "checkOut": "check Out",
+        "hourlyWage":"Hourly Wage",
+        "totalHours": "total Hours",
+        "dailyWage": "Daily Wage",
+        "employeeLogComplete": "employee Log Complete"
       }
     },
   "Dialogs": {
@@ -437,6 +448,11 @@
       "addPayment": "Add Payment",
       "editPayment": "Edit Payment",
       "employeePayments":"Employee Payments"
+    },
+    "Reports": {
+      "customersReports": "Customers Reports",
+      "employeesReports": "Employees Reports",
+      "suppliersReports": "Suppliers Reports"
     }
   },
   "SnackbarMessages": {

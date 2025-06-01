@@ -43,7 +43,8 @@
     "customerDetails": "تفاصيل الزبون" ,
     "deactivate":"غير مفعل",
     "activate":"مفعل",
-    "supplierDetails":"تفاصيل ٱلْمُوَرِّد"
+    "supplierDetails":"تفاصيل ٱلْمُوَرِّد",
+    "employeeDetails": "تفاصيل الموظف"
   },
   "Messages":{
     "heHasDues": "عليه مستحقات",
@@ -239,7 +240,8 @@
     "Reports": "التقارير",
     "Customers Reports": "تقارير الزبائن",
     "Users": "المستخدمين",
-    "Purchases Reports": "تقارير المشتريات"
+    "Purchases Reports": "تقارير المشتريات",
+    "Employees Reports": "تقارير الموظفين"
   },
   "Tables": {
     "Headers": {
@@ -305,7 +307,8 @@
       "Invoice":{
       "Titles":{
         "OrderInvoice": "فاتورة الطلب",
-        "PurchaseInvoice":"فاتورة الشراء"
+        "PurchaseInvoice":"فاتورة الشراء",
+        "employeeLogInvoice": "فاتورة سجل الموظف"
       },
       "Labels": {
         "orderDate": "تاريخ الطلب",
@@ -323,7 +326,15 @@
         "goodsDelivererPhoneNumber":"رقم هاتف الموزّع",
         "goodsDeliverer": "اسم الموزّع",
         "purchasesDate":"تاريخ الشراء",
-        "purchaseComplete":"الشراء مكتمل"
+        "purchaseComplete":"الشراء مكتمل",
+        "logDate": "تاريخ السجل",
+        "employeeName": "اسم الموظف",
+        "checkIn": "وقت الدخول",
+        "checkOut": "وقت الخروج",
+        "hourlyWage":"سعر الساعة",
+        "totalHours": "ساعات العمل",
+        "dailyWage": "السعر المستحق",
+        "employeeLogComplete": "السجل مكتمل"
       }
     },
   "Dialogs": {
@@ -437,6 +448,11 @@
       "addPayment":"اضافة دفعة",
       "editPayment": "تعديل الدفعة",
       "employeePayments":"دفعات الموظف"
+    },
+      "Reports": {
+        "customersReports": "تقارير طلبات الزبائن",
+        "employeesReports": "تقارير سجلات الموظفين",
+        "suppliersReports": "تقارير عمليات الشراء للمُوَرِّدين"
     }
   },
   "SnackbarMessages": {

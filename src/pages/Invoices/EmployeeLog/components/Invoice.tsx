@@ -7,7 +7,7 @@ import {
   Grid2 as Grid,
   Button,
 } from "@mui/material";
-import { Order } from "@/types";
+import { EmployeeLog } from "@/types";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import InvoicePDF from "@/components/InvoicePDF/InvoicePDF";
 import { getTableDate, getTableHeader } from "../utils/getTableData";
@@ -18,15 +18,15 @@ import { useNavigate } from "react-router-dom";
 import ArrowBackButton from "@/components/Buttons/ArrowBackButton";
 
 interface InvoiceProps {
-  order: Order;
+  employeeLog: EmployeeLog;
 }
 
-const Invoice: React.FC<InvoiceProps> = ({ order }) => {
+const Invoice: React.FC<InvoiceProps> = ({ employeeLog }) => {
   const componentRef = useRef(null);
   const { t } = useTranslation("");
   const navigate = useNavigate();
-  const tableData = getTableDate(order, t!);
-  const tableHeader = getTableHeader(order, t!);
+  const tableData = getTableDate(employeeLog, t!);
+  const tableHeader = getTableHeader(employeeLog, t!);
 
   return (
     <Box maxWidth={800} p={4} m="auto">
@@ -36,14 +36,14 @@ const Invoice: React.FC<InvoiceProps> = ({ order }) => {
         ref={componentRef}
       >
         <Box display="flex" alignItems="center" gap={1} sx={{ mb: 2 }}>
-          <ArrowBackButton path="/me/reports/customers-orders"/>
+          <ArrowBackButton path="/me/reports/employees-logs"/>
           <Typography variant="h5">
-            {t("Invoice.Titles.OrderInvoice")}
+            {t("Invoice.Titles.employeeLogInvoice")}
           </Typography>
         </Box>
         <Divider sx={{ mb: 3 }} />
         <Grid container spacing={2} sx={{ my: 3 }}>
-          <InvoiceContent order={order} />
+          <InvoiceContent employeeLog={employeeLog} />
         </Grid>
         <Box
           display="flex"
@@ -55,10 +55,10 @@ const Invoice: React.FC<InvoiceProps> = ({ order }) => {
               <InvoicePDF
                 tableData={tableData}
                 tableHeader={tableHeader}
-                title="OrderInvoice"
+                title="employeeLogInvoice"
               />
             }
-            fileName={`فاتورة-${order.customer.customerName}.pdf`}
+            fileName={`فاتورة-${employeeLog.employee?.employeeName}.pdf`}
             style={{ textDecoration: "none" }}
           >
             {({ loading }) => (
@@ -67,8 +67,8 @@ const Invoice: React.FC<InvoiceProps> = ({ order }) => {
               </Button>
             )}
           </PDFDownloadLink>
-          <Button onClick={() => navigate(`/me/customer/${order.customer.id}`)}>
-            {t("Buttons.customerDetails")}
+          <Button onClick={() => navigate(`/me/employees/${employeeLog.employee?.id}`)}>
+            {t("Buttons.employeeDetails")}
           </Button>
         </Box>
       </Paper>
