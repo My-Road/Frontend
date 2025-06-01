@@ -16,5 +16,6 @@ export const EmployeeDetails = lazy (()=>import ("@/pages/EmployeeDetails"));
 export const Suppliers = lazy(() => import("@/pages/Suppliers"));
 export const SupplierDetails = lazy(() => import("@/pages/SupplierDetails"));
 export const CustomersReports = lazy(() => import("@/pages/Reports/Customers/"))
+export const CustomerOrder = lazy(() => import("@/pages/Invoices/CustomerOrder"))
 
 

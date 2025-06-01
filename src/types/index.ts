@@ -16,7 +16,7 @@ export interface SearchParams {
   page?: number;
   pageSize?: number;
   filters?: string;
-  sorts?: string
+  sorts?: string;
 }
 
 export interface Customer {
@@ -34,7 +34,25 @@ export interface Customer {
   id: number;
 }
 
-export interface Supplier extends Omit<Customer, "customerName" | "orders" | "customerPayments"> {
+export interface Order {
+  id: number;
+  orderDate: string;
+  recipientName: string;
+  recipientPhoneNumber: string;
+  quantity: number;
+  price: number;
+  totalDueAmount: number;
+  notes: string;
+  customerId: number;
+  customer: Customer;
+  isDeleted: boolean;
+  deletedAt: string | null;
+  isCompleted: boolean;
+  createdByUserId: number;
+}
+
+export interface Supplier
+  extends Omit<Customer, "customerName" | "orders" | "customerPayments"> {
   supplierName: string;
   purchases: never[];
   supplierPayment: never[];
@@ -54,9 +72,8 @@ export interface Employee {
   totalDueAmount: number;
   totalPaidAmount: number;
   remainingAmount: number;
-  payments: [],
-  logs: [],
-
+  payments: [];
+  logs: [];
 }
 
 export interface Visit {
