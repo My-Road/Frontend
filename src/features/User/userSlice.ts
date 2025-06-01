@@ -18,8 +18,12 @@ const userSlice = createSlice({
     login: (_state, action: PayloadAction<User>) => {
       return { ...action.payload };
     },
-    updateUserSession: (_state, action: PayloadAction<User>) => {
-      return { ...action.payload };
+    updateUserSession: (state, action: PayloadAction<User>) => {
+      state = { ...action.payload };
+      return state;
+    },
+    updateUser: (state, action: PayloadAction<Partial<User>>) => {
+      Object.assign(state, action.payload);
     },
     logout: (state) => {
       state = initialState;
@@ -29,6 +33,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { login, updateUserSession, logout } = userSlice.actions;
+export const { login, updateUserSession, updateUser, logout } = userSlice.actions;
 
 export default userSlice.reducer;
+

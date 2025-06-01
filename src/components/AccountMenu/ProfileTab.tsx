@@ -29,7 +29,7 @@ const ProfileTab = ({ handleClose }: IProps) => {
   // const isEmployeeUser = useAppSelector(selectIsEmployeeUser);
 
   const handleProfileClick = () => {
-    // navigate("/me/employee-profile");
+     navigate("/me/profile");
     setTimeout(() => {
       handleClose();
     }, 600);

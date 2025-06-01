@@ -10,7 +10,11 @@ import {
   Employees,
   EmployeeDetails,
   Suppliers,
-  SupplierDetails
+  SupplierDetails,
+  CustomersReports,
+  CustomerOrder,
+  Users,
+  Profile
 } from "./imports";
 const privateRoutes: RouteObject = {
   path: "/me",
@@ -27,9 +31,14 @@ const privateRoutes: RouteObject = {
           path: "change-password",
           element: <ChangePassword />,
         },
+ 
         {
           path: "register",
           element: <Register />,
+        },
+        {
+          path: "profile",
+          element: <Profile/>,
         },
         {
           path: "customers",
@@ -54,6 +63,18 @@ const privateRoutes: RouteObject = {
         {
           path: "suppliers/:supplierId",
           element: <SupplierDetails />,
+        },
+        {
+          path: "reports/customers-orders",
+          element: <CustomersReports />,
+        },
+        {
+          path: "reports/customer-orders/:orderId",
+          element: <CustomerOrder/>
+        },
+        {
+          path: "users",
+          element: <Users />,
         },
       ],
     },

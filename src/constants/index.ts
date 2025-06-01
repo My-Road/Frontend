@@ -21,7 +21,7 @@ export const DEFAULT_PAGINATION_MODEL = {
 };
 
 export const ROLES = [
-  { name: "Super Admin", role: 1 },
+  { name: "Factory Owner", role: 1 },
   {
     name: "Admin",
     role: 2,

@@ -4,49 +4,67 @@ const pagesAccessRights = new Map<PageAccessName, PageAccessRight>([
   [
     "Home",
     {
-      roles: ["Admin", "Manager"],
+      roles: ["Admin", "Manager", "FactoryOwner"],
     },
   ],
   [
     "Customers",
     {
-      roles: ["Admin", "Manager"],
+      roles: ["Admin", "Manager", "FactoryOwner"],
     },
   ],
   [
     "CustomerDetails",
     {
-      roles: ["Admin", "Manager"],
+      roles: ["Admin", "Manager", "FactoryOwner"],
     },
   ],
   [
     "Employees",
     {
-      roles: ["Admin", "Manager"],
+      roles: ["Admin", "Manager", "FactoryOwner"],
     },
   ],
   [
     "EmployeeDetails",
     {
-      roles: ["Admin", "Manager"],
+      roles: ["Admin", "Manager", "FactoryOwner"],
     },
   ],
   [
     "Suppliers",
     {
-      roles: ["Admin", "Manager"],
+      roles: ["Admin", "Manager", "FactoryOwner"],
     },
   ],
   [
     "SupplierDetails",
     {
-      roles: ["Admin", "Manager"],
+      roles: ["Admin", "Manager", "FactoryOwner"],
     },
   ],
   [
     "Register",
     {
-      roles: ["SuperAdmin"],
+      roles: ["FactoryOwner"],
+    },
+  ],
+  [
+    "Users",
+    {
+      roles: ["FactoryOwner"],
+    },
+  ],
+  [
+    "OrderInvoice",
+    {
+      roles: ["FactoryOwner", "Admin"],
+    },
+  ],
+  [
+    "OrdersReport",
+    {
+      roles: ["FactoryOwner", "Admin"],
     },
   ],
 ]);
