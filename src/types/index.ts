@@ -67,6 +67,7 @@ export interface Purchase {
   isCompleted: boolean;
   createdByUserId: number;
 }
+
 export interface Supplier
   extends Omit<Customer, "customerName" | "orders" | "customerPayments"> {
   supplierName: string;
@@ -91,6 +92,22 @@ export interface Employee {
   payments: [];
   logs: [];
 }
+
+  export interface EmployeeLog {
+    id: number;
+    employeeId: number;
+    employee: Employee | null;
+    date: string; 
+    checkIn: string; 
+    checkOut: string; 
+    hourlyWage: number;
+    notes: string;
+    createdByUserId: number;
+    isDeleted: string | null;
+    isCompleted: boolean;
+    totalHours: number;
+    dailyWage: number
+  }
 
 export interface Visit {
   _id: string;

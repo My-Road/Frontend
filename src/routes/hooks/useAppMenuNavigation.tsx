@@ -41,7 +41,11 @@ const useAppMenuNavigation = () => {
           label: "Customers Reports",
           link: "/me/reports/customers-orders",
         },
-         {
+        {
+          label: "Employees Reports",
+          link: "/me/reports/employees-logs",
+        },
+        {
           label: "Purchases Reports",
           link: "/me/reports/purchases",
         },

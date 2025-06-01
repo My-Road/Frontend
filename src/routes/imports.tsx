@@ -16,11 +16,13 @@ export const EmployeeDetails = lazy (()=>import ("@/pages/EmployeeDetails"));
 export const Suppliers = lazy(() => import("@/pages/Suppliers"));
 export const SupplierDetails = lazy(() => import("@/pages/SupplierDetails"));
 export const CustomersReports = lazy(() => import("@/pages/Reports/Customers"))
-export const CustomerOrder = lazy(() => import("@/pages/Invoices/CustomerOrder"))
+export const OrderInvoice = lazy(() => import("@/pages/Invoices/CustomerOrder"))
 export const Users = lazy(() => import("@/pages/Users"));
 export const Profile = lazy(() => import("@/pages/Profile"));
 export const PurchasesReports = lazy(() => import("@/pages/Reports/Purchases"))
-export const Purchase = lazy(() => import("@/pages/Invoices/Purchase"))
+export const PurchaseInvoice = lazy(() => import("@/pages/Invoices/Purchase"))
+export const EmployeesLogsReports = lazy(() => import("@/pages/Reports/Employees"))
+export const LogInvoice = lazy(() => import("@/pages/Invoices/EmployeeLog"))
 
 
 

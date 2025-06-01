@@ -79,6 +79,18 @@ const pagesAccessRights = new Map<PageAccessName, PageAccessRight>([
       roles: ["FactoryOwner", "Admin"],
     },
   ],
+  [
+    "EmployeeReport",
+    {
+      roles: ["FactoryOwner", "Admin"],
+    },
+  ],
+  [
+    "EmployeeInvoice",
+    {
+      roles: ["FactoryOwner", "Admin"],
+    },
+  ],
 ]);
 
 export default pagesAccessRights;
