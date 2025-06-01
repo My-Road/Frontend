@@ -38,7 +38,9 @@
     "notes": "Notes",
     "restoreEmployee" : "Restore Employee",
     "addEmployeeLog": "Add Employee Log",
-    "addPurchases":"Add Purchases"
+    "addPurchases":"Add Purchases",
+    "loading": "loading",
+    "customerDetails": "Customer Details" 
   },
   "Messages":{
     "heHasDues": "He has dues",
@@ -278,7 +280,8 @@
       "DuePrice": "DuePrice",
       "WorkHours": "WorkHours",
       "SupplierName":"Supplier Name",
-      "goodsDeliverer":"Goods Deliverer Name"
+      "goodsDeliverer":"Goods Deliverer Name",
+      "recipientPhoneNumber":"Recipient PhoneNumber"
     },
     "noData": "No records to display",
     "columns": "Columns",
@@ -286,6 +289,24 @@
     "pageSize": "Page Size",
     "noResults": "Not found"
   },
+  "Invoice":{
+      "Titles":{
+        "OrderInvoice": "Order Invoice"
+      },
+      "Labels": {
+        "orderDate": "order Date",
+        "recipientName": "Recipient Name",
+        "recipientPhoneNumber": "Recipient PhoneNumber",
+        "amount": "Amount",
+        "quantity": "Quantity",
+        "price": "Price",
+        "totalDueAmount":"Total Due Amount",
+        "notes": "Notes",
+        "orderComplete": "Order Complete",
+        "customerName": "Customer Name",
+        "address": "Address"
+      }
+    },
   "Dialogs": {
     "Filter": {
       "title": "Filter Columns",

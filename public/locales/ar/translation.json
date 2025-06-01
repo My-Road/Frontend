@@ -38,7 +38,9 @@
     "notes": "ملاحظات",
     "restoreEmployee" : "اعادة التعيين",
     "addEmployeeLog":"اضافة تفاصيل يومية ",
-    "addPurchases":"اضافة مشتريات"
+    "addPurchases":"اضافة مشتريات",
+    "loading": "جاري التحميل..",
+    "customerDetails": "تفاصيل الزبون" 
   },
   "Messages":{
     "heHasDues": "عليه مستحقات",
@@ -277,7 +279,8 @@
       "DuePrice": "السعر المستحق",
       "WorkHours": "ساعات العمل",
       "SupplierName":"اسم ٱلْمُوَرِّد",
-      "goodsDeliverer":"اسم الموزّع"
+      "goodsDeliverer":"اسم الموزّع",
+      "recipientPhoneNumber":"رقم هاتف المستلم"
     },
     "noData": "لا توجد بيانات لعرضها",
     "columns": "الأعمدة",
@@ -285,6 +288,24 @@
     "pageSizes": "حجم الصفحة",
     "noResults": "لا يوجد"
   },
+      "Invoice":{
+      "Titles":{
+        "OrderInvoice": "فاتورة الطلب"
+      },
+      "Labels": {
+        "orderDate": "تاريخ الطلب",
+        "recipientName": "اسم المستلم",
+        "recipientPhoneNumber": "رقم هاتف المستلم",
+        "amount": "القيمة",
+        "quantity": "الكمية",
+        "price": "السعر",
+        "totalDueAmount":"المبلغ الاجمالي",
+        "notes": "ملاحظات",
+        "orderComplete": "الطلب مكتمل",
+        "customerName": "اسم الزبون",
+        "address": "العنوان"
+      }
+    },
   "Dialogs": {
     "Filter": {
       "title": "فلاتر الاعمدة",
