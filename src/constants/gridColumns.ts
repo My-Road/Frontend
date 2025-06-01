@@ -74,7 +74,7 @@ export const getGenericGridColumns = (
     address: (fieldName = "address") => ({
       field: fieldName,
       sortable: false,
-      minWidth: 130,
+      minWidth: 160,
       headerName: t("Tables.Headers.Address"),
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
@@ -274,15 +274,15 @@ export const getGenericGridColumns = (
       sortable: false,
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
-      minWidth: 120,
+      minWidth: 200,
     }),
     recipientPhoneNumber: (fieldName = "recipientPhoneNumber") => ({
       field: fieldName,
-      headerName: t("Tables.Headers.Phone"),
+      headerName: t("Tables.Headers.recipientPhoneNumber"),
       sortable: false,
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
-      minWidth: 120,
+      minWidth: 140,
     }),
     goodsDelivererPhoneNumber: (fieldName = "goodsDelivererPhoneNumber") => ({
       field: fieldName,
@@ -298,7 +298,7 @@ export const getGenericGridColumns = (
       sortable: false,
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
-      minWidth: 120,
+      minWidth: 150,
     }),
     price: (fieldName = "price") => ({
       field: fieldName,
@@ -306,7 +306,7 @@ export const getGenericGridColumns = (
       sortable: false,
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
-      minWidth: 120,
+      minWidth: 150,
     }),
     totalDueAmount: (fieldName = "totalDueAmount") => ({
       field: fieldName,
