@@ -1,7 +1,8 @@
-import { SearchFormValues } from "./types";
+import { SearchFormValues } from "../types";
 
 export const initialValues: SearchFormValues = {
   startDate: "",
   endDate: "",
-  recipientName: ""
+  customerName: "",
+  address: ""
 };

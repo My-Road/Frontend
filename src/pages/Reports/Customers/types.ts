@@ -1,20 +1,10 @@
-import { Customer, SearchParams } from "@/types";
+import { Order, SearchParams } from "@/types";
 
-export interface Order {
-  id: number;
-  orderDate: string; 
-  recipientName: string;
-  recipientPhoneNumber: string;
-  quantity: number;
-  price: number;
-  totalDueAmount: number;
-  notes: string;
-  customerId: number;
-  customer: Customer | null; 
-  isDeleted: boolean;
-  deletedAt: string | null;
-  isCompleted: boolean;
-  createdByUserId: number;
+export interface SearchFormValues {
+  customerName: string;
+  startDate: string;
+  endDate: string;
+  address: string;
 }
 
 export interface SearchResponseForOrders extends SearchParams{
