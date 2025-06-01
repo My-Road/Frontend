@@ -42,7 +42,8 @@
     "loading": "جاري التحميل..",
     "customerDetails": "تفاصيل الزبون" ,
     "deactivate":"غير مفعل",
-    "activate":"مفعل"
+    "activate":"مفعل",
+    "supplierDetails":"تفاصيل ٱلْمُوَرِّد"
   },
   "Messages":{
     "heHasDues": "عليه مستحقات",
@@ -237,7 +238,8 @@
     "User Registration": "تسجيل المستخدم",
     "Reports": "التقارير",
     "Customers Reports": "تقارير الزبائن",
-    "Users": "المستخدمين"
+    "Users": "المستخدمين",
+    "Purchases Reports": "تقارير المشتريات"
   },
   "Tables": {
     "Headers": {
@@ -302,7 +304,8 @@
   },
       "Invoice":{
       "Titles":{
-        "OrderInvoice": "فاتورة الطلب"
+        "OrderInvoice": "فاتورة الطلب",
+        "PurchaseInvoice":"فاتورة الشراء"
       },
       "Labels": {
         "orderDate": "تاريخ الطلب",
@@ -315,7 +318,12 @@
         "notes": "ملاحظات",
         "orderComplete": "الطلب مكتمل",
         "customerName": "اسم الزبون",
-        "address": "العنوان"
+        "address": "العنوان",
+        "supplierName": "اسم ٱلْمُوَرِّد",
+        "goodsDelivererPhoneNumber":"رقم هاتف الموزّع",
+        "goodsDeliverer": "اسم الموزّع",
+        "purchasesDate":"تاريخ الشراء",
+        "purchaseComplete":"الشراء مكتمل"
       }
     },
   "Dialogs": {
