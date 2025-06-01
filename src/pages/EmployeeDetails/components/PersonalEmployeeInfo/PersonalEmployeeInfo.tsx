@@ -13,6 +13,7 @@ import { Employee } from "@/types";
 import { Trans } from "react-i18next";
 import EditEmployeeInfoForm from "./EditEmployeeInfoForm";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import ArrowBackButton from "@/components/Buttons/ArrowBackButton";
 
 interface Props {
   employeeData: Employee;
@@ -26,6 +27,7 @@ function PersonalEmployeeInfo({ employeeData }: Props) {
     <Paper>
       <Stack p={4} gap={4} justifyContent="flex-start">
         <Typography variant="h5" gutterBottom>
+          <ArrowBackButton path="/me/employees" />
           <Box display="flex" alignContent="center" alignItems="center">
             <PersonOutlineOutlinedIcon fontSize="large" />
             <Trans i18nKey="PrivatePages.Employees.employeeInformation">
