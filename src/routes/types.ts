@@ -16,6 +16,8 @@ export type PageAccessName =
   | "Users"
   | "OrdersReport"
   | "OrderInvoice"
+  | "PurchasesReport"
+  | "PurchaseInvoice"
 
 export interface RouteConfigs {
   title: string;
