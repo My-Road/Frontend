@@ -46,7 +46,13 @@ const pagesAccessRights = new Map<PageAccessName, PageAccessRight>([
   [
     "Register",
     {
-      roles: ["SuperAdmin"],
+      roles: ["FactoryOwner"],
+    },
+  ],
+  [
+    "Users",
+    {
+      roles: ["FactoryOwner"],
     },
   ],
 ]);

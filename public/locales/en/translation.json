@@ -40,7 +40,9 @@
     "addEmployeeLog": "Add Employee Log",
     "addPurchases":"Add Purchases",
     "loading": "loading",
-    "customerDetails": "Customer Details" 
+    "customerDetails": "Customer Details" ,
+    "deactivate":"deactivate",
+    "activate":"activate"
   },
   "Messages":{
     "heHasDues": "He has dues",
@@ -202,7 +204,11 @@
     "Please select an payment date": "Please select an payment date",
     "Employee name is required": "Employee name is required",
     "Please select an purchase date":"Please select an purchase date",
-    "Please enter the goodsDeliverer name":"Please enter the goodsDeliverer name"
+    "Please enter the goodsDeliverer name":"Please enter the goodsDeliverer name",
+    "Please enter the first name": "Please enter the first name",
+    "Please enter the last name": "Please enter the last name",
+    "First name must contain letters only (Arabic or English)": "First name must contain letters only (Arabic or English)",
+    "Last name must contain letters only (Arabic or English)": "Last name must contain letters"
   },
   "AutoComplete": {
     "treatment": "Treatment",
@@ -230,7 +236,8 @@
     "Suppliers": "Suppliers",
     "User Registration": "User Registration",
     "Reports": "Reports",
-    "Customers Reports": "Customers Reports"
+    "Customers Reports": "Customers Reports",
+    "Users":"Users"
   },
   "Tables": {
     "Headers": {
@@ -281,7 +288,12 @@
       "WorkHours": "WorkHours",
       "SupplierName":"Supplier Name",
       "goodsDeliverer":"Goods Deliverer Name",
-      "recipientPhoneNumber":"Recipient PhoneNumber"
+      "recipientPhoneNumber":"Recipient PhoneNumber",
+      "firstName":"First Name",
+      "lastName":"Last Name",
+      "Role": "Role",
+      "id":"ID",
+      "userId":"User ID"
     },
     "noData": "No records to display",
     "columns": "Columns",
@@ -329,7 +341,11 @@
       "deleteEmployeeLog":"Delete Employee Log",
       "deletePurchase":"Delete Purchase",
       "deleteSupplier":"Delete Supplier",
-      "editSupplier":"Edit Supplier"
+      "editSupplier":"Edit Supplier",
+      "confirmDeactivate":"Confirm Deactivate",
+      "confirmActivate":"Confirm Activate",
+      "editUser":"Edit User",
+      "confirmRoleChange":"Confirm Role Change"
     },
     "confirmCustomerDelete": "Are you sure you want to delete this Customer?",
     "confirmCustomerEdit": "Are you sure you want to edit this Customer?",
@@ -349,7 +365,10 @@
     "confirmPurchaseDelete":"Are you sure you want to delete this Purchase?",
     "confirmSupplierDelete":"Are you sure you want to delete this Supplier?",
     "confirmSupplierRestore":"Are you sure you want to restore this Supplier?",
-    "confirmSupplierEdit":"Are you sure you want to edit this Supplier?"
+    "confirmSupplierEdit":"Are you sure you want to edit this Supplier?",
+    "confirmUserToggle":"Are you sure you want to toggle this user?",
+    "confirmUserEdit":"Are you sure you want to edit this user?",
+    "confirmRoleChangeMessage":"Are you sure you want to change the role of this user?"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -568,6 +587,14 @@
     "Order date must be in the past or today": "Order date must be in the past or today",
     "Purchase date must be in the past or today": "Purchase date must be in the past or today",
     "Payment date must be in the past or today": "Payment date must be in the past or today",
-    "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid."
+    "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.",
+    "User deactivated successfully":"User deactivated successfully",
+    "User activated successfully":"User activated successfully",
+    "The value '0,0' is invalid.":"The value '0,0' is invalid.",
+    "User profile updated successfully":"User profile updated successfully",
+    "'Role' must not be empty.":"'Role' must not be empty.",
+    "Role updated successfully":"Role updated successfully",
+    "Role must be either Admin or Manager":"Role must be either Admin or Manager",
+    "cannotChangeFactoryOwner":"Cannot change factory owner"
   }
 }

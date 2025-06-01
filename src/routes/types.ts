@@ -12,7 +12,8 @@ export type PageAccessName =
   | "Employees"
   | "EmployeeDetails"
   | "Suppliers"
-  | "SupplierDetails";
+  | "SupplierDetails"
+  | "Users";
 
 export interface RouteConfigs {
   title: string;

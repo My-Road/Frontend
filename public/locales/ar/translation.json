@@ -40,7 +40,9 @@
     "addEmployeeLog":"اضافة تفاصيل يومية ",
     "addPurchases":"اضافة مشتريات",
     "loading": "جاري التحميل..",
-    "customerDetails": "تفاصيل الزبون" 
+    "customerDetails": "تفاصيل الزبون" ,
+    "deactivate":"غير مفعل",
+    "activate":"مفعل"
   },
   "Messages":{
     "heHasDues": "عليه مستحقات",
@@ -64,7 +66,7 @@
     "customerNotes": "ملاحظات عن الزبون",
     "notes": "ملاحظات",
     "firstName": "الاسم الاول",
-    "lastName": "الاسم العائلة",
+    "lastName": "الاسم العائلي",
     "fullName": "الاسم الكامل",
     "fatherName": "الاسم الاب",
     "email": "البريد الإلكتروني",
@@ -202,7 +204,11 @@
     "Please select an payment date": "يرجى ادخال تاريخ الدفعة",
     "Employee name is required": "اسم الموظف مطلوب",
     "Please select an purchase date":"يرجى اختيار تاريخ الشراء",
-    "Please enter the goodsDeliverer name":"يرجى إدخال اسم الموزّع"
+    "Please enter the goodsDeliverer name":"يرجى إدخال اسم الموزّع",
+    "Please enter the first name": "يرجى ادخال الاسم الاول",
+    "Please enter the last name": "يرجى ادخال الاسم العائلي",
+    "First name must contain letters only (Arabic or English)":"الاسم الاول يجب ان يحتوي على حروف فقط (بالعربية أو الإنجليزية)",
+    "Last name must contain letters only (Arabic or English)":"الاسم العائلي يجب ان يحتوي على حروف فقط (بالعربية أو الإنجليزية)"
   },
   "AutoComplete": {
     "treatment": "العلاج",
@@ -230,7 +236,8 @@
     "Suppliers": "ٱلْمُوَرِّدين",
     "User Registration": "تسجيل المستخدم",
     "Reports": "التقارير",
-    "Customers Reports": "تقارير الزبائن"
+    "Customers Reports": "تقارير الزبائن",
+    "Users": "المستخدمين"
   },
   "Tables": {
     "Headers": {
@@ -280,7 +287,12 @@
       "WorkHours": "ساعات العمل",
       "SupplierName":"اسم ٱلْمُوَرِّد",
       "goodsDeliverer":"اسم الموزّع",
-      "recipientPhoneNumber":"رقم هاتف المستلم"
+      "recipientPhoneNumber":"رقم هاتف المستلم",
+      "firstName":"الاسم الاول",
+      "lastName":"الاسم الثاني",
+      "Role": "الدور",
+      "id":"الرقم",
+      "userId":"رقم المستخدم"
     },
     "noData": "لا توجد بيانات لعرضها",
     "columns": "الأعمدة",
@@ -328,7 +340,11 @@
       "deleteEmployeeLog":"حذف السجل اليومي",
       "deletePurchase":" حذف عملية الشراء",
       "deleteSupplier":" حذف المورّد",
-      "editSupplier":"تعديل المُوَرِّد"
+      "editSupplier":"تعديل المُوَرِّد",
+      "confirmDeactivate":"الغاء التفعيل",
+      "confirmActivate":"تفعيل",
+      "editUser":"تعديل بيانات المستخدم",
+      "confirmRoleChange":"تعديل دور المستخدم"
 
     },
     "confirmCustomerDelete": "هل انت متأكد من حذف هذا الزبون؟",
@@ -349,7 +365,10 @@
     "confirmPurchaseDelete":" هل أنت متأكد من حذف عملية الشراء؟",
     "confirmSupplierDelete":"هل أنت متأكد من حذف هذا المورّد؟",
     "confirmSupplierRestore":"هل أنت متأكد من اعادة تعيين هذا المورّد؟",
-    "confirmSupplierEdit":"هل انت متأكد من تعديل بيانات هذا المورّد؟"
+    "confirmSupplierEdit":"هل انت متأكد من تعديل بيانات هذا المورّد؟",
+    "confirmUserToggle":"هل أنت متأكد من تغيير حالة هذا المستخدم؟",
+    "confirmUserEdit":"هل أنت متأكد من تعديل بيانات هذا المستخدم؟",
+    "confirmRoleChangeMessage":"هل أنت متأكد من تغيير دور هذا المستخدم؟"
   },
   "PublicPages": {
     "Unauthenticated": {
@@ -568,6 +587,14 @@
     "Order date must be in the past or today": "يجب ان يكون تاريخ الطلبية في الماضي او اليوم",
     "Purchase date must be in the past or today": "يجب ان يكون تاريخ عملية الشراء في الماضي او اليوم",
     "Payment date must be in the past or today": "يجب ان يكون تاريخ الدفعة في الماضي او اليوم",
-    "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "لا يمكن إزالة هذا الشراء لأنه سيؤدي إلى دفع مبلغ زائد أو تم دفع المبلغ بالكامل بالفعل."
+    "This Purchase cannot be removed because it will result in an overpayment or the full amount has already been paid.": "لا يمكن إزالة هذا الشراء لأنه سيؤدي إلى دفع مبلغ زائد أو تم دفع المبلغ بالكامل بالفعل.",
+    "User deactivated successfully":"تم تعطيل المستخدم بنجاح",
+    "User activated successfully":"تم تفعيل المستخدم بنجاح",
+    "The value '0,0' is invalid.":" القيمة '0,0' غير صالحة.",
+    "User profile updated successfully":"تم تحديث ملف المستخدم بنجاح",
+    "'Role' must not be empty.":"'الدور' لا يمكن أن يكون فارغًا.",
+    "Role updated successfully":"تم تحديث الدور بنجاح",
+    "Role must be either Admin or Manager":"يسمح بتعديل الدور إلى Admin أو Manager فقط",
+    "cannotChangeFactoryOwner":"لا يمكنك تغيير دور Factory Owner"
   }
 }

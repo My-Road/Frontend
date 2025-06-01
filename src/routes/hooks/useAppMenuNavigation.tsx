@@ -7,7 +7,7 @@ import AppRegistrationRoundedIcon from '@mui/icons-material/AppRegistrationRound
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import { useAppSelector } from "@/store";
 import { selectUserRole } from "@/features/User";
-
+import GroupIcon from '@mui/icons-material/Group';
 const useAppMenuNavigation = () => {
   const userRole = useAppSelector(selectUserRole)
   const isForAdminOrManager = userRole === "Admin" || userRole === "Manager" 
@@ -48,7 +48,13 @@ const useAppMenuNavigation = () => {
         label: "Customers Reports",
         link: "/me/reports/customers-orders"
       }]
-    }
+    },
+    {
+      label: "Users",
+      link: "/me/users",
+      Icon: () => <GroupIcon />,
+      useIsVisible: () => !isForAdminOrManager
+    },
   ];
 
   return {
