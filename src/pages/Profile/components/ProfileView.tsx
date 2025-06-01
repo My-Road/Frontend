@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Typography, Divider, Button } from "@mui/material";
+import { Box, Typography, Divider, Button, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { User } from "../types";
 import { Roles } from "@/enums/Roles";
@@ -26,42 +26,32 @@ const ProfileView: FC<ProfileViewProps> = ({ user, onEdit }) => {
       </Box>
 
       <Divider sx={{ mb: 2 }} />
-
-      <Box mb={1}>
+      <Stack gap={2}>
         <Typography variant="body1">
           <Typography component="span" fontWeight="bold">
             {t("Tables.Headers.userId")}:
           </Typography>{" "}
           {user.id}
         </Typography>
-      </Box>
-
-      <Box mb={1}>
         <Typography variant="body1">
           <Typography component="span" fontWeight="bold">
             {t("Tables.Headers.Role")}:
           </Typography>{" "}
           {Roles[user.role]}
         </Typography>
-      </Box>
-
-      <Box mb={1}>
         <Typography variant="body1">
           <Typography component="span" fontWeight="bold">
             {t("Tables.Headers.Email")}:
           </Typography>{" "}
           {user.email}
         </Typography>
-      </Box>
-
-      <Box mb={2}>
         <Typography variant="body1">
           <Typography component="span" fontWeight="bold">
             {t("Tables.Headers.Phone")}:
           </Typography>{" "}
           {user.phoneNumber}
         </Typography>
-      </Box>
+      </Stack>
 
       <Box display="flex" justifyContent="flex-end">
         <Button variant="contained" onClick={onEdit}>
@@ -73,4 +63,3 @@ const ProfileView: FC<ProfileViewProps> = ({ user, onEdit }) => {
 };
 
 export default ProfileView;
-

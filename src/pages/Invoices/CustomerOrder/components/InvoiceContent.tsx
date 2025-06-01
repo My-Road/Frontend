@@ -20,7 +20,7 @@ const InvoiceContent: React.FC<InvoiceProps> = ({ order }) => {
           : {new Date(order.orderDate).toLocaleDateString()}
         </Typography>
       </Grid>
-      <Paper elevation={4} sx={{ borderRadius: 3, width: "100%", p: 2 }}>
+      <Paper elevation={4} sx={{ borderRadius: 3, width: "100%", p: 2, bgcolor: "white" }}>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, sm: 6 }} display="flex" alignItems="center">
             <Typography variant="subtitle1" p={1}>
@@ -52,7 +52,7 @@ const InvoiceContent: React.FC<InvoiceProps> = ({ order }) => {
           </Grid>
         </Grid>
       </Paper>
-      <Paper elevation={3} sx={{ borderRadius: 3, width: "100%", p: 2 }}>
+      <Paper elevation={3} sx={{ borderRadius: 3, width: "100%", p: 2, bgcolor: "white" }}>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, sm: 6 }} display="flex" alignItems="center">
             <Typography variant="subtitle1" p={1}>
@@ -87,7 +87,7 @@ const InvoiceContent: React.FC<InvoiceProps> = ({ order }) => {
           </Grid>
         </Grid>
       </Paper>
-      <Paper sx={{width: "100%", p: 3, my: 2, borderRadius: 3}} elevation={3}>
+      <Paper sx={{width: "100%", p: 3, my: 2, borderRadius: 3, bgcolor: "white"}} elevation={3}>
       <Grid size={{ xs: 12 }} display="flex" alignItems="center">
         <Typography variant="subtitle1" p={1}>
           {t("Invoice.Labels.notes")}:

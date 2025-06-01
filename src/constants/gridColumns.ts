@@ -210,7 +210,7 @@ export const getGenericGridColumns = (
       disableExport: true,
       sortable: false,
       flex: 0.5,
-      minWidth: 100,
+      minWidth: 200,
     }),
     fullName: (fieldName = "fullName") => ({
       field: fieldName,

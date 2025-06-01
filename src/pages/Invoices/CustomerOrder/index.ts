@@ -1,1 +1,1 @@
-export {default} from "./CustomerOrder"
+export {default} from "./OrderInvoice"

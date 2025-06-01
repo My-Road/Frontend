@@ -8,8 +8,6 @@ import { getGenericGridColumns } from "@/constants/gridColumns";
 
 const getRoleLabel = (role: number) => {
   switch (role) {
-    case Roles.FactoryOwner:
-      return "FactoryOwner";
     case Roles.Admin:
       return "Admin";
     case Roles.Manager:
@@ -45,24 +43,23 @@ const getUsersGridColumns = ({
     flex: 1,
     renderCell: ({ row }) => (
       <Select
-value={row.role ?? ""}
-  onChange={(e) => {
-    const role = Number(e.target.value);
-    handleRoleChange(row.id, role);
-  }}
-  size="small"
-  fullWidth
-  disabled={rolePending}
->
-  {Object.values(Roles)
-    .filter((v) => typeof v === "number")
-    .map((value) => (
-      <MenuItem key={value} value={value}>
-        {getRoleLabel(value as number)}
-      </MenuItem>
-    ))}
-</Select>
-
+        value={row.role ?? ""}
+        onChange={(e) => {
+          const role = Number(e.target.value);
+          handleRoleChange(row.id, role);
+        }}
+        size="small"
+        fullWidth
+        disabled={rolePending}
+      >
+        {Object.values(Roles)
+          .filter((v) => typeof v === "number")
+          .map((value) => (
+            <MenuItem key={value} value={value}>
+              {getRoleLabel(value as number)}
+            </MenuItem>
+          ))}
+      </Select>
     ),
   },
   {
@@ -80,4 +77,3 @@ value={row.role ?? ""}
 ];
 
 export default getUsersGridColumns;
-

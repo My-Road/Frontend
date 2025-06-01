@@ -78,6 +78,7 @@ export default function UsersDataGrid({ searchParams }: { searchParams: Partial<
         onPaginationChange={setPaginationModel}
         rowCount={data?.totalCount || 0}
         loading={isLoading}
+        height="500px"
       />
     </Box>
   );

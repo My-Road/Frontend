@@ -7,13 +7,14 @@ import {
   Divider,
 } from "@mui/material";
 import { useState } from "react";
-import SearchFormByUsers from "@/components/‏‏SearchFormByUsers";
 import UsersDataGrid from "./components/UsersDataGrid";
 import { SearchParams } from "@/types";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
 import { Trans } from "react-i18next";
 import routeHOC from "@/routes/HOCs/routeHOC";
+import UsersSearchForm from "./components/UsersSearchForm";
+
 
 const Users = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
@@ -38,9 +39,9 @@ const Users = () => {
           </Typography>
           <Divider />
           <Box mb={4}>
-            <SearchFormByUsers
+            <UsersSearchForm
               setSearchParams={setSearchParams}
-              name="firstName" 
+              name="firstName"
               sortsBy="-isActive"
             />
           </Box>

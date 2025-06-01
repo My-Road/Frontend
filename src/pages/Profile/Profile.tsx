@@ -1,15 +1,15 @@
-import  { FC, useState } from "react";
-import { Container, Paper,Typography } from "@mui/material";
+import { FC, useState } from "react";
+import { Container, Paper } from "@mui/material";
 import ProfileView from "./components/ProfileView";
 import ProfileForm from "./components/ProfileForm";
 import { useGetUserAPI } from "./hooks/useGetUserAPI";
 import useUpdateUserAPI from "./hooks/useUpdateUserAPI";
 import { UpdateUserPayload } from "./types";
 import { validationSchema } from "./formSchema";
-import { useTranslation } from "react-i18next";
+import Loader from "@/components/Loader";
+import { Navigate } from "react-router-dom";
 
 const Profile: FC = () => {
-  const { t } = useTranslation();
   const { data: user, isLoading, error } = useGetUserAPI();
   const { updateUser, isPending } = useUpdateUserAPI();
   const [isEditing, setIsEditing] = useState(false);
@@ -20,49 +20,36 @@ const Profile: FC = () => {
   };
 
   if (isLoading) {
-    return (
-      <Container maxWidth="sm">
-        <Paper sx={{ p: 3, mt: 4 }}>
-          <Typography variant="h6" align="center">
-            {t("profile.loading", "Loading...")}
-          </Typography>
-        </Paper>
-      </Container>
-    );
+    return <Loader />;
   }
 
-  if (error || !user) {
-    return (
-      <Container maxWidth="sm">
-        <Paper sx={{ p: 3, mt: 4 }}>
-          <Typography variant="h6" align="center" color="error">
-            {t("profile.error", "Error loading profile")}
-          </Typography>
-        </Paper>
-      </Container>
-    );
+  if (error) {
+    return <Navigate to="/*" />;
   }
+  
+  const userData = user!;
+  const initialValues = {
+    id: userData.id,
+    role: userData.role,
+    firstName: userData.firstName,
+    lastName: userData.lastName,
+    email: userData.email,
+    phoneNumber: userData.phoneNumber,
+  };
 
   return (
     <Container maxWidth="sm">
       <Paper sx={{ p: 3, mt: 4 }}>
         {isEditing ? (
           <ProfileForm
-            initialValues={{
-              id: user.id,
-              role: user.role,
-              firstName: user.firstName,
-              lastName: user.lastName,
-              email: user.email,
-              phoneNumber: user.phoneNumber,
-            }}
+            initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={handleSave}
             isSubmitting={isPending}
             onCancel={() => setIsEditing(false)}
           />
         ) : (
-          <ProfileView user={user} onEdit={() => setIsEditing(true)} />
+          <ProfileView user={userData} onEdit={() => setIsEditing(true)} />
         )}
       </Paper>
     </Container>

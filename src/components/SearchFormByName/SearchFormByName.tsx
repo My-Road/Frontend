@@ -55,7 +55,9 @@ const SearchFormByName: React.FC<SearchFormProps> = ({
         p: 4,
         borderRadius: 4,
         my: 5,
+        bgcolor: "white"
       }}
+      
     >
       <FormikProvider value={formikProps}>
         <Form>

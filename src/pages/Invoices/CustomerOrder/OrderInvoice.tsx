@@ -4,8 +4,9 @@ import { Navigate, useParams } from "react-router-dom";
 import { useGetOrderAPI } from "./hooks/useGetOrderAPI";
 import Invoice from "./components/Invoice";
 import Loader from "@/components/Loader";
+import routeHOC from "@/routes/HOCs/routeHOC";
 
-const CustomerOrder: React.FC = () => {
+const OrderInvoice: React.FC = () => {
   const { orderId } = useParams();
   const { data, isLoading, error } = useGetOrderAPI(orderId || "0");
 
@@ -28,4 +29,9 @@ const CustomerOrder: React.FC = () => {
   );
 };
 
-export default CustomerOrder;
+const OrderInvoiceWithRoute = routeHOC({
+  title: "OrderInvoice",
+  pageAccessName: "OrderInvoice",
+})(OrderInvoice);
+
+export default OrderInvoiceWithRoute;

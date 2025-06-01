@@ -13,6 +13,7 @@ import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 import { SearchParams } from "@/types";
 import { useState } from "react";
 import OrderSearchForm from "./components/OrderSearchForm";
+import routeHOC from "@/routes/HOCs/routeHOC";
 
 const CustomersReports = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
@@ -48,4 +49,9 @@ const CustomersReports = () => {
   );
 };
 
-export default CustomersReports;
+const CustomersReportsWithRoute = routeHOC({
+  title: "EmployeeDetails",
+  pageAccessName: "EmployeeDetails",
+})(CustomersReports);
+
+export default CustomersReportsWithRoute;

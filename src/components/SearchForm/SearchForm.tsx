@@ -45,7 +45,7 @@ const SearchForm = <T extends object>({
   };
 
   return (
-    <Paper elevation={4} sx={{ p: 4, borderRadius: 4, my: 5 }}>
+    <Paper elevation={4} sx={{ p: 4, borderRadius: 4, my: 5, bgcolor: "white" }}>
       <FormikProvider value={formikProps}>
         <Form>
           <Stack
