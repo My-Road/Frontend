@@ -8,16 +8,16 @@ import {
 } from "@mui/material";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import { Trans } from "react-i18next";
-import CustomerDataGrid from "./components/CustomerDataGrid";
+import SupplierDataGrid from "./components/SupplierDataGrid";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
 import { SearchParams } from "@/types";
 import { useState } from "react";
-import OrderSearchForm from "./components/OrderSearchForm";
+import PurchaseSearchForm from "./components/PurchaseSearchForm";
 import routeHOC from "@/routes/HOCs/routeHOC";
 
-const CustomersReports = () => {
+const PurchasesReports = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
-    ...DEFAULT_SEARCH_PARAMS, sorts: "orderDate"
+    ...DEFAULT_SEARCH_PARAMS, sorts: "purchasesDate"
   });
   return (
     <Container sx={{ my: 5 }}>
@@ -32,26 +32,26 @@ const CustomersReports = () => {
             gap={2}
           >
             <ReceiptLongIcon fontSize="large" />
-            <Trans i18nKey="SideDrawerLinks.Customers">Customers</Trans>
+            <Trans i18nKey="SideDrawerLinks.Suppliers">Suppliers</Trans>
           </Typography>
           <Divider />
           <Box mb={4}>
-            <OrderSearchForm
+            <PurchaseSearchForm
               setSearchParams={setSearchParams}
-              name="customerName"
-              sortsBy="orderDate"
+              name="supplierName"
+              sortsBy="purchasesDate"
             />
           </Box>
-          <CustomerDataGrid searchParams={searchParams} />
+          <SupplierDataGrid searchParams={searchParams} />
         </Paper>
       </Stack>
     </Container>
   );
 };
 
-const CustomersReportsWithRoute = routeHOC({
-  title: "OrdersReport",
-  pageAccessName: "OrdersReport",
-})(CustomersReports);
+const PurchasesReportsWithRoute = routeHOC({
+  title: "PurchasesReport",
+  pageAccessName: "PurchasesReport",
+})(PurchasesReports);
 
-export default CustomersReportsWithRoute;
+export default PurchasesReportsWithRoute;

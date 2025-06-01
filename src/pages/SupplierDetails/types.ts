@@ -1,4 +1,5 @@
-import { Supplier, SearchParams } from "@/types";
+import { Supplier, SearchParams, Purchase } from "@/types";
+export type { Supplier, SearchParams, Purchase };
 
 export type SupplierData = Pick<
 Supplier,
@@ -16,24 +17,6 @@ export interface SupplierPaymentPayload {
   notes: string;
   supplierId: number;
 }
-
-export interface Purchase {
-  id: number;
-  purchasesDate: string; 
-  goodsDeliverer: string;
-  goodsDelivererPhoneNumber: string;
-  quantity: number;
-  price: number;
-  totalDueAmount: number;
-  notes: string;
-  supplierId: number;
-  supplier: Supplier | null; 
-  isDeleted: boolean;
-  deletedAt: string | null;
-  isCompleted: boolean;
-  createdByUserId: number;
-}
-
 
 export interface PurchasesPayload {
   goodsDeliverer: string;

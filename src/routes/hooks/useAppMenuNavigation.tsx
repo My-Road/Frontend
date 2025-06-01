@@ -41,6 +41,10 @@ const useAppMenuNavigation = () => {
           label: "Customers Reports",
           link: "/me/reports/customers-orders",
         },
+         {
+          label: "Purchases Reports",
+          link: "/me/reports/purchases",
+        },
       ],
       useIsVisible: () => isFactoryOwner || isAdmin,
     },

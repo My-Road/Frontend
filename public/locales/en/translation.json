@@ -42,7 +42,8 @@
     "loading": "loading",
     "customerDetails": "Customer Details" ,
     "deactivate":"deactivate",
-    "activate":"activate"
+    "activate":"activate",
+    "supplierDetails":"Supplier Details"
   },
   "Messages":{
     "heHasDues": "He has dues",
@@ -237,7 +238,8 @@
     "User Registration": "User Registration",
     "Reports": "Reports",
     "Customers Reports": "Customers Reports",
-    "Users":"Users"
+    "Users":"Users",
+    "Purchases Reports":"Purchases Reports"
   },
   "Tables": {
     "Headers": {
@@ -303,7 +305,8 @@
   },
   "Invoice":{
       "Titles":{
-        "OrderInvoice": "Order Invoice"
+        "OrderInvoice": "Order Invoice",
+        "PurchaseInvoice":"Purchase Invoice"
       },
       "Labels": {
         "orderDate": "order Date",
@@ -316,7 +319,12 @@
         "notes": "Notes",
         "orderComplete": "Order Complete",
         "customerName": "Customer Name",
-        "address": "Address"
+        "address": "Address",
+        "supplierName": "Supplier Name",
+        "goodsDelivererPhoneNumber":"Goods DelivererPhoneNumber",
+        "goodsDeliverer": "Goods DelivererName",
+        "purchasesDate":"Purchases Date",
+        "purchaseComplete":"Purchase Complete"
       }
     },
   "Dialogs": {
