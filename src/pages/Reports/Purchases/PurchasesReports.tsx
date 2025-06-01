@@ -32,7 +32,7 @@ const PurchasesReports = () => {
             gap={2}
           >
             <ReceiptLongIcon fontSize="large" />
-            <Trans i18nKey="SideDrawerLinks.Suppliers">Suppliers</Trans>
+            <Trans i18nKey="PrivatePages.Reports.suppliersReports">Suppliers Reports</Trans>
           </Typography>
           <Divider />
           <Box mb={4}>

@@ -7,15 +7,14 @@ import {
   Grid2 as Grid,
   Button,
 } from "@mui/material";
-import {Purchase} from "../types";
+import {Purchase} from "@/types";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import InvoicePDF from "@/components/InvoicePDF/InvoicePDF";
 import { getTableDate, getTableHeader } from "../utils/getTableData";
 import { useTranslation } from "react-i18next";
 import InvoiceContent from "./InvoiceContent";
 import { useNavigate } from "react-router-dom";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import IconButton from "@mui/material/IconButton";
+import ArrowBackButton from "@/components/Buttons/ArrowBackButton";
 
 interface InvoiceProps {
   purchase: Purchase;
@@ -36,9 +35,7 @@ const Invoice: React.FC<InvoiceProps> = ({ purchase }) => {
         ref={componentRef}
       >
         <Box display="flex" alignItems="center" gap={1} sx={{ mb: 2 }}>
-          <IconButton onClick={() => navigate(-1)}>
-            <ArrowBackIcon />
-          </IconButton>
+          <ArrowBackButton path="/me/reports/purchases"/>
           <Typography variant="h5">
             {t("Invoice.Titles.PurchaseInvoice")}
           </Typography>

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Order } from "../types";
+import { Order } from "@/types";
 import { getOrderAPI } from "../API";
 
 export const useGetOrderAPI = (id: string) => {
