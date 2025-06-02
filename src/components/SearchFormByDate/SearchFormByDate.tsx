@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Stack } from "@mui/material";
+import { Button, Paper, Stack } from "@mui/material";
 import { Form, FormikProvider, useFormik } from "formik";
 import { Trans } from "react-i18next";
 import { validationSchema } from "./formSchema";
@@ -7,10 +7,9 @@ import { initialValues } from "./constants";
 import { SearchFormValues } from "./types";
 import { Dispatch, SetStateAction } from "react";
 import { SearchParams } from "@/types";
-import SearchIcon from "@mui/icons-material/Search";
 import DatePickerField from "../Fields/DatePickerField";
 import dayjs from "dayjs";
-import { LoadingButton } from "@mui/lab";
+import SearchButton from "../Buttons/SearchButton/SearchButton";
 
 interface SearchFormProps {
   setSearchParams: Dispatch<SetStateAction<SearchParams>>;
@@ -28,7 +27,7 @@ const SearchFormByDate: React.FC<SearchFormProps> = ({
     setLoading(true);
     setIsInSearchMode(true);
     const filtersArray: string[] = [];
-    
+
     if (values.startDate) {
       filtersArray.push(`${dateFieldKey}>=${values.startDate}`);
     }
@@ -68,45 +67,43 @@ const SearchFormByDate: React.FC<SearchFormProps> = ({
   return (
     <FormikProvider value={formikProps}>
       <Form>
-        <Stack
-          flexDirection={{ sm: "column", md: "row" }}
-          justifyContent="center"
-          alignItems="center"
-          gap={2}
+        <Paper
+          elevation={3}
+          sx={{ p: 4, borderRadius: 4, my: 1, bgcolor: "white" }}
         >
-          <DatePickerField
-            name="startDate"
-            minDate={dayjs("2000-01-01")}
-            maxDate={dayjs("9999-12-30")}
-          />
-          <DatePickerField
-            name="endDate"
-            minDate={dayjs("2000-01-01")}
-            maxDate={dayjs("9999-12-30")}
-          />
-          <LoadingButton
-            type="submit"
-            variant="contained"
-            color="primary"
-            endIcon={<SearchIcon />}
-            sx={{ minWidth: 100 }}
-            disabled={!formikProps.isValid || !formikProps.dirty}
-            loading={loading}
+          <Stack
+            flexDirection={{ sm: "column", md: "row" }}
+            justifyContent="center"
+            alignItems="center"
+            gap={2}
           >
-            <Trans i18nKey="Buttons.search">Search</Trans>
-          </LoadingButton>
-          {isInSearchMode && (
-            <Button
-              type="submit"
-              variant="contained"
-              color="info"
-              onClick={handleClearSearch}
-              sx={{ minWidth: 100 }}
-            >
-              <Trans i18nKey="Buttons.cancel">Clear Search</Trans>
-            </Button>
-          )}
-        </Stack>
+            <DatePickerField
+              name="startDate"
+              minDate={dayjs("2000-01-01")}
+              maxDate={dayjs("9999-12-30")}
+            />
+            <DatePickerField
+              name="endDate"
+              minDate={dayjs("2000-01-01")}
+              maxDate={dayjs("9999-12-30")}
+            />
+            <SearchButton
+              disabled={!formikProps.isValid || !formikProps.dirty}
+              loading={loading}
+            />
+            {isInSearchMode && (
+              <Button
+                type="submit"
+                variant="contained"
+                color="info"
+                onClick={handleClearSearch}
+                sx={{ minWidth: 100 }}
+              >
+                <Trans i18nKey="Buttons.cancel">Clear Search</Trans>
+              </Button>
+            )}
+          </Stack>
+        </Paper>
       </Form>
     </FormikProvider>
   );

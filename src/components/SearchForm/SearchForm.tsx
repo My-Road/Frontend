@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Button, Paper, Stack } from "@mui/material";
 import { Form, FormikProvider, useFormik } from "formik";
 import { Trans } from "react-i18next";
-import { LoadingButton } from "@mui/lab";
-import SearchIcon from "@mui/icons-material/Search";
 import { GenericSearchFormProps } from "./types";
+import SearchButton from "../Buttons/SearchButton/SearchButton";
 
 const SearchForm = <T extends object>({
   initialValues,
@@ -45,7 +44,10 @@ const SearchForm = <T extends object>({
   };
 
   return (
-    <Paper elevation={4} sx={{ p: 4, borderRadius: 4, my: 5, bgcolor: "white" }}>
+    <Paper
+      elevation={4}
+      sx={{ p: 4, borderRadius: 4, my: 5, bgcolor: "white" }}
+    >
       <FormikProvider value={formikProps}>
         <Form>
           <Stack
@@ -55,19 +57,10 @@ const SearchForm = <T extends object>({
             gap={2}
           >
             {renderFields()}
-
-            <LoadingButton
-              type="submit"
-              variant="contained"
-              color="info"
-              endIcon={<SearchIcon />}
+            <SearchButton
               disabled={!isAnyFieldFilled || isSearching}
               loading={isSearching}
-              sx={{ minWidth: "120px" }}
-            >
-              <Trans i18nKey="Buttons.search">Search</Trans>
-            </LoadingButton>
-
+            />
             {searchMode && (
               <Button
                 onClick={handleClearSearch}

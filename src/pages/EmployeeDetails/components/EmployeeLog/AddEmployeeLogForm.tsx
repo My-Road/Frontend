@@ -3,7 +3,6 @@ import { Button, Box } from "@mui/material";
 import { FormikHelpers } from "formik";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/features/User";
-
 import { Trans, useTranslation } from "react-i18next";
 import { EmployeeLogPayload } from "../../types";
 import { initialValues } from "./constants";
@@ -25,7 +24,6 @@ function AddEmployeeLogForm({ employeeId }: Props) {
   const handleAdd = (
     values: EmployeeLogPayload,
     helpers: FormikHelpers<EmployeeLogPayload>
-    
   ) => {
     const payload = {
       ...values,
@@ -42,9 +40,6 @@ function AddEmployeeLogForm({ employeeId }: Props) {
       },
     });
   };
-
-  
-
   return (
     <Box>
       <Button

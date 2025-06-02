@@ -76,7 +76,7 @@ export default function PaymentDataGrid({ searchParams, employeeId }: Props) {
     });
   };
   const handleEdit = (payment: EmployeePaymentPayload) => {
-    setSelectedPayment(payment);
+    setSelectedPayment({...payment, employeeId});
     setEditDialogOpen(true);
   };
 

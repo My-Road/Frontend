@@ -13,6 +13,7 @@ import PaymentsSupplierInfo from "./PaymentsSupplierInfo";
 import { Supplier } from "@/types";
 import { Trans } from "react-i18next";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import ArrowBackButton from "@/components/Buttons/ArrowBackButton/ArrowBackButton";
 
 interface Props {
   supplierData: Supplier;
@@ -26,6 +27,7 @@ function PersonalSupplierInfo({ supplierData }: Props) {
     <Paper>
       <Stack p={4} gap={4} justifyContent="flex-start">
         <Typography variant="h5" gutterBottom>
+          <ArrowBackButton path="/me/suppliers"/>
           <Box display="flex" alignContent="center" alignItems="center">
             <PersonOutlineOutlinedIcon fontSize="large" />
             <Trans i18nKey="PrivatePages.Suppliers.supplierInformation">

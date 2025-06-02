@@ -58,7 +58,7 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
   };
 
   const handleEdit = (order: CustomerOrderPayload) => {
-    setSelectedOrder(order);
+    setSelectedOrder({...order, customerId});
     setEditDialogOpen(true);
   };
 

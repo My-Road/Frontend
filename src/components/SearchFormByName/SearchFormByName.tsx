@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { Paper, Stack } from "@mui/material";
 import { Form, FormikProvider, useFormik } from "formik";
 import SearchInput from "./SearchInput";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { validationSchema } from "./formSchema";
 import { initialValues } from "./constants";
 import { SearchFormProps, SearchFormValues } from "./types";
 import { SearchParams } from "@/types";
-import SearchIcon from "@mui/icons-material/Search";
-import { LoadingButton } from "@mui/lab";
+import SearchButton from "../Buttons/SearchButton/SearchButton";
 
 const SearchFormByName: React.FC<SearchFormProps> = ({
   setSearchParams,
@@ -55,9 +54,8 @@ const SearchFormByName: React.FC<SearchFormProps> = ({
         p: 4,
         borderRadius: 4,
         my: 5,
-        bgcolor: "white"
+        bgcolor: "white",
       }}
-      
     >
       <FormikProvider value={formikProps}>
         <Form>
@@ -75,16 +73,7 @@ const SearchFormByName: React.FC<SearchFormProps> = ({
               onClear={handleClearSearch}
               isClearVisible={!isSearchDisabled}
             />
-            <LoadingButton
-              type="submit"
-              variant="contained"
-              color="info"
-              endIcon={<SearchIcon />}
-              disabled={isSearchDisabled}
-              loading={isSearching}
-            >
-              <Trans i18nKey="Buttons.search">Search</Trans>
-            </LoadingButton>
+            <SearchButton disabled={isSearchDisabled} loading={isSearching} />
           </Stack>
         </Form>
       </FormikProvider>

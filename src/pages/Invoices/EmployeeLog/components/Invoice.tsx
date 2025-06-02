@@ -14,8 +14,8 @@ import { getTableDate, getTableHeader } from "../utils/getTableData";
 import { useTranslation } from "react-i18next";
 import InvoiceContent from "./InvoiceContent";
 import { useNavigate } from "react-router-dom";
+import ArrowBackButton from "@/components/Buttons/ArrowBackButton/ArrowBackButton";
 
-import ArrowBackButton from "@/components/Buttons/ArrowBackButton";
 
 interface InvoiceProps {
   employeeLog: EmployeeLog;

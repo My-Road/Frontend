@@ -2,18 +2,14 @@ import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormikHelpers } from "formik";
-
 import { PaginationProps, SearchParams } from "@/types";
 import { PurchasesPayload, Purchase } from "../../types";
-
 import { useSearchPurchases } from "../../hooks/useSearchPurchases";
 import useDeletePurchaseAPI from "../../hooks/useDeletePurchaseAPI";
 import useUpdatePurchaseDataAPI from "../../hooks/useUpdatePurchaseDataAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 import { useSnackBar } from "@/hooks/useSnackbar";
-
 import { transformPurchaseToPayload } from "./util/transformPurchaseToPayload";
-
 import PurchaseFormDialog from "./PurchaseFormDialog";
 import TextPreviewDialog from "@/components/TextPreviewDialog/TextPreviewDialog";
 import { getGenericGridColumns } from "@/constants/gridColumns";
@@ -62,7 +58,7 @@ export default function PurchasesDataGrid({ searchParams, supplierId }: Props) {
   };
 
   const handleEdit = (purchase: PurchasesPayload) => {
-    setSelectedPurchase(purchase);
+    setSelectedPurchase({...purchase, supplierId});
     setEditDialogOpen(true);
   };
 

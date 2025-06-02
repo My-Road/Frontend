@@ -76,7 +76,7 @@ export default function PaymentDataGrid({ searchParams, customerId }: Props) {
   };
 
   const handleEdit = (payment: CustomerPaymentPayload) => {
-    setSelectedPayment(payment);
+    setSelectedPayment({...payment, customerId});
     setEditDialogOpen(true);
   };
 
