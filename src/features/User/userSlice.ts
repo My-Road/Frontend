@@ -9,6 +9,7 @@ const initialState: User = {
   email: "",
   fullName: "",
   userRole: "",
+  exp: 0
 };
 
 const userSlice = createSlice({
