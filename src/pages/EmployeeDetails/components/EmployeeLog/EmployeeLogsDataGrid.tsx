@@ -61,8 +61,8 @@ export default function EmployeeLogsDataGrid({
     });
   };
 
-  const handleEdit = (employeeLog: EmployeeLogPayload) => {
-    setSelectedEmployeeLog(employeeLog);
+  const handleEdit = (employeeLog: EmployeeLogPayload) => {    
+    setSelectedEmployeeLog({...employeeLog, employeeId: employeeId});
     setEditDialogOpen(true);
   };
 

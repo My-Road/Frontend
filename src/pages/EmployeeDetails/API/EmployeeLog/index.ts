@@ -1,10 +1,9 @@
 import { axiosInstance } from "@/config/axios.config";
 import {
   EmployeeLogPayload,
-  EmployeeLog,
   SearchResponseForEmployeeLog,
 } from "../../types";
-import { SearchParams } from "@/types";
+import { EmployeeLog, SearchParams } from "@/types";
 export const addEmployeeLogAPI = async (payment: EmployeeLogPayload) => {
   const res = await axiosInstance.post(`/api/v1/employeelog`, payment);
   return res.data;
