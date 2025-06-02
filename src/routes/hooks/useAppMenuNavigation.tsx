@@ -8,6 +8,7 @@ import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import { useAppSelector } from "@/store";
 import { selectUserRole } from "@/features/User";
 import GroupIcon from "@mui/icons-material/Group";
+import FeedRoundedIcon from "@mui/icons-material/FeedRounded";
 const useAppMenuNavigation = () => {
   const userRole = useAppSelector(selectUserRole);
   const isAdmin = userRole === "Admin";
@@ -39,14 +40,19 @@ const useAppMenuNavigation = () => {
       items: [
         {
           label: "Customers Reports",
+          Icon: () => <FeedRoundedIcon />,
           link: "/me/reports/customers-orders",
         },
         {
           label: "Employees Reports",
+          Icon: () => <FeedRoundedIcon />,
+
           link: "/me/reports/employees-logs",
         },
         {
           label: "Purchases Reports",
+          Icon: () => <FeedRoundedIcon />,
+
           link: "/me/reports/purchases",
         },
       ],
