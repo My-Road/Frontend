@@ -26,7 +26,6 @@ export const getEmployeeLogsGridColumns = (
   },
   getGenericGridColumns(t).hourlyWage(),
   getGenericGridColumns(t).totalHours(),
-  getGenericGridColumns(t).dailyWage(),
   {
     ...getGenericGridColumns(t).actions(),
     renderCell: (params) => {

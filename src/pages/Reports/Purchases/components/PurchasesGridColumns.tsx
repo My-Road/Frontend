@@ -24,8 +24,6 @@ export const getPurchasesGridColumns = (
       return purchase.supplier?.address;
     },
   },
-  getGenericGridColumns(t).goodsDeliverer(),
-  getGenericGridColumns(t).goodsDelivererPhoneNumber(),
   getGenericGridColumns(t).quantity(),
   getGenericGridColumns(t).price(),
   {
