@@ -619,6 +619,7 @@
     "'Role' must not be empty.":"'الدور' لا يمكن أن يكون فارغًا.",
     "Role updated successfully":"تم تحديث الدور بنجاح",
     "Role must be either Admin or Manager":"يسمح بتعديل الدور إلى Admin أو Manager فقط",
-    "cannotChangeFactoryOwner":"لا يمكنك تغيير دور Factory Owner"
+    "cannotChangeFactoryOwner":"لا يمكنك تغيير دور Factory Owner",
+    "Your session has expired. Please sign in again to continue.": "انتهت صلاحية الجلسة. يرجى تسجيل الدخول مرة أخرى للمتابعة."
   }
 }
