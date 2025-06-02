@@ -5,7 +5,10 @@ export const validationSchema: yup.ObjectSchema<AddCustomerPayLoad> = yup.object
   customerName: yup
     .string()
     .required("Please enter your full name")
-    .min(2, "Full name must be at least 2 characters"),
+    .min(2, "Full name must be at least 2 characters")
+     .matches(
+      /^[A-Za-z\u0600-\u06FF\s]+$/,
+      "Name must contain letters only (Arabic or English)"),
 
   email: yup
     .string()
