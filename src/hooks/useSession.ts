@@ -1,6 +1,6 @@
 import { axiosInstance } from "@/config/axios.config";
 import { updateUserSession } from "@/features/User";
-import { getSession } from "@/lib/session";
+import { clearSession, getSession } from "@/lib/session";
 import { useAppDispatch } from "@/store";
 import { User } from "@/types/user";
 import { jwtDecode } from "jwt-decode";
@@ -25,6 +25,12 @@ const useSession = () => {
     }
     try {
       const payload = jwtDecode<User>(session);
+      if (payload.exp && Date.now() >= payload.exp * 1000) {
+        clearSession();
+        setState({ isLoggedIn: false, isUpdatingSession: false });
+        showErrorSnackbar({message: "Your session has expired. Please sign in again to continue."})
+        return;
+      }
       dispatch(updateUserSession(payload));
       axiosInstance.defaults.headers.common[
         "Authorization"

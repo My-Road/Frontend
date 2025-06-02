@@ -5,6 +5,7 @@ export interface User {
   email: string;
   fullName: string;
   userRole: UserRole;
+  exp: number
 }
 
 export type UserRole = "Admin" | "FactoryOwner"| "Manager" | ""
