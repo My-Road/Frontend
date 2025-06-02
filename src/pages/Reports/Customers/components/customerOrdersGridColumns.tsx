@@ -24,8 +24,6 @@ export const getCustomerOrdersGridColumns = (
       return order.customer.address;
     },
   },
-  getGenericGridColumns(t).recipientName(),
-  getGenericGridColumns(t).recipientPhoneNumber(),
   getGenericGridColumns(t).quantity(),
   getGenericGridColumns(t).price(),
   {
