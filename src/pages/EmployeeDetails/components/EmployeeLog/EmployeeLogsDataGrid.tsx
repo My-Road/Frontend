@@ -2,8 +2,8 @@ import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormikHelpers } from "formik";
-import { PaginationProps, SearchParams } from "@/types";
-import { EmployeeLogPayload, EmployeeLog } from "../../types";
+import { EmployeeLog, PaginationProps, SearchParams } from "@/types";
+import { EmployeeLogPayload } from "../../types";
 import { useSearchEmployeeLogs } from "../../hooks/useSearchEmployeeLogs";
 import useDeleteEmployeeLogAPI from "../../hooks/useDeleteEmployeeLogAPI";
 import useUpdateEmployeeLogDataAPI from "../../hooks/useUpdateEmployeeLogDataAPI";
@@ -16,6 +16,7 @@ import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import DataGridActions from "@/components/DataGridActions/DataGridActions";
+import { Typography } from "@mui/material";
 
 interface Props {
   searchParams: SearchParams;
@@ -61,8 +62,8 @@ export default function EmployeeLogsDataGrid({
     });
   };
 
-  const handleEdit = (employeeLog: EmployeeLogPayload) => {    
-    setSelectedEmployeeLog({...employeeLog, employeeId: employeeId});
+  const handleEdit = (employeeLog: EmployeeLogPayload) => {
+    setSelectedEmployeeLog({ ...employeeLog, employeeId: employeeId });
     setEditDialogOpen(true);
   };
 
@@ -98,9 +99,14 @@ export default function EmployeeLogsDataGrid({
     getGenericGridColumns(t).date(),
     getGenericGridColumns(t).checkIn(),
     getGenericGridColumns(t).checkOut(),
-    getGenericGridColumns(t).hourlyWage(),
     getGenericGridColumns(t).totalHours(),
-    getGenericGridColumns(t).dailyWage(),
+    getGenericGridColumns(t).hourlyWage(),
+    {...getGenericGridColumns(t).dailyWage(),
+      renderCell: (params: { row: EmployeeLog }) => {
+        const isComplete = params.row.isCompleted;
+        return !isComplete?(<Typography variant="caption" color="error">{t("Messages.Please enter the price")}</Typography>): params.row.dailyWage;
+      },
+    },
     {
       ...getGenericGridColumns(t).actions(),
       renderCell: (params) => (

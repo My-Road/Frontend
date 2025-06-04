@@ -56,7 +56,7 @@ export const employeeLogValidationSchema: yup.ObjectSchema<EmployeeLogPayload> =
     hourlyWage: yup
     .number()
     .typeError("Hourly wage must be a number")
-    .positive("Hourly wage must be more than 0")
+    .min(0, "Hourly wage must be more than 0")
     .required("Hourly wage is required")  .test("no-spaces", "Hourly Wage must not contain spaces", function (_, ctx) {
         const original = ctx.originalValue;
         return typeof original === "string"

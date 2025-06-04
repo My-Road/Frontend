@@ -1,4 +1,4 @@
-import { Employee, SearchParams } from "@/types";
+import { Employee, EmployeeLog, SearchParams } from "@/types";
 
 export type EmployeeData = Pick<
   Employee,
@@ -27,21 +27,6 @@ export interface Payment {
   id: number
 }
   
-  export interface EmployeeLog {
-    id: number;
-    employeeId: number;
-    employee: Employee | null;
-    date: string; 
-    checkIn: string; 
-    checkOut: string; 
-    hourlyWage: number;
-    notes: string;
-    createdByUserId: number;
-    isDeleted: string | null;
-    isCompleted: boolean;
-    totalHours: number;
-  }
-
   export interface EmployeeLogPayload {
     employeeId: number;
     date: string; 

@@ -13,6 +13,8 @@ import { Trans, useTranslation } from "react-i18next";
 import { useSnackBar } from "@/hooks/useSnackbar";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 import DatePickerField from "@/components/Fields/DatePickerField";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
 
 interface Props {
   employeeData: EmployeeData;
@@ -30,6 +32,7 @@ function EditEmployeeInfoForm({
   const { t } = useTranslation();
   const { showWarningSnackbar } = useSnackBar();
   const { showConfirmationDialog } = useConfirmationDialog();
+  const isManager = useAppSelector(isManagerRole);
 
   const onSubmit = (values: EmployeeData) => {
     const hasChanged = JSON.stringify(values) !== JSON.stringify(employeeData);
@@ -113,7 +116,7 @@ function EditEmployeeInfoForm({
               </Button>
             </>
           )}
-          {!isEditing && (
+          {!isEditing && !isManager && (
             <LoadingButton
               variant="text"
               onClick={handleDeleteClick}

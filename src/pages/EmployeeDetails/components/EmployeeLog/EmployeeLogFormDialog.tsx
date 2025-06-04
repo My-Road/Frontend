@@ -5,6 +5,8 @@ import { employeeLogValidationSchema } from "./formSchema";
 import GenericFormDialog from "@/components/GenericFormDialog";
 import DatePickerField from "@/components/Fields/DatePickerField";
 import TimePickerField from "@/components/Fields/TimePicker/TimePickerField";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
 
 interface Props {
   open: boolean;
@@ -28,6 +30,7 @@ const EmployeeLogFormDialog = ({
   title,
   formType = "add",
 }: Props) => {
+  const isManager = useAppSelector(isManagerRole);
   return (
     <GenericFormDialog<EmployeeLogPayload>
       open={open}
@@ -42,7 +45,9 @@ const EmployeeLogFormDialog = ({
       <DatePickerField name="date" />
       <TimePickerField name="checkIn" />
       <TimePickerField name="checkOut" />
-      <TextField name="hourlyWage" aria-label="enter a valid hourlyWage" />
+      {!isManager && (
+        <TextField name="hourlyWage" aria-label="enter a valid hourlyWage" />
+      )}
       <TextField
         name="notes"
         multiline
