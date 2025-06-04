@@ -54,7 +54,8 @@
     "fullyPaidToSupplier":"Fully Paid To Supplier",
      "noLogs":"No Logs",
     "fullyPaidToEmployee":"Fully Paid To Employee",
-    "youHavePayToEmployee":"You Have Pay To Employee"
+    "youHavePayToEmployee":"You Have Pay To Employee",
+    "Please enter the price": "Please enter the price"
   },
   "Textfields": {
     "userName": "Username",
@@ -620,6 +621,8 @@
     "Role updated successfully":"Role updated successfully",
     "Role must be either Admin or Manager":"Role must be either Admin or Manager",
     "cannotChangeFactoryOwner":"Cannot change factory owner",
-    "Your session has expired. Please sign in again to continue.": "Your session has expired. Please sign in again to continue."
+    "Your session has expired. Please sign in again to continue.": "Your session has expired. Please sign in again to continue.",
+    "The order price must be greater than zero.": "The order price must be greater than zero.",
+    "HourlyWage must be greater than 0": "HourlyWage must be greater than 0"
   }
 }

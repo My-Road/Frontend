@@ -54,7 +54,8 @@
     "fullyPaidToSupplier":"تم دفع كامل المبلغ للمورّد",
     "noLogs":"لا يوجد نشاط مسجل",
     "fullyPaidToEmployee":"تم دفع كامل المبلغ للموظف",
-    "youHavePayToEmployee":"عليك مستحقات للموظف"
+    "youHavePayToEmployee":"عليك مستحقات للموظف",
+    "Please enter the price": "يرجى ادخال السعر"
   },
   "Textfields": {
     "userName": "اسم المستخدم",
@@ -620,6 +621,8 @@
     "Role updated successfully":"تم تحديث الدور بنجاح",
     "Role must be either Admin or Manager":"يسمح بتعديل الدور إلى Admin أو Manager فقط",
     "cannotChangeFactoryOwner":"لا يمكنك تغيير دور Factory Owner",
-    "Your session has expired. Please sign in again to continue.": "انتهت صلاحية الجلسة. يرجى تسجيل الدخول مرة أخرى للمتابعة."
+    "Your session has expired. Please sign in again to continue.": "انتهت صلاحية الجلسة. يرجى تسجيل الدخول مرة أخرى للمتابعة.",
+    "The order price must be greater than zero.": "يجب أن يكون سعر الطلبية أكبر من الصفر",
+    "HourlyWage must be greater than 0": "سعر الساعة يجب ان يكون اكبر من صفر"
   }
 }
