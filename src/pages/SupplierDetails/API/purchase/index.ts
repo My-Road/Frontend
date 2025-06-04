@@ -1,10 +1,9 @@
 import { axiosInstance } from "@/config/axios.config";
 import {
   PurchasesPayload,
-  Purchase,
   SearchResponseForPurchases,
 } from "../../types";
-import { SearchParams } from "@/types";
+import { Purchase, SearchParams } from "@/types";
 
 export const addPurchaseAPI = async (payment: PurchasesPayload) => {
   const res = await axiosInstance.post<PurchasesPayload>(`/api/v1/purchases`, payment);

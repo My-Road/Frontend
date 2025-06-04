@@ -2,8 +2,8 @@ import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormikHelpers } from "formik";
-import { PaginationProps, SearchParams } from "@/types";
-import { PurchasesPayload, Purchase } from "../../types";
+import { PaginationProps, Purchase, SearchParams } from "@/types";
+import { PurchasesPayload } from "../../types";
 import { useSearchPurchases } from "../../hooks/useSearchPurchases";
 import useDeletePurchaseAPI from "../../hooks/useDeletePurchaseAPI";
 import useUpdatePurchaseDataAPI from "../../hooks/useUpdatePurchaseDataAPI";
@@ -16,6 +16,7 @@ import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import DataGridActions from "@/components/DataGridActions/DataGridActions";
+import { Typography } from "@mui/material";
 
 interface Props {
   searchParams: SearchParams;
@@ -58,7 +59,7 @@ export default function PurchasesDataGrid({ searchParams, supplierId }: Props) {
   };
 
   const handleEdit = (purchase: PurchasesPayload) => {
-    setSelectedPurchase({...purchase, supplierId});
+    setSelectedPurchase({ ...purchase, supplierId });
     setEditDialogOpen(true);
   };
 
@@ -68,7 +69,8 @@ export default function PurchasesDataGrid({ searchParams, supplierId }: Props) {
   ) => {
     if (!selectedPurchase) return;
 
-    const noChanges = JSON.stringify(values) === JSON.stringify(selectedPurchase);
+    const noChanges =
+      JSON.stringify(values) === JSON.stringify(selectedPurchase);
     if (noChanges) {
       helpers.setSubmitting(false);
       setEditDialogOpen(false);
@@ -96,11 +98,16 @@ export default function PurchasesDataGrid({ searchParams, supplierId }: Props) {
     getGenericGridColumns(t).quantity(),
     getGenericGridColumns(t).price(),
     {
-      ...getGenericGridColumns(t).duePrice(),
+      ...getGenericGridColumns(t).totalDueAmount(),
       renderCell: (params: { row: Purchase }) => {
-        const quantity = params.row.quantity ?? 0;
-        const price = params.row.price ?? 0;
-        return quantity * price;
+        const isComplete = params.row.isCompleted;
+        return !isComplete ? (
+          <Typography variant="caption" color="error">
+            {t("Messages.Please enter the price")}
+          </Typography>
+        ) : (
+          params.row.totalDueAmount
+        );
       },
     },
     {

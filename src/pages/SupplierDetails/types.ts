@@ -1,5 +1,4 @@
 import { Supplier, SearchParams, Purchase } from "@/types";
-export type { Supplier, SearchParams, Purchase };
 
 export type SupplierData = Pick<
 Supplier,
