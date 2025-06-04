@@ -2,8 +2,8 @@ import { GridColDef } from "@mui/x-data-grid";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormikHelpers } from "formik";
-import { PaginationProps, SearchParams } from "@/types";
-import { CustomerOrderPayload, Order } from "../../types";
+import { Order, PaginationProps, SearchParams } from "@/types";
+import { CustomerOrderPayload } from "../../types";
 import { useSearchOrders } from "../../hooks/useSearchOrders";
 import useDeleteOrderAPI from "../../hooks/useDeleteOrderAPI";
 import useUpdateOrderDataAPI from "../../hooks/useUpdateOrderDataAPI";
@@ -16,6 +16,7 @@ import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import DataGridActions from "@/components/DataGridActions/DataGridActions";
+import { Typography } from "@mui/material";
 
 interface Props {
   searchParams: SearchParams;
@@ -95,12 +96,10 @@ export default function OrdersDataGrid({ searchParams, customerId }: Props) {
     getGenericGridColumns(t).recipientPhoneNumber(),
     getGenericGridColumns(t).quantity(),
     getGenericGridColumns(t).price(),
-    {
-      ...getGenericGridColumns(t).duePrice(),
+    {...getGenericGridColumns(t).totalDueAmount(),
       renderCell: (params: { row: Order }) => {
-        const quantity = params.row.quantity ?? 0;
-        const price = params.row.price ?? 0;
-        return quantity * price;
+        const isComplete = params.row.isCompleted;
+        return !isComplete?(<Typography variant="caption" color="error">{t("Messages.Please enter the price")}</Typography>): params.row.totalDueAmount;
       },
     },
     {

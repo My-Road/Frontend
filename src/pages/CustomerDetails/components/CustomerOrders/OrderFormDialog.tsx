@@ -4,6 +4,8 @@ import { CustomerOrderPayload } from "../../types";
 import { validationSchema } from "./formSchema";
 import GenericFormDialog from "@/components/GenericFormDialog";
 import DatePickerField from "@/components/Fields/DatePickerField";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
 
 interface Props {
   open: boolean;
@@ -15,7 +17,7 @@ interface Props {
   ) => void;
   isPending: boolean;
   title: string;
-  formType?: string
+  formType?: string;
 }
 
 const OrderFormDialog = ({
@@ -25,8 +27,9 @@ const OrderFormDialog = ({
   onSubmit,
   isPending,
   title,
-  formType = "add"
+  formType = "add",
 }: Props) => {
+  const isManager = useAppSelector(isManagerRole);
 
   return (
     <GenericFormDialog<CustomerOrderPayload>
@@ -48,14 +51,10 @@ const OrderFormDialog = ({
         name="recipientPhoneNumber"
         aria-label="enter a valid phone number"
       />
-      <TextField
-        name="quantity"
-        aria-label="enter a valid quantity"
-      />
-      <TextField
-        name="price"
-        aria-label="enter a valid price"
-      />
+      <TextField name="quantity" aria-label="enter a valid quantity" />
+      {!isManager && (
+        <TextField name="price" aria-label="enter a valid price" />
+      )}
       <TextField
         name="notes"
         multiline
