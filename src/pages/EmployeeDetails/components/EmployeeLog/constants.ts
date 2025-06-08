@@ -7,5 +7,5 @@ export const initialValues : EmployeeLogPayload = {
     date : "",
     checkIn: "",
     checkOut: "",
-    hourlyWage:0
+    hourlyWage: 1
 }
