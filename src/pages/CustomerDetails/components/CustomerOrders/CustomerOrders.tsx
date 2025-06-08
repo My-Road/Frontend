@@ -15,7 +15,7 @@ interface Props {
 function CustomerOrders({ customerId }: Props) {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
-    sorts: "-orderDate",
+    sorts: "isCompleted, -orderDate",
   });
   return (
     <Paper>

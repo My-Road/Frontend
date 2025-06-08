@@ -1,9 +1,12 @@
 import { FormikHelpers } from "formik";
+import { Box, Grid2 as Grid } from "@mui/material";
 import TextField from "@/components/Fields/TextField";
+import DatePickerField from "@/components/Fields/DatePickerField";
+import GenericFormDialog from "@/components/GenericFormDialog";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
 import { PurchasesPayload } from "../../types";
 import { validationSchema } from "./formSchema";
-import GenericFormDialog from "@/components/GenericFormDialog";
-import DatePickerField from "@/components/Fields/DatePickerField";
 
 interface Props {
   open: boolean;
@@ -15,7 +18,7 @@ interface Props {
   ) => void;
   isPending: boolean;
   title: string;
-  formType?: string
+  formType?: string;
 }
 
 const PurchaseFormDialog = ({
@@ -25,8 +28,9 @@ const PurchaseFormDialog = ({
   onSubmit,
   isPending,
   title,
-  formType = "add"
+  formType = "add",
 }: Props) => {
+  const isManager = useAppSelector(isManagerRole);
 
   return (
     <GenericFormDialog<PurchasesPayload>
@@ -39,29 +43,52 @@ const PurchaseFormDialog = ({
       validationSchema={validationSchema}
       formType={formType}
     >
-      <DatePickerField name="purchasesDate" />
-      <TextField
-        name="goodsDeliverer"
-        aria-label="enter a valid goodsDeliverer name"
-      />
-      <TextField
-        name="goodsDelivererPhoneNumber"
-        aria-label="enter a valid phone number"
-      />
-      <TextField
-        name="quantity"
-        aria-label="enter a valid quantity"
-      />
-      <TextField
-        name="price"
-        aria-label="enter a valid price"
-      />
-      <TextField
-        name="notes"
-        multiline
-        rows={4}
-        aria-label="enter valid notes"
-      />
+      <Box sx={{ px: 2, py: 1 }}>
+        <Grid container spacing={2}>
+          <Grid size={{ xs: 12, sm: isManager ? 6 : 12 }}>
+            <DatePickerField name="purchasesDate" />
+          </Grid>
+          <Grid size={{ xs: 12, sm: 6 }}>
+            <TextField
+              name="goodsDeliverer"
+              aria-label="enter a valid goodsDeliverer name"
+              fullWidth
+            />
+          </Grid>
+          <Grid size={{ xs: 12, sm: 6 }}>
+            <TextField
+              name="goodsDelivererPhoneNumber"
+              aria-label="enter a valid phone number"
+              fullWidth
+            />
+          </Grid>
+          <Grid size={{ xs: 12, sm: 6 }}>
+            <TextField
+              name="quantity"
+              aria-label="enter a valid quantity"
+              fullWidth
+            />
+          </Grid>
+          {!isManager && (
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <TextField
+                name="price"
+                aria-label="enter a valid price"
+                fullWidth
+              />
+            </Grid>
+          )}
+          <Grid size={{ xs: 12 }}>
+            <TextField
+              name="notes"
+              multiline
+              rows={4}
+              aria-label="enter valid notes"
+              fullWidth
+            />
+          </Grid>
+        </Grid>
+      </Box>
     </GenericFormDialog>
   );
 };

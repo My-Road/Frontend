@@ -1,4 +1,4 @@
-import { Customer, SearchParams } from "@/types";
+import { Customer, Order, SearchParams } from "@/types";
 
 export type CustomerData = Pick<
   Customer,
@@ -16,24 +16,6 @@ export interface CustomerPaymentPayload {
   notes: string;
   customerId: number;
 }
-
-export interface Order {
-  id: number;
-  orderDate: string; 
-  recipientName: string;
-  recipientPhoneNumber: string;
-  quantity: number;
-  price: number;
-  totalDueAmount: number;
-  notes: string;
-  customerId: number;
-  customer: Customer | null; 
-  isDeleted: boolean;
-  deletedAt: string | null;
-  isCompleted: boolean;
-  createdByUserId: number;
-}
-
 
 export interface CustomerOrderPayload {
   recipientName: string;

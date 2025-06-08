@@ -15,7 +15,7 @@ interface Props {
 function EmployeeLog({ employeeId }: Props) {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
-    sorts: "-date",
+    sorts: "isCompleted, -date",
   });
   return (
     <Paper>

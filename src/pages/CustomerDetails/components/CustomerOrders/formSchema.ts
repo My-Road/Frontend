@@ -27,7 +27,7 @@ export const validationSchema: yup.ObjectSchema<CustomerOrderPayload> =
       .number()
       .typeError("Price must be a number")
       .required("Please enter the Price")
-      .positive("Price must be more than 0")
+      .min(0, "Price must be more than 0")
       .test("no-spaces", "Price must not contain spaces", function (_, ctx) {
         const original = ctx.originalValue;
         return typeof original === "string"

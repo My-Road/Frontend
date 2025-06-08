@@ -14,6 +14,9 @@ import { Customer } from "@/types";
 import { Trans } from "react-i18next";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import ArrowBackButton from "@/components/Buttons/ArrowBackButton/ArrowBackButton";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
+import AddOrderForm from "../CustomerOrders/AddOrderForm";
 
 interface Props {
   customerData: Customer;
@@ -22,6 +25,7 @@ interface Props {
 function PersonalCustomerInfo({ customerData }: Props) {
   const [isEditing, setIsEditing] = useState(false);
   const handleEditClick = () => setIsEditing(!isEditing);
+  const isManager = useAppSelector(isManagerRole);
 
   return (
     <Paper>
@@ -33,9 +37,11 @@ function PersonalCustomerInfo({ customerData }: Props) {
             <Trans i18nKey="PrivatePages.Customers.customerInformation">
               Customer Information
             </Trans>
-            <IconButton onClick={handleEditClick}>
-              {!isEditing && <EditIcon />}
-            </IconButton>
+            {!isManager && (
+              <IconButton onClick={handleEditClick}>
+                {!isEditing && <EditIcon />}
+              </IconButton>
+            )}
           </Box>
           <Divider />
         </Typography>
@@ -44,7 +50,11 @@ function PersonalCustomerInfo({ customerData }: Props) {
           isEditing={isEditing}
           setIsEditing={setIsEditing}
         />
-        <PaymentsCustomerInfo customerPayments={customerData} />
+        {isManager ? (
+          <AddOrderForm customerId={customerData.id} />
+        ) : (
+          <PaymentsCustomerInfo customerPayments={customerData} />
+        )}
       </Stack>
     </Paper>
   );

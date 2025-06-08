@@ -1,8 +1,7 @@
 import { axiosInstance } from "@/config/axios.config";
-import { CustomerOrderPayload, Order, SearchResponseForOrders } from "../../types";
-import { SearchParams } from "@/types";
-// import { SearchParams } from "@/types";
-// import { SearchResponse } from "@/pages/Customers/types";
+import { CustomerOrderPayload, SearchResponseForOrders } from "../../types";
+import { Order, SearchParams } from "@/types";
+
 
 export const addOrderAPI = async (payment: CustomerOrderPayload) => {
   const res = await axiosInstance.post(`/api/v1/order/`, payment);
@@ -23,6 +22,6 @@ export const deleteOrderAPI = async (id: number) => {
 };
 
 export const updateOrderDataAPI = async (customerOrder: CustomerOrderPayload) => {
-  const res = await axiosInstance.put(`/api/v1/order`, customerOrder);
-  return res.data as Order;
+  const res = await axiosInstance.put<Order>(`/api/v1/order`, customerOrder);
+  return res.data
 };

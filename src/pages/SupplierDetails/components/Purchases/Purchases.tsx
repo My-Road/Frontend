@@ -15,7 +15,7 @@ interface Props {
 function Purchases({ supplierId }: Props) {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
-    sorts: "-purchasesDate",
+    sorts: "isCompleted, -purchasesDate",
   });
   return (
     <Paper>

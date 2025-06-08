@@ -13,6 +13,8 @@ export const selectUserRole = createSelector(
   (user) => user.userRole
 );
 
+export const isManagerRole = createSelector(selectUser, (user) => user.userRole==="Manager")
+
 export const selectUserEmail = createSelector(selectUser, (user) => user.email);
 
 export const selectUserPhone = createSelector(selectUser, (user) => user.phone);

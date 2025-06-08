@@ -12,6 +12,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Trans, useTranslation } from "react-i18next";
 import { useSnackBar } from "@/hooks/useSnackbar";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
 
 interface Props {
   supplierData: SupplierData;
@@ -29,6 +31,7 @@ function EditSupplierInfoForm({
   const { t } = useTranslation();
   const { showWarningSnackbar } = useSnackBar();
   const { showConfirmationDialog } = useConfirmationDialog();
+  const isManager = useAppSelector(isManagerRole);
 
   const onSubmit = (values: SupplierData) => {
     const hasChanged = JSON.stringify(values) !== JSON.stringify(supplierData);
@@ -62,7 +65,7 @@ function EditSupplierInfoForm({
       title: t("Dialogs.Title.deleteSupplier"),
       message: t("Dialogs.confirmSupplierDelete"),
       onConfirm: () => deleteSupplier(supplierData.id),
-      isPending: isDeleting
+      isPending: isDeleting,
     });
   };
 
@@ -109,7 +112,7 @@ function EditSupplierInfoForm({
               </Button>
             </>
           )}
-          {!isEditing && (
+          {!isEditing && !isManager && (
             <LoadingButton
               variant="text"
               onClick={handleDeleteClick}
