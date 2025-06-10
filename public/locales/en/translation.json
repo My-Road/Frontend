@@ -111,7 +111,11 @@
     "supplierName": "Supplier Name",
     "goodsDelivererPhoneNumber":"Goods DelivererPhoneNumber",
     "goodsDeliverer": "Goods DelivererName",
-    "purchasesDate":"Purchases Date"
+    "purchasesDate":"Purchases Date",
+    "status": "Status",
+    "hasDue": "Has Due",
+    "paid": "Complete",
+    "all": "All"
   },
   "TextfieldErrors": {
     "Please enter your email": "Please enter your email",
