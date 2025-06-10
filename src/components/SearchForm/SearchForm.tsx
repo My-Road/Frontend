@@ -65,8 +65,15 @@ const SearchForm = <T extends object>({
               <Button
                 onClick={handleClearSearch}
                 variant="outlined"
-                color="secondary"
-                sx={{ minWidth: "120px" }}
+                sx={{
+                  minWidth: "120px",
+                  color: (theme) => theme.palette.secondary.light,
+                  borderColor: (theme) => theme.palette.secondary.light,
+                  "&:hover": {
+                    borderColor: (theme) => theme.palette.secondary.light,
+                    background:(theme) => theme.palette.secondary.contrastText
+                  },
+                }}
               >
                 <Trans i18nKey="Buttons.reset">Reset</Trans>
               </Button>
