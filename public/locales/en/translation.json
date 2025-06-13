@@ -365,7 +365,9 @@
       "confirmDeactivate":"Confirm Deactivate",
       "confirmActivate":"Confirm Activate",
       "editUser":"Edit User",
-      "confirmRoleChange":"Confirm Role Change"
+      "confirmRoleChange":"Confirm Role Change",
+      "dashboardOverview": "Dashboard Overview",
+      "profitvsExpense" : "Profit vs Expense"
     },
     "confirmCustomerDelete": "Are you sure you want to delete this Customer?",
     "confirmCustomerEdit": "Are you sure you want to edit this Customer?",
