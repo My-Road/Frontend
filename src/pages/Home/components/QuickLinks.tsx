@@ -30,13 +30,11 @@ const QuickLinks = () => {
       <Divider sx={{ mb: 3 }} />
 
       <Box
-        sx={{
-          display: "flex",
-          gap: 3,
-          justifyContent: "center",
-          flexWrap: "wrap",
-          mt: 2,
-        }}
+        display="flex"
+        gap={3}
+        justifyContent="center"
+        flexWrap="wrap"
+        mt={2}
       >
         <Button
           variant="contained"

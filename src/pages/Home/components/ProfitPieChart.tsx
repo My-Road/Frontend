@@ -26,7 +26,7 @@ const ProfitPieChart: React.FC = () => {
     <Paper sx={{ p: 3 }}>
       <Typography variant="h6">{t("Dialogs.Title.profitvsExpense")}</Typography>
       <Box
-        sx={{ height: 300 }}
+        height={300}
         alignItems={"center"}
         justifyContent={"center"}
         display={"flex"}

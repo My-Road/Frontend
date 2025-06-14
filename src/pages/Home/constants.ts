@@ -6,7 +6,8 @@ import InventorySharpIcon from "@mui/icons-material/InventorySharp";
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MoneyOffIcon from '@mui/icons-material/MoneyOff';
-
+import { Paper } from "@mui/material";
+import { styled } from "@mui/material/styles";
 export const ChartOptions = (data: number[]) => {
   const minValue = 0;
   const maxValue = Math.ceil(Math.max(...data) * 1.1); 
@@ -86,3 +87,18 @@ export const commonButtonSx = {
     boxShadow: 4,
   },
 };
+ export const StyledSummaryCard = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(3),
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  gap: theme.spacing(2),
+  boxShadow: theme.shadows[3],
+  borderRadius: theme.shape.borderRadius * 3,
+  cursor: "default",
+  transition: "transform 0.3s ease",
+  "&:hover": {
+    transform: "translateY(-8px)",
+    boxShadow: theme.shadows[6],
+  },
+}));
