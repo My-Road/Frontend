@@ -5,33 +5,34 @@ import {
   Chart as ChartJS,
   ArcElement,
   Tooltip,
-  Legend
+  Legend,
 } from "chart.js";
 import { useGetDashboardAPI } from "../hooks/useGetDashboardAPI";
 import { t } from "i18next";
+import { getProfitPieChartData } from "../utils/getProfitPieChartData";
+import { pieChartOptions } from "../constants";
+import { Loader } from "lucide-react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ProfitPieChart: React.FC = () => {
   const { data, isLoading } = useGetDashboardAPI();
 
-  if (isLoading || !data) return null;
+  if (isLoading || !data) return <Loader/>;
 
-  const chartData = {
-    labels: [t("Invoice.Labels.Profit"), t("Invoice.Labels.Expense")],
-    datasets: [
-      {
-        data: [data.profit, data.totalExpense],
-        backgroundColor: ["#2ecc71", "#e74c3c"],
-      },
-    ],
-  };
+  const chartData = getProfitPieChartData(data);
 
   return (
     <Paper sx={{ p: 3 }}>
       <Typography variant="h6">{t("Dialogs.Title.profitvsExpense")}</Typography>
-      <Box sx={{ height: 300 }}>
-        <Pie data={chartData} />
+      <Box
+        sx={{ height: 300 }}
+        alignItems={"center"}
+        justifyContent={"center"}
+        display={"flex"}
+        marginBottom={2}
+      >
+        <Pie data={chartData} options={pieChartOptions} />
       </Box>
     </Paper>
   );

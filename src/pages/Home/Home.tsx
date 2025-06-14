@@ -1,58 +1,56 @@
-import { Typography, Fade, Grow, Box } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Grid2 as Grid } from "@mui/material"; 
 import IncomeExpenseChart from "./components/IncomeExpenseChart";
 import ProfitPieChart from "./components/ProfitPieChart";
 import QuickLinks from "./components/QuickLinks";
 import SummarySection from "./components/SummarySection";
 import { useTranslation } from "react-i18next";
+import PageContainer from "@/containers/PageContainer";
+import { useGetDashboardAPI } from "./hooks/useGetDashboardAPI";
+import { Loader } from "lucide-react";
+import BaseCard from "@/components/BaseCard";
 
 const Home = () => {
   const { t } = useTranslation();
+  const { isLoading } = useGetDashboardAPI();
+  if (isLoading) return <Loader />;
 
   return (
-    <Grid container spacing={4}>
-      <Grid size={12}>
-        <Fade in={true} timeout={600}>
-          <Box>
+    <PageContainer>
+      <Grid container spacing={4}>
+        <Grid size={12}>
+          <BaseCard timeout={600}>
             <Typography variant="h4" fontWeight="bold" gutterBottom marginLeft={2}>
               {t("Dialogs.Title.dashboardOverview")}
             </Typography>
-          </Box>
-        </Fade>
-      </Grid>
+          </BaseCard>
+        </Grid>
 
-      <Grid size={{ xs: 12 }}>
-        <Grow in={true} timeout={600}>
-          <Box>
+        <Grid size={{ xs: 12 }}>
+          <BaseCard timeout={600}>
             <SummarySection />
-          </Box>
-        </Grow>
-      </Grid>
+          </BaseCard>
+        </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Grow in={true} timeout={700}>
-          <Box>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <BaseCard timeout={700}>
             <IncomeExpenseChart />
-          </Box>
-        </Grow>
-      </Grid>
+          </BaseCard>
+        </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Grow in={true} timeout={800}>
-          <Box>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <BaseCard timeout={800}>
             <ProfitPieChart />
-          </Box>
-        </Grow>
-      </Grid>
+          </BaseCard>
+        </Grid>
 
-      <Grid size={{ xs: 12 }}>
-        <Grow in={true} timeout={900}>
-          <Box>
+        <Grid size={{ xs: 12 }}>
+          <BaseCard timeout={900}>
             <QuickLinks />
-          </Box>
-        </Grow>
+          </BaseCard>
+        </Grid>
       </Grid>
-    </Grid>
+    </PageContainer>
   );
 };
 
