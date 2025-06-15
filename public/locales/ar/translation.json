@@ -637,6 +637,7 @@
     "cannotChangeFactoryOwner":"لا يمكنك تغيير دور Factory Owner",
     "Your session has expired. Please sign in again to continue.": "انتهت صلاحية الجلسة. يرجى تسجيل الدخول مرة أخرى للمتابعة.",
     "The order price must be greater than zero.": "يجب أن يكون سعر الطلبية أكبر من الصفر",
-    "HourlyWage must be greater than 0": "سعر الساعة يجب ان يكون اكبر من صفر"
+    "HourlyWage must be greater than 0": "سعر الساعة يجب ان يكون اكبر من صفر",
+    "Failed to print report": "تعذر طباعة التقرير"
   }
 }
