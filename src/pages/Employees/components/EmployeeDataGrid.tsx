@@ -16,15 +16,12 @@ interface EmployeeDataGridProps {
   searchParams: SearchParams;
 }
 
-export default function EmployeeDataGrid({
-  searchParams,
-}: EmployeeDataGridProps) {
+export default function EmployeeDataGrid({ searchParams }: EmployeeDataGridProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { showConfirmationDialog } = useConfirmationDialog();
-  const [paginationModel, setPaginationModel] = useState<PaginationProps>(
-    DEFAULT_PAGINATION_PROPS
-  );
+
+  const [paginationModel, setPaginationModel] = useState<PaginationProps>(DEFAULT_PAGINATION_PROPS);
 
   const { data, isLoading } = useSearchEmployees({
     ...searchParams,
@@ -68,6 +65,7 @@ export default function EmployeeDataGrid({
       },
     },
   ];
+
   return (
     <Box
       width="100%"

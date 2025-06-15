@@ -11,3 +11,7 @@ export interface SearchResponseForSuppliers extends SearchParams {
   items: Supplier[];
   totalCount: number;
 }
+export interface SearchFormValues {
+  supplierName: string;
+  status: string;
+}

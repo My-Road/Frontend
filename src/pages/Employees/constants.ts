@@ -1,4 +1,4 @@
-import { AddEmployeePayload } from "./types";
+import { AddEmployeePayload, SearchFormValues } from "./types";
 
 export const initialValues: AddEmployeePayload = {
   employeeName: "",
@@ -6,4 +6,9 @@ export const initialValues: AddEmployeePayload = {
   address: "",
   jobTitle: "",
   startDate: "",
+};
+
+export const initialSearchValues: SearchFormValues = {
+  employeeName: "",
+  status: "",
 };

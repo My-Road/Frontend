@@ -11,3 +11,8 @@ export interface SearchResponseForCustomers extends SearchParams {
   items: Customer[];
   totalCount: number;
 }
+
+export interface SearchFormValues {
+  customerName: string;
+  status: string;
+}

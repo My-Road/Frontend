@@ -12,3 +12,8 @@ export interface SearchResponseForEmployees extends SearchParams {
   items: Employee[];
   totalCount: number;
 }
+
+export interface SearchFormValues {
+  employeeName: string;
+  status: string;
+}

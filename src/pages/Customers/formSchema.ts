@@ -29,3 +29,8 @@ export const validationSchema: yup.ObjectSchema<AddCustomerPayLoad> = yup.object
     .required("Please enter your address")
     .min(3, "Address must be at least 3 characters"),
 });
+
+export const SearchFormSchema = yup.object().shape({
+  customerName: yup.string(),
+  status: yup.string(),
+});

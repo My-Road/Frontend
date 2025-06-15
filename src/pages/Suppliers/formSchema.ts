@@ -3,9 +3,13 @@ import { AddSupplierPayLoad } from "./types";
 
 export const validationSchema: yup.ObjectSchema<AddSupplierPayLoad> = yup.object({
   supplierName: yup
-    .string()
+     .string()
     .required("Please enter your full name")
-    .min(2, "Full name must be at least 2 characters"),
+    .min(2, "Full name must be at least 2 characters")
+    .matches(
+      /^[A-Za-z\u0600-\u06FF\s]+$/,
+      "Name must contain letters only (Arabic or English)"
+    ),
 
   email: yup
     .string()
@@ -15,7 +19,7 @@ export const validationSchema: yup.ObjectSchema<AddSupplierPayLoad> = yup.object
     .notRequired(),
 
   phoneNumber: yup
-    .string()
+     .string()
     .min(10, "Phone number must be at least 10 characters")
     .max(14, "Phone number must be at most 14 characters")
     .matches(/^\+?\d{9,15}$/, "Phone number must contain numbers only")
@@ -25,4 +29,9 @@ export const validationSchema: yup.ObjectSchema<AddSupplierPayLoad> = yup.object
     .string()
     .required("Please enter your address")
     .min(3, "Address must be at least 3 characters"),
+});
+
+export const SearchFormSchema = yup.object().shape({
+  supplierName: yup.string(),
+  status: yup.string(),
 });
