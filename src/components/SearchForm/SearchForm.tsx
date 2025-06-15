@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Button, Paper, Stack } from "@mui/material";
+import { Paper, Stack } from "@mui/material";
 import { Form, FormikProvider, useFormik } from "formik";
-import { Trans } from "react-i18next";
 import { GenericSearchFormProps } from "./types";
 import SearchButton from "../Buttons/SearchButton/SearchButton";
+import ResetButton from "../Buttons/ResetButton/ResetButton";
 
 const SearchForm = <T extends object>({
   initialValues,
@@ -44,10 +44,7 @@ const SearchForm = <T extends object>({
   };
 
   return (
-    <Paper
-      elevation={4}
-      sx={{ p: 4, borderRadius: 4, my: 5, bgcolor: "white" }}
-    >
+    <Paper elevation={4} sx={{ p: 4, borderRadius: 4, my: 5, bgcolor: "white" }}>
       <FormikProvider value={formikProps}>
         <Form>
           <Stack
@@ -57,27 +54,8 @@ const SearchForm = <T extends object>({
             gap={2}
           >
             {renderFields()}
-            <SearchButton
-              disabled={!isAnyFieldFilled || isSearching}
-              loading={isSearching}
-            />
-            {searchMode && (
-              <Button
-                onClick={handleClearSearch}
-                variant="outlined"
-                sx={{
-                  minWidth: "120px",
-                  color: (theme) => theme.palette.secondary.light,
-                  borderColor: (theme) => theme.palette.secondary.light,
-                  "&:hover": {
-                    borderColor: (theme) => theme.palette.secondary.light,
-                    background:(theme) => theme.palette.secondary.contrastText
-                  },
-                }}
-              >
-                <Trans i18nKey="Buttons.reset">Reset</Trans>
-              </Button>
-            )}
+            <SearchButton disabled={!isAnyFieldFilled || isSearching} loading={isSearching} />
+            {searchMode && <ResetButton onClick={handleClearSearch} />}
           </Stack>
         </Form>
       </FormikProvider>
