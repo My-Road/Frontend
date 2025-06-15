@@ -4,14 +4,14 @@ import { useGetDashboardAPI } from "../hooks/useGetDashboardAPI";
 import { useTranslation } from "react-i18next";
 import { getSummaryData ,StyledSummaryCard  } from "../constants";
 import { Grow } from "@mui/material";
-import { Loader } from "lucide-react";
+import Loader from "@/components/Loader";
 
 const SummarySection = () => {
   const { data, isLoading } = useGetDashboardAPI();
   const { t } = useTranslation();
 
   if (isLoading || !data) {
-    return <Loader />;
+    return <Loader/>;
   }
 
   const summaryData = getSummaryData(t).map((item) => ({

@@ -14,7 +14,7 @@ import { useGetDashboardAPI } from "../hooks/useGetDashboardAPI";
 import { getIncomeExpenseChartData } from "../utils/getIncomeExpenseChartData";
 import { ChartOptions } from "../constants";
 import { t } from "i18next";
-import { Loader } from "lucide-react";
+import Loader from "@/components/Loader";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend, ChartDataLabels);
 

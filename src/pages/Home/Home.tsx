@@ -7,7 +7,7 @@ import SummarySection from "./components/SummarySection";
 import { useTranslation } from "react-i18next";
 import PageContainer from "@/containers/PageContainer";
 import { useGetDashboardAPI } from "./hooks/useGetDashboardAPI";
-import { Loader } from "lucide-react";
+import Loader from "@/components/Loader";
 import BaseCard from "@/components/BaseCard";
 
 const Home = () => {

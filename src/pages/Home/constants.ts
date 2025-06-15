@@ -96,9 +96,4 @@ export const commonButtonSx = {
   boxShadow: theme.shadows[3],
   borderRadius: theme.shape.borderRadius * 3,
   cursor: "default",
-  transition: "transform 0.3s ease",
-  "&:hover": {
-    transform: "translateY(-8px)",
-    boxShadow: theme.shadows[6],
-  },
 }));

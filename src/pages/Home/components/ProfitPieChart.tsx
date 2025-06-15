@@ -11,7 +11,7 @@ import { useGetDashboardAPI } from "../hooks/useGetDashboardAPI";
 import { t } from "i18next";
 import { getProfitPieChartData } from "../utils/getProfitPieChartData";
 import { pieChartOptions } from "../constants";
-import { Loader } from "lucide-react";
+import Loader from "@/components/Loader";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
