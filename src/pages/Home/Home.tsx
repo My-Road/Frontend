@@ -18,9 +18,14 @@ const Home = () => {
   return (
     <PageContainer>
       <Grid container spacing={4}>
-        <Grid size={12}>
+        <Grid size={{ xs: 12 }}>
           <BaseCard timeout={600}>
-            <Typography variant="h4" fontWeight="bold" gutterBottom marginLeft={2}>
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              gutterBottom
+              sx={{ ml: { xs: 1, sm: 2 } }}
+            >
               {t("Dialogs.Title.dashboardOverview")}
             </Typography>
           </BaseCard>
