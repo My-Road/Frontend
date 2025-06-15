@@ -44,7 +44,10 @@
     "deactivate":"غير مفعل",
     "activate":"مفعل",
     "supplierDetails":"تفاصيل ٱلْمُوَرِّد",
-    "employeeDetails": "تفاصيل الموظف"
+    "employeeDetails": "تفاصيل الموظف",
+    "GoToEmployees" : "اذهب الى صفحة الموظفين",
+    "GoToCustomers" : "اذهب الى صفحة الزبائن",
+    "GoToSuppliers" : "اذهب الى صفحة ٱلْمُوَرِّدين"
   },
   "Messages":{
     "heHasDues": "عليه مستحقات",
@@ -335,7 +338,14 @@
         "hourlyWage":"سعر الساعة",
         "totalHours": "ساعات العمل",
         "dailyWage": "السعر المستحق",
-        "employeeLogComplete": "السجل مكتمل"
+        "employeeLogComplete": "السجل مكتمل",
+        "Employees": "الموظفين",
+        "Suppliers": "ٱلْمُوَرِّدين",
+        "Customers" : "الزبائن",
+        "Profit" : "الربح",
+        "Income" : "الايرادات",
+        "Expense" :"المصاريف",
+        "Monthly Overview" : "النظرة العامة الشهرية"
       }
     },
   "Dialogs": {
@@ -364,7 +374,11 @@
       "confirmDeactivate":"الغاء التفعيل",
       "confirmActivate":"تفعيل",
       "editUser":"تعديل بيانات المستخدم",
-      "confirmRoleChange":"تعديل دور المستخدم"
+      "confirmRoleChange":"تعديل دور المستخدم",
+      "dashboardOverview":"نظرة عامة",
+      "profitvsExpense" : " الربح مقابل المصاريف",
+      "Monthly Income & Expense" : "الايرادات والمصاريف الشهرية",
+      "quickLinks" : "روابط سريعة"
 
     },
     "confirmCustomerDelete": "هل انت متأكد من حذف هذا الزبون؟",

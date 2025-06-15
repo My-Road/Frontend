@@ -1,26 +1,56 @@
-import { FC } from "react";
-import { useSelector } from "react-redux";
-import {
-  selectUserEmail,
-  selectIsLoggedIn,
-  selectUser
-} from "@/features/User";
-import { Box } from "@mui/material";
+import { Typography } from "@mui/material";
+import { Grid2 as Grid } from "@mui/material"; 
+import IncomeExpenseChart from "./components/IncomeExpenseChart";
+import ProfitPieChart from "./components/ProfitPieChart";
+import QuickLinks from "./components/QuickLinks";
+import SummarySection from "./components/SummarySection";
+import { useTranslation } from "react-i18next";
+import PageContainer from "@/containers/PageContainer";
+import { useGetDashboardAPI } from "./hooks/useGetDashboardAPI";
+import Loader from "@/components/Loader";
+import BaseCard from "@/components/BaseCard";
 
-const Home: FC = () => {
-  const userEmail = useSelector(selectUserEmail);
-  const isLogged = useSelector(selectIsLoggedIn);
-  const user = useSelector(selectUser);
+const Home = () => {
+  const { t } = useTranslation();
+  const { isLoading } = useGetDashboardAPI();
+  if (isLoading) return <Loader />;
 
   return (
-    <Box>
-      Welcome {user.fullName}
-      {isLogged && <Box style={{ display: "block" }}>Hello World with id {user.uid}</Box>}
-      <Box>
-        Email: {userEmail} 
-        User Role: {user.userRole}
-      </Box>
-    </Box>
+    <PageContainer>
+      <Grid container spacing={4}>
+        <Grid size={12}>
+          <BaseCard timeout={600}>
+            <Typography variant="h4" fontWeight="bold" gutterBottom marginLeft={2}>
+              {t("Dialogs.Title.dashboardOverview")}
+            </Typography>
+          </BaseCard>
+        </Grid>
+
+        <Grid size={{ xs: 12 }}>
+          <BaseCard timeout={600}>
+            <SummarySection />
+          </BaseCard>
+        </Grid>
+
+        <Grid size={{ xs: 12, md: 6 }}>
+          <BaseCard timeout={700}>
+            <IncomeExpenseChart />
+          </BaseCard>
+        </Grid>
+
+        <Grid size={{ xs: 12, md: 6 }}>
+          <BaseCard timeout={800}>
+            <ProfitPieChart />
+          </BaseCard>
+        </Grid>
+
+        <Grid size={{ xs: 12 }}>
+          <BaseCard timeout={900}>
+            <QuickLinks />
+          </BaseCard>
+        </Grid>
+      </Grid>
+    </PageContainer>
   );
 };
 

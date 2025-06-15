@@ -44,7 +44,10 @@
     "deactivate":"deactivate",
     "activate":"activate",
     "supplierDetails":"Supplier Details",
-    "employeeDetails": "Employee Details"
+    "employeeDetails": "Employee Details",
+    "GoToEmployees" : "Go to Employees",
+    "GoToCustomers" : "Go to Customers",
+    "GoToSuppliers" : "Go to Suppliers"
   },
   "Messages":{
     "heHasDues": "He has dues",
@@ -336,7 +339,14 @@
         "hourlyWage":"Hourly Wage",
         "totalHours": "total Hours",
         "dailyWage": "Daily Wage",
-        "employeeLogComplete": "employee Log Complete"
+        "employeeLogComplete": "employee Log Complete",
+        "Employees": "Employees",
+        "Suppliers": "Suppliers",
+        "Customers" : "Customers",
+        "Profit" : "Profit",
+        "Income" : "Income",
+        "Expense" :"Expense",
+        "Monthly Overview" : "Monthly Overview"
       }
     },
   "Dialogs": {
@@ -365,7 +375,11 @@
       "confirmDeactivate":"Confirm Deactivate",
       "confirmActivate":"Confirm Activate",
       "editUser":"Edit User",
-      "confirmRoleChange":"Confirm Role Change"
+      "confirmRoleChange":"Confirm Role Change",
+      "dashboardOverview": "Dashboard Overview",
+      "profitvsExpense" : "Profit vs Expense",
+      "Monthly Income & Expense" : "Monthly Income & Expense",
+      "quickLinks" : "Quick Links"
     },
     "confirmCustomerDelete": "Are you sure you want to delete this Customer?",
     "confirmCustomerEdit": "Are you sure you want to edit this Customer?",
