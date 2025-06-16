@@ -11,7 +11,7 @@ const EmployeeSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
     const filtersArray: string[] = [];
 
     if (values.employeeName)
-      filtersArray.push(`employeeName@=${values.employeeName}`);
+      filtersArray.push(`fullName@=${values.employeeName}`);
 
     if (values.status !== "all")
       filtersArray.push(`RemainingAmount > 0`);

@@ -11,7 +11,7 @@ const SupplierSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
     const filtersArray: string[] = [];
 
     if (values.supplierName)
-      filtersArray.push(`supplierName@=${values.supplierName}`);
+      filtersArray.push(`fullName@=${values.supplierName}`);
 
     if (values.status !== "all")
       filtersArray.push(`RemainingAmount > 0`);

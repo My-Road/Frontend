@@ -10,6 +10,7 @@ const ResetButton = ({ onClick }: ResetButtonProps) => {
         variant="outlined"
         color="secondary"
         sx={{
+          minWidth: 120,
           color: (theme) => theme.palette.secondary.light,
           borderColor: (theme) => theme.palette.secondary.light,
           "&:hover": {
