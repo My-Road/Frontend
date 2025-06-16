@@ -76,6 +76,7 @@ export interface Supplier
 }
 
 export interface Employee {
+  status: string;
   id: number;
   employeeName: string;
   phoneNumber: string;

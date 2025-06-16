@@ -4,7 +4,7 @@ export const APP_SIDE_DRAWER_WIDTH = 240;
 
 export const NAVBAR_HEIGHT = 64;
 
-export const APP_LAYOUT_CONTAINER_ID = "anhar-app-layout-container";
+export const APP_LAYOUT_CONTAINER_ID = "myRoad-app-layout-container";
 
 //remove it with deployment
 export const MAIN_COLOR_HEX = "#1976d2";
@@ -42,4 +42,3 @@ export const DEFAULT_PAGINATION_PROPS: PaginationProps = {
   page: 0,
   pageSize: 15,
 };
-

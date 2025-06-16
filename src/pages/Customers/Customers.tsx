@@ -4,11 +4,11 @@ import CustomerDataGrid from "./components/CustomerDataGrid";
 import { useState } from "react";
 import { SearchParams } from "@/types";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
-import SearchFormByName from "@/components/SearchFormByName";
 import { Trans } from "react-i18next";
 import { Box } from "@mui/material";
 import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
 import routeHOC from "@/routes/HOCs/routeHOC";
+import CustomerSearchForm from "./components/CustomerSearchForm";
 
 const Customers = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
@@ -33,7 +33,7 @@ const Customers = () => {
           </Typography>
           <Divider />
           <Box mb={4}>
-            <SearchFormByName
+            <CustomerSearchForm
               setSearchParams={setSearchParams}
               name="customerName"
               sortsBy="isDeleted"

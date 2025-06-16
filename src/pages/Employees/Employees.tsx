@@ -11,15 +11,15 @@ import EmployeeDataGrid from "./components/EmployeeDataGrid";
 import { useState } from "react";
 import { SearchParams } from "@/types";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
-import SearchFormByName from "@/components/SearchFormByName";
 import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
 import { Trans } from "react-i18next";
 import routeHOC from "@/routes/HOCs/routeHOC";
+import EmployeeSearchForm from "./components/EmployeeSearchForm";
 
 const Employees = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
-    sorts: "-isActive",
+    sorts: "-isActive", 
   });
 
   return (
@@ -40,10 +40,10 @@ const Employees = () => {
           </Typography>
           <Divider />
           <Box mb={4}>
-            <SearchFormByName
+            <EmployeeSearchForm
               setSearchParams={setSearchParams}
               name="employeeName"
-              sortsBy="-isActive"
+              sortsBy="isDeleted"
             />
           </Box>
           <EmployeeDataGrid searchParams={searchParams} />

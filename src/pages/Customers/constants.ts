@@ -1,4 +1,4 @@
-import { AddCustomerPayLoad } from "./types";
+import { AddCustomerPayLoad, SearchFormValues } from "./types";
 
 export const initialValues: AddCustomerPayLoad = {
   customerName: "",
@@ -6,3 +6,8 @@ export const initialValues: AddCustomerPayLoad = {
   phoneNumber: "",
   address: "",
 };
+
+export const initialSearchValues: SearchFormValues = {
+  customerName: "",
+  status: ""
+}

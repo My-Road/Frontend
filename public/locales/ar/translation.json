@@ -114,7 +114,13 @@
     "supplierName": "اسم ٱلْمُوَرِّد",
     "goodsDelivererPhoneNumber":"رقم هاتف الموزّع",
     "goodsDeliverer": "اسم الموزّع",
-    "purchasesDate":"تاريخ الشراء"
+    "purchasesDate":"تاريخ الشراء",
+    "status": "الحالة",
+    "hasDue": "عليه مستحقات",
+    "paid": "مدفوع",
+    "all": "الكل",
+    "employeeHasReceivable" : "عليك مستحقات للموظف",
+    "supplierHasReceivable" : "عليك مستحقات للمُوَرِّد"
   },
   "TextfieldErrors": {
     "Please enter your email": "ادخل البريد الالكتروني",

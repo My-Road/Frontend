@@ -10,8 +10,8 @@ import { Paper } from "@mui/material";
 import { styled } from "@mui/material/styles";
 export const ChartOptions = (data: number[]) => {
   const minValue = 0;
-  const maxValue = Math.ceil(Math.max(...data) * 1.1); 
-  const stepSize = Math.ceil(maxValue / 5); 
+  const maxValue = Math.ceil(Math.max(...data) * 1.1);
+  const stepSize = Math.ceil(maxValue / 5);
 
   return {
     scales: {
@@ -22,6 +22,16 @@ export const ChartOptions = (data: number[]) => {
           callback: (value: number | string) =>
             typeof value === "number" ? value.toLocaleString() : value,
           stepSize,
+          font: {
+            size: 10,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 10,
+          },
         },
       },
     },
@@ -34,9 +44,10 @@ export const ChartOptions = (data: number[]) => {
         color: "#000",
         anchor: "end" as const,
         align: "top" as const,
+        clamp: true,
         font: {
           weight: "bold" as const,
-          size: 12,
+          size: 10,
         },
         formatter: (value: number) => value.toLocaleString(),
       },
@@ -79,15 +90,29 @@ export const getSummaryData = (t: TFunction) => [
 export const commonButtonSx = {
   borderRadius: 3,
   px: 3,
+  py: 1.5,
   textTransform: "none",
   boxShadow: 2,
+  fontSize: {
+    xs: "0.75rem",
+    sm: "0.875rem",
+  },
+  width: {
+    xs: "100%",
+    sm: "auto",
+  },
+  gap: 1.5,
   transition: "all 0.3s ease",
   "&:hover": {
     transform: "translateY(-2px)",
     boxShadow: 4,
   },
+  "& .MuiButton-endIcon": {
+    fontSize: "20px",
+  },
 };
- export const StyledSummaryCard = styled(Paper)(({ theme }) => ({
+
+export const StyledSummaryCard = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(3),
   height: "100%",
   display: "flex",

@@ -11,7 +11,7 @@ const SearchButton: FC<SearchButtonProp> = ({ disabled, loading }) => {
       variant="outlined"
       color="primary"
       endIcon={<SearchIcon />}
-      sx={{ minWidth: 100 }}
+      sx={{ minWidth: 120 }}
       disabled={disabled}
       loading={loading}
     >

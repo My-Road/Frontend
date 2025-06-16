@@ -11,11 +11,10 @@ import SupplierDataGrid from "./components/SupplierDataGrid";
 import { useState } from "react";
 import { SearchParams } from "@/types";
 import { DEFAULT_SEARCH_PARAMS } from "@/constants";
-import SearchFormByName from "@/components/SearchFormByName";
 import { Trans } from "react-i18next";
 import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
 import routeHOC from "@/routes/HOCs/routeHOC";
-
+import SupplierSearchForm from "./components/SupplierSearchForm";
 const Suppliers = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
@@ -39,7 +38,7 @@ const Suppliers = () => {
           </Typography>
           <Divider />
           <Box mb={4}>
-            <SearchFormByName
+            <SupplierSearchForm
               setSearchParams={setSearchParams}
               name="supplierName"
               sortsBy="isDeleted"
