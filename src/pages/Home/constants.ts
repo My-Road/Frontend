@@ -3,10 +3,10 @@ import { TooltipItem } from "chart.js";
 import GroupsIcon from "@mui/icons-material/Groups";
 import BadgeTwoToneIcon from "@mui/icons-material/BadgeTwoTone";
 import InventorySharpIcon from "@mui/icons-material/InventorySharp";
-import ShowChartIcon from '@mui/icons-material/ShowChart';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import MoneyOffIcon from '@mui/icons-material/MoneyOff';
-import { Paper } from "@mui/material";
+import ShowChartIcon from "@mui/icons-material/ShowChart";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import MoneyOffIcon from "@mui/icons-material/MoneyOff";
+import { Paper, PaperProps } from "@mui/material";
 import { styled } from "@mui/material/styles";
 export const ChartOptions = (data: number[]) => {
   const minValue = 0;
@@ -79,12 +79,36 @@ export const pieChartOptions = {
 };
 
 export const getSummaryData = (t: TFunction) => [
-  { label: t("Invoice.Labels.Employees"), valueKey: "employeeCount", icon: BadgeTwoToneIcon },
-  { label: t("Invoice.Labels.Suppliers"), valueKey: "supplierCount", icon: InventorySharpIcon },
-  { label: t("Invoice.Labels.Customers"), valueKey: "customerCount", icon: GroupsIcon },
-  { label: t("Invoice.Labels.Profit"), valueKey: "profit", icon: ShowChartIcon },
-  { label: t("Invoice.Labels.Income"), valueKey: "totalIncomePaid", icon: AttachMoneyIcon },
-  { label: t("Invoice.Labels.Expense"), valueKey: "totalExpensePaid", icon: MoneyOffIcon },
+  {
+    label: t("Invoice.Labels.Employees"),
+    valueKey: "employeeCount",
+    icon: BadgeTwoToneIcon,
+  },
+  {
+    label: t("Invoice.Labels.Suppliers"),
+    valueKey: "supplierCount",
+    icon: InventorySharpIcon,
+  },
+  {
+    label: t("Invoice.Labels.Customers"),
+    valueKey: "customerCount",
+    icon: GroupsIcon,
+  },
+  {
+    label: t("Invoice.Labels.Profit"),
+    valueKey: "profit",
+    icon: ShowChartIcon,
+  },
+  {
+    label: t("Invoice.Labels.Income"),
+    valueKey: "totalIncomePaid",
+    icon: AttachMoneyIcon,
+  },
+  {
+    label: t("Invoice.Labels.Expense"),
+    valueKey: "totalExpensePaid",
+    icon: MoneyOffIcon,
+  },
 ];
 
 export const commonButtonSx = {
@@ -112,7 +136,30 @@ export const commonButtonSx = {
   },
 };
 
-export const StyledSummaryCard = styled(Paper)(({ theme }) => ({
+export const bgColors = [
+  "#E3F2FD", // Light blue - Employees
+  "#FCE4EC", // Light pink - Suppliers
+  "#F1F8E9", // Light green - Customers
+  "#FFF8E1", // Soft yellow - Profit
+  "#E8F5E9", // Pale mint - Income
+  "#FBE9E7", // Peach - Expense
+];
+
+export const iconColors = [
+  "#1976D2", // Strong blue - Employees
+  "#D81B60", // Rose pink - Suppliers
+  "#388E3C", // Green - Customers
+  "#F9A825", // Amber - Profit
+  "#2E7D32", // Dark green - Income
+  "#E53935", // Red - Expense
+];
+interface StyledCardProps extends PaperProps {
+  bgcolor?: string;
+}
+
+export const StyledSummaryCard = styled(Paper, {
+  shouldForwardProp: (prop) => prop !== "bgcolor",
+})<StyledCardProps>(({ theme, bgcolor }) => ({
   padding: theme.spacing(3),
   height: "100%",
   display: "flex",
@@ -121,4 +168,5 @@ export const StyledSummaryCard = styled(Paper)(({ theme }) => ({
   boxShadow: theme.shadows[3],
   borderRadius: theme.shape.borderRadius * 3,
   cursor: "default",
+  backgroundColor: bgcolor || theme.palette.background.paper, 
 }));
