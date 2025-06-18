@@ -1,5 +1,4 @@
-import React from "react";
-import { Bar } from "react-chartjs-2";
+import React, { useEffect, useRef } from "react";
 import { Box, Typography, Paper } from "@mui/material";
 import {
   Chart as ChartJS,
@@ -8,6 +7,8 @@ import {
   BarElement,
   Tooltip,
   Legend,
+  BarController,
+  Chart,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { useGetDashboardAPI } from "../hooks/useGetDashboardAPI";
@@ -16,22 +17,49 @@ import { ChartOption } from "../constants";
 import { t } from "i18next";
 import Loader from "@/components/Loader";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend, ChartDataLabels);
+// ✅ Register everything needed for bar chart
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend, ChartDataLabels, BarController);
 
 const IncomeExpenseChart: React.FC = () => {
   const { data, isLoading } = useGetDashboardAPI();
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  if (isLoading || !data) return <Loader/>;
+  useEffect(() => {
+    if (!data || !canvasRef.current) return;
 
-  const chartData = getIncomeExpenseChartData(data);
-  const dataArray = chartData.datasets[0].data as number[];
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // ✅ Destroy existing chart if it exists
+    const existingChart = Chart.getChart(canvas);
+    if (existingChart) existingChart.destroy();
+
+    const chartData = getIncomeExpenseChartData(data);
+    const dataArray = chartData.datasets[0].data as number[];
+
+    new ChartJS(ctx, {
+      type: "bar",
+      data: chartData,
+      options: ChartOption(dataArray),
+      plugins: [ChartDataLabels],
+    });
+             console.log(data)
+    return () => {
+      const chart = Chart.getChart(canvas);
+      if (chart) chart.destroy();
+    };
+  }, [data]);
+
+  if (isLoading || !data) return <Loader />;
+
   return (
     <Paper sx={{ p: 3 }}>
       <Typography variant="h6" mb={2}>
         {t("Dialogs.Title.Monthly Income & Expense")}
       </Typography>
       <Box sx={{ height: 300 }}>
-        <Bar data={chartData} options={ChartOption(dataArray)} />
+        <canvas ref={canvasRef} />
       </Box>
     </Paper>
   );
