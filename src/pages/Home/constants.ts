@@ -1,5 +1,5 @@
 import { TFunction } from "i18next";
-import { TooltipItem } from "chart.js";
+import type { ChartOptions, TooltipItem } from "chart.js";
 import GroupsIcon from "@mui/icons-material/Groups";
 import BadgeTwoToneIcon from "@mui/icons-material/BadgeTwoTone";
 import InventorySharpIcon from "@mui/icons-material/InventorySharp";
@@ -8,7 +8,7 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import MoneyOffIcon from "@mui/icons-material/MoneyOff";
 import { Paper, PaperProps } from "@mui/material";
 import { styled } from "@mui/material/styles";
-export const ChartOptions = (data: number[]) => {
+export const ChartOption = (data: number[]) => {
   const minValue = 0;
   const maxValue = Math.ceil(Math.max(...data) * 1.1);
   const stepSize = Math.ceil(maxValue / 5);
@@ -65,15 +65,33 @@ export const ChartOptions = (data: number[]) => {
   };
 };
 
-export const pieChartOptions = {
+export const pieChartOptions: ChartOptions<'pie'> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: "top" as const,
+      position: "top",
     },
     tooltip: {
       enabled: true,
+      callbacks: {
+        label: (context: TooltipItem<'pie'>) => {
+          const dataset = context.dataset;
+          const data = Array.isArray(dataset.data) ? dataset.data : [];
+
+          const total = data.reduce((sum, val) => {
+            const numeric = typeof val === "number" ? val : parseFloat(val as string);
+            return sum + (isNaN(numeric) ? 0 : numeric);
+          }, 0);
+
+          const rawValue = typeof context.raw === "number" ? context.raw : parseFloat(context.raw as string);
+          const value = isNaN(rawValue) ? 0 : rawValue;
+
+          const percentage = total > 0 ? ((value / total) * 100).toFixed(2) : "0.00";
+
+          return `${context.label}: ${value.toLocaleString()} (${percentage}%)`;
+        },
+      },
     },
   },
 };

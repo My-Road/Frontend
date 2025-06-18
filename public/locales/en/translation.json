@@ -644,6 +644,7 @@
     "Your session has expired. Please sign in again to continue.": "Your session has expired. Please sign in again to continue.",
     "The order price must be greater than zero.": "The order price must be greater than zero.",
     "HourlyWage must be greater than 0": "HourlyWage must be greater than 0",
-    "Failed to print report": "Failed to print report"
+    "Failed to print report": "Failed to print report",
+    "Amount cannot exceed 1,000,000" : "Amount cannot exceed 1,000,000"
   }
 }
