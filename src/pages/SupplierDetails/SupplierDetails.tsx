@@ -1,4 +1,4 @@
-import { Container, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import PersonalSupplierInfo from "./components/PersonalSupplierInfo/PersonalSupplierInfo";
 import { useGetSupplierAPI } from "./hooks/useGetSupplierAPI";
 import { Navigate, useParams } from "react-router-dom";
@@ -9,6 +9,7 @@ import { getPaymentState } from "./utils/getPaymentState";
 import routeHOC from "@/routes/HOCs/routeHOC";
 import { useAppSelector } from "@/store";
 import { isManagerRole } from "@/features/User";
+import PageContainer from "@/containers/PageContainer";
 
 const SupplierDetails = () => {
   const { supplierId } = useParams();
@@ -30,7 +31,7 @@ const SupplierDetails = () => {
   );
 
   return (
-    <Container sx={{ my: 5 }}>
+    <PageContainer sx={{ my: 5 }}>
       <Stack gap={5}>
         <PersonalSupplierInfo supplierData={supplierData} />
         {!isManager && (
@@ -43,7 +44,7 @@ const SupplierDetails = () => {
           </>
         )}
       </Stack>
-    </Container>
+    </PageContainer>
   );
 };
 

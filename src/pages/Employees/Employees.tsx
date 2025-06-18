@@ -1,5 +1,4 @@
 import {
-  Container,
   Stack,
   Box,
   Typography,
@@ -15,15 +14,16 @@ import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
 import { Trans } from "react-i18next";
 import routeHOC from "@/routes/HOCs/routeHOC";
 import EmployeeSearchForm from "./components/EmployeeSearchForm";
+import PageContainer from "@/containers/PageContainer";
 
 const Employees = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
-    sorts: "-isActive", 
+    sorts: "-isActive",
   });
 
   return (
-    <Container sx={{ my: 5 }}>
+    <PageContainer>
       <Stack gap={4}>
         <AddEmployeeForm />
         <Paper elevation={3} sx={{ p: 3, borderRadius: 3 }}>
@@ -43,13 +43,13 @@ const Employees = () => {
             <EmployeeSearchForm
               setSearchParams={setSearchParams}
               name="employeeName"
-              sortsBy="isDeleted"
+              sortsBy="-isActive"
             />
           </Box>
           <EmployeeDataGrid searchParams={searchParams} />
         </Paper>
       </Stack>
-    </Container>
+    </PageContainer>
   );
 };
 

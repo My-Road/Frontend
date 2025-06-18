@@ -5,7 +5,7 @@ import { SearchFormValues } from "../types";
 import TextField from "@/components/Fields/TextField";
 import DatePickerField from "@/components/Fields/DatePickerField";
 import dayjs from "dayjs";
-import { SearchFormProps } from "@/components/SearchFormByName/types";
+import { SearchFormProps } from "@/types";
 
 const PurchaseSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
   const handleSubmit = async (values: SearchFormValues) => {

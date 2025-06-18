@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Container, Paper } from "@mui/material";
+import { Paper } from "@mui/material";
 import ProfileView from "./components/ProfileView";
 import ProfileForm from "./components/ProfileForm";
 import { useGetUserAPI } from "./hooks/useGetUserAPI";
@@ -8,6 +8,7 @@ import { UpdateUserPayload } from "./types";
 import { validationSchema } from "./formSchema";
 import Loader from "@/components/Loader";
 import { Navigate } from "react-router-dom";
+import PageContainer from "@/containers/PageContainer";
 
 const Profile: FC = () => {
   const { data: user, isLoading, error } = useGetUserAPI();
@@ -23,22 +24,21 @@ const Profile: FC = () => {
     return <Loader />;
   }
 
-  if (error) {
+  if (error || !user) {
     return <Navigate to="/*" />;
   }
-  
-  const userData = user!;
+
   const initialValues = {
-    id: userData.id,
-    role: userData.role,
-    firstName: userData.firstName,
-    lastName: userData.lastName,
-    email: userData.email,
-    phoneNumber: userData.phoneNumber,
+    id: user.id,
+    role: user.role,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    phoneNumber: user.phoneNumber,
   };
 
   return (
-    <Container maxWidth="sm">
+    <PageContainer maxWidth="sm">
       <Paper sx={{ p: 3, mt: 4 }}>
         {isEditing ? (
           <ProfileForm
@@ -49,10 +49,10 @@ const Profile: FC = () => {
             onCancel={() => setIsEditing(false)}
           />
         ) : (
-          <ProfileView user={userData} onEdit={() => setIsEditing(true)} />
+          <ProfileView user={user} onEdit={() => setIsEditing(true)} />
         )}
       </Paper>
-    </Container>
+    </PageContainer>
   );
 };
 

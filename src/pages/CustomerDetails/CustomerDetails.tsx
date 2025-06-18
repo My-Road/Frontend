@@ -1,4 +1,4 @@
-import { Container, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import PersonalCustomerInfo from "./components/PersonalCustomerInfo/PersonalCustomerInfo";
 import { useGetCustomerAPI } from "./hooks/useGetCustomerAPI";
 import { Navigate, useParams } from "react-router-dom";
@@ -9,28 +9,32 @@ import { getPaymentState } from "./utils/getPaymentState";
 import routeHOC from "@/routes/HOCs/routeHOC";
 import { useAppSelector } from "@/store";
 import { isManagerRole } from "@/features/User";
+import PageContainer from "@/containers/PageContainer";
 
 const CustomerDetails = () => {
   const { customerId } = useParams();
-  const { data, isLoading, error } = useGetCustomerAPI(customerId || "0");
+  const {
+    data: customerData,
+    isLoading,
+    error,
+  } = useGetCustomerAPI(customerId || "0");
   const isManager = useAppSelector(isManagerRole);
 
   if (isLoading) {
     return <Loader />;
   }
 
-  if (error) {
+  if (error || !customerData) {
     return <Navigate to="/*" />;
   }
 
-  const customerData = data!;
   const paymentState = getPaymentState(
     customerData?.remainingAmount ?? 0,
     customerData?.totalDueAmount ?? 0
   );
-  
+
   return (
-    <Container sx={{ my: 5 }}>
+    <PageContainer>
       <Stack gap={5}>
         <PersonalCustomerInfo customerData={customerData} />
         {!isManager && (
@@ -43,7 +47,7 @@ const CustomerDetails = () => {
           </>
         )}
       </Stack>
-    </Container>
+    </PageContainer>
   );
 };
 

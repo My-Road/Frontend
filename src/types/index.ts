@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { Dispatch, ReactElement, SetStateAction } from "react";
 
 export interface QueryObj {
   [index: string]: string | number;
@@ -245,4 +245,10 @@ export interface Debt {
   fullName: string;
   phone1: string;
   totalDebts: number;
+}
+
+export interface SearchFormProps {
+  setSearchParams: Dispatch<SetStateAction<SearchParams>>;
+  name: string;
+  sortsBy: string;
 }

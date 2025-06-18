@@ -1,4 +1,4 @@
-import { Container, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import PersonalEmployeeInfo from "./components/PersonalEmployeeInfo/PersonalEmployeeInfo";
 import { useGetEmployeeAPI } from "./hooks/useGetEmployeeAPI";
 import { Navigate, useParams } from "react-router-dom";
@@ -9,27 +9,31 @@ import { getPaymentState } from "./utils/getPaymentState";
 import routeHOC from "@/routes/HOCs/routeHOC";
 import { useAppSelector } from "@/store";
 import { isManagerRole } from "@/features/User";
+import PageContainer from "@/containers/PageContainer";
 
 const EmployeeDetails = () => {
   const { employeeId } = useParams();
-  const { data, isLoading, error } = useGetEmployeeAPI(employeeId || "0");
+  const {
+    data: employeeData,
+    isLoading,
+    error,
+  } = useGetEmployeeAPI(employeeId || "0");
   const isManager = useAppSelector(isManagerRole);
 
   if (isLoading) {
     return <Loader />;
   }
 
-  if (error) {
+  if (error || !employeeData) {
     return <Navigate to="/*" />;
   }
 
-  const employeeData = data!;
   const paymentState = getPaymentState(
     employeeData?.remainingAmount ?? 0,
     employeeData?.totalDueAmount ?? 0
   );
   return (
-    <Container sx={{ my: 5 }}>
+    <PageContainer>
       <Stack gap={5}>
         <PersonalEmployeeInfo employeeData={employeeData} />
         {!isManager && (
@@ -42,7 +46,7 @@ const EmployeeDetails = () => {
           </>
         )}
       </Stack>
-    </Container>
+    </PageContainer>
   );
 };
 
