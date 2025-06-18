@@ -12,7 +12,7 @@ import {
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { useGetDashboardAPI } from "../hooks/useGetDashboardAPI";
 import { getIncomeExpenseChartData } from "../utils/getIncomeExpenseChartData";
-import { ChartOptions } from "../constants";
+import { ChartOption } from "../constants";
 import { t } from "i18next";
 import Loader from "@/components/Loader";
 
@@ -31,7 +31,7 @@ const IncomeExpenseChart: React.FC = () => {
         {t("Dialogs.Title.Monthly Income & Expense")}
       </Typography>
       <Box sx={{ height: 300 }}>
-        <Bar data={chartData} options={ChartOptions(dataArray)} />
+        <Bar data={chartData} options={ChartOption(dataArray)} />
       </Box>
     </Paper>
   );

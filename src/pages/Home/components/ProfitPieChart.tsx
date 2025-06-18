@@ -21,10 +21,12 @@ const ProfitPieChart: React.FC = () => {
   if (isLoading || !data) return <Loader/>;
 
   const chartData = getProfitPieChartData(data);
-
+  const isLoss = data.profit < 0;
   return (
     <Paper sx={{ p: 3 }}>
-      <Typography variant="h6">{t("Dialogs.Title.profitvsExpense")}</Typography>
+       <Typography variant="h6" color={isLoss ? "error" : "success"}>
+        {isLoss ? t("Dialogs.Title.profitvsExpense") : t("Dialogs.Title.profitvsExpense")}
+      </Typography>
       <Box
         height={300}
         alignItems={"center"}
