@@ -20,7 +20,7 @@ export const ChartOption = (data: number[]) => {
         max: maxValue,
         ticks: {
           callback: (value: number | string) =>
-            typeof value === "number" ? value.toLocaleString() : value,
+            typeof value === "number" ? value.toLocaleString() : "",
           stepSize,
           font: {
             size: 10,
@@ -49,13 +49,15 @@ export const ChartOption = (data: number[]) => {
           weight: "bold" as const,
           size: 10,
         },
-        formatter: (value: number) => value.toLocaleString(),
+        formatter: (value: unknown) =>
+          typeof value === "number" ? value.toLocaleString() : "",
       },
       tooltip: {
         enabled: true,
         callbacks: {
           label: (context: TooltipItem<"bar">) => {
-            return context.parsed.y.toLocaleString();
+            const y = context.parsed?.y;
+            return typeof y === "number" ? y.toLocaleString() : "";
           },
         },
       },
