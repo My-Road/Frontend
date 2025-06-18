@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Divider,
   Paper,
   Stack,
@@ -14,13 +13,14 @@ import { SearchParams } from "@/types";
 import { useState } from "react";
 import PurchaseSearchForm from "./components/PurchaseSearchForm";
 import routeHOC from "@/routes/HOCs/routeHOC";
+import PageContainer from "@/containers/PageContainer";
 
 const PurchasesReports = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS, sorts: "purchasesDate"
   });
   return (
-    <Container sx={{ my: 5 }}>
+    <PageContainer>
       <Stack gap={4}>
         <Paper elevation={4} sx={{ p: 3, borderRadius: 4 }}>
           <Typography
@@ -45,7 +45,7 @@ const PurchasesReports = () => {
           <SupplierDataGrid searchParams={searchParams} />
         </Paper>
       </Stack>
-    </Container>
+    </PageContainer>
   );
 };
 

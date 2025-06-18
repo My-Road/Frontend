@@ -1,4 +1,4 @@
-import { Container, Divider, Paper, Stack, Typography } from "@mui/material";
+import { Divider, Paper, Stack, Typography } from "@mui/material";
 import AddCustomerForm from "./components/AddCustomerForm";
 import CustomerDataGrid from "./components/CustomerDataGrid";
 import { useState } from "react";
@@ -9,6 +9,7 @@ import { Box } from "@mui/material";
 import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
 import routeHOC from "@/routes/HOCs/routeHOC";
 import CustomerSearchForm from "./components/CustomerSearchForm";
+import PageContainer from "@/containers/PageContainer";
 
 const Customers = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
@@ -16,7 +17,7 @@ const Customers = () => {
     sorts: "isDeleted",
   });
   return (
-    <Container sx={{ my: 5 }}>
+    <PageContainer>
       <Stack gap={4}>
         <AddCustomerForm />
         <Paper elevation={3} sx={{ p: 3, borderRadius: 3 }}>
@@ -42,7 +43,7 @@ const Customers = () => {
           <CustomerDataGrid searchParams={searchParams} />
         </Paper>
       </Stack>
-    </Container>
+    </PageContainer>
   );
 };
 

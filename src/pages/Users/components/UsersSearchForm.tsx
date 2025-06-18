@@ -1,7 +1,7 @@
 import SearchForm from "@/components/SearchForm/SearchForm";
 import { SearchFormValues } from "./types";
 import TextField from "@/components/Fields/TextField";
-import { SearchFormProps } from "@/components/SearchFormByName/types";
+import { SearchFormProps } from "@/types";
 import { initialValues } from "./constants";
 import { validationSchema } from "./formSchema";
 

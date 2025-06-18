@@ -1,12 +1,15 @@
 import SearchForm from "@/components/SearchForm/SearchForm";
 import TextField from "@/components/Fields/TextField";
 import SelectField from "@/components/Fields/SelectField";
-import { SearchFormProps } from "@/components/SearchFormByName/types";
+import { SearchFormProps } from "@/types";
 import { SearchFormValues } from "../types";
 import { SearchFormSchema } from "../formSchema";
 import { initialSearchValues } from "../constants";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
 
 const SupplierSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
+  const isManager = useAppSelector(isManagerRole)
   const handleSubmit = async (values: SearchFormValues) => {
     const filtersArray: string[] = [];
 
@@ -37,13 +40,13 @@ const SupplierSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
       renderFields={() => (
         <>
           <TextField name="supplierName" aria-label="Enter Supplier Name" />
-          <SelectField
+           {!isManager && (<SelectField
             name="status"
             options={[
               { value: "all", label: "all" },
-              { value: "supplierHasReceivable", label: "supplierHasReceivable" },
+              { value: "hasDue", label: "hasDue" },
             ]}
-          />
+          />) }
         </>
       )}
     />

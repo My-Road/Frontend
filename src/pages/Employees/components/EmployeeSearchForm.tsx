@@ -1,20 +1,22 @@
 import SearchForm from "@/components/SearchForm/SearchForm";
 import TextField from "@/components/Fields/TextField";
 import SelectField from "@/components/Fields/SelectField";
-import { SearchFormProps } from "@/components/SearchFormByName/types";
+import { SearchFormProps } from "@/types";
 import { SearchFormValues } from "../types";
 import { SearchFormSchema } from "../formSchema";
 import { initialSearchValues } from "../constants";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
 
 const EmployeeSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
+  const isManager = useAppSelector(isManagerRole);
   const handleSubmit = async (values: SearchFormValues) => {
     const filtersArray: string[] = [];
 
     if (values.employeeName)
       filtersArray.push(`fullName@=${values.employeeName}`);
 
-    if (values.status !== "all")
-      filtersArray.push(`RemainingAmount > 0`);
+    if (values.status !== "all") filtersArray.push(`RemainingAmount > 0`);
 
     const filters = filtersArray.join(",");
 
@@ -37,13 +39,18 @@ const EmployeeSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
       renderFields={() => (
         <>
           <TextField name="employeeName" aria-label="Enter Employee Name" />
-          <SelectField
-            name="status"
-            options={[
-              { value: "all", label: "all" },
-              { value: "employeeHasReceivable", label: "employeeHasReceivable" },
-            ]}
-          />
+          {!isManager && (
+            <SelectField
+              name="status"
+              options={[
+                { value: "all", label: "all" },
+                {
+                  value: "employeeHasReceivable",
+                  label: "employeeHasReceivable",
+                },
+              ]}
+            />
+          )}
         </>
       )}
     />

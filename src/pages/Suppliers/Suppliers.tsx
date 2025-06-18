@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Divider,
   Paper,
   Stack,
@@ -15,13 +14,14 @@ import { Trans } from "react-i18next";
 import GroupsTwoToneIcon from "@mui/icons-material/GroupsTwoTone";
 import routeHOC from "@/routes/HOCs/routeHOC";
 import SupplierSearchForm from "./components/SupplierSearchForm";
+import PageContainer from "@/containers/PageContainer";
 const Suppliers = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
     ...DEFAULT_SEARCH_PARAMS,
     sorts: "isDeleted",
   });
   return (
-    <Container sx={{ my: 5 }}>
+    <PageContainer sx={{ my: 5 }}>
       <Stack gap={4}>
         <AddSupplierForm />
         <Paper elevation={3} sx={{ p: 3, borderRadius: 3 }}>
@@ -47,7 +47,7 @@ const Suppliers = () => {
           <SupplierDataGrid searchParams={searchParams} />
         </Paper>
       </Stack>
-    </Container>
+    </PageContainer>
   );
 };
 

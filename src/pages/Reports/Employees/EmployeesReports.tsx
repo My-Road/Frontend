@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Divider,
   Paper,
   Stack,
@@ -14,6 +13,7 @@ import { useState } from "react";
 import routeHOC from "@/routes/HOCs/routeHOC";
 import LogsSearchForm from "./components/LogsSearchForm";
 import EmployeeLogsDataGrid from "./components/EmployeeLogsDataGrid";
+import PageContainer from "@/containers/PageContainer";
 
 const EmployeesReports = () => {
   const [searchParams, setSearchParams] = useState<SearchParams>({
@@ -21,7 +21,7 @@ const EmployeesReports = () => {
     sorts: "-date",
   });
   return (
-    <Container sx={{ my: 5 }}>
+    <PageContainer>
       <Stack gap={4}>
         <Paper elevation={4} sx={{ p: 3, borderRadius: 4 }}>
           <Typography
@@ -46,7 +46,7 @@ const EmployeesReports = () => {
           <EmployeeLogsDataGrid searchParams={searchParams} />
         </Paper>
       </Stack>
-    </Container>
+    </PageContainer>
   );
 };
 

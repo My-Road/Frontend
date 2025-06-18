@@ -421,6 +421,10 @@
     "NotFound": {
       "title": "Page Not Found"
     },
+    "LoadErrorFallback": {
+      "title": "Failed to load the page",
+      "description": "Please check your internet connection or try reloading the page."
+    },
     "Customers": {
       "addCustomer": "Add new Customer"
     },
