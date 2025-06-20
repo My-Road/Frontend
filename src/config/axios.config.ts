@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getSession } from "@/lib/session";
+import { clearSession, getSession } from "@/lib/session";
 
 export const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -18,6 +18,17 @@ axiosInstance.interceptors.request.use((config) => {
   }
   return config;
 });
+
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      clearSession();
+      window.location.href = "/unauthenticated";
+    }
+    return Promise.reject(error);
+  }
+);
 
 export const axiosFormData = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
