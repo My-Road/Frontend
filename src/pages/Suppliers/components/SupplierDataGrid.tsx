@@ -1,15 +1,13 @@
-import { GridColDef } from "@mui/x-data-grid";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useSearchSupplier } from "../hooks/useSearchSupplierAPI";
 import { useState } from "react";
 import { PaginationProps, SearchParams, Supplier } from "@/types";
-import { getGenericGridColumns } from "@/constants/gridColumns";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
-import CellActionButton from "@/components/CellActionButton";
 import useRestSupplierAPI from "../hooks/useResetSupplierAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
+import { GetSupplierGridColumns } from "./GetSupplierGridColumns";
 
 interface supplierDataGridProps {
   searchParams: SearchParams;
@@ -35,30 +33,6 @@ export default function SupplierDataGrid({
 
   const { showConfirmationDialog } = useConfirmationDialog();
 
-  const gridColumns: GridColDef[] = [
-    getGenericGridColumns(t).supplierName(),
-    getGenericGridColumns(t).email(),
-    getGenericGridColumns(t).phoneNumber(),
-    getGenericGridColumns(t).address(),
-    {
-      ...getGenericGridColumns(t).actions(),
-      renderCell: (params) => {
-        const supplier = params.row as Supplier;
-        const isActive = Boolean(!supplier.isDeleted);
-
-        return (
-          <CellActionButton
-            row={supplier}
-            isActive={isActive}
-            onActiveClick={() => navigate(`/me/suppliers/${supplier.id}`)}
-            onInactiveClick={handleRestoreClick}
-            isPending={isPending}
-          />
-        );
-      },
-    },
-  ];
-
   const handleRestoreClick = (supplier: Supplier) => {
     showConfirmationDialog({
       title: t("Dialogs.Title.confirmRestore"),
@@ -69,6 +43,13 @@ export default function SupplierDataGrid({
     });
   };
 
+  const gridColumns = GetSupplierGridColumns({
+    t,
+    navigate,
+    handleRestoreClick,
+    isPending,
+  });
+  
   return (
     <GenericDataGrid<Supplier>
       rows={data?.items || []}

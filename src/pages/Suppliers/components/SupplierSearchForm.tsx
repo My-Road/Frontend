@@ -4,7 +4,7 @@ import SelectField from "@/components/Fields/SelectField";
 import { SearchFormProps } from "@/types";
 import { SearchFormValues } from "../types";
 import { SearchFormSchema } from "../formSchema";
-import { initialSearchValues } from "../constants";
+import { initialSearchValues, options } from "../constants";
 import { useAppSelector } from "@/store";
 import { isManagerRole } from "@/features/User";
 
@@ -42,10 +42,7 @@ const SupplierSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
           <TextField name="supplierName" aria-label="Enter Supplier Name" />
            {!isManager && (<SelectField
             name="status"
-            options={[
-              { value: "all", label: "all" },
-              { value: "hasDue", label: "hasDue" },
-            ]}
+            options={options}
           />) }
         </>
       )}
