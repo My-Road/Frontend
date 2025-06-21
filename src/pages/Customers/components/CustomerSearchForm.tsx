@@ -3,7 +3,7 @@ import { SearchFormValues } from "../types";
 import TextField from "@/components/Fields/TextField";
 import { SearchFormProps } from "@/types";
 import { SearchFormSchema } from "../formSchema";
-import { initialSearchValues } from "../constants";
+import { initialSearchValues, options } from "../constants";
 import SelectField from "@/components/Fields/SelectField";
 import { useAppSelector } from "@/store";
 import { isManagerRole } from "@/features/User";
@@ -42,10 +42,7 @@ const CustomerSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
           {!isManager && (
             <SelectField
               name="status"
-              options={[
-                { value: "all", label: "all" },
-                { value: "hasDue", label: "hasDue" },
-              ]}
+              options={options}
             />
           )}
         </>

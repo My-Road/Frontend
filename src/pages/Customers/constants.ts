@@ -9,5 +9,13 @@ export const initialValues: AddCustomerPayLoad = {
 
 export const initialSearchValues: SearchFormValues = {
   customerName: "",
-  status: ""
-}
+  status: "",
+};
+
+export const options = [
+  { value: "all", label: "all" },
+  { value: "hasDue", label: "hasDue" },
+  { value: "paid", label: "paid" },
+  { value: "isDeleted", label: "isDeleted" },
+  { value: "noAction", label: "noAction" },
+];
