@@ -1,17 +1,27 @@
 import { TFunction } from "i18next";
 
-export type StatusColor = "text.primary" | "error" | "success.main";
-
 export function getPaymentStatusMessageAndColor(
   totalDue: number,
   remaining: number,
   t: TFunction
-): { message: string; color: StatusColor } {
+): { message: string; bgColor: string; textColor: string } {
   if (totalDue === 0) {
-    return { message: t("Messages.noLogs"), color: "text.primary" };
+    return {
+      message: t("Messages.noLogs"),
+      bgColor: "#e0e0e0",
+      textColor: "#000",
+    };
   } else if (remaining > 0) {
-    return { message: t("Messages.youHavePayToEmployee"), color: "error" };
+    return {
+      message: t("Messages.youHavePayToEmployee"),
+      bgColor: "#f44336",
+      textColor: "#fff",
+    };
   } else {
-    return { message: t("Messages.fullyPaidToEmployee"), color: "success.main" }; 
+    return {
+      message: t("Messages.fullyPaidToEmployee"),
+      bgColor: "#2e7d32",
+      textColor: "#fff",
+    };
   }
 }
