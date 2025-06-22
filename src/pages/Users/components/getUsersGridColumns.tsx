@@ -41,6 +41,7 @@ const getUsersGridColumns = ({
     field: "role",
     headerName: t("Tables.Headers.Role"),
     flex: 1,
+    minWidth: 150,
     renderCell: ({ row }) => (
       <Select
         value={row.role ?? ""}
@@ -64,6 +65,7 @@ const getUsersGridColumns = ({
   },
   {
     ...getGenericGridColumns(t).actions(),
+    minWidth: 120,
     renderCell: ({ row }) => (
       <CellUsersActionButton
         row={row}
