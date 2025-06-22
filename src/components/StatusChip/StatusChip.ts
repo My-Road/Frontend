@@ -4,17 +4,17 @@ import { StatusChipProps } from "./types";
 export const StatusChip = styled(Chip, {
   name: "StatusChip",
   slot: "Root",
-  overridesResolver: () => [],
+  shouldForwardProp: (prop) => prop !== "bgColor" && prop !== "textColor",
 })<StatusChipProps>(({ bgColor, textColor }) => ({
   background: bgColor || "transparent",
   color: textColor || "#000",
   border: "none",
   fontWeight: 600,
-  transition: "none", // optional: remove MUI hover transitions
+  transition: "none",
   "& .MuiChip-label": {
     color: textColor || "#000",
   },
   "&:hover": {
-    background: bgColor || "transparent", // fix hover reverting
+    background: bgColor || "transparent",
   },
 }));
