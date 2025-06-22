@@ -1,4 +1,4 @@
-import { axiosInstance } from "@/config/axios.config";
+import { axiosInstance, setRedirectOn401 } from "@/config/axios.config";
 import { login } from "@/features/User";
 import { useSnackBar } from "@/hooks/useSnackbar";
 import { setSession } from "@/lib/session";
@@ -13,6 +13,7 @@ const useLoginAPI = () => {
   const { showSuccessSnackbar } = useSnackBar();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  setRedirectOn401(false);
 
   const { mutate: loginUser, isPending } = useMutation({
     mutationFn: loginAPI,
@@ -35,6 +36,7 @@ const useLoginAPI = () => {
       ] = `Bearer ${token}`;
 
       navigate("/me");
+      setRedirectOn401(true);
     },
   });
 

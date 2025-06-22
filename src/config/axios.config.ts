@@ -19,10 +19,16 @@ axiosInstance.interceptors.request.use((config) => {
   return config;
 });
 
+let shouldRedirectOn401 = true;
+
+export const setRedirectOn401 = (value: boolean) => {
+  shouldRedirectOn401 = value;
+};
+
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    if (error.response?.status === 401 && shouldRedirectOn401)  {
       clearSession();
       window.location.href = "/unauthenticated";
     }
