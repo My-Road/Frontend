@@ -58,7 +58,11 @@
     "noLogs":"لا يوجد نشاط مسجل",
     "fullyPaidToEmployee":"تم دفع كامل المبلغ للموظف",
     "youHavePayToEmployee":"عليك مستحقات للموظف",
-    "Please enter the price": "يرجى ادخال السعر"
+    "Please enter the price": "يرجى ادخال السعر",
+    "isDeleted": "محذوف",
+    "noAction": "لا مشتريات",
+    "youHaveDues": "عليك مستحقات",
+    "noRecords":"لا سجلات"
   },
   "Textfields": {
     "userName": "اسم المستخدم",
@@ -120,7 +124,11 @@
     "paid": "مدفوع",
     "all": "الكل",
     "employeeHasReceivable" : "عليك مستحقات للموظف",
-    "supplierHasReceivable" : "عليك مستحقات للمُوَرِّد"
+    "supplierHasReceivable" : "عليك مستحقات للمُوَرِّد",
+    "isDeleted": "محذوف",
+    "noAction": "لا مشتريات",
+    "youHaveDues": "عليك مستحقات",
+    "noRecords": "لا سجلات"
   },
   "TextfieldErrors": {
     "Please enter your email": "ادخل البريد الالكتروني",

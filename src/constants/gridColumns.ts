@@ -65,7 +65,7 @@ export const getGenericGridColumns = (
       field: fieldName,
       sortable: false,
       flex: 1,
-      minWidth: 100,
+      minWidth: 150,
       headerName: t("Tables.Headers.Phone"),
     }),
     phone2: (fieldName = "phone2") => ({
@@ -461,6 +461,13 @@ export const getGenericGridColumns = (
       minWidth: 100,
       renderCell: (params) =>
         params.value ? t("Tables.Active") : t("Tables.Inactive"),
+    }),
+    status: (fieldName = "status") => ({
+      field: fieldName,
+      headerName: "الحالة",
+      sortable: false,
+      flex: 0.7,
+      minWidth: 130,
     }),
   };
 };

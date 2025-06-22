@@ -58,7 +58,11 @@
      "noLogs":"No Logs",
     "fullyPaidToEmployee":"Fully Paid To Employee",
     "youHavePayToEmployee":"You Have Pay To Employee",
-    "Please enter the price": "Please enter the price"
+    "Please enter the price": "Please enter the price",
+    "isDeleted": "is Deleted",
+    "noAction": "No Action",
+    "youHaveDues": "You have dues",
+    "noRecords":"No Records"
   },
   "Textfields": {
     "userName": "Username",
@@ -120,7 +124,11 @@
     "paid": "Paid",
     "all": "All",
     "employeeHasReceivable" : "Employee Has Receivable",
-    "supplierHasReceivable" : "Supplier Has Receivable"
+    "supplierHasReceivable" : "Supplier Has Receivable",
+    "isDeleted":"is Deleted",
+    "noAction": "No Action",
+    "youHaveDues": "You have dues",
+    "noRecords": "No Records"
   },
   "TextfieldErrors": {
     "Please enter your email": "Please enter your email",

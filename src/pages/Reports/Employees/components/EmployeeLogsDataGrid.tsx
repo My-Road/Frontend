@@ -1,4 +1,4 @@
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { useSearchEmployeesLogs } from "../hooks/useSearchEmployeesLogs";
 import { useState } from "react";
 import { PaginationProps, SearchParams } from "@/types";
@@ -10,7 +10,7 @@ import { getEmployeeLogsGridColumns } from "./getEmployeeLogsGridColumns";
 import { downloadEmployeesReport } from "../API";
 import { Stack } from "@mui/material";
 import { useSnackBar } from "@/hooks/useSnackbar";
-import { LoadingButton } from "@mui/lab";
+import PrintPDFButton from "@/components/Buttons/PrintPDFButton/PrintPDFButton";
 
 interface EmployeeLogsDataGridProps {
   searchParams: SearchParams;
@@ -36,18 +36,18 @@ export default function EmployeeLogsDataGrid({
 
   const handleDownload = async () => {
     try {
-      setIsDownload(true)
+      setIsDownload(true);
       await downloadEmployeesReport({
         ...searchParams,
         page: paginationModel.page + 1,
         pageSize: paginationModel.pageSize,
       });
-      setIsDownload(false)
+      setIsDownload(false);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (_) {
       showErrorSnackbar({ message: "Failed to download report" });
     }
-    setIsDownload(false)
+    setIsDownload(false);
   };
 
   const gridColumns = getEmployeeLogsGridColumns(t, navigate);
@@ -62,14 +62,7 @@ export default function EmployeeLogsDataGrid({
           alignItems="center"
           mb={2}
         >
-          <LoadingButton
-            loading={isDownload}
-            variant="contained"
-            color="secondary"
-            onClick={handleDownload}
-          >
-            <Trans i18nKey="Buttons.print">Print</Trans>
-          </LoadingButton>
+          <PrintPDFButton onPrint={handleDownload} isLoading={isDownload} />
         </Stack>
       )}
       <GenericDataGrid<EmployeeLog>

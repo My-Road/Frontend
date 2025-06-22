@@ -17,6 +17,10 @@ const extractErrorMessages = (error: AxiosBaseError) => {
     return [lastMessage];
   }
 
+  if(error?.status === 401){
+    return ["Your session has expired. Please sign in again to continue."]
+  }
+
   // If the response does not have `errors` key, try to extract `title` key from response. This will usually work for non-validation errors
   const title = error.response?.data?.title;
   if (title) return [title];
