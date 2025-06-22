@@ -16,7 +16,12 @@ const CustomerSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
     if (values.customerName)
       filtersArray.push(`fullName@=${values.customerName}`);
 
-    if (values.status !== "all") filtersArray.push(`RemainingAmount > 0`);
+    if (values.status === "hasDue") filtersArray.push(`RemainingAmount > 0`);
+    if (values.status === "paid")
+      filtersArray.push(`RemainingAmount == 0, totalDueAmount > 0`);
+    if (values.status === "noAction")
+      filtersArray.push(`RemainingAmount == 0, totalDueAmount == 0`);
+    if (values.status === "isDeleted") filtersArray.push(`isDeleted == true`);
 
     const filters = filtersArray.join(",");
 
@@ -39,12 +44,7 @@ const CustomerSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
       renderFields={() => (
         <>
           <TextField name="customerName" aria-label="Enter a Customer Name" />
-          {!isManager && (
-            <SelectField
-              name="status"
-              options={options}
-            />
-          )}
+          {!isManager && <SelectField name="status" options={options} />}
         </>
       )}
     />

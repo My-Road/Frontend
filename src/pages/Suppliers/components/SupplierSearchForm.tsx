@@ -9,15 +9,20 @@ import { useAppSelector } from "@/store";
 import { isManagerRole } from "@/features/User";
 
 const SupplierSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
-  const isManager = useAppSelector(isManagerRole)
+  const isManager = useAppSelector(isManagerRole);
   const handleSubmit = async (values: SearchFormValues) => {
     const filtersArray: string[] = [];
 
     if (values.supplierName)
       filtersArray.push(`fullName@=${values.supplierName}`);
 
-    if (values.status !== "all")
+    if (values.status === "youHaveDues")
       filtersArray.push(`RemainingAmount > 0`);
+    if (values.status === "paid")
+      filtersArray.push(`RemainingAmount == 0, totalDueAmount > 0`);
+    if (values.status === "noAction")
+      filtersArray.push(`RemainingAmount == 0, totalDueAmount == 0`);
+    if (values.status === "isDeleted") filtersArray.push(`isDeleted == true`);
 
     const filters = filtersArray.join(",");
 
@@ -40,10 +45,7 @@ const SupplierSearchForm = ({ setSearchParams, sortsBy }: SearchFormProps) => {
       renderFields={() => (
         <>
           <TextField name="supplierName" aria-label="Enter Supplier Name" />
-           {!isManager && (<SelectField
-            name="status"
-            options={options}
-          />) }
+          {!isManager && <SelectField name="status" options={options} />}
         </>
       )}
     />
