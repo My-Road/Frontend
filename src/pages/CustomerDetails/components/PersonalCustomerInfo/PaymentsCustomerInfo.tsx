@@ -3,6 +3,7 @@ import { CustomerPayments } from "../../types";
 import { Trans, useTranslation } from "react-i18next";
 import { getPaymentStatusMessageAndColor } from "./utils/getPaymentStatusMessageAndColor";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
+import { StatusChip } from "@/components/StatusChip/StatusChip";
 
 interface Props {
   customerPayments: CustomerPayments;
@@ -14,8 +15,11 @@ function PaymentsCustomerInfo({ customerPayments }: Props) {
   const totalDue = customerPayments.totalDueAmount;
   const remaining = customerPayments.remainingAmount;
 
-  const { message: statusMessage, color: statusColor } =
-    getPaymentStatusMessageAndColor(totalDue, remaining, t);
+  const {
+    message: statusMessage,
+    bgColor,
+    textColor,
+  } = getPaymentStatusMessageAndColor(totalDue, remaining, t);
 
   return (
     <>
@@ -28,32 +32,40 @@ function PaymentsCustomerInfo({ customerPayments }: Props) {
         </Box>
         <Divider />
       </Typography>
-
-      <Stack gap={2} flexDirection={{ sm: "column", md: "row" }} alignItems="">
-        <TextField
-          disabled
-          label={t("Textfields.totalDueAmount")}
-          value={customerPayments.totalDueAmount}
-          aria-label="enter a valid customer label"
-        />
-        <TextField
-          disabled
-          label={t("Textfields.totalPaidAmount")}
-          value={customerPayments.totalPaidAmount}
-          aria-label="enter a valid customer label"
-        />
-        <TextField
-          disabled
-          label={t("Textfields.remainingAmount")}
-          value={customerPayments.remainingAmount}
-          aria-label="enter a valid customer label"
-        />
+      <Box display="flex" justifyContent="space-between">
+        <Stack
+          gap={2}
+          flexDirection={{ sm: "column", md: "row" }}
+          alignItems=""
+        >
+          <TextField
+            disabled
+            label={t("Textfields.totalDueAmount")}
+            value={customerPayments.totalDueAmount}
+            aria-label="enter a valid customer label"
+          />
+          <TextField
+            disabled
+            label={t("Textfields.totalPaidAmount")}
+            value={customerPayments.totalPaidAmount}
+            aria-label="enter a valid customer label"
+          />
+          <TextField
+            disabled
+            label={t("Textfields.remainingAmount")}
+            value={customerPayments.remainingAmount}
+            aria-label="enter a valid customer label"
+          />
+        </Stack>
         <Box alignItems="center" display="flex">
-          <Typography color={statusColor} variant="h6">
-            {statusMessage}
-          </Typography>
+          <StatusChip
+            label={statusMessage}
+            bgColor={bgColor}
+            textColor={textColor}
+            fontSize="1rem"
+          />
         </Box>
-      </Stack>
+      </Box>
     </>
   );
 }

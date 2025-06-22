@@ -50,7 +50,7 @@ export const getGenericGridColumns = (
       headerName: t("Tables.Headers.firstName"),
       disableExport: true,
       flex: 0.75,
-      minWidth: 95,
+      minWidth: 130,
       sortable: false,
     }),
     lastName: (fieldName = "lastName") => ({
@@ -58,7 +58,7 @@ export const getGenericGridColumns = (
       headerName: t("Tables.Headers.lastName"),
       disableExport: true,
       flex: 0.75,
-      minWidth: 95,
+      minWidth: 130,
       sortable: false,
     }),
     phoneNumber: (fieldName = "phoneNumber") => ({
@@ -94,7 +94,7 @@ export const getGenericGridColumns = (
       headerAlign: "left",
       align: "left",
       sortable: false,
-      minWidth: 80,
+      minWidth: 100,
       renderCell: (params) => `${params.value || t("Tables.noResults")}`,
       flex: 1,
     }),

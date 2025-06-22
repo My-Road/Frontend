@@ -9,6 +9,8 @@ import { Employee, PaginationProps, SearchParams } from "@/types";
 import GenericDataGrid from "@/components/GenericDataGrid";
 import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import { GetEmployeesGridColumns } from "./GetEmployeesGridColumns";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
 
 interface EmployeeDataGridProps {
   searchParams: SearchParams;
@@ -18,6 +20,7 @@ export default function EmployeeDataGrid({ searchParams }: EmployeeDataGridProps
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { showConfirmationDialog } = useConfirmationDialog();
+  const isManager = useAppSelector(isManagerRole)
 
   const [paginationModel, setPaginationModel] = useState<PaginationProps>(DEFAULT_PAGINATION_PROPS);
 
@@ -44,6 +47,7 @@ export default function EmployeeDataGrid({ searchParams }: EmployeeDataGridProps
     navigate,
     handleRestoreClick,
     isPending,
+    isManager
   });
 
   return (

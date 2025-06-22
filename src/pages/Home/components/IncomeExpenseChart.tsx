@@ -18,7 +18,15 @@ import { t } from "i18next";
 import Loader from "@/components/Loader";
 
 // ✅ Register everything needed for bar chart
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend, ChartDataLabels, BarController);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Tooltip,
+  Legend,
+  ChartDataLabels,
+  BarController
+);
 
 const IncomeExpenseChart: React.FC = () => {
   const { data, isLoading } = useGetDashboardAPI();
@@ -44,7 +52,6 @@ const IncomeExpenseChart: React.FC = () => {
       options: ChartOption(dataArray),
       plugins: [ChartDataLabels],
     });
-             console.log(data)
     return () => {
       const chart = Chart.getChart(canvas);
       if (chart) chart.destroy();

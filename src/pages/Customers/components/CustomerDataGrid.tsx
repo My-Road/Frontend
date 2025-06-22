@@ -8,6 +8,8 @@ import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import useRestCustomerAPI from "../hooks/useResetCustomerAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 import { getCustomerGridColumns } from "./GetCustomerGridColumns";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
 
 interface CustomerDataGridProps {
   searchParams: SearchParams;
@@ -18,6 +20,7 @@ export default function CustomerDataGrid({
 }: CustomerDataGridProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const isManager = useAppSelector(isManagerRole);
 
   const [paginationModel, setPaginationModel] = useState<PaginationProps>(
     DEFAULT_PAGINATION_PROPS
@@ -48,6 +51,7 @@ export default function CustomerDataGrid({
     navigate,
     handleRestoreClick,
     isPending,
+    isManager
   });
 
   return (

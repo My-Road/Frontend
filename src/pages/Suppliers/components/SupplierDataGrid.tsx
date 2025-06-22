@@ -8,6 +8,8 @@ import { DEFAULT_PAGINATION_PROPS } from "@/constants";
 import useRestSupplierAPI from "../hooks/useResetSupplierAPI";
 import { useConfirmationDialog } from "@/hooks/useConfirmationDialog";
 import { GetSupplierGridColumns } from "./GetSupplierGridColumns";
+import { useAppSelector } from "@/store";
+import { isManagerRole } from "@/features/User";
 
 interface supplierDataGridProps {
   searchParams: SearchParams;
@@ -18,6 +20,7 @@ export default function SupplierDataGrid({
 }: supplierDataGridProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const isManager = useAppSelector(isManagerRole)
 
   const [paginationModel, setPaginationModel] = useState<PaginationProps>(
     DEFAULT_PAGINATION_PROPS
@@ -48,6 +51,7 @@ export default function SupplierDataGrid({
     navigate,
     handleRestoreClick,
     isPending,
+    isManager
   });
   
   return (
