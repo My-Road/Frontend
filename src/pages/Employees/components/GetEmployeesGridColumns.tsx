@@ -9,52 +9,60 @@ export const GetEmployeesGridColumns = ({
   navigate,
   handleRestoreClick,
   isPending,
+  isManager,
 }: {
   t: (key: string) => string;
   navigate: (path: string) => void;
   handleRestoreClick: (employee: Employee) => void;
   isPending: boolean;
-}): GridColDef[] => [
-  getGenericGridColumns(t).startDate(),
-  getGenericGridColumns(t).employeeName(),
-  getGenericGridColumns(t).phoneNumber(),
-  getGenericGridColumns(t).address(),
-  {
-    ...getGenericGridColumns(t).status(),
-    renderCell: (params) => {
-      const employee = params.row as Employee;
-      const isDeleted = employee.isActive;
-      const youHaveDues = employee.remainingAmount !== 0;
-      const completePaid =
-        employee.remainingAmount === 0 && employee.totalDueAmount !== 0;
+  isManager: boolean;
+}): GridColDef[] => {
+  const columns: GridColDef[] = [
+    getGenericGridColumns(t).startDate(),
+    getGenericGridColumns(t).employeeName(),
+    getGenericGridColumns(t).phoneNumber(),
+    getGenericGridColumns(t).address(),
+  ];
 
-      const getLabel = () => {
-        if (!isDeleted) return t("Messages.isDeleted");
-        if (youHaveDues) return t("Messages.youHaveDues");
-        if (completePaid) return t("Messages.paid");
-        return t("Messages.noRecords");
-      };
+  if (!isManager) {
+    columns.push({
+      ...getGenericGridColumns(t).status(),
+      renderCell: (params) => {
+        const employee = params.row as Employee;
+        const isDeleted = employee.isActive;
+        const youHaveDues = employee.remainingAmount !== 0;
+        const completePaid =
+          employee.remainingAmount === 0 && employee.totalDueAmount !== 0;
 
-      return (
-        <StatusChip
-          size="small"
-          label={getLabel()}
-          bgColor={
-            !isDeleted
-              ? "#F7B538"
-              : youHaveDues
-              ? "#f44336"
-              : completePaid
-              ? "#2e7d32"
-              : "#9e9e9e"
-          }
-          textColor="#fff"
-          sx={{ minWidth: "70px" }}
-        />
-      );
-    },
-  },
-  {
+        const getLabel = () => {
+          if (!isDeleted) return t("Messages.isDeleted");
+          if (youHaveDues) return t("Messages.youHaveDues");
+          if (completePaid) return t("Messages.paid");
+          return t("Messages.noRecords");
+        };
+
+        return (
+          <StatusChip
+            size="small"
+            label={getLabel()}
+            bgColor={
+              !isDeleted
+                ? "#F7B538"
+                : youHaveDues
+                ? "#f44336"
+                : completePaid
+                ? "#2e7d32"
+                : "#9e9e9e"
+            }
+            textColor="#fff"
+            sx={{ minWidth: "70px" }}
+          />
+        );
+      },
+    });
+  }
+
+  columns.push({
     ...getGenericGridColumns(t).actions(),
     renderCell: (params) => {
       const employee = params.row as Employee;
@@ -70,5 +78,7 @@ export const GetEmployeesGridColumns = ({
         />
       );
     },
-  },
-];
+  });
+
+  return columns;
+};
