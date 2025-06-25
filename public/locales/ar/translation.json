@@ -658,6 +658,7 @@
     "The order price must be greater than zero.": "يجب أن يكون سعر الطلبية أكبر من الصفر",
     "HourlyWage must be greater than 0": "سعر الساعة يجب ان يكون اكبر من صفر",
     "Failed to print report": "تعذر طباعة التقرير",
-    "Amount cannot exceed 1,000,000" : "لا يمكن ان يتجاوز المبلغ 1,000,000"
+    "Amount cannot exceed 1,000,000" : "لا يمكن ان يتجاوز المبلغ 1,000,000",
+    "Supplier  with email already exists": "البريد الالكتروني مسجل مسبقا "
   }
 }

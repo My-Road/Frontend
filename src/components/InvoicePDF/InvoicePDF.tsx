@@ -1,6 +1,6 @@
 import React from "react";
 import { Document, Page, Text, View, Font, Image } from "@react-pdf/renderer";
-import cairoFont from "@/Fonts/Cairo-Regular.ttf";
+import rubikFont from "@/Fonts/Rubik-Regular.ttf"
 import logo from "@/assets/images/logo.png";
 import { styles } from "./style";
 import { InvoicePDFProps } from "./types";
@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 // Register the Arabic font
 Font.register({
   family: "Cairo",
-  fonts: [{ src: cairoFont }],
+  fonts: [{ src: rubikFont }],
 });
 
 const InvoicePDF: React.FC<InvoicePDFProps> = ({
