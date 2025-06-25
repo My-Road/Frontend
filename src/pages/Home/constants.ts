@@ -169,7 +169,7 @@ export const iconColors = [
   "#1976D2", // Strong blue - Employees
   "#D81B60", // Rose pink - Suppliers
   "#388E3C", // Green - Customers
-  "#F9A825", // Amber - Profit
+  "#FFDB58", // Amber - Profit
   "#2E7D32", // Dark green - Income
   "#E53935", // Red - Expense
 ];

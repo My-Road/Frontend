@@ -70,7 +70,6 @@ const ProfileForm: FC<ProfileFormProps> = ({
             disabled
             label={t("Tables.Headers.userId")}
           />
-
           <TextField
             fullWidth
             name="role"
@@ -78,10 +77,10 @@ const ProfileForm: FC<ProfileFormProps> = ({
             label={t("Tables.Headers.Role")}
             value={Roles[initialValues.role]}
           />
+          <TextField fullWidth name="email" disabled />
 
           <TextField fullWidth name="firstName" />
           <TextField fullWidth name="lastName" />
-          <TextField fullWidth name="email" />
           <TextField fullWidth name="phoneNumber" />
         </Stack>
 
@@ -104,5 +103,3 @@ const ProfileForm: FC<ProfileFormProps> = ({
 };
 
 export default ProfileForm;
-
-
