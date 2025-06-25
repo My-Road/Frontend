@@ -14,7 +14,6 @@ const AddSupplierForm: FC = () => {
     values: AddSupplierPayLoad,
     { resetForm }: FormikHelpers<AddSupplierPayLoad>
   ) => {
-    console.log(values);
     addSupplier(values, {
       onSuccess: () => resetForm(),
     });
