@@ -9,7 +9,7 @@ export const getProfitPieChartData = (data: { profit: number; totalExpensePaid: 
     datasets: [
       {
         data: [profitValue, data.totalExpensePaid],
-        backgroundColor: ["#2ecc71", "#e74c3c"], 
+        backgroundColor: ["#FFDB58", "#e74c3c"], 
       },
     ],
   };
