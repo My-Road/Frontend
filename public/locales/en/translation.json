@@ -364,6 +364,14 @@
         "Monthly Overview" : "Monthly Overview"
       }
     },
+  "Tabs": {
+    "customerOrders": "Customer Orders",
+    "customerPayments":"Customer Payments",
+    "employeeLogs": "Employee Logs",
+    "employeePayments": "Employee Payments",
+    "SupplierPurchase": "Supplier Purchase",
+    "supplierPayments": "Supplier Payments"
+  },
   "Dialogs": {
     "Filter": {
       "title": "Filter Columns",

@@ -363,6 +363,14 @@
         "Monthly Overview" : "النظرة العامة الشهرية"
       }
     },
+  "Tabs": {
+    "customerOrders": "طلبات الزبون",
+    "customerPayments":"دفعات الزبون",
+    "employeeLogs": "سجلات الموظفين",
+    "employeePayments": "دفعات الموظف",
+    "SupplierPurchase": "مشتريات المورّدين",
+    "supplierPayments": "دفعات المُوَرِّد"
+  },
   "Dialogs": {
     "Filter": {
       "title": "فلاتر الاعمدة",
