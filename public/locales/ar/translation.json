@@ -51,7 +51,7 @@
   },
   "Messages":{
     "heHasDues": "عليه مستحقات",
-    "paid": "مدفوع",
+    "paid": "تم دفع المبلغ كاملًا من قبل الزبون",
     "noPurchases": "لم يتم إجراء أي عمليات شراء",
     "youHavePayToSupplier":"عليك مستحقات للمورّد",
     "fullyPaidToSupplier":"تم دفع كامل المبلغ للمورّد",
@@ -363,6 +363,14 @@
         "Monthly Overview" : "النظرة العامة الشهرية"
       }
     },
+  "Tabs": {
+    "customerOrders": "طلبات الزبون",
+    "customerPayments":"دفعات الزبون",
+    "employeeLogs": "سجلات الموظفين",
+    "employeePayments": "دفعات الموظف",
+    "SupplierPurchase": "مشتريات المورّدين",
+    "supplierPayments": "دفعات المُوَرِّد"
+  },
   "Dialogs": {
     "Filter": {
       "title": "فلاتر الاعمدة",
