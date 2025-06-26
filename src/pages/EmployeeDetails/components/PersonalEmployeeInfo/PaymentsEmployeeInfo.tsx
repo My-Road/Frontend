@@ -31,7 +31,12 @@ function PaymentsEmployeeInfo({ employeePayment }: Props) {
         </Box>
         <Divider />
       </Typography>
-      <Box display="flex" justifyContent="space-between">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        flexDirection={{ xs: "column", sm: "row" }}
+        gap={3}
+      >
         <Stack gap={2} flexDirection={{ sm: "column", md: "row" }}>
           <TextField
             disabled
