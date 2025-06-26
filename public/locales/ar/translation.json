@@ -379,7 +379,7 @@
       "deleteCustomer" : "حذف الزبون",
       "editCustomer": "تعديل الزبون",
       "deleteOrder": "حذف الطلب",
-      "deletePayment": "حذف الطلب",
+      "deletePayment": "حذف الدفعة",
       "editEmployee" : "تعديل الموظف",
       "confirmRestore":" اعادة التعيين",
       "deleteEmployeeLog":"حذف السجل اليومي",
