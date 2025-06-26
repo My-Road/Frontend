@@ -15,11 +15,11 @@ export const GetSupplierGridColumns = ({
   navigate: (path: string) => void;
   handleRestoreClick: (supplier: Supplier) => void;
   isPending: boolean;
-  isManager: boolean; // 👈 new flag
+  isManager: boolean;
 }): GridColDef[] => {
   const columns: GridColDef[] = [
     getGenericGridColumns(t).supplierName(),
-    getGenericGridColumns(t).email(),
+    getGenericGridColumns(t).address(),
     getGenericGridColumns(t).phoneNumber(),
   ];
 
