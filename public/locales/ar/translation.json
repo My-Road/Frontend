@@ -366,9 +366,9 @@
   "Tabs": {
     "customerOrders": "طلبات الزبون",
     "customerPayments":"دفعات الزبون",
-    "employeeLogs": "سجلات الموظفين",
+    "employeeLogs": "سجلات الموظف",
     "employeePayments": "دفعات الموظف",
-    "SupplierPurchase": "مشتريات المورّدين",
+    "SupplierPurchase": "مشتريات المورّد",
     "supplierPayments": "دفعات المُوَرِّد"
   },
   "Dialogs": {
@@ -667,6 +667,7 @@
     "HourlyWage must be greater than 0": "سعر الساعة يجب ان يكون اكبر من صفر",
     "Failed to print report": "تعذر طباعة التقرير",
     "Amount cannot exceed 1,000,000" : "لا يمكن ان يتجاوز المبلغ 1,000,000",
-    "Supplier  with email already exists": "البريد الالكتروني مسجل مسبقا "
+    "Supplier  with email already exists": "البريد الالكتروني مسجل مسبقا ",
+    "The account has been temporarily locked due to a number of incorrect login attempts.": "تم قفل الحساب مؤقتًا بسبب عدد من محاولات تسجيل الدخول غير الصحيحة."
   }
 }
